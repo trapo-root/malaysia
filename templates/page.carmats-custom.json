@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "carmats-custom-template",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

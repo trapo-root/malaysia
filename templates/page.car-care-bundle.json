@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "car-care-bundle",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

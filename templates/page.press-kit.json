@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-template",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "1644483137f5a6f1c3": {
+      "type": "press-kit",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1644483137f5a6f1c3"
+  ]
+}

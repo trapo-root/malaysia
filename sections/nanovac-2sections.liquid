@@ -1,0 +1,48 @@
+{{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag }}
+
+<div class="row" style="align-items: center;">
+  <div class="col-md-6 m-center">          
+      <div class="wrapper">
+        <div class="youtube" data-embed="jKKEVQouL7Q">
+          <div class="play-button"></div>
+          <img src="https://img.youtube.com/vi/jKKEVQouL7Q/sddefault.jpg"></div>
+      </div>
+  </div>
+  <div class="col-md-6 m-center">   
+    <p style="font-size: 18px;">Are your car seats stained from years of use? 
+      Like most stubborn stains, they require a bit more beyond the typical cleaning methods. 
+      Rejuvenate your ride, eliminate stubborn stains and foul odours with our 
+      all-new TRAPO NanoVac Interior Deep Cleaning service.</p>
+    <br>
+      <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/nanovac-desk_02.jpg" class="icon-nano desktop">
+      <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/nanovac-mob_02.jpg" class="icon-nano mobile">
+                                                                                                   
+  </div>
+</div>
+{% schema %}
+{
+"name": "Two Columns For Nanovac",
+"settings": [],
+"presets": [
+{
+"name": "Two Columns For Nanovac",
+"category": "Additional Sections"
+}
+]
+}
+{% endschema %}
+{% stylesheet %}
+@media only screen and (min-width: 360px){
+	.mobile{display: block;width: 100%;}
+	.desktop{display:none}
+	.m-center{text-align: center !important;}
+}
+@media only screen and (min-width: 768px){
+	.desktop{display: block;width: 100%;}
+	.mobile{display: none;}
+}
+
+
+{% endstylesheet %}
+{% javascript %}
+{% endjavascript %}

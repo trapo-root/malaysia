@@ -1,0 +1,60 @@
+<script>
+  document.addEventListener('WOWCART_PRODUCT_QUANTITY_CHANGED', function(items) {
+ 
+const cartObject = items.detail || {};
+    
+    /*  @cart Object - Full cart data
+    *  @cartObject.changedProduct - Access the product's data before updating quantity with this
+    */
+    
+    
+  console.log("Cart Object",cartObject)
+  console.log("Product data before change",cartObject.changedProduct)
+    var addonQty= 0;  
+    var variableHolder = {};
+     $.each(cartObject.items, function (key, val) {
+       if(cartObject.changedProduct.properties.bundle != "undefined"){
+        if(val.id == cartObject.changedProduct.properties.bundle){
+                variableHolder[addonQty] = val.quantity;
+            }
+       }
+         });
+     $.each(cartObject.items, function (key, val) {
+          if(val.id == cartObject.changedProduct.id){
+            var updateQty = val.quantity;
+            if(cartObject.changedProduct.quantity < updateQty){
+              var params = {
+                  type: 'POST',
+                  url: '/cart/add.js',
+                  data: {id: cartObject.changedProduct.properties.bundle,quantity: '1'},
+                  dataType: 'json',
+                  success: function(line_item) {
+                    // console.log(line_item);
+                  },
+                };
+                $.ajax(params);
+            }else{
+              var addonqtys = variableHolder[addonQty];
+              if(typeof addonqtys != 'undefined'){
+                 var updateQty = addonqtys - 1;
+                        $.ajax({
+                          method:'POST',
+                          url:'/cart/change.js',
+                          data:{ id:cartObject.changedProduct.properties.bundle ,quantity:updateQty},
+                          dataType: 'json',
+                          success: function(line_item) {
+                            
+                            // document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
+                            // bubbles: true //this code is for prestige theme, is to refresh the cart
+                          // }));
+                        }
+                     });
+                }
+              }
+          }
+     });
+
+       
+   
+   });
+</script>

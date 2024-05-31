@@ -1,0 +1,137 @@
+<style>
+  /*   hide quantity seelctor of promotional and addon type products */
+    #wow-cart-drawer-app .slide-cart-product-item[data-product_type="Add-On"] .slide-cart-quantity-box,
+  #wow-cart-drawer-app .slide-cart-product-item[data-product_type="Promotional"] .slide-cart-quantity-box {
+    display: none;
+  }
+    form#wowcart-cart-form{
+      margin-bottom:0
+    }
+  #wow-cart-drawer-app .slider-cart-box-wrapper {
+        height: 100% !important;
+  }
+</style>
+
+<script
+  id="wowcart-custom-script"
+>
+
+ function removeQuantitySelector(){
+      const product_types =['Add-On','Promotional'];
+      
+          (product_types || []).forEach(type => {
+          Array.from(document.querySelectorAll(`#wow-cart-drawer-app .slide-cart-product-item[data-product_type="${type}"] .slide-cart-quantity-box`) || []).forEach(ele => {
+            ele.remove();
+          });
+        });
+  }
+  function removeUfeWidgetsAndRefresh() {
+  // 1. Select all elements with the class 'ufe-widget'
+  const ufeWidgets = document.querySelectorAll('.ufe-widget:not(.ufe-popup .ufe-widget)');
+
+  // 2. Remove each widget from the DOM
+  ufeWidgets.forEach(widget => {
+    widget.remove(); 
+  });
+
+  // 3. Call the refresh function 
+  if (typeof window.ufe !== 'undefined' && typeof window.ufe.refreshUpsell() === 'function') {
+    window.ufe.refreshUpsell();
+  } else {
+    console.warn('ufe is not defined');
+  }
+}
+
+  
+  //Cart Loaded event
+   document.addEventListener('WOWCART_LOADED', () => {
+        console.log('WOW cart loaded')
+     removeUfeWidgetsAndRefresh();
+        removeQuantitySelector();
+         if(!document.querySelector('#genie-store-pickup-front-holder-drawer')){
+          const div = document.createElement('div'); 
+      
+          // Set Attributes on Element
+          div.setAttribute('id', 'genie-store-pickup-front-holder-drawer');          
+          div.dataset.storeDomain = "trapomy.myshopify.com";
+          
+          const SELECTOR = '.slider-cart__bottom-section';
+          const element = document.querySelector(SELECTOR);          
+          element.append(div);
+          
+          setTimeout(() => {
+			loadStorePickup();
+          });
+        }
+      {% if customer %}
+      // if(!document.querySelector('#loyalty-point')){
+      //   // header
+      //   const div_top = document.createElement('div');
+      //     // Set Attributes on Element
+      //     div_top.setAttribute('id', 'loyalty-point-top');
+      //     const SELECTOR_TOP = '.slider-cart-top-bar.sider-cart-header';
+      //     const element_top = document.querySelector(SELECTOR_TOP);
+      //     element_top.after(div_top);
+      //     const loyaltyPointElement_top = document.querySelector('#loyalty-point-top');
+      //     loyaltyPointElement_top.innerHTML = `<span class="points-on-cart">You have <span data-lion-points="approved"></span> points</span><span class="plus-points-cart">(Plus, earn
+      //     <span data-lion-points="cart"></span> points with this order.)`;
+
+       
+      //  // footer
+          // const div = document.createElement('div');
+          // // Set Attributes on Element
+          // div.setAttribute('id', 'loyalty-point');
+          // const SELECTOR = '.slider-cart-footer-note';
+          // const element = document.querySelector(SELECTOR);
+          // element.before(div);
+          // const loyaltyPointElement = document.querySelector('#loyalty-point');
+          // loyaltyPointElement.innerHTML = `<span class="points-on-cart">You have <span data-lion-points="approved"></span> points</span><span class="plus-points-cart">(Plus, earn
+          // <span data-lion-points="cart"></span> points with this order.)`;       
+        //}
+        {% endif %}     
+  });
+
+  
+  //Cart Updated event
+  document.addEventListener('CART_UPDATED', function(items) {
+      
+
+      //cart object
+  		const cartObject = items.detail || {};
+    
+    if(document.querySelector('.pickup-in-store-1')){
+        if (!$('.pickup-in-store-1').hasClass("addedNote")) {
+        $(".pickup-in-store-1 .slide-cart-product-item__info-block .slide-cart-product-item__title").append("<p class='pickup-note'>** Note : Our staff will contact you once your item is available to pick up</p>");
+      }
+       $('.pickup-in-store-1').addClass('addedNote');
+    }
+    
+        if ((cartObject.item_count || 0) > 0) {
+            console.log('count greater than 0');
+            if (!((window || {}).wowcart || {}).zapietinit) {
+                console.log('zapiet event called');
+                document.dispatchEvent(new CustomEvent('zapiet:start'));
+                window.wowcart.zapietinit = true;
+            }
+        }
+
+    //clear cart if cart only has free products
+    
+    if(cartObject.item_count >0 && cartObject.items_subtotal_price === 0){
+      (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
+    }
+    removeQuantitySelector();
+  });
+document.addEventListener('WOWCART_PRODUCT_DELETED', function(items) {
+ 
+const cartObject = items.detail || {};
+   if(cartObject.item_count > 0){
+      
+      let addonProducts = ((wowcart.cartItems || {}).items || []).filter(item=>item.product_type == 'Add-On' || item.product_type == 'Promotional' || item.product_type == 'Reward')
+        if((addonProducts||{}).length == (wowcart.cartItems || {}).item_count){
+          (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
+        }
+      
+    }
+   });
+</script>

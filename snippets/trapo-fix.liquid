@@ -1,0 +1,225 @@
+{% assign trapofix = all_products[settings.trapo_fix_product] %}
+
+<div class="combo_addons trapo-fix-addon" {{ tag }}>
+  <p class="txt-choose-pkg">Choose your upgrade</p>
+  <div class="inline mobile-down--one-third one-half upppercase">
+    <label class="" for="">{{settings.trapo_fix_label}}</label>
+
+    {%- comment %}
+    	2 seater tag and no tag seater
+       - 2 seater contains hide 5 seater and 7 seater
+       - no tag seater hide 7 seater
+    {% endcomment -%}
+
+    {%- for tag in product.tags -%}
+      {%- if tag contains '1-seater' -%}
+    	{% assign hide2seater = true %}
+        {% assign hide7seater = true %}
+        {% assign hide5seater = true %}
+        {%- break -%}
+      {%- elsif tag contains '2-seater' -%}
+        {% assign hide7seater = true %}
+        {% assign hide5seater = true %}
+        {%- break -%}
+      {%- elsif tag contains '7-seater' -%}
+        {% assign exist7seater = true %}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- unless hide7seater and hide5seater -%}
+      {% assign hide7seater = true %}
+    {%- endunless -%}
+
+    {%- if exist7seater -%}
+      {% assign hide7seater = false %}
+    {%- endif -%}
+
+    {% assign max_price = trapofix.price_max | money %}
+    {%- if hide7seater -%}
+      {% assign max_price =  trapofix.variants[2].price | money %}
+    {%- endif -%}
+
+    {%- if hide5seater and hide7seater -%}
+      {% assign max_price = trapofix.variants[1].price | money %}
+    {%- endif -%}
+  </div>
+
+  <div class="">
+    {%- render 'more-info' -%}
+  </div>
+  <div class="mobile-width-price" style="width: 56%; display: none;">
+    <label for="" class="full-width main-price color-pink text-right">{{trapofix.price_min | money}} - {{max_price }}</label>
+    <label style="display: none;" class="full-width sub-price color-pink text-right"></label>
+  </div>
+
+
+  <div class="info-label relative mobile_hidden desktop-div">
+    <span class="m-b-10">{{settings.trapo_fix_text | strip_html }}</span>
+    <div class="icon_img_div margin-0-auto">
+      {%- if settings.fix_icon_1 -%}
+        <img data-expand="-10" class="lazyload" data-src="{{settings.fix_icon_1 | img_url: 'x100', scale: 2}}" alt="">
+      {%- endif -%}
+      {%- if settings.fix_icon_2 -%}
+        <img data-expand="-10" class="lazyload" data-src="{{settings.fix_icon_2 | img_url: 'x100', scale: 2}}" alt="">
+      {%- endif -%}
+      {%- if settings.fix_icon_3 -%}
+        <img data-expand="-10" class="lazyload" data-src="{{settings.fix_icon_3 | img_url: 'x100', scale: 2}}" alt="">
+      {%- endif -%}
+    </div>
+
+    <div class="relative">
+      <img onclick="showYTModal('trapo-fix')" class="yt-thumbnail cursor lazyload" data-expand="-10" data-src="{{settings.trapo_fix_yt_thumbnail | img_url: 'x600', scale: 2}}" alt="">
+      <img onclick="showYTModal('trapo-fix')" class="play-btn cursor lazyload" data-expand="-10" data-src="{{'play_icon.png' | asset_img_url: 'x100', scale: 2}}" alt="">
+    </div>
+
+
+  </div>
+  <div class="mobile-div mobile_only info-label m-b-10" style="display: none;">
+    <span class="m-b-10">{{settings.trapo_fix_text | strip_html }}</span>
+    <div class="icon_img_div margin-0-auto p-b-10">
+      {%- if settings.fix_icon_1 -%}
+        <img data-expand="-10" class="lazyload" data-src="{{settings.fix_icon_1 | img_url: 'x100', scale: 2}}" alt="">
+      {%- endif -%}
+      {%- if settings.fix_icon_2 -%}
+        <img data-expand="-10" class="lazyload" data-src="{{settings.fix_icon_2 | img_url: 'x100', scale: 2}}" alt="">
+      {%- endif -%}
+      {%- if settings.fix_icon_3 -%}
+        <img data-expand="-10" class="lazyload" data-src="{{settings.fix_icon_3 | img_url: 'x100', scale: 2}}" alt="">
+      {%- endif -%}
+    </div>
+    <div class="">
+      {{settings.trapo_fix_video}}
+    </div>
+  </div>
+
+  {% comment %}
+  Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
+{% endcomment %}
+
+{% assign product = incoming_product %}
+{% assign hide7seater = hide7seater %}
+{% assign exist7seater = exist7seater %}
+{% assign hide5seater = hide5seater %}
+{% assign hide2seater = hide2seater %}
+
+
+<div class="swatch clearfix m-t-15" style="display:flex">
+  <div class="cursorz trapo-fix" name="div">
+  {% for variant in product.variants %}
+{% unless variant.metafields.secomapp.freegifts %}
+{% unless variant.title contains '(Freegifts)' %}
+
+    {% assign _t = variant.title | downcase | split: ' ' %}
+    {% assign _a = 'trapo_' | append: _t[0] | append: '_' | append: _t[1] %}
+   
+    {%- if variant.title contains '7' -%}
+
+      {%- unless hide7seater -%}
+        <div class="main-trapo-fix-{{ forloop.index }} inner-trapo-fix">
+      	<label class="form-control trapo-fix-{{ forloop.index }}">
+          <input type="checkbox" name="trapo_fix" id="trapo_fix_7" value="trapo_fix" data-title="{{variant.title}}" data-pricing="{{variant.price | money }}" data-price="{{variant.price}}" data-item="trapo_fix" data-id="{{ variant.id }}" data-id class="not-swatch">
+        </label>
+      <div class="trapo-fix-{{ forloop.index }}">
+        <img class="lazyload" data-expand="-10" data-src="{{ settings[_a] | img_url: 'x100'}}" alt="" />
+          <label for="" class="color-pink fontSize-15">{{variant.price | money }}</label>
+        </div>
+        </div>
+      {%- endunless -%}
+    {%- elsif variant.title contains '5' -%}
+      {%- unless hide5seater -%}
+<div class="main-trapo-fix-{{ forloop.index }} inner-trapo-fix">
+      	<label class="form-control trapo-fix-{{ forloop.index }}">
+          <input {{_a}} type="checkbox" name="trapo_fix" id="trapo_fix_5" value="trapo_fix" data-title="{{variant.title}}" data-pricing="{{variant.price | money }}" data-price="{{variant.price}}" data-item="trapo_fix" data-id="{{ variant.id }}" data-id class="not-swatch">
+        </label>
+        <div class="trapo-fix-{{ forloop.index }}">
+        <img class="lazyload" data-expand="-10" data-src="{{ settings[_a] | img_url: 'x100'}}" alt="" />        
+          <label for="" class="color-pink fontSize-15">{{variant.price | money }}</label>
+        </div>
+</div>
+      {%- endunless -%}
+  {%- elsif variant.title contains '2' -%}
+      {%- unless hide2seater -%}
+        <div class="main-trapo-fix-{{ forloop.index }} inner-trapo-fix">
+      	<label class="form-control trapo-fix-{{ forloop.index }}">
+          <input type="checkbox" name="trapo_fix" id="trapo_fix_2" value="trapo_fix" data-title="{{variant.title}}" data-pricing="{{variant.price | money }}" data-price="{{variant.price}}" data-item="trapo_fix" data-id="{{ variant.id }}" data-id class="not-swatch">
+        </label>
+    <div class="trapo-fix-{{ forloop.index }}">
+        <img class="lazyload" data-expand="-10" data-src="{{ settings[_a] | img_url: 'x100'}}" alt="" />
+          <label for="" class="color-pink fontSize-15">{{variant.price | money }}</label>
+        </div>
+        </div>
+      {%- endunless -%}
+    {%- else -%}
+      <div class="main-trapo-fix-{{ forloop.index }} inner-trapo-fix">
+      	<label class="form-control trapo-fix-{{ forloop.index }}">
+          <input type="checkbox" name="trapo_fix" id="trapo_fix" value="trapo_fix" data-title="{{variant.title}}" data-pricing="{{variant.price | money }}" data-price="{{variant.price}}" data-item="trapo_fix" data-id="{{ variant.id }}" data-id class="not-swatch">
+        </label>
+    <div class="trapo-fix-{{ forloop.index }}">
+        <img class="lazyload" data-expand="-10" data-src="{{ settings[_a] | img_url: 'x100'}}" alt="" />
+          <label for="" class="color-pink fontSize-15">{{variant.price | money }}</label>
+        </div>
+      </div>
+    {%- endif -%}
+   
+
+{%endunless%}
+{%endunless%}
+  {% endfor %}
+</div>
+
+  <style>
+    .trapo-fix label.color-pink{
+         width: 100%;
+    text-align: center;
+    position: relative;
+    right: 15px;
+    height: auto;
+    font-size: 15px;
+    line-height: normal;
+    }
+  </style>
+
+</div>
+
+
+<style media="screen">
+/* The Modal (background) */
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+left: 0;
+top: 0;
+margin: 0;
+width: 100%; /* Full width */
+height: 100vh; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+background-color: #fefefe;
+margin: 0 auto; /* 15% from the top and centered */
+padding: 20px;
+border: 1px solid #888;
+width: 80%; /* Could be more or less, depending on screen size */
+height: 70%;
+}
+
+/* The Close Button */
+.close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+</style>

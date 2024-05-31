@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-complete-set",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

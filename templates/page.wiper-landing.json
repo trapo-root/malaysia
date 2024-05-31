@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "wiper-landing",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

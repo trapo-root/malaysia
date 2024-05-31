@@ -1,0 +1,506 @@
+
+<section class="section main-account-section">
+    <div class="container content">
+
+      <div class="loyalty-account one-whole column">
+<!--<h1 class="head top">Trapo Loyalty Points</h1>
+<span class="txt-membership">{{ customer.metafields.loyaltylion.loyalty_tier }} Member</span> <br>
+<span class="txt-points">You have<b><span data-lion-points="approved"></span></b> points</span><br> -->
+<div class="tab four column medium-down--one-whole">
+  <button class="tablinks active" onclick="openTab(event, 'account')">Account</button>
+  <button class="tablinks" onclick="openTab(event, 'yourrewards')">Your Rewards</button>
+  <button class="tablinks" onclick="openTab(event, 'getrewards')">Get Rewards</button>
+  <button class="tablinks" onclick="openTab(event, 'earn')">Earn Points</button>
+  <button class="tablinks" onclick="openTab(event, 'tier')">Tiers Overview</button>
+  <button class="tablinks" onclick="openTab(event, 'history')">History</button>
+  <!--<button class="tablinks" onclick="openTab(event, 'refer')">Refer Friends</button>-->
+  <button class="tablinks" onclick="openTab(event, 'faq')">FAQs</button>
+  <button class="tablinks" onclick="openTab(event, 'redeem')">How do I redeem?</button>
+</div>
+
+<div id="account" class="tabcontent three-fourths column medium-down--one-whole">
+  <h3>Account Details</h3>
+  {% paginate customer.orders by 20 %}
+  <div class="section clearfix main-account" >
+    <aside class="four column account-sidebar medium-down--one-whole">
+      <h4 class="name"><a href="/account" title="{{ 'layout.customer.my_account' | t }}">{{ customer.name }}</a></h4>
+      <p class="no-margin email note">{{ customer.email }}</p>
+      <p class="points">You have<br><span data-lion-points="approved"></span></b><br>Trapo Loyalty Points</span></p>
+      
+      {% if customer.metafields.loyaltylion.loyalty_tier contains 'Silver' %} 
+        {% assign membershipclass = 'silver' %}
+      {% elsif customer.metafields.loyaltylion.loyalty_tier contains 'Gold' %}
+        {% assign membershipclass = 'gold' %}
+      {% elsif customer.metafields.loyaltylion.loyalty_tier contains 'Platinum' %}
+        {% assign membershipclass = 'platinum' %}
+      {% endif %}
+      <p class="membership {{ membershipclass }}">{{ customer.metafields.loyaltylion.loyalty_tier }} Member</p>
+      <h4>{{ 'customer.addresses.primary' | t }}</h4>
+      <div class="address note">
+        {% if customer.default_address != nil %}
+          <p>{{ customer.default_address.address1 }}</p>
+          {% if customer.default_address.address2 != "" %}
+            <p>{{ customer.default_address.address2 }}</p>
+          {% endif %}
+          <p>{{ customer.default_address.city}}{% if customer.default_address.province_code %}, {{customer.default_address.province_code}}{% endif %} {{ customer.default_address.zip}}</p>
+          <p>{{customer.default_address.country}}</p>
+          <p>{{ customer.default_address.phone }}</p>
+        {% else %}
+          <p>{{ 'customer.addresses.no_addresses' | t }}</p>
+        {% endif %}
+          <p><a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
+      </div>
+    </aside>
+    <main class="twelve column account-main medium-down--one-whole">
+      <div id="customer_orders">
+        <h4>{{ 'customer.orders.title' | t }}</h4>
+
+        {% if customer.orders.size != 0 %}
+        <table width="100%">
+          <thead>
+            <tr class="text-align--left">
+              <th>{{ 'customer.orders.order_number' | t }}</th>
+              <th>{{ 'customer.orders.date' | t }}</th>
+              <th>{{ 'customer.orders.payment_status' | t }}</th>
+              <th>Order Status</th>
+              <th>{{ 'customer.orders.total' | t }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in customer.orders %}
+              <tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
+                  <td>{{ order.name | link_to: order.customer_url }} </td>
+                  <td>{{ order.created_at | date: "%d-%m-%Y" }}</td>
+                  <td>{{ order.financial_status_label }}</td>
+                  <td>
+                    <a href="{{ "/apps/order-tracking/" | append: order.name }}" target="_blank">Track</a>
+                  </td>
+                  <td>
+                    <span class="money" style="font-size: 12px">{{ order.total_price | money }}</span>
+                  </td>
+                
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+          <p>{{ 'customer.orders.none' | t }}</p>
+        {% endif %}
+
+        {%
+          render 'pagination',
+          paginate: paginate,
+        %}
+      </div>
+    </main>
+  </div>
+  <div class="post-login-img">
+    <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/post-login_desktop.webp" alt="post login" class="img-size lazyload plus-hide-mobile" width="100%">
+    <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/post-login_mobile.webp" alt="post login" class="img-size lazyload plus-hide-desktop" width="100%">
+    <button class="tablinks post-login" onclick="openTab(event, 'getrewards')">Get Rewards</button>
+  </div>
+
+{% endpaginate %}
+</div>
+
+<div id="yourrewards" class="tabcontent twelve column medium-down--one-whole" style="display:none">
+  <h3>Your Rewards</h3>
+  <div data-lion-claimed-rewards-list=""></div>
+</div>
+
+<div id="getrewards" class="tabcontent twelve column medium-down--one-whole" style="display:none">
+  <h3>Get Rewards</h3>
+  <div data-lion-rewards-list=""></div>
+</div>
+
+<div id="earn" class="tabcontent twelve column medium-down--one-whole" style="display:none">
+  <h3>Earn Points</h3>
+  <div data-lion-rules-list></div>
+</div>
+
+<div id="tier" class="tabcontent twelve column medium-down--one-whole" style="display:none">
+  <h3>Tiers Overview</h3>
+  <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Assets-MainPage-_updated-Tier_-2.webp" alt="reward-tier" class="img-size lazyload" width="100%">
+</div>
+
+<div id="history" class="tabcontent twelve column medium-down--one-whole" style="display:none">
+  <h3>History</h3>
+  <div data-lion-history-table></div>
+</div>
+
+<div id="refer" class="tabcontent twelve column medium-down--one-whole" style="display:none">
+  <h3>Refer Friends</h3>
+  <div data-lion-refer></div>
+</div>
+
+<div id="faq" class="tabcontent twelve column medium-down--one-whole" style="display:none">
+  <h3>FAQs</h3>
+  <dl class="faqAccordion">
+   <dt>
+    <button type="button" aria-controls="panel-01" aria-expanded="false"> 1. How do I use my Loyalty Points as a new user?</button>
+  </dt>
+  <dd id="panel-01" aria-hidden="true">
+    <p>- Welcome! As a new user, you'd be credited RM25 worth of points (5,000 pts). In order to use it, you'll need to have a total of 7,000 pts.This means that you'll need to earn an extra 2,000 pts in order to be eligible to use your RM25 worth of points!</p>
+  </dd>
+  <dt>
+    <button type="button" aria-controls="panel-01" aria-expanded="false"> 2. How do I redeem Loyalty Points? </button>
+  </dt>
+  <dd id="panel-01" aria-hidden="true">
+    <p>- In order to redeem points, you may pull the slider at checkout page according to the amount you wish to redeem. However, kindly note that this action will be temporarily unavailable during campaign period</p>
+  </dd>
+  <dt>
+    <button type="button" aria-controls="panel-01" aria-expanded="false"> 3. How do I redeem free gifts using loyalty points? </button>
+  </dt>
+  <dd id="panel-01" aria-hidden="true">
+    <p>- Login to your Trapo account and select the designated free gift. You would need to copy the code and apply it at the “Discount Code” box at the checkout page. Please do note that the shipping fee would be imposed and beared by customer. It would be RM7 for for Semenanjung Malaysia and RM12 for Sabah/Sarawak. Kindly note that orders for rewards placed through the website will still be charged RM7. If customers do not want to pay RM7, they can copy the code and redeem it at our hub.</p>
+  </dd>
+  <dt>
+    <button type="button" aria-controls="panel-01" aria-expanded="false"> 4. Is there any T&amp;C applying the points? </button>
+  </dt>
+  <dd id="panel-01" aria-hidden="true">
+    <p>- The maximum points customer can redeem is 10,000 points = RM100</p>
+  </dd>
+  <dt>
+    <button type="button" aria-controls="panel-01" aria-expanded="false"> 5. Is there any expiry date for loyalty lion points? </button>
+  </dt>
+  <dd id="panel-01" aria-hidden="true">
+    <p>- Loyalty points will only be valid for 1 year (12 months). However, if there’s any purchase / activity made within that one year period, the current points lifespan will be auto renewed </p>
+  </dd>
+  <dt>
+    <button type="button" aria-controls="panel-01" aria-expanded="false"> 6. Can we stack vouchers on top of existing promotions? </button>
+  </dt>
+  <dd id="panel-01" aria-hidden="true">
+    <p>- Vouchers / discount codes are not stackable during existing ongoing promotion. This is also applicable for bundle offer on website whereby customers would not be able to use code upon checkout as bundle is already a form of discount</p>
+  </dd>
+  <dt>
+    <button type="button" aria-controls="panel-01" aria-expanded="false"> 7. How do I collect loyalty points? </button>
+  </dt>
+  <dd id="panel-01" aria-hidden="true">
+    <p>- Aside from collecting points through purchases and referral, customers can also complete all activities listed on our website</p>
+  </dd>
+  <dt>
+    <button type="button" aria-controls="panel-01" aria-expanded="false"> 8. Am I able to still accumulate the loyalty points for my previous orders ( more than a year ) if I create a Trapo account now using the same email address? </button>
+  </dt>
+  <dd id="panel-01" aria-hidden="true">
+    <p>- Validity of the points is only for a year. If points are not claimed within the time frame, it will automatically be invalid</p>
+  </dd>
+  <dt>
+    <button type="button" aria-controls="panel-01" aria-expanded="false"> 9. If I make a purchase through another platform (Shopee/Lazada/Agent), can I credit the amount into my account? </button>
+  </dt>
+  <dd id="panel-01" aria-hidden="true">
+    <p>- Customers unable to credit their points for past purchases from marketplaces. However, when they sign up Trapo account, they will get RM25 for their next purchase on website. </p>
+  </dd>
+  <dt>
+    <button type="button" aria-controls="panel-01" aria-expanded="false"> 10. Can I exchange the points that I have into cash if I am near my expiry date? </button>
+  </dt>
+  <dd id="panel-01" aria-hidden="true">
+    <p>- Unfortunately we are unable to exchange points into cash. Customer may redeem their nearly expiry points with Rewards</p>
+  </dd>
+
+  <dt>
+    <button type="button" aria-controls="panel-01" aria-expanded="false"> 11. Can I create multiple accounts using the same phone number?</button>
+  </dt>
+  <dd id="panel-01" aria-hidden="true">
+    <p>- No, you cannot. One account is only valid per user with a valid Malaysian phone number. Any multiple accounts created using the same phone number will be under suspicion of fraudulent activity by our system.</p>
+  </dd>
+ 
+</dl>
+</div>
+  <div id="redeem" class="tabcontent twelve column medium-down--one-whole" style="display:none">
+    <div class="redeem-img">
+      <div class="left">
+        <h4 style="text-align:left">Redeem Cash</h4>
+        <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/desktop_redeem_cash_login.gif" alt="Redeem Cash" class="img-size lazyload plus-hide-mobile" >
+        <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/mobile_redeem_cash_login.gif" alt="Redeem Cash" class="img-size lazyload plus-hide-desktop" >
+      </div>
+      <div class="right">
+        <h4 style="text-align:left">Redeem Items</h4>
+        <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/desktop_redeem_items_login.gif" alt="Redeem Items" class="img-size lazyload plus-hide-mobile" >
+        <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/mobile_redeem_items_login.gif" alt="Redeem Items" class="img-size lazyload plus-hide-desktop" >
+      </div>
+    </div>
+    <button class="tablinks post-login" onclick="openTab(event, 'getrewards')">Get Rewards</button>
+  </div>
+</div>
+
+      
+    </div>
+
+</section>
+
+<style>
+  
+  .post-login-img{
+    margin-top:20px;
+  }
+  .head {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Roboto' !important;
+    font-size: 2.2rem;
+    color: #173f6d;
+    padding: 10px 0px;
+    margin: 15px auto;
+}
+  .txt-membership {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #173f6d;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    font-weight: 900;
+}
+  .txt-points {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #173f6d;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+  span [data-lion-points] {
+    text-align: center;
+    color: #ee2a7b !important;
+    font-size: 5rem !important;
+}
+  .section.loyalty-account{
+    margin-top:25px;
+    width:100%;
+  }
+  .section.main-account{
+     width:100%;
+    display: inline-flex;
+  }
+  .account-sidebar {
+    float: left;
+    display: inline;
+}
+  .account-sidebar h4{
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  .account-sidebar h4.name{
+    line-height: 16px;
+    padding-bottom: 0;
+    font-size: 19px;
+  }
+  .post-login-img button.tablinks,#redeem button.post-login{
+    padding: 20px;
+    border-radius: 50px;
+    color: #ffffff !important;
+    border: none;
+    font-family: 'Roboto';
+    display: grid;
+    align-content: center;
+    font-weight: 600;
+    background-color: #E12B7B;
+    margin: auto;
+    text-align: center;
+    width: auto;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  .redeem-img{
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .redeem-img .left,.redeem-img .right{
+    float: left;
+    width: 50%;
+    padding: 5px;
+  }
+/* Style the tab */
+.tab {
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  height: auto;
+  position:sticky;
+  top:90px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: #16406d;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+  font-family: 'Roboto';
+  font-weight:700;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #16406d;
+    color: #fff;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #16406d;
+    color: #fff;
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 10px 12px;
+  border-left: none;
+  height: auto;
+      background: #f5f5f5;
+}
+  .tabcontent h3{
+    text-align:center;
+    margin: 10px 0;
+    font-weight:700;
+  }
+
+  h4.head-top{
+    text-align: left;
+    padding: 10px;
+  }
+  .container.content p.points{
+    font-size: 18px;
+    text-align: left;
+    padding-left: 0;
+    font-family: Roboto !important;
+    color: #173f6d;
+    margin-top: 10px;
+    margin-bottom: 0;
+    line-height: 24px;
+  }
+  .container.content p.points span{
+    font-size: 32px;
+    font-weight: 600;
+    font-family: Roboto !important;
+    color: #ee2a7b;
+  }
+  .container.content p.membership{
+    text-align: left;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0px 10px;
+    margin-top: 10px;
+  }
+  .container.content p.membership.silver{
+    background: #ababab;
+  }
+  .container.content p.membership.gold{
+    background: #fbc93a;
+  }
+  .container.content p.membership.platinum{
+    background: #7396e5;
+  }
+  .address.note p{
+    margin-bottom: 5px;
+  }
+  .account-main h4{
+    margin-bottom:0px;
+    font-weight:700;
+  }
+#loyaltylion .lion-reward-item__fill{
+  height: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #ea0d7e;
+    border-radius: 0;
+    z-index: 20;
+}
+  #loyaltylion .lion-action-button--tile{
+    position:relative;
+    border-radius: 0;
+  }
+  @media screen and (max-width: 479px){
+    #customer_orders table{
+          overflow-y: scroll;
+    display: block;
+    }
+    .section.main-account{
+      display:block;
+    }
+    .section.main-account-section {
+    width: 100%;
+}
+    div.container {
+        margin-top: 0;
+    }
+    .tab{
+      position:unset;
+    }
+    .tabcontent h3 {
+        font-size: 22px;
+        margin-bottom: 0;
+        margin-top: 12px;
+    }
+    .tabcontent{
+      margin-top:20px;
+    }
+    .account-main h4 {
+        margin-top: 16px;
+        font-size: 16px;
+    }
+  }
+
+  @media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    div.content {
+        padding: 50px 0 15px;
+    }
+    .section.loyalty-account {
+        margin-top: 0;
+    }
+    .tabcontent h3 {
+        font-size: 25px;
+        margin-bottom: 0px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+      .plus-hide-mobile {
+          display: none;
+      }
+      .redeem-img .left,.redeem-img .right{
+        width: 100%;
+      }
+  }
+  
+  @media screen and (min-width: 769px) {
+      .plus-hide-desktop {
+          display: none;
+      }
+  }
+</style>
+
+<script>
+function openTab(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>

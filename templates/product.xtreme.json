@@ -1,0 +1,83 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-xtreme-template",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "display_savings": false
+          }
+        },
+        "20126984-b08d-4b7f-8ba3-558bae4b2345": {
+          "type": "text",
+          "settings": {
+            "text": "<p>(Ships out in 3 - 5 working days)<\/p>"
+          }
+        },
+        "form": {
+          "type": "form",
+          "settings": {
+            "show_gift_card_recipient_form": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "7d7d2cf1-1157-45ae-b4b7-2a58000ce776": {
+          "type": "collapsible-tab",
+          "settings": {
+            "collapsible_tab_heading": "FAQ",
+            "collapsible_tab_text": "<p><strong>1.What makes TRAPO XTREME 3D Car Mats unique?<\/strong><\/p><p><strong>- <\/strong>TRAPO XTREME 3D Car Mats are the first in the market to feature anti-bacterial properties through the innovative Japanese Silver-Ion technology infused in the material. They offer supreme coverage and exceptional durability, providing superior protection for your car dashboard.<\/p><p><strong>2.How do the anti-bacterial properties work?<\/strong><\/p><p>-The Japanese Silver-Ion technology embedded in the Car Mats helps prevent the growth of bacteria, keeping your car interior clean and hygienic.<\/p><p><strong>3.Can TRAPO XTREME 3D Car Mats withstand heavy-duty use?<\/strong><\/p><p>-Absolutely! These Car Mats are engineered for ultra durability, designed to withstand scratches, spills, and even heavy impacts, making them perfect for construction workers, bikers, and outdoor enthusiasts.<\/p><p><strong>5.Are TRAPO XTREME 3D Car Mats easy to clean?<\/strong><\/p><p>-Yes! Cleaning is a breeze. Simply remove the Car Mats from your car and wash them with water and mild soap. They are also quick-drying, ensuring they are ready for use in no time.<\/p><p><strong>6.Do TRAPO XTREME 3D Car Mats fit my car model?<\/strong><\/p><p>-TRAPO XTREME 3D Car Mats are custom designed to fit every car model using a dedicated 3D scanner. This ensures that your TRAPO XTREME 3D car Car Mats will provide you maximum coverage.<\/p><p><strong>7.How do I install TRAPO XTREME 3D Car Mats?<\/strong><\/p><p>-Installing the Car Mats is quick and simple. Just place them on your car dashboard, ensuring a proper fit, and they will stay securely in place without the need for additional adhesives.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "20126984-b08d-4b7f-8ba3-558bae4b2345",
+        "form",
+        "description",
+        "7d7d2cf1-1157-45ae-b4b7-2a58000ce776"
+      ],
+      "settings": {
+        "product_breadcrumb": true,
+        "media_position": "is-flex-row",
+        "set_product_height": false,
+        "product_height": 500,
+        "video_looping": false,
+        "product_thumbs": false,
+        "gallery_arrows": true,
+        "enable_product_lightbox": true,
+        "activate_zoom": true,
+        "slideshow_speed": 0,
+        "slideshow_animation": "slide",
+        "thumbnail_position": "bottom",
+        "enable_thumbnail_slider": false
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "show_product_recommendations": true,
+        "wide_display": false,
+        "product_recommendations_style": "grid",
+        "product_recommendations_heading": "You may also like",
+        "products_per_row": 3,
+        "recommended_products_limit": 4
+      }
+    }
+  },
+  "order": [
+    "main",
+    "recommendations"
+  ]
+}

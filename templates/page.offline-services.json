@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-template",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "164380237534ac6854511": {
+      "type": "offline-services",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "164380237534ac6854511"
+  ]
+}

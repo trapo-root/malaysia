@@ -1,0 +1,134 @@
+{
+  "sections": {
+    "main": {
+      "type": "trapo-protect",
+      "settings": {
+      }
+    },
+    "e41c636c-e0d8-43e6-9af6-2545582b79ff": {
+      "type": "faq",
+      "blocks": {
+        "47fd1c58-af5f-4459-950e-5aca2dceda7a": {
+          "type": "heading",
+          "settings": {
+            "faq_title": "All quotations and policy are issued by Fatberry.com, part of ASEAN Fintech Group of Companies"
+          }
+        },
+        "template--14610452742221__e41c636c-e0d8-43e6-9af6-2545582b79ff-16691814377068854a-1": {
+          "type": "content",
+          "settings": {
+            "title": "What is Trapo Protect motor insurance?",
+            "answer": "<p>Trapo Protect aims to allow our customers to choose a variety of motor insurance product in collaboration with Fatberry<\/p>"
+          }
+        },
+        "template--14610452742221__e41c636c-e0d8-43e6-9af6-2545582b79ff-16691814377068854a-2": {
+          "type": "content",
+          "settings": {
+            "title": "How do I renew my insurance and road tax with Trapo Protect?",
+            "answer": "<p>All you need to do is visit <a href=\"https:\/\/my.trapo.asia\/pages\/trapo-protect\"><span style=\"text-decoration:underline\">https:\/\/my.trapo.asia\/pages\/trapo-protect<\/span><\/a><\/p><p>1. Provide us with<\/p><p>2. Vehicle registration number<\/p><p>3. I.C. Number<\/p><p>4. Address Postcode<\/p><p>5. Contact Number<\/p>"
+          }
+        },
+        "template--14610452742221__e41c636c-e0d8-43e6-9af6-2545582b79ff-16691814377068854a-3": {
+          "type": "content",
+          "settings": {
+            "title": "Who can use Trapo Protect?",
+            "answer": "<p>All Malaysians with a Malaysian registered car under JPJ is eligible to use Trapo Protect<\/p>"
+          }
+        },
+        "template--14610452742221__e41c636c-e0d8-43e6-9af6-2545582b79ff-16691814377068854a-5": {
+          "type": "content",
+          "settings": {
+            "title": "What are the benefits of renewing car insurance with Trapo Protect?",
+            "answer": "<p>Trapo Protect allows you to skip long queues at JPJ and Pos Malaysia to renew your car insurance and road tax anytime anywhere.<\/p>"
+          }
+        },
+        "template--14610452742221__e41c636c-e0d8-43e6-9af6-2545582b79ff-16691814377068854a-6": {
+          "type": "content",
+          "settings": {
+            "title": "What are the types of payment options available?",
+            "answer": "<p>Below are the payment options available<\/p><p> <\/p><p>Credit and Debit Card (Mastercard or Master), FPX (Affin Bank, Agrobank, Alliance Bank, Ambank, Bank Islam, Bank Muamalat, Bank Rakyat, BSN, CIMB Clicks, Hong Leong Bank, HSBC, Maybank2U, OCBC Bank, Public Bank, RHB Bank, Standard Chartered, UOB Bank), MEPS<\/p>"
+          }
+        },
+        "template--14610452742221__e41c636c-e0d8-43e6-9af6-2545582b79ff-16691814377068854a-7": {
+          "type": "content",
+          "settings": {
+            "title": "Can I renew my road tax if I have outstanding traffic summonses?",
+            "answer": "<p>It is necessary for you to make payments for all traffic summons prior to renewing your road tax<\/p>"
+          }
+        },
+        "5a18b9fe-fb4e-4cad-a606-09671ad1a8a0": {
+          "type": "content",
+          "settings": {
+            "title": "How will I receive my road tax after I have completed my payment?",
+            "answer": "<p>We will deliver road tax to your doorstep with the following estimated time arrival:<\/p><p>- Peninsular Malaysia (2-3 working days)<\/p><p>- Sabah & Sarawak (within 5 working days)<\/p>"
+          }
+        },
+        "04121bc7-baca-4729-b67e-b6c5c458df55": {
+          "type": "content",
+          "settings": {
+            "title": "Will I get a receipt upon payment?",
+            "answer": "<p>Yes. Every successful transaction will be issued a e-Receipt for reference. Please keep this receipt for future reference.<\/p>"
+          }
+        },
+        "f9641be5-5b88-45da-8100-1cc10c38fe61": {
+          "type": "content",
+          "settings": {
+            "title": "What happens if I cancel my policy?",
+            "answer": "<p>Cancelation of  payment will be directed to the insured bank account. Customers need to advise Fatberry customer service on account details.<\/p>"
+          }
+        },
+        "bfc262c4-8971-482d-894a-890beef869b8": {
+          "type": "content",
+          "settings": {
+            "title": "What is Excess?",
+            "answer": "<p>Most policies include an excess, which is the amount to be paid by the policyholder in the event of a claim. There’s both a compulsory excess, imposed by the insurer, and a voluntary excess. The phrase ‘total excess’ combines these two factors and is the amount you pay in the event of a claim.<\/p>"
+          }
+        },
+        "1d99281e-66f4-4572-bf2a-644f421ca4b7": {
+          "type": "content",
+          "settings": {
+            "title": "What is Loading?",
+            "answer": "<p>Loading is an additional amount that is built into the insurance cost. This amount is added to the premium to provide the cover for a ‘risky’ individual. Basically, loading covers the losses that arise from insuring an individual who is prone to a form of risk and the losses for that period are expected to be higher than anticipated.<\/p>"
+          }
+        },
+        "ce52b784-b61b-447c-8464-cba26eafde36": {
+          "type": "content",
+          "settings": {
+            "title": "What is Market Value coverage?",
+            "answer": "<p>Market Value is the amount based on the insurance company estimate of what your car is worth in the open market. In the event that anything happens to your car, you can only claim as much as the current market value\/worth of your car model at that point of time. Generally Market Value coverage premium tends to be lower.<\/p>"
+          }
+        },
+        "4220472f-0028-492f-8675-15989a36012d": {
+          "type": "content",
+          "settings": {
+            "title": "What is Agreed Value coverage?",
+            "answer": "<p>Agreed Value is the amount which has been agreed to between you and your insurance company. In the event that anything happens to your car, agreed value coverage can certainly provide the compensation you will receive from the insurance company if your car is written off or stolen. Generally Agreed Market coverage premium tends to be higher.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "47fd1c58-af5f-4459-950e-5aca2dceda7a",
+        "template--14610452742221__e41c636c-e0d8-43e6-9af6-2545582b79ff-16691814377068854a-1",
+        "template--14610452742221__e41c636c-e0d8-43e6-9af6-2545582b79ff-16691814377068854a-2",
+        "template--14610452742221__e41c636c-e0d8-43e6-9af6-2545582b79ff-16691814377068854a-3",
+        "template--14610452742221__e41c636c-e0d8-43e6-9af6-2545582b79ff-16691814377068854a-5",
+        "template--14610452742221__e41c636c-e0d8-43e6-9af6-2545582b79ff-16691814377068854a-6",
+        "template--14610452742221__e41c636c-e0d8-43e6-9af6-2545582b79ff-16691814377068854a-7",
+        "5a18b9fe-fb4e-4cad-a606-09671ad1a8a0",
+        "04121bc7-baca-4729-b67e-b6c5c458df55",
+        "f9641be5-5b88-45da-8100-1cc10c38fe61",
+        "bfc262c4-8971-482d-894a-890beef869b8",
+        "1d99281e-66f4-4572-bf2a-644f421ca4b7",
+        "ce52b784-b61b-447c-8464-cba26eafde36",
+        "4220472f-0028-492f-8675-15989a36012d"
+      ],
+      "settings": {
+        "title": "Trapo Protect - FAQs"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "e41c636c-e0d8-43e6-9af6-2545582b79ff"
+  ]
+}
