@@ -458,11 +458,11 @@ $(document).ready(function(){
         console.log(selWiperModel);
         console.log(selWiperYear);
         var wiperProductHandle = selWiperBrand + '-' + selWiperModel + '-' + selWiperYear + '-hydrophobic-wiper-blade';
-        console.log(wiperProductHandle);
+        //console.log(wiperProductHandle);
         
           jQuery.getJSON(window.Shopify.routes.root + 'products/' + wiperProductHandle.replace(/\s+/g, "-") + '.js', function(product) {
-            console.log(product);
-			/*console.log(product.variants[0].id);
+            //console.log(product);
+			console.log(product.variants[0].id);
             var params = {
                   type: 'POST',
                   url: '/cart/add.js',
@@ -472,7 +472,7 @@ $(document).ready(function(){
                     window.location.href = "/checkout/";
                   },
                 };
-                $.ajax(params);*/
+                $.ajax(params);
 		  }).fail(function() {
 		   alert('Product not found!!')
 		  });
