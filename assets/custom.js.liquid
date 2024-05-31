@@ -394,6 +394,37 @@ $('#r-model').on('change', function() {
 /** End Rear Functionality **/
 
 
+/** Start Dashcam Filter Functionality **/
+
+$(document).ready(function(){
+  $(document).on("click", ".dash-btn", function() {
+      var selDashModel = $("#dash-model option:selected").val();
+  
+      if (selBrand == "" || selModel == "" || selYear == "") {
+          //If the "Please Select" option is selected display error.
+          alert("Please select an option!");
+          return false;
+      }
+
+      if(selBrand != '' || selYear != '' || selModel != '' ){
+        console.log(selBrand);
+        console.log(selModel);
+        console.log(selYear);
+        var rearProductHandle = selBrand + '-' + selModel + '-' + selYear + '-rear-trapo-classic';
+        console.log(rearProductHandle);
+        
+          jQuery.getJSON(window.Shopify.routes.root + 'products/' + rearProductHandle.replace(/\s+/g, "-") + '.js', function(product) {
+			window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
+		  }).fail(function() {
+		   alert('Product not found!!')
+		  });
+      }
+  });
+});
+
+/** End Dashcam Filter Functionality **/
+
+
 
 
 
