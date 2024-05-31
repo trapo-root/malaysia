@@ -440,6 +440,93 @@ $(document).ready(function(){
 
 
 
+/** Start Wiper Filter Functionality **/
+$(document).ready(function(){
+  $(document).on("click", ".wiper-btn", function() {
+      var selWiperBrand = $("#w-brand option:selected").val();
+      var selWiperModel = $("#w-model option:selected").val();
+      var selWiperYear = $("#w-year option:selected").val();
+
+      if (selWiperBrand == "" || selWiperModel == "" || selWiperYear == "") {
+          //If the "Please Select" option is selected display error.
+          alert("Please select an option!");
+          return false;
+      }
+
+      if(selWiperBrand != '' || selWiperYear != '' || selWiperModel != '' ){
+        console.log(selWiperBrand);
+        console.log(selWiperModel);
+        console.log(selWiperYear);
+        var wiperProductHandle = selWiperBrand + '-' + selWiperModel + '-' + selWiperYear + '-hydrophobic-wiper-blade';
+        console.log(wiperProductHandle);
+        
+          jQuery.getJSON(window.Shopify.routes.root + 'products/' + wiperProductHandle.replace(/\s+/g, "-") + '.js', function(product) {
+			console.log(product.variants[0].id);
+            var params = {
+                  type: 'POST',
+                  url: '/cart/add.js',
+                  data: {id: product.variants[0].id,quantity: '1'},
+                  dataType: 'json',
+                  success: function(line_item) {
+                    window.location.href = "/checkout/";
+                  },
+                };
+                $.ajax(params);
+		  }).fail(function() {
+		   alert('Product not found!!')
+		  });
+      }
+  });
+});
+
+
+$('#w-brand').on('change', function() {
+  $('#w-model').prop('selectedIndex',0);
+  $('#w-year').prop('selectedIndex',0);
+  $("#w-year option").not(':first').hide();
+  $("#w-model span").contents().unwrap();
+  $("#w-year option").not(':first').addClass('dn');
+  var selWiperBrand = this.value;
+  $('#w-model option').each(function(i) {
+    if(i > 0){
+      var optionBrand = $(this).data("brand");
+      if(optionBrand == selWiperBrand){
+        $(this).show();
+        $(this).removeClass('dn');
+      }else{
+        $(this).hide();
+        $(this).addClass('dn');
+      }
+    }
+  });
+  $('.dn').wrap('<span>');
+});
+
+$('#w-model').on('change', function() {
+  $('#w-year').prop('selectedIndex',0);
+  var selWiperModel = this.value;
+  var selWiperBrand = $('#w-brand').find(":selected").val();
+  $("#w-year span").contents().unwrap();
+  $('#w-year option').each(function(i) {
+    if(i > 0){
+      var optionBrand = $(this).data("brand");
+      var optionModel = $(this).data("model");
+      if(optionBrand == selWiperBrand && optionModel == selWiperModel ){
+        $(this).show();
+        $(this).removeClass('dn');
+      }else{
+        $(this).hide();
+        $(this).addClass('dn');
+      }
+    }
+  });
+  $('.dn').wrap('<span>');
+});
+
+/** End Wiper Filter Functionality **/
+
+
+
 
 
 
