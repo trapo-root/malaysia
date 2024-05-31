@@ -400,21 +400,35 @@ $(document).ready(function(){
   $(document).on("click", ".dash-btn", function() {
       var selDashModel = $("#dash-model option:selected").val();
   
-      if (selBrand == "" || selModel == "" || selYear == "") {
+      if (selDashModel == "" ) {
           //If the "Please Select" option is selected display error.
           alert("Please select an option!");
           return false;
       }
 
-      if(selBrand != '' || selYear != '' || selModel != '' ){
-        console.log(selBrand);
-        console.log(selModel);
-        console.log(selYear);
-        var rearProductHandle = selBrand + '-' + selModel + '-' + selYear + '-rear-trapo-classic';
-        console.log(rearProductHandle);
+      if(selDashModel != '' ){
+      
+        var dashProductHandle = selDashModel ;
+        console.log(dashProductHandle);
+        if(dashProductHandle == 'trapo-i-sight-t350-dashcam'){
+          var variantId = 40156459302989;
+        }
+        if(dashProductHandle == 'trapo-i-sight-t550-dashcam'){
+          var variantId = 40157387849805;
+        }
         
-          jQuery.getJSON(window.Shopify.routes.root + 'products/' + rearProductHandle.replace(/\s+/g, "-") + '.js', function(product) {
-			window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
+          jQuery.getJSON(window.Shopify.routes.root + 'products/' + dashProductHandle.replace(/\s+/g, "-") + '.js', function(product) {
+			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
+            var params = {
+                  type: 'POST',
+                  url: '/cart/add.js',
+                  data: {id: variantId,quantity: '1'},
+                  dataType: 'json',
+                  success: function(line_item) {
+                    window.location.href = "/checkout/";
+                  },
+                };
+                $.ajax(params);
 		  }).fail(function() {
 		   alert('Product not found!!')
 		  });
