@@ -35,7 +35,7 @@
 
           {%- for collection in collections -%}
             {% if collection.title == 'Wipers' %}
-              {% paginate collection.products by 700 %}
+              {% paginate collection.products by 1000 %}
                 {%- for product in collection.products -%}
                   {% if product.type == 'WIPER' %}
                     {% for tag in product.tags %}
@@ -70,7 +70,7 @@
           <option value="">-- Select --</option>
           {%- for collection in collections -%}
             {% if collection.title == 'Wipers' %}
-              {% paginate collection.products by 400 %}
+              {% paginate collection.products by 1000 %}
                 {%- for product in collection.products -%}
                   {% if product.type == 'WIPER' %}
                     {% for tag in product.tags %}
