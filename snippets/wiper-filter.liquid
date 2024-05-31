@@ -1,6 +1,6 @@
 <form class="main-rear-filter loaded" id="r-form">
   <div class="r-form-inner">
-    {% assign collection = collections.all %}
+    {% assign collection = collections.wipers %}
 
     <div class="r-form-input-wrapper">
       <div class="r-form-input-inner">
@@ -8,10 +8,10 @@
           <label><span>Select Brand</span></label>
         </div>
         {% assign allBrands = '' | split: ',' %}
-        <select class="r-form-select" id="r-brand" name="r-brand" required>
+        <select class="r-form-select" id="w-brand" name="w-brand" required>
           <option value="">-- Select --</option>
           {%- for collection in collections -%}
-            {% if collection.title == 'Rear Products' %}
+            {% if collection.title == 'Wipers' %}
               {% for tag in collection.all_tags %}
                 {% if tag contains 'brand:' %}
                   {% assign brandName = tag | split: ',' %}
@@ -30,14 +30,14 @@
         <div class="r-form-input-label">
           <label><span>Select Model</span></label>
         </div>
-        <select class="r-form-select" id="r-model" required>
+        <select class="r-form-select" id="w-model" name="w-model" required>
           <option value="">-- Select --</option>
 
           {%- for collection in collections -%}
-            {% if collection.title == 'Rear Products' %}
+            {% if collection.title == 'Wipers' %}
               {% paginate collection.products by 400 %}
                 {%- for product in collection.products -%}
-                  {% if product.type == 'TRAPO CLASSIC REAR' %}
+                  {% if product.type == 'WIPER' %}
                     {% for tag in product.tags %}
                       {% if tag contains 'brand:' %}
                         {% assign brandName = tag | remove: 'brand:' %}
@@ -66,13 +66,13 @@
         <div class="r-form-input-label">
           <label><span>Select Year</span></label>
         </div>
-        <select class="r-form-select" id="r-year" required>
+        <select class="r-form-select" id="w-year" name="w-year" required>
           <option value="">-- Select --</option>
           {%- for collection in collections -%}
-            {% if collection.title == 'Rear Products' %}
+            {% if collection.title == 'Wipers' %}
               {% paginate collection.products by 400 %}
                 {%- for product in collection.products -%}
-                  {% if product.type == 'TRAPO CLASSIC REAR' %}
+                  {% if product.type == 'WIPER' %}
                     {% for tag in product.tags %}
                       {% if tag contains 'brand:' %}
                         {% assign brandName = tag | remove: 'brand:' %}
@@ -103,7 +103,7 @@
     <div class="r-form-input-wrapper">
       <div class="r-form-input-inner">
         <div class="r-form-button-group">
-          <button type="button" class="rear-btn">Search</button>
+          <button type="button" class="wiper-btn">Search</button>
         </div>
       </div>
     </div>
