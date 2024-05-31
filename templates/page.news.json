@@ -1,0 +1,169 @@
+{
+  "sections": {
+    "main": {
+      "type": "news-template",
+      "blocks": {
+        "dcb47c53-1ab9-43cd-9178-de65e23ba5c2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_985c64c5-7ab0-4794-b014-e46f56b1860f.png",
+            "news_desc": "Trapo launches easy to clean \nand environmentally-friendly \ncar mats",
+            "news_link": "https:\/\/www.nst.com.my\/topic\/lifestyle\/2021\/10\/740436\/trapo-launches-easy-clean-and-environmentally-friendly-car-mats"
+          }
+        },
+        "f8e6dcd5-7136-47f3-9ada-4ba14496cbff": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_8a415060-dc4e-41a4-88eb-04f1d3539bb1.png",
+            "news_desc": "Alas kaki kenderaan Trapo\ntingkatkan kebersihan kereta",
+            "news_link": "https:\/\/www.bharian.com.my\/bisnes\/auto\/2021\/10\/880918\/alas-kaki-kenderaan-trapo-tingkatkan-kebersihan-kereta"
+          }
+        },
+        "013ba4ea-7ec5-46b3-a7bc-e03eab5b12f6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_99afbdab-dfef-411b-bd32-e904e7c5c1a6.png",
+            "news_desc": "Trapo’s sustainable car mats \nkeep your vehicle clean",
+            "news_link": "https:\/\/www.freemalaysiatoday.com\/category\/leisure\/2021\/10\/28\/trapos-sustainable-car-mats-keep-your-vehicle-clean\/"
+          }
+        },
+        "d6cff11a-e2fc-481e-99c9-0d14df1fe12c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4_e7bbd0e4-8fb7-4221-a777-62e4f4803fff.png",
+            "news_desc": "Alas kaki kenderaan trapo tingkatkan \nkebersihan kenderaan anda",
+            "news_link": "https:\/\/www.buletinfm.audio\/alas-kaki-kenderaan-trapo-tingkatkan-kebersihan-kenderaan-anda\/"
+          }
+        },
+        "471d5aee-2000-4a82-9392-2cc9879b82fd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5_faa5a96c-dc40-4a71-a523-612be04028f4.png",
+            "news_desc": "Trapo perkenal alas kaki kereta\n mudah cuci, mesra alam",
+            "news_link": "https:\/\/www.hmetro.com.my\/mutakhir\/2021\/10\/771211\/trapo-perkenal-alas-kaki-kereta-mudah-cuci-mesra-alam"
+          }
+        },
+        "6f625f67-e0a7-4bbc-815e-d185e4536180": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6_69cb59ca-20cc-499a-8b35-e06bd0c99123.png",
+            "news_desc": "Trapo unveils updated range of \nanti-bacterial car mats with up to \n10x more durability",
+            "news_link": "https:\/\/autobuzz.my\/2021\/10\/28\/trapo-unveils-updated-range-of-anti-bacterial-car-mats-with-up-to-10x-more-durability\/"
+          }
+        },
+        "010ccd06-5d85-4901-b01b-46bf2c9aa455": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/7_62ffc9ae-796f-41b7-8cb0-3e683d589399.png",
+            "news_desc": "Trapo launches next generation \nof its Classic, Eco and Hex car mats \n– now up to 10 times more durable",
+            "news_link": "https:\/\/paultan.org\/2021\/10\/28\/ad-trapo-launches-next-generation-of-its-classic-eco-and-hex-car-mats-now-up-to-10-times-more-durable\/"
+          }
+        },
+        "63b569cb-1790-41df-9273-55be0cfa9a0b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/8_78c98e5b-a68e-4fa5-9e8e-efa27699cd47.png",
+            "news_desc": "Sanitizing Your Hands Is NOT Enough: \n6 Items in M’sians’ Cars That Collect \nTONS of Bacteria",
+            "news_link": "https:\/\/worldofbuzz.com\/sanitizing-your-hands-is-not-enough-6-items-in-msians-cars-that-collect-tons-of-bacteria\/"
+          }
+        },
+        "5f11cea2-b60b-41fb-b91e-51ac390ee636": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/carlist.jpg",
+            "news_desc": "TRAPO Asia Unveils Their Classic Mark II Car Mats, Kills 99.9% Of Bacteria",
+            "news_link": "https:\/\/www.carlist.my\/news\/trapo-asia-unveils-their-classic-mark-ii-car-mats-kills-999-of-bacteria-65969\/65969\/"
+          }
+        },
+        "b8a38632-5fa3-438c-84e0-94ed4a6e0dc1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/maxit.jpg",
+            "news_desc": "Homegrown Car Mat Solution, TRAPO Asia Strengthen its Presence with the All-New TRAPO Mark II",
+            "news_link": "http:\/\/www.maxit.my\/2019\/08\/homegrown-car-mat-solution-trapo-asia-strengthen-its-presence-with-the-all-new-trapo-mark-ii\/"
+          }
+        },
+        "5f468b31-fd64-4048-85d6-4e033ff7c5a8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/piston.jpg",
+            "news_desc": "TRAPO Mark II Car Mat Launched – Now With Bactekiller Technology",
+            "news_link": "https:\/\/www.piston.my\/2019\/08\/08\/trapo-mark-ii-car-mat-launched-now-with-bactekiller-technology\/"
+          }
+        },
+        "c8c828e5-4e50-49ed-b096-567b447dc8e6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/starcarsifu_f4774166-accf-4714-9662-b9d64125250b.jpg",
+            "news_desc": "Trapo introduces bacteria-killing Mark II car mats",
+            "news_link": "https:\/\/www.carsifu.my\/news\/trapo-launches-bateria-killing-mark-ii-car-mats"
+          }
+        },
+        "27eb78d5-fbbc-4f8e-bfe0-69de92457382": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/careta.jpg",
+            "news_desc": "Trapo - Produk tunggal guna teknologi jepun untuk bunuh bakteria",
+            "news_link": "https:\/\/www.careta.my\/article\/trapo-produk-tunggal-guna-teknologi-jepun-untuk-bunuh-bakteria"
+          }
+        },
+        "25994cc5-6f87-4e1d-9db2-0a349d6172be": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/mekanika.jpg",
+            "news_desc": "Trapo, Pengeluar Karpet “ajaib” Lancarkan Trapo Mark II",
+            "news_link": "https:\/\/www.mekanika.com.my\/trapo-pengeluar-karpet-ajaib-lancarkan-trapo-mark-ii\/"
+          }
+        },
+        "3643f61f-34ab-4884-b14a-888960a85712": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/motomalaya.jpg",
+            "news_desc": "TRAPO Asia Lancar TRAPO MARK II, Karpet Kereta Bebas 99.9 Peratus Kuman",
+            "news_link": "https:\/\/motomalaya.net\/blog\/2019\/08\/08\/trapo-asia-lancar-trapo-mark-ii-karpet-kereta-bebas-99-9-peratus-kuman\/"
+          }
+        },
+        "39941cb3-2d23-4635-9a3f-5c714c820b71": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/motoqar.jpg",
+            "news_desc": "TRAPO Mark II pastikan kabin kereta anda bebas kuman",
+            "news_link": "https:\/\/www.motoqar.com\/2019\/14701\/trapo-mark-ii-pastikan-kabin-kereta-anda-bebas-kuman.html"
+          }
+        },
+        "ca55aa45-40ff-401f-adb1-6e5fc5abe71d": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Shoptrack-2021-Logo.png",
+            "news_desc": "Trapo Oxtra Air Purifier Kereta dengan 3 Lapisan Penapis Berkualiti",
+            "news_link": "https:\/\/www.shoptrack.my\/info\/review-trapo-oxtra-air-purifier-kereta\/"
+          }
+        }
+      },
+      "block_order": [
+        "dcb47c53-1ab9-43cd-9178-de65e23ba5c2",
+        "f8e6dcd5-7136-47f3-9ada-4ba14496cbff",
+        "013ba4ea-7ec5-46b3-a7bc-e03eab5b12f6",
+        "d6cff11a-e2fc-481e-99c9-0d14df1fe12c",
+        "471d5aee-2000-4a82-9392-2cc9879b82fd",
+        "6f625f67-e0a7-4bbc-815e-d185e4536180",
+        "010ccd06-5d85-4901-b01b-46bf2c9aa455",
+        "63b569cb-1790-41df-9273-55be0cfa9a0b",
+        "5f11cea2-b60b-41fb-b91e-51ac390ee636",
+        "b8a38632-5fa3-438c-84e0-94ed4a6e0dc1",
+        "5f468b31-fd64-4048-85d6-4e033ff7c5a8",
+        "c8c828e5-4e50-49ed-b096-567b447dc8e6",
+        "27eb78d5-fbbc-4f8e-bfe0-69de92457382",
+        "25994cc5-6f87-4e1d-9db2-0a349d6172be",
+        "3643f61f-34ab-4884-b14a-888960a85712",
+        "39941cb3-2d23-4635-9a3f-5c714c820b71",
+        "ca55aa45-40ff-401f-adb1-6e5fc5abe71d"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

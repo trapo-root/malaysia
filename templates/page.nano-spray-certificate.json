@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-template",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "1644920764ffbacb49": {
+      "type": "nano-spray-certifiate",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1644920764ffbacb49"
+  ]
+}

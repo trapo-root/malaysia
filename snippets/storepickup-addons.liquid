@@ -1,0 +1,21 @@
+<script type="text/javascript">
+$(document).ready(function() {
+    window.ZapietEvent.listen("rates.checkout_update_request", function(checkout_method) {    
+		$("#checkout").attr("disabled", "disabled");
+    });
+  
+    window.ZapietEvent.listen("rates.checkout_update_success", function(checkout_method) {    
+		$("#checkout").removeAttr("disabled");
+    });
+});
+  </script>
+  
+  {% assign language = cart.attributes["language"] %}
+{% if language == nil %}
+  {% assign language = shop.metafields["languages"]["default"] %}
+{% endif %}
+{% assign langify_locale = shop.metafields.language_codes[language] %}
+{% if langify_locale %}
+  {% capture language_code %}{{langify_locale}}{% endcapture %}
+{% endif %}
+  

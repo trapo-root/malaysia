@@ -1,0 +1,84 @@
+<section class="section">
+  <div class="container announcement-banner center">
+    <div class="one-whole column">
+      {% if product.type == 'TRAPO CLASSIC REAR'
+        or product.type == 'TRAPO HEX REAR'
+        or product.type == 'TRAPO ECO REAR'
+      %}
+        <a href="/pages/complete-your-set">
+          <img
+            class="lazyload header-announcement-banner"
+            data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/minibanner_desktop.jpg?v=1714383722"
+            alt="Loyalty Program"
+            width="100%"
+            loading="lazy"
+          >
+        </a>
+        <a href="/pages/complete-your-set">
+          <img
+            class="lazyload header-announcement-banner-m"
+            data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/minibanner_mobile.jpg?v=1714383736g"
+            alt="Loyalty Program"
+            width="100%"
+            loading="lazy"
+          >
+        </a>
+      {% else %}
+        <a href="/pages/loyalty-program">
+          <img
+            class="lazyload header-announcement-banner"
+            data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/lALPGR5prxLMEt7MtM0HlA_1940_180.png"
+            alt="Loyalty Program"
+            width="100%"
+            loading="lazy"
+          >
+        </a>
+        <a href="/pages/loyalty-program">
+          <img
+            class="lazyload header-announcement-banner-m"
+            data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/lALPGR5prxLMEt7MtM0HlA_1940_180.png"
+            alt="Loyalty Program"
+            width="100%"
+            loading="lazy"
+          >
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .announcement-banner {
+  	padding: 20px 0;
+  }
+
+  .header-announcement-banner {
+  	display: block;
+  }
+
+  .header-announcement-banner-m {
+  	display: none;
+  }
+
+  @media(max-width: 768px) {
+  	div.container {
+  		padding: 0px 0px;
+  	}
+
+  	.header-announcement-banner {
+  		display: none;
+  	}
+
+  	.header-announcement-banner-m {
+  		display: block;
+  		margin-top: 2.5rem;
+  	}
+  }
+
+  @media(max-width: 500px) {
+  	.header-announcement-banner-m {
+  		display: block;
+  		margin-top: 0rem;
+  	}
+  }
+</style>

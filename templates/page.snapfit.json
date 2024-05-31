@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-template",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "164380237534ac685451": {
+      "type": "snapfit-template",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "164380237534ac685451"
+  ]
+}

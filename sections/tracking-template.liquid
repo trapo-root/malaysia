@@ -1,0 +1,87 @@
+<head>
+		<script>
+			window.location.replace("/apps/order-tracking/");
+		</script>
+</head>
+<div style="text-align: center;">
+<h1>
+  Track Your Order
+</h1>
+<img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/track-your-order.webp?v=1679294993" width="200px" height="auto" class="lazy"><br>
+<p style="font-size: 1.3rem; margin: 10px auto;text-align: center;">Enter your tracking number</p>
+<input type="text" id="TrackNo" maxlength="50" style="width:300px; margin: 10px auto;text-align: center;" placeholder="For eg: 7065461069104394 or MY18695940964">
+<input type="button" value="TRACK" onclick="inputTrack()">
+</div>
+<script src="//www.tracking.my/track-button.js"></script>
+<script>
+  function inputTrack() {
+    var num = document.getElementById("TrackNo").value;
+    if(num===""){
+      alert("Please enter tracking number");
+      return;
+    }
+    TrackButton.track({
+      tracking_no: num
+    });
+  }
+</script>
+
+
+
+{% comment %} <script>
+ /* const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://api-eu.dhl.com/track/shipments?trackingNumber=MY37100502438",
+	"method": "GET",
+	"headers": {
+		"DHL-API-Key": "bLjTJ4NdvEux8c8HayDKgI3SEW5SVJmB"
+	}
+};
+
+$.ajax(settings).done(function (response) {
+	console.log(response);
+});*/
+
+  const dataShip = {
+    "trackItemRequest": {
+        "hdr": {
+            "messageType": "TRACKITEM",
+            "accessToken": "42dc74912bd24bde9f1e689b83120672",
+            "messageDateTime": "2023-02-08T17:14:30+08:00",
+            "messageVersion": "1.0",
+            "messageLanguage": "en"
+        },
+        "bd": {
+            "customerAccountId": null,
+            "soldToAccountId": "5256969149",
+            "pickupAccountId": "5256969149",
+			"ePODRequired": "Y",
+            "trackingReferenceNumber": [
+                "MYBJJTMR-O231933-A"
+            ]
+        }
+    }
+};
+
+  $(document).ready(function(){
+  jQuery.ajax({
+          url: "https://api.dhlecommerce.dhl.com/rest/v3/Tracking/",
+          type: "POST",
+          data: dataShip,
+      	  cors: true,
+          crossDomain: true,
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type':'application/json'
+          },
+          dataType: "json",
+          success: function(result) {
+     	     console.log(result);
+          },
+          error: function (error) {
+            console.log(error);
+        }
+});   
+     });
+</script> {% endcomment %}

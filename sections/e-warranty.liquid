@@ -1,0 +1,70 @@
+{% if handle contains 'warranty-claim-mrdiy' %}
+<div class="container mrdiy">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 leadership-p">
+    <div class="col-md-4">
+      <a href="/pages/complete-your-set"><img
+          src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/diy_update.jpg?v=1695372974"
+          alt="Complete your TRAPO Eco mat set today!" class="img-size lazyloaded" loading="lazy" width="100%"
+          height="auto"> </a>
+    </div>
+    <div class="col-md-4">
+      <a href="/pages/loyalty-program"> <img
+          src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/eco3.jpg?v=1693983969"
+          alt="Get EXTENDED 2-MONTH WARRANTY on your mats with Loyalty Program!" class="img-size lazyloaded"
+          loading="lazy" width="100%" height="auto"> </a>
+    </div>
+    <div class="col-md-4">
+      <a href="/pages/location"> <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/eco4.jpg?v=1693983973"
+          alt="Get your car mats installed for FREE!" class="img-size lazyloaded" loading="lazy" width="100%"
+          height="auto"></a>
+    </div>
+  </div>
+  <script
+  src="//latest.trapo.asia/resources/sharing/embed.js?sharing=lp-embed&domain=latest.trapo.asia&id=5FL1-9P9%2Fe-warranty%22"></script>
+</div>
+
+{% endif %}
+{% if handle == 'warranty-claim' %}
+<div class="container">
+  <img class="b-desk" src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/e-warranty-banner.webp" loading="lazy"
+    width="100%" height="auto">
+  <img class="b-mob" src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/e-warranty-banner-mobile.webp"
+    loading="lazy" width="100%" height="auto">
+  <script
+  src="//latest.trapo.asia/resources/sharing/embed.js?sharing=lp-embed&domain=latest.trapo.asia&id=5FL1-9P9%2Fe-warranty%22"></script>
+</div>
+
+{% endif %}
+
+{% schema %}
+{
+"name": "E-Warranty"
+}
+{% endschema %}
+<style>
+  .b-desk {
+    display: block;
+  }
+
+  .b-mob {
+    display: none;
+  }
+
+  .container.mrdiy {
+    padding: 0 12rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .b-desk {
+      display: none;
+    }
+
+    .b-mob {
+      display: block;
+    }
+
+    .container.mrdiy {
+      padding: 0 0;
+    }
+  }
+</style>

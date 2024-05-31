@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "caracc-custom-template",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

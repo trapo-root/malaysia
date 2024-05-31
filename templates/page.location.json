@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-location-template",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

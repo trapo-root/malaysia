@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "ppf-template",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

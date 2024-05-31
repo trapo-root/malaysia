@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-template",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "1642510152bc4d68e8": {
+      "type": "custom-html",
+      "disabled": true,
+      "settings": {
+        "custom_html": "",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "1643350408845468e0": {
+      "type": "about-us",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1642510152bc4d68e8",
+    "1643350408845468e0"
+  ]
+}
