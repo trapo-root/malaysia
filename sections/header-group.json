@@ -5,7 +5,7 @@
     "header": {
       "type": "header",
       "settings": {
-        "promo_text": "",
+        "promo_text": "<p>Hi<\/p>",
         "social_icons_header": true,
         "phone_number": "",
         "top_bar_menu": "",
