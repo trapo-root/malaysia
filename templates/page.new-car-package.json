@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "page-template",
+      "type": "car-package-template",
       "settings": {
       }
     }
