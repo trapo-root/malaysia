@@ -12,10 +12,9 @@
   <div class="dashcam-1">
     <img
       class="head-image lazyload"
-      src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/dashcam-1.jpg"
+      src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/FOR_EXPORT_-_dashcam_header.png?v=1717677508"
       alt=""
-      height=""
-      width="500px"
+      style="width:100%;"
     >
   </div>
   <div class="dashcam-features" style="padding: 2rem 0 1rem">
@@ -38,11 +37,11 @@
     >
     <span class="over-1k">Over 1,000 5-star reviews!</span><br>
     <div class="shop-now py-3">
-          <button type="button" class="wiper-btn">SHOP NOW</button>
+      <button type="button" class="wiper-btn">SHOP NOW</button>
     </div>
   </div>
 
-  {% render 'wiper-testimonials-video' %}
+  {% render 'dashcam-testimonials-video' %}
   {% render 'featured-brands' %}
 
   <div class="upgrade py-5">
@@ -62,7 +61,7 @@
 
   {% render 'dashcam-filter' %}
 </div>
-{% render 'text-testimonial-slider' %}
+{% render 'dashcam-testimonial-slider' %}
 <style>
   html {
     overflow-x: hidden;
@@ -207,6 +206,9 @@
       appearance: none;
       width: 337px;
       height: 60px;
+  }
+  .upgrade img{
+    width:100%;
   }
 </style>
 
