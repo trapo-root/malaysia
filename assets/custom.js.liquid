@@ -435,8 +435,9 @@ $(document).ready(function(){
       }
   });
   $(document).on("click", ".scroll-btm-btn", function() {
-    $(document).scrollTop($(document).
-                height());
+    $('html, body').animate({
+        scrollTop: $("#r-form").offset().top
+    }, 2000);
   });
 });
 
