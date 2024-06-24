@@ -550,7 +550,7 @@ $(document).ready(function(){
         console.log(selModel);
         console.log(selYear);
         var rearProductHandle = selBrand + '-' + selModel + '-' + selYear + '-trapo-classic';
-        rearProductHandle = rearProductHandle.replace(/ /g, "-");  
+        rearProductHandle = rearProductHandle.replace(/[\. ,:-]+/g, "-");  
         console.log(rearProductHandle);
           jQuery.getJSON(window.Shopify.routes.root + 'products/' + rearProductHandle.replace(/\s+/g, "-") + '.js', function(product) {
 			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
