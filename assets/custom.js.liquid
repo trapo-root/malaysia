@@ -3,7 +3,7 @@
  $(document).ready(function(){
 		var currentProductHandle  = $(".product_form").attr("data-product-handle");
 		//var lastItem = currentProductHandle.split("-").pop();
-		console.log(currentProductHandle);
+		//console.log(currentProductHandle);
 		var xtremeHandle = "xtreme-3d-car-mat";
 		var ultimateHandle = "hex-ultimate";
 		if(currentProductHandle.indexOf(xtremeHandle) != -1){
@@ -13,7 +13,7 @@
 		}else{
 		  var lastItem = currentProductHandle.split("-").pop();
 		}
-		console.log(lastItem);
+		//console.log(lastItem);
 
        var selectProductClassic = currentProductHandle.replaceAll(lastItem, "classic" );
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductClassic + '.js', function(product) {
@@ -33,7 +33,7 @@
 
    var selectProductHex = currentProductHandle.replaceAll(lastItem, "hex" );
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductHex + '.js', function(product) {
-			console.log(product);
+			//console.log(product);
            $('#hex-type').css('visibility','visible');
 		  }).fail(function() {
 		   $('#hex-type').hide();
@@ -42,7 +42,7 @@
    
 		 var selectProductXtreme = currentProductHandle.replaceAll(lastItem, "xtreme-3d-car-mat" );
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductXtreme + '.js', function(product) {
-			console.log(product);
+			//console.log(product);
            $('#xtreme-type').css('visibility','visible');
 		  }).fail(function() {
 		   $('#xtreme-type').hide();
@@ -50,7 +50,7 @@
 	 
 		 var selectProductUltimate = currentProductHandle.replaceAll(lastItem, "hex-ultimate" );
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductUltimate + '.js', function(product) {
-			console.log(product);
+			//console.log(product);
            $('#ultimatehex-type').css('visibility','visible');
 		  }).fail(function() {
 		   $('#ultimatehex-type').hide();
@@ -141,7 +141,7 @@ var $product_img_cell = $(".variant_imgs_cell"),
 	}else{
       var lastItem = currentProductHandle.split("-").pop();
     }
-    console.log(lastItem);
+    //console.log(lastItem);
     
     if(typeValue == 'Classic'){
       var selectProductType = currentProductHandle.replaceAll(lastItem, "classic");
@@ -191,7 +191,7 @@ var $product_img_cell = $(".variant_imgs_cell"),
   }),
   (imageUpdaterNew = (tr) => {
         var t = getSelectedVariantValue();
-    console.log(t);
+    //console.log(t);
         a = 0;
 		var radioValue = 'Automatic';
         var altArray = t.split('-');
@@ -258,10 +258,10 @@ $(document).ready(function(){
 		
 		if ($(".modal_price").data('display-campaign')) {
 		    var timeonload = setInterval(function() {
-				console.log("onload function calling .....");
+				//console.log("onload function calling .....");
 				var salePer = $(".modal_price").data('campaign-discount');
 				var currentPrice = $('.price .money').text().replace("RM","").replace(",","");
-				console.log(currentPrice);
+				//console.log(currentPrice);
 				clearInterval(timeonload);
 				var percentage = currentPrice * salePer / 100;
 				var percentage = percentage.toFixed(3);
@@ -273,7 +273,7 @@ $(document).ready(function(){
 				$(".footer-p-price").find(".was-price").html($('.price .money').text());
 				$(".modal_price").find(".price .money").html(final);
 				$(".footer-p-price").find(".money").html(final);
-				console.log(final);
+				//console.log(final);
 			}, 1000);
 		}
 	}
@@ -285,7 +285,7 @@ $(document).ready(function(){
 				//onload();
 					var salePer = $(".modal_price").data('campaign-discount');
 					var currentPrice = $('.price .money').text().replace("RM","").replace(",","");
-					console.log(currentPrice);
+					//console.log(currentPrice);
 					var percentage = currentPrice * salePer / 100;
 					var percentage = percentage.toFixed(3);
 					var final = currentPrice - percentage;
@@ -295,7 +295,7 @@ $(document).ready(function(){
 					$(".footer-p-price").find(".was-price").html($('.price .money').text());
 					$(".modal_price").find(".price .money").html(final);
 					$(".footer-p-price").find(".money").html(final);
-					console.log(final);
+					//console.log(final);
 			}, 200);
 		});
 	}
@@ -332,9 +332,9 @@ $(document).ready(function(){
       }
 
       if(selBrand != '' || selYear != '' || selModel != '' ){
-        console.log(selBrand);
-        console.log(selModel);
-        console.log(selYear);
+        //console.log(selBrand);
+        //console.log(selModel);
+        //console.log(selYear);
         var rearProductHandle = selBrand + '-' + selModel + '-' + selYear + '-rear-trapo-classic';
         
         rearProductHandle = rearProductHandle.replace(/[\. ,:-]+/g, "-");
@@ -410,7 +410,7 @@ $(document).ready(function(){
       if(selDashModel != '' ){
       
         var dashProductHandle = selDashModel ;
-        console.log(dashProductHandle);
+        //console.log(dashProductHandle);
         if(dashProductHandle == 'trapo-i-sight-t350-dashcam'){
           var variantId = 40156459302989;
         }
@@ -460,16 +460,16 @@ $(document).ready(function(){
       }
 
       if(selWiperBrand != '' || selWiperYear != '' || selWiperModel != '' ){
-        console.log(selWiperBrand);
-        console.log(selWiperModel);
-        console.log(selWiperYear);
+        //console.log(selWiperBrand);
+        //console.log(selWiperModel);
+        //console.log(selWiperYear);
         var wiperProductHandle = selWiperBrand + '-' + selWiperModel + '-' + selWiperYear + '-hydrophobic-wiper-blade';
         //console.log(wiperProductHandle);
         wiperProductHandle = wiperProductHandle.replace(/[\. ,:-]+/g, "-");
         
           jQuery.getJSON(window.Shopify.routes.root + 'products/' + wiperProductHandle.replace(/\s+/g, "-") + '.js', function(product) {
             //console.log(product);
-			console.log(product.variants[0].id);
+			//console.log(product.variants[0].id);
             var params = {
                   type: 'POST',
                   url: '/cart/add.js',
@@ -548,15 +548,15 @@ $(document).ready(function(){
       }
 
       if(selBrand != '' || selYear != '' || selModel != '' ){
-        console.log(selBrand);
-        console.log(selModel);
-        console.log(selYear);
+        //console.log(selBrand);
+        //console.log(selModel);
+        //console.log(selYear);
         var rearProductHandle = selBrand + '-' + selModel + '-' + selYear + '-trapo-classic';
         rearProductHandle = rearProductHandle.replace(/[\. ,:-]+/g, "-");  
-        console.log(rearProductHandle);
+        //console.log(rearProductHandle);
           jQuery.getJSON(window.Shopify.routes.root + 'products/' + rearProductHandle.replace(/\s+/g, "-") + '.js', function(product) {
 			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
-            console.log(product.tags);
+            //console.log(product.tags);
             $.each(product.tags, function(index, value) {
               //console.log(value);
               var str2 = "size";
