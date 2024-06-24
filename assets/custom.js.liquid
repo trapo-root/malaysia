@@ -556,9 +556,10 @@ $(document).ready(function(){
 			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
             console.log(product.tags);
             $.each(product.tags, function(index, value) {
-              console.log(value);
+              //console.log(value);
               var str2 = "size";
               if(value.indexOf(str2) != -1){
+                console.log(value);
                   var carSize = value.replace('size:','');
                   console.log(carSize);
               }
