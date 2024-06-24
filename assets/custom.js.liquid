@@ -554,7 +554,11 @@ $(document).ready(function(){
         
           jQuery.getJSON(window.Shopify.routes.root + 'products/' + rearProductHandle.replace(/\s+/g, "-") + '.js', function(product) {
 			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
-            console.log(product);
+            console.log(product.tags);
+            $.each(product.tags, function(index, value) {
+              console.log(value);
+              
+            });
 		  }).fail(function() {
 		   alert('Product not found!!')
 		  });
