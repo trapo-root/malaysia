@@ -178,6 +178,7 @@
     "vimeo_link": "",
     "whatsapp_link": "",
     "youtube_link": "",
+    "favicon": "shopify:\/\/shop_images\/trapo-favicon.png",
     "disqus_enabled": false,
     "disqus_shortname": "",
     "enable_shopify_review_comments": false,
