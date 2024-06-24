@@ -336,7 +336,8 @@ $(document).ready(function(){
         console.log(selModel);
         console.log(selYear);
         var rearProductHandle = selBrand + '-' + selModel + '-' + selYear + '-rear-trapo-classic';
-        console.log(rearProductHandle);
+        
+        rearProductHandle = rearProductHandle.replace(/[\. ,:-]+/g, "-");
         
           jQuery.getJSON(window.Shopify.routes.root + 'products/' + rearProductHandle.replace(/\s+/g, "-") + '.js', function(product) {
 			window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
@@ -464,6 +465,7 @@ $(document).ready(function(){
         console.log(selWiperYear);
         var wiperProductHandle = selWiperBrand + '-' + selWiperModel + '-' + selWiperYear + '-hydrophobic-wiper-blade';
         //console.log(wiperProductHandle);
+        wiperProductHandle = wiperProductHandle.replace(/[\. ,:-]+/g, "-");
         
           jQuery.getJSON(window.Shopify.routes.root + 'products/' + wiperProductHandle.replace(/\s+/g, "-") + '.js', function(product) {
             //console.log(product);
