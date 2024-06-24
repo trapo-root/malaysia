@@ -557,6 +557,11 @@ $(document).ready(function(){
             console.log(product.tags);
             $.each(product.tags, function(index, value) {
               console.log(value);
+              var str2 = "size";
+              if(value.indexOf(str2) != -1){
+                  var carSize = value.replace('size:','');
+                  console.log(carSize);
+              }
               
             });
 		  }).fail(function() {
