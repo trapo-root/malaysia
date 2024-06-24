@@ -532,6 +532,92 @@ $('#w-model').on('change', function() {
 /** End Wiper Filter Functionality **/
 
 
+/** Start Car Size Functionality **/
+$(document).ready(function(){
+  $(document).on("click", ".size-btn", function() {
+      var selBrand = $("#s-brand option:selected").val();
+      var selModel = $("#s-model option:selected").val();
+      var selYear = $("#s-year option:selected").val();
+
+      if (selBrand == "" || selModel == "" || selYear == "") {
+          //If the "Please Select" option is selected display error.
+          alert("Please select an option!");
+          return false;
+      }
+
+      if(selBrand != '' || selYear != '' || selModel != '' ){
+        console.log(selBrand);
+        console.log(selModel);
+        console.log(selYear);
+        var rearProductHandle = selBrand + '-' + selModel + '-' + selYear + '-trapo-classic';
+        console.log(rearProductHandle);
+        
+          jQuery.getJSON(window.Shopify.routes.root + 'products/' + rearProductHandle.replace(/\s+/g, "-") + '.js', function(product) {
+			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
+            console.log(product);
+		  }).fail(function() {
+		   alert('Product not found!!')
+		  });
+      }
+  });
+});
+
+
+$('#s-brand').on('change', function() {
+  $('#s-model').prop('selectedIndex',0);
+  $('#s-year').prop('selectedIndex',0);
+  $("#s-year option").not(':first').hide();
+  $("#s-model span").contents().unwrap();
+  $("#s-year option").not(':first').addClass('dn');
+  var selBrand = this.value;
+  $('#s-model option').each(function(i) {
+    if(i > 0){
+      var optionBrand = $(this).data("brand");
+      if(optionBrand == selBrand){
+        $(this).show();
+        $(this).removeClass('dn');
+      }else{
+        $(this).hide();
+        $(this).addClass('dn');
+      }
+    }
+  });
+  $('.dn').wrap('<span>');
+});
+
+$('#s-model').on('change', function() {
+  $('#s-year').prop('selectedIndex',0);
+  var selModel = this.value;
+  var selBrand = $('#s-brand').find(":selected").val();
+  $("#s-year span").contents().unwrap();
+  $('#s-year option').each(function(i) {
+    if(i > 0){
+      var optionBrand = $(this).data("brand");
+      var optionModel = $(this).data("model");
+      if(optionBrand == selBrand && optionModel == selModel ){
+        $(this).show();
+        $(this).removeClass('dn');
+      }else{
+        $(this).hide();
+        $(this).addClass('dn');
+      }
+    }
+  });
+  $('.dn').wrap('<span>');
+});
+
+$("#s-brand option").each(function() {
+  $(this).siblings('[value="'+ this.value +'"]').remove();
+});
+$("#s-model option").each(function() {
+  $(this).siblings('[value="'+ this.value +'"]').remove();
+});
+$("#s-year option").each(function() {
+  $(this).siblings('[value="'+ this.value +'"]').remove();
+});
+
+/** End Car Size Functionality **/
+
 
 
 
