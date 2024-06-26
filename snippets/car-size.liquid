@@ -72,24 +72,26 @@
             {% if collection.title == 'Trapo Classic' %}
               {% paginate collection.products by 600 %}
                 {%- for product in collection.products -%}
-                  {% for tag in product.tags %}
-                    {% if tag contains 'brand:' %}
-                      {% assign brandName = tag | remove: 'brand:' %}
-                    {% endif %}
-                    {% if tag contains 'model:' %}
-                      {% assign modelName = tag | remove: 'model:' %}
-                    {% endif %}
-                    {% if tag contains 'year:' %}
-                      <option
-                        value="{{ tag | remove:'year:' }}"
-                        data-brand="{{ brandName }}"
-                        data-model="{{ modelName }}"
-                        style="display:none"
-                      >
-                        {{ tag | remove: 'year:' }}
-                      </option>
-                    {% endif %}
-                  {%- endfor -%}
+                  {% if product.type == 'TRAPO CLASSIC' %}
+                    {% for tag in product.tags %}
+                      {% if tag contains 'brand:' %}
+                        {% assign brandName = tag | remove: 'brand:' %}
+                      {% endif %}
+                      {% if tag contains 'model:' %}
+                        {% assign modelName = tag | remove: 'model:' %}
+                      {% endif %}
+                      {% if tag contains 'year:' %}
+                        <option
+                          value="{{ tag | remove:'year:' }}"
+                          data-brand="{{ brandName }}"
+                          data-model="{{ modelName }}"
+                          style="display:none"
+                        >
+                          {{ tag | remove: 'year:' }}
+                        </option>
+                      {% endif %}
+                    {%- endfor -%}
+                  {% endif %}
                 {%- endfor -%}
               {% endpaginate %}
             {% endif %}
