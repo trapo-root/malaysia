@@ -10,10 +10,12 @@
     <meta name="google-site-verification" content="jfGeUZ5noAfuVRah3IJBOuzyCh5zXnLrZ5o7AYU8O_4" />
     <meta charset="utf-8">
     <meta http-equiv="cleartype" content="on">
-    <meta name="robots" content="index,follow">
+    
 
     {% if handle contains '/pages/car-mats-v2' or handle contains '/pages/car-dashcams' or handle contains '/pages/car-hydrophobic-wiper' %}
       <meta name="robots" content="noindex">
+    {% else %}
+      <meta name="robots" content="index,follow">
     {% endif %}
 
 
