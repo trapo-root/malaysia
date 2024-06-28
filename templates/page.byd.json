@@ -101,6 +101,16 @@
         "image_r7e6Nf": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/4-trapo-dashcam.png",
+            "link": "",
+            "title": "Trapo Dashcam T550",
+            "text": "<p>Worth <strong>RM689<\/strong><\/p>",
+            "button_label": ""
+          }
+        },
+        "image_K3LXgC": {
+          "type": "image",
+          "settings": {
             "link": "",
             "title": "Feature",
             "text": "<p>Promotion description details.<\/p>",
@@ -120,6 +130,7 @@
       "block_order": [
         "image_nQiMEH",
         "image_r7e6Nf",
+        "image_K3LXgC",
         "image_bQY8jN"
       ],
       "settings": {
