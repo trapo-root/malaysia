@@ -47,6 +47,44 @@
         "custom_css": ""
       }
     },
+    "featured_promotions_fhqMdC": {
+      "type": "featured-promotions",
+      "blocks": {
+        "image_qFGiMH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1-full-front-ppf.png",
+            "link": "",
+            "title": "Full Front PPF Film",
+            "text": "<p>Worth <strong>RM3,200<\/strong><\/p>",
+            "button_label": ""
+          }
+        },
+        "image_r7zMVt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2-demand-car-detailing.png",
+            "link": "",
+            "title": "Diamond Car Coating",
+            "text": "<p>Worth <strong>RM3,600<\/strong><\/p>",
+            "button_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_qFGiMH",
+        "image_r7zMVt"
+      ],
+      "settings": {
+        "wide_display": true,
+        "promo_text_on_image_enabled": false,
+        "featured_promos_per_row": 2,
+        "featured_links_animation": "fadeInDown",
+        "feature_style": "rounded",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
     "main": {
       "type": "byd-page-template",
       "settings": {
@@ -55,6 +93,7 @@
   },
   "order": [
     "slideshow_Qa8WUY",
+    "featured_promotions_fhqMdC",
     "main"
   ]
 }
