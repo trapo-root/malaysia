@@ -625,6 +625,10 @@ $("#s-model option").each(function() {
   $(this).siblings('[value="'+ this.value +'"]').remove();
 });
 
+$(".search-submit").click(function() {
+        $(".search_form").submit();
+    });
+
 
 /** End Car Size Functionality **/
 
