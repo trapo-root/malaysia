@@ -11,14 +11,7 @@
               {% assign modelName = tag | remove: 'model:' %}
             {% endif %}
             {% if tag contains 'year:' %}
-              <option
-                value="{{ tag | remove:'year:' }}"
-                data-brand="{{ brandName }}"
-                data-model="{{ modelName }}"
-                style="display:none"
-              >
-                {{ tag | remove: 'year:' }}
-              </option>
+              {{ brandName }}-{{ modelName }}-{{ tag | remove: 'year:' }}
             {% endif %}
           {%- endfor -%}
         {% endif %}
