@@ -118,6 +118,13 @@
           <h1 class="page-title">{{ collection.title }}</h1>
         </div>
       {% endif %}
+      {% if collection.description != blank %}
+        <div class="one-whole column">
+          <div class="collection_description rte">
+            {{ collection.description }}
+          </div>
+        </div>
+      {% endif %}
 
       {% if collection.handle == 'car-mats'
         or collection.handle == 'car-wipers'
