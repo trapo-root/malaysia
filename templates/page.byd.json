@@ -111,9 +111,10 @@
         "image_K3LXgC": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/5-car-mats.png",
             "link": "",
-            "title": "Feature",
-            "text": "<p>Promotion description details.<\/p>",
+            "title": "Classic Mark IV Car Mats",
+            "text": "<p>Worth <strong>RM349.90<\/strong><\/p>",
             "button_label": ""
           }
         },
