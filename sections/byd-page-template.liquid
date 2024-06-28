@@ -16,9 +16,7 @@
 
 <section class="price-break">
   <div class="container">
-    <div class="split-title">
-      <h3>PRIZE BREAKDOWN</h3>
-    </div>
+    <h3 class="split-title"><span>PRIZE BREAKDOWN</span></h3>
     <img
       class="lazyload img-desktop"
       data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/byd-dolphin-desktop.png?v=1719561232"
@@ -33,75 +31,87 @@
 </section>
 
 <style>
-      .breadcrumb-container-page{
-        display:none;
+        .breadcrumb-container-page{
+          display:none;
+        }
+
+      .giveway-content{
+        background-color:#1b3d6d;
+        padding: 30px 0;
       }
+      .giveway-content .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+        .giveway-content h3 {
+          font-size: 40px;
+      line-height: 50px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 auto;
+      margin-bottom: 25px;
+      text-align: center;
+      }
+    .giveway-content p{
+          font-size: 16px;
+      color: #fff;
+      text-align: center;
+      line-height: 24px;
+      letter-spacing: 0.36px;
+    }
+    .giveway-content p.byd-price{
+      color: #E82276;
+      font-weight: 700;
+      font-size: 54px;
+      margin: 25px 0;
+      font-style: italic;
+      line-height: 60px;
+      letter-spacing: 0.44px;
+    }
+    .giveway-content a.entry-btn{
+      display: block;
+      max-width: fit-content;
+      font-size: 14px;
+      margin: 0 auto;
+      width: 100%;
+      background-color: #e82276;
+      padding: 14px 25px;
+      border-radius: 50px;
+      color: #fff;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .price-break{
+        background-color:#1b3d6d;
+        padding: 30px 0;
+      }
+    .price-break .container{
 
-    .giveway-content{
-      background-color:#1b3d6d;
-      padding: 30px 0;
     }
-    .giveway-content .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    .price-break h3.split-title {
+     width: 100%;
+     text-align: center;
+     border-bottom: 1px solid #000;
+     line-height: 0.1em;
+     margin: 10px 0 20px;
   }
-      .giveway-content h3 {
-        font-size: 40px;
-    line-height: 50px;
-    letter-spacing: 2px;
-    font-weight: 700;
-    color: #fff;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    text-align: center;
-    }
-  .giveway-content p{
-        font-size: 16px;
-    color: #fff;
-    text-align: center;
-    line-height: 24px;
-    letter-spacing: 0.36px;
-  }
-  .giveway-content p.byd-price{
-    color: #E82276;
-    font-weight: 700;
-    font-size: 54px;
-    margin: 25px 0;
-    font-style: italic;
-    line-height: 60px;
-    letter-spacing: 0.44px;
-  }
-  .giveway-content a.entry-btn{
-    display: block;
-    max-width: fit-content;
-    font-size: 14px;
-    margin: 0 auto;
-    width: 100%;
-    background-color: #e82276;
-    padding: 14px 25px;
-    border-radius: 50px;
-    color: #fff;
-    text-align: center;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-  }
-  .price-break{
-      background-color:#1b3d6d;
-      padding: 30px 0;
-    }
-  .price-break .container{
 
+  .price-break h3.split-title span {
+      background:#fff;
+      padding:0 10px;
   }
-  @media (min-width:768px) {
-    .img-mobile{
-      display: none;
+    @media (min-width:768px) {
+      .img-mobile{
+        display: none;
+      }
     }
-  }
-   @media (max-width:767px) {
-    .img-desktop{
-      display: none;
-    }
-   }
+     @media (max-width:767px) {
+      .img-desktop{
+        display: none;
+      }
+     }
 </style>
