@@ -4,10 +4,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  text-transform: capitalize;
+  text-transform: uppercase;
   color: var(--filter-header-color);
-  color: #252525;
-  font-size: 14px;
+  color: #17406d;
+  font-size: 16px;
+  margin: 0px 15px;
+  font-weight: bold;
 }
 .sq-filter-dropdown [class*="sq-filter-title-"]:after {
   content: "";
