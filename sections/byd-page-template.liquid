@@ -218,183 +218,185 @@
   </div>
 </section>
 <style>
-            .breadcrumb-container-page{
-              display:none;
-            }
-      .marquee {
-        overflow: hidden;
-        position: relative;
-        height: 30px;
-    }
-      .marquee div {
-        display: block;
-        width: 200%;
-        position: absolute;
-        overflow: hidden;
-        animation: marquee 20s linear infinite;
-        display: flex;
-    }
-    .marquee div img{
-      height:30px;
-    }
-    @keyframes marquee {
-        0% { left: 0; }
-        100% { left: -100%; }
-    }
-
-          .giveway-content{
-            background-color:#1b3d6d;
-            padding: 30px 0;
-          }
-          .giveway-content .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-            .giveway-content h3 {
-              font-size: 40px;
-          line-height: 50px;
-          letter-spacing: 2px;
-          font-weight: 700;
-          color: #fff;
-          margin: 0 auto;
-          margin-bottom: 25px;
-          text-align: center;
-          }
-        .giveway-content p{
-              font-size: 16px;
-          color: #fff;
-          text-align: center;
-          line-height: 24px;
-          letter-spacing: 0.36px;
-        }
-        .giveway-content p.byd-price{
-          color: #E82276;
-          font-weight: 700;
-          font-size: 54px;
-          margin: 25px 0;
-          font-style: italic;
-          line-height: 60px;
-          letter-spacing: 0.44px;
-        }
-        .giveway-content a.entry-btn{
+              .breadcrumb-container-page{
+                display:none;
+              }
+        .marquee {
+          overflow: hidden;
+          position: relative;
+          height: 30px;
+      }
+        .marquee div {
           display: block;
-          max-width: fit-content;
-          font-size: 14px;
-          margin: 0 auto;
-          width: 100%;
-          background-color: #e82276;
-          padding: 14px 25px;
-          border-radius: 50px;
-          color: #fff;
+          width: 200%;
+          position: absolute;
+          overflow: hidden;
+          animation: marquee 20s linear infinite;
+          display: flex;
+      }
+      .marquee div img{
+        height:30px;
+      }
+      @keyframes marquee {
+          0% { left: 0; }
+          100% { left: -100%; }
+      }
+
+            .giveway-content{
+              background-color:#1b3d6d;
+              padding: 30px 0;
+            }
+            .giveway-content .container {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+          }
+              .giveway-content h3 {
+                font-size: 40px;
+            line-height: 50px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 auto;
+            margin-bottom: 25px;
+            text-align: center;
+            }
+          .giveway-content p{
+                font-size: 16px;
+            color: #fff;
+            text-align: center;
+            line-height: 24px;
+            letter-spacing: 0.36px;
+          }
+          .giveway-content p.byd-price{
+            color: #E82276;
+            font-weight: 700;
+            font-size: 54px;
+            margin: 25px 0;
+            font-style: italic;
+            line-height: 60px;
+            letter-spacing: 0.44px;
+          }
+          .giveway-content a.entry-btn{
+            display: block;
+            max-width: fit-content;
+            font-size: 14px;
+            margin: 0 auto;
+            width: 100%;
+            background-color: #e82276;
+            padding: 14px 25px;
+            border-radius: 50px;
+            color: #fff;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+          }
+          .price-break{
+              background-color:#1b3d6d;
+              padding: 30px 0;
+            }
+          .price-break .container{
+
+          }
+          h3.split-title {
+           width: 100%;
           text-align: center;
+          border-bottom: 2px solid #fff;
+          line-height: 0.1em;
+          margin: 10px 0 45px;
+          color: #fff;
+          font-size: 30px;
+          font-style: italic;
           font-weight: 700;
           letter-spacing: 0.5px;
+                text-transform: uppercase;
         }
-        .price-break{
-            background-color:#1b3d6d;
-            padding: 30px 0;
-          }
-        .price-break .container{
+
+        h3.split-title span {
+                padding: 0 25px;
+          background: #1b3d6d;
 
         }
-        h3.split-title {
-         width: 100%;
-        text-align: center;
-        border-bottom: 2px solid #fff;
-        line-height: 0.1em;
-        margin: 10px 0 45px;
-        color: #fff;
-        font-size: 30px;
-        font-style: italic;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-              text-transform: uppercase;
-      }
-
-      h3.split-title span {
-              padding: 0 25px;
-        background: #1b3d6d;
-
-      }
-      .price-break img.byd-car-img{
+        .price-break img.byd-car-img{
+          width:100%;
+        }
+    .sec-products{
+              background-color:#1b3d6d;
+              padding: 30px 0;
+            }
+    .sec-products .plus-products-1{
+      display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 40px;
+    }
+    .sec-products .plus-products-2{
+      display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .sec-products .plus-products-3{
+      display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+      .plus-products-1 img, .plus-products-2 img, .plus-products-3 img{
         width:100%;
       }
-  .sec-products{
-            background-color:#1b3d6d;
-            padding: 30px 0;
-          }
-  .sec-products .plus-products-1{
-    display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-top: 40px;
-  }
-  .sec-products .plus-products-2{
-    display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 15px;
-      margin-top: 20px;
-  }
-  .sec-products .plus-products-3{
-    display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 15px;
-      margin-top: 20px;
-  }
-    .plus-products-1 img, .plus-products-2 img, .plus-products-3 img{
-      width:100%;
+    .win-steps{
+      margin:50px 0;
     }
-  .win-steps{
-    margin:50px 0;
-  }
-  .win-steps h3.split-title{
-    color:#1B3D6D;
-    border-bottom: 2px solid #1B3D6D;
-  }
-  .win-steps h3.split-title span{
-    background:#fff;
-  }
-  .steps{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-  }
-  .steps .step-item{
-    background-color: #DEDEDE;
-    border-radius: 12px;
-    color: #fff;
-    padding: 15px;
-    text-align: center;
-  }
-  .steps .step-item img{
-    width: 120px;
-  }
-  .steps .step-item h6{
-       color: #D82477;
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    margin: 0;
-  }
-  .steps .step-item p{
+    .win-steps h3.split-title{
+      color:#1B3D6D;
+      border-bottom: 2px solid #1B3D6D;
+    }
+    .win-steps h3.split-title span{
+      background:#fff;
+    }
+    .steps{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+    .steps .step-item{
+      background-color: #DEDEDE;
+      border-radius: 12px;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+    .steps .step-item img{
+      width: 120px;
+    }
+    .steps .step-item h6{
+         color: #D82477;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      margin: 0;
+    }
+    .steps .step-item p{
+  font-size: 14px;
+      color: #16406D;
+    }
+    .steps .step-item p span{
+  font-size: 12px;
+      font-style: italic;
+    }
+     .steps .step-item p a{
 
-  }
-  .steps .step-item p span{
-
-  }
-   .steps .step-item p a{
-
-   }
-        @media (min-width:768px) {
-          .img-mobile{
-            display: none;
+     }
+          @media (min-width:768px) {
+            .img-mobile{
+              display: none;
+            }
           }
-        }
-         @media (max-width:767px) {
-          .img-desktop{
-            display: none;
-          }
-         }
+           @media (max-width:767px) {
+            .img-desktop{
+              display: none;
+            }
+           }
 </style>
