@@ -127,13 +127,34 @@
             "text": "<p>Worth <strong>RM299.90<\/strong><\/p>",
             "button_label": ""
           }
+        },
+        "image_z3nNcF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/7-wiper-blade.png",
+            "link": "",
+            "title": "Hydrophobic Wiper Blades",
+            "text": "<p>Worth <strong>RM139.90<\/strong><\/p>",
+            "button_label": ""
+          }
+        },
+        "image_3yU9gB": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "title": "Feature",
+            "text": "<p>Promotion description details.<\/p>",
+            "button_label": ""
+          }
         }
       },
       "block_order": [
         "image_nQiMEH",
         "image_r7e6Nf",
         "image_K3LXgC",
-        "image_bQY8jN"
+        "image_bQY8jN",
+        "image_z3nNcF",
+        "image_3yU9gB"
       ],
       "settings": {
         "wide_display": false,
