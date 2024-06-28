@@ -47,128 +47,6 @@
         "custom_css": ""
       }
     },
-    "featured_promotions_fhqMdC": {
-      "type": "featured-promotions",
-      "blocks": {
-        "image_qFGiMH": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/1-full-front-ppf.png",
-            "link": "",
-            "title": "Full Front PPF Film",
-            "text": "<p>Worth <strong>RM3,200<\/strong><\/p>",
-            "button_label": ""
-          }
-        },
-        "image_r7zMVt": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/2-demand-car-detailing.png",
-            "link": "",
-            "title": "Diamond Car Coating",
-            "text": "<p>Worth <strong>RM3,600<\/strong><\/p>",
-            "button_label": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_qFGiMH",
-        "image_r7zMVt"
-      ],
-      "disabled": true,
-      "settings": {
-        "wide_display": false,
-        "promo_text_on_image_enabled": true,
-        "featured_promos_per_row": 2,
-        "featured_links_animation": "",
-        "feature_style": "rounded",
-        "css_class": "",
-        "custom_css": ""
-      }
-    },
-    "featured_promotions_RJqywG": {
-      "type": "featured-promotions",
-      "blocks": {
-        "image_nQiMEH": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/3-chroma-tint-film.png",
-            "link": "",
-            "title": "Chroma Tint Film",
-            "text": "<p>Worth <strong>RM3,200<\/strong><\/p>",
-            "button_label": ""
-          }
-        },
-        "image_r7e6Nf": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/4-trapo-dashcam.png",
-            "link": "",
-            "title": "Trapo Dashcam T550",
-            "text": "<p>Worth <strong>RM689<\/strong><\/p>",
-            "button_label": ""
-          }
-        },
-        "image_K3LXgC": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/5-car-mats.png",
-            "link": "",
-            "title": "Classic Mark IV Car Mats",
-            "text": "<p>Worth <strong>RM349.90<\/strong><\/p>",
-            "button_label": ""
-          }
-        },
-        "image_bQY8jN": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/6-air-purifier.png",
-            "link": "",
-            "title": "Air Purifier Classic",
-            "text": "<p>Worth <strong>RM299.90<\/strong><\/p>",
-            "button_label": ""
-          }
-        },
-        "image_z3nNcF": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/7-wiper-blade.png",
-            "link": "",
-            "title": "Hydrophobic Wiper Blades",
-            "text": "<p>Worth <strong>RM139.90<\/strong><\/p>",
-            "button_label": ""
-          }
-        },
-        "image_3yU9gB": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/8-phone-holder.png",
-            "link": "",
-            "title": "Premium Foldable Phone Holder",
-            "text": "<p>Worth <strong>RM99<\/strong><\/p>",
-            "button_label": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_nQiMEH",
-        "image_r7e6Nf",
-        "image_K3LXgC",
-        "image_bQY8jN",
-        "image_z3nNcF",
-        "image_3yU9gB"
-      ],
-      "disabled": true,
-      "settings": {
-        "wide_display": false,
-        "promo_text_on_image_enabled": true,
-        "featured_promos_per_row": 4,
-        "featured_links_animation": "",
-        "feature_style": "rounded",
-        "css_class": "",
-        "custom_css": ""
-      }
-    },
     "main": {
       "type": "byd-page-template",
       "settings": {
@@ -177,8 +55,6 @@
   },
   "order": [
     "slideshow_Qa8WUY",
-    "featured_promotions_fhqMdC",
-    "featured_promotions_RJqywG",
     "main"
   ]
 }
