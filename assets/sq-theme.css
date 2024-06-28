@@ -125,6 +125,7 @@ span.sq-sort-icon {
   padding-left: 25px;
   position: relative;
   text-transform: capitalize;
+  color: #e12c7b;
 }
 .sq-filter-value.sq-single-select .sq-cb.sq-active:before {
   width: 8px;
