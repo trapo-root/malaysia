@@ -174,11 +174,12 @@
 <section class="win-steps">
   <div class="container">
     <h3 class="split-title"><span>Steps to Winning</span></h3>
-    <div class="why_trapo_row desc_view">
-      <div class="why_trapo_item">
+    <div class="steps">
+      <div class="step-item">
         <img
-          src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/no_inner_door_removal.svg?v=1707372129"
-          alt="No Inner Door Removal"
+          class="lazyload"
+          data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/no_inner_door_removal.svg?v=1707372129"
+          alt=""
           height="125px"
           width="125px"
         >
@@ -191,10 +192,11 @@
           This saves time and avoids damaging your car's interior components.
         </p>
       </div>
-      <div class="why_trapo_item">
+      <div class="step-item">
         <img
-          src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/use_power_windows_immediately.svg?v=1707372129"
-          alt="Use Power Windows Immediately"
+          class="lazyload"
+          data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/use_power_windows_immediately.svg?v=1707372129"
+          alt=""
           height="125px"
           width="125px"
         >
@@ -207,10 +209,11 @@
           strong adhesive properties of the tint guarantee a secure and long-lasting bond.
         </p>
       </div>
-      <div class="why_trapo_item">
+      <div class="step-item">
         <img
-          src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/1-1_replacement.svg?v=1707372044"
-          alt="1-to-1 Replacement"
+          class="lazyload"
+          data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/1-1_replacement.svg?v=1707372044"
+          alt=""
           height="125px"
           width="125px"
         >
@@ -364,6 +367,18 @@
   }
   .win-steps h3.split-title span{
     background:#fff;
+  }
+  .steps{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+  }
+  .steps .step-item{
+    background-color: #DEDEDE;
+    border-radius: 12px;
+    color: #fff;
+    padding: 0 20px 20px;
+    text-align: center;
   }
         @media (min-width:768px) {
           .img-mobile{
