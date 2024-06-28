@@ -121,6 +121,7 @@
         "image_bQY8jN": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/6-air-purifier.png",
             "link": "",
             "title": "Feature",
             "text": "<p>Promotion description details.<\/p>",
