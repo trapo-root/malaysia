@@ -61,10 +61,27 @@
         "pagination_limit": 48,
         "toggle": false
       }
+    },
+    "sparqAppBlock": {
+      "type": "apps",
+      "blocks": {
+        "sparqAppBlock": {
+          "type": "shopify:\/\/apps\/product-filter-search-app\/blocks\/sparq-app-block\/8fd7d3d6-d46d-4322-92f0-3e36acf0ae32",
+          "settings": {
+            "template": "{% render 'sparq-filter-and-search' %}"
+          }
+        }
+      },
+      "block_order": [
+        "sparqAppBlock"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "slideshow_LUGTUE",
-    "main"
+    "main",
+    "sparqAppBlock"
   ]
 }
