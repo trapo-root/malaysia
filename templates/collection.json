@@ -68,7 +68,9 @@
         "sparqAppBlock": {
           "type": "shopify:\/\/apps\/product-filter-search-app\/blocks\/sparq-app-block\/8fd7d3d6-d46d-4322-92f0-3e36acf0ae32",
           "settings": {
-            "template": "{% render 'sparq-filter-and-search' %}"
+            "template": "{% render 'sparq-filter-and-search' %}",
+            "theme_css": "{{ shop.metafields.sparq.css }}",
+            "theme_js": "{{ shop.metafields.sparq.javascript }}"
           }
         }
       },
@@ -77,11 +79,20 @@
       ],
       "settings": {
       }
+    },
+    "custom_liquid_by8Npw": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "",
+        "css_class": "",
+        "custom_css": ""
+      }
     }
   },
   "order": [
     "slideshow_LUGTUE",
     "main",
-    "sparqAppBlock"
+    "sparqAppBlock",
+    "custom_liquid_by8Npw"
   ]
 }
