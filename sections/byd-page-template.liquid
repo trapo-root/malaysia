@@ -18,12 +18,12 @@
   <div class="container">
     <h3 class="split-title"><span>PRIZE BREAKDOWN</span></h3>
     <img
-      class="lazyload img-desktop"
+      class="lazyload img-desktop byd-car-img"
       data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/byd-dolphin-desktop.png?v=1719561232"
       alt="BYD Dolphin Standard Version"
     >
     <img
-      class="lazyload img-mobile"
+      class="lazyload img-mobile byd-car-img"
       data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/byd-dolphin-mobile.png?v=1719561231"
       alt="BYD Dolphin Standard Version"
     >
@@ -92,17 +92,26 @@
     .price-break .container{
 
     }
-    .price-break h3.split-title {
+    h3.split-title {
      width: 100%;
-     text-align: center;
-     border-bottom: 1px solid #000;
-     line-height: 0.1em;
-     margin: 10px 0 20px;
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    line-height: 0.1em;
+    margin: 10px 0 45px;
+    color: #fff;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 700;
+    letter-spacing: 0.5px;
   }
 
-  .price-break h3.split-title span {
-      background:#fff;
-      padding:0 10px;
+  h3.split-title span {
+          padding: 0 25px;
+    background: #1b3d6d;
+
+  }
+  .price-break img.byd-car-img{
+    width:100%;
   }
     @media (min-width:768px) {
       .img-mobile{
