@@ -11,7 +11,8 @@
               {% assign modelName = tag | remove: 'model:' %}
             {% endif %}
             {% if tag contains 'year:' %}
-              {{ brandName }}-{{ modelName }}-{{ tag | remove: 'year:' }}
+              {{ brandName }}-{{ modelName }}-{{ tag | remove: 'year:' -}}
+              <br>
             {% endif %}
           {%- endfor -%}
         {% endif %}
