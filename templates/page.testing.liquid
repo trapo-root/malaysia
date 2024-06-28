@@ -1,6 +1,6 @@
 {%- for collection in collections -%}
   {% if collection.title == 'Trapo Classic' %}
-    {% paginate collection.products by 650 %}
+    {% paginate collection.products by 600 %}
       {%- for product in collection.products -%}
         {% if product.type == 'TRAPO CLASSIC' %}
           {% for tag in product.tags %}
