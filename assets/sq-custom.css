@@ -481,6 +481,9 @@ sq-dropdown{
 .sq-filter-main .sq-filter-dropdown.close .sq-dropdown{
   display:none;
 }
+.sparq-mobile-filter{
+  z-index:0;
+}
 /* HOME SPARQ FILTER CSS END */
 @media only screen and (max-width: 1078px) {
   .sq-app.sq-dropdown .sq-dropdown-body{
