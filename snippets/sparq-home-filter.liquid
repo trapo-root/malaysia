@@ -39,6 +39,7 @@
                   <select @change="window.sq.brandValue(store, $event.target.value,'tags_model_yid1zsi8u8ok6nozp2vb5zg9')">
                     <option value="" selected disabled>--Select--</option>
                     <option
+                      v-if="window.sq.brandSelected()"
                       v-for="opt in window.sq.brandOptions(store,'tags_model_yid1zsi8u8ok6nozp2vb5zg9')"
                       :value="opt.label"
                       :key="opt.label"
