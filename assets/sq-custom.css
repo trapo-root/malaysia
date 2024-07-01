@@ -169,8 +169,19 @@
 .sq-app.sq-dropdown .sq-dropdown-body{
   width:901px;
   max-width:1000px;
+  left: unset;
+    right: 283px;
 }
-
+.sq-app.sq-dropdown .sq-dropdown-body .sq-results{
+  gap:10px;
+  flex-direction:row;
+}
+.search-product-card .sq-results-item{
+      width: calc(33.33% - 7px);
+}
+.sq-app.sq-dropdown .sq-dropdown-body .column.column-20.float-left.pl0.mb0.pr0{
+  flex-direction:column;
+}
 /* Search Dropdown Filter Css End  */
 
 .sq-filter-wrapper{
