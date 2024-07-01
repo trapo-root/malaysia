@@ -11,7 +11,7 @@ const dropdownBody = document.querySelector(".sq-app.sq-dropdown .sq-dropdown-bo
 
 
 
-window.sq.leftInitial = (store) => {
+window.sq.brandOptions = (store) => {
   const leftInitialItems = store.filters.find(item => item.stFieldName === "tags_brand_u7o52s8y6lzdgk23zhoyn81w")?.items?.sort((a, b) => {
     const cleanLabelA = a.displayLabel.replaceAll('- ', '').trim();
     const cleanLabelB = b.displayLabel.replaceAll('- ', '').trim();
@@ -22,7 +22,7 @@ window.sq.leftInitial = (store) => {
 
 
 // Handles selection and optionally resorts if data might have changed
-window.sq.leftSock = (store, selectedValue) => {
+window.sq.brandValue = (store, selectedValue) => {
   const filter = store.filters.find(item => item.stFieldName === "tags_brand_u7o52s8y6lzdgk23zhoyn81w");
   if (filter && filter.items) {
     let selectedItemLabel = null;
