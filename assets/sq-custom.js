@@ -58,7 +58,7 @@ window.onload = function(){
   document.querySelectorAll("[class*='sq-filter-title-']").forEach(e=>{
   console.log(e);
   e.addEventListener("click",(j)=>{
-    console.log(j);
+    if(j.closest(".sq-filter-dropdown")) j.closest(".sq-filter-dropdown").classList.toggle("open");
   })
 })
 }
