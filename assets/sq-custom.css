@@ -430,8 +430,9 @@ sq-dropdown{
     width:100%;
   }
   .sparq-mobile-filter {
-    padding: 0px;
+    padding: 0px 10px;
     margin-top: 15px;
+    
   }
   .sparq-mobile-filter-inner {
     border-top: solid 1px lightgray;
@@ -439,6 +440,7 @@ sq-dropdown{
     display: flex;
     width: 100%;
     justify-content:space-between;
+    border:none;
   }
   .sparq-mobile-filterby {
     background-color: white;
