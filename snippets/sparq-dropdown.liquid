@@ -44,7 +44,12 @@
                         </p>
                         <div class="float-left">
                           <div class="price-outer">
-                            <sq-sy-price :item="item" :decimal-count="2"></sq-sy-price>
+                             {% raw %}
+                             <div class="sq-sy-price">
+                               <span class="sq-compare-at-price" v-if="item.compare_at_price" style="text-decoration: line-through">RM&nbsp;{{ item.compare_at_price }}</span>
+                               <span class="sq-price">RM&nbsp;{{ item.price }}</span>
+                             </div>
+                                {% endraw %}
                           </div>
                         </div>
                         <div class="float-right"></div>
