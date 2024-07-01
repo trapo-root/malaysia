@@ -60,9 +60,9 @@ window.onload = function(){
   e.addEventListener("click",(j)=>{
     if(j.target.closest(".sq-filter-dropdown")){
       const parentClass =  j.target.closest(".sq-filter-dropdown");
-      if(parentClass.classList.has('open')) {
+      if(parentClass.classList.contains('open')) {
         parentClass.classList.toggle("close");
-      }else if(parentClass.classList.has('close')){
+      }else if(parentClass.classList.contains('close')){
         parentClass.classList.toggle("open");
       }
       else parentClass.classList.toggle("open");
