@@ -178,9 +178,11 @@
 }
 .sq-app.sq-dropdown .sq-dropdown-body h3.sq-dropdown-title{
   font-weight:bold;
+  margin-bottom:10px;
 }
 .price-outer .sq-sy-price{
   justify-content:center;
+  
 }
 .sq-app.sq-dropdown .sq-dropdown-body .search-result{
   height:unset;
