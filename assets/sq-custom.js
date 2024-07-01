@@ -18,8 +18,17 @@ if(window.href.includes("/collections")) {
   XHR.prototype.send = function (data) {
     var self = this;
     var url = this._url;
-     
-      body.facetCount = 1000;  
+    let location = window.location.href;
+    let collectionHandle = location.split("/collections/")[1];
+    if (
+      url &&
+      url.toLowerCase() ===
+      "https://wwhvljue9gedqyi9xn1ld5dk-fast.searchtap.net/v2".toLowerCase()
+    ) {
+      const body = JSON.parse(data);
+       body.facetCount = 1000; 
+      }
+
       data = JSON.stringify(body);
     }
     send.call(this, data);
