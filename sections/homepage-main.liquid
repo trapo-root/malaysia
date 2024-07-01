@@ -2,47 +2,7 @@
 
 <section class="Comfort_style">
 
-  <div class="desktop-only">
-  <div id="sparq-container">
-    <div class="sq-app">
-      <sq-config
-          app-id="WWHVLJUE9GEDQYI9XN1LD5DK"
-          collection-id="MLLQGSCV3BLNBQDNGA4PSFAN"
-          search-token="F1JB7PN3KKUMVP1JHR6JEUY5"
-  ></sq-config>
-      <sq-url-manager v-once></sq-url-manager>
-
-      <div class="sq-heading-home">Filter</div>
-      <div class="sq-home">
-        <div class="sq-row-container">
-          <div class="sq-filter-home">
-            <div class="sq-fix-row">
-              <div class="sq-row">
-                <div class="sq-col">Brand</div>
-                <div class="sq-col">
-                  <select @change="window.sq.brandValue(store, $event.target.value)">
-                    <option value="" selected disabled>Select Brand</option>
-                    <option
-                      v-for="opt in window.sq.brandOptions(store)"
-                      :value="opt.label"
-                      :key="opt.label"
-                      class="sq-custom"
-                    >
-                      {% raw %}{{ opt.displayLabel.toUpperCase() }}{% endraw %}
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="sq-socks">
-            <button class="sq-button" onclick="window.location.href='/search'+window.location.search">Search</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{% render "sparq-home-filter" %}
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-sm-12 left">
