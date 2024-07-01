@@ -46,3 +46,26 @@ window.sq.brandValue = (store, selectedValue) => {
     }
   }
 };
+window.sq.modelValue = (store, selectedValue) => {
+  const filter = store.filters.find(item => item.stFieldName === textFacet);
+  if (filter && filter.items) {
+    let selectedItemLabel = null;
+    filter.items.forEach(item => {
+      if (item.displayLabel === selectedValue) {
+        item.selected = true;
+        selectedItemLabel = item.displayLabel;
+      } else {
+        item.selected = false;
+      }
+    });
+
+    if (selectedItemLabel) {
+      const baseUrl = window.location.href.split('?')[0];
+      const queryParams = new URLSearchParams(window.location.search);
+      queryParams.set(textFacet, selectedItemLabel);
+      
+      const newUrl = `${baseUrl}?${queryParams.toString()}`;
+      window.history.pushState({ path: newUrl }, '', newUrl);
+    }
+  }
+};
