@@ -12,21 +12,16 @@
   ></sq-config>
       <sq-url-manager v-once></sq-url-manager>
 
-      <div class="sq-heading-home">TROVA SUBITO LE CALZE CHE DESIDERI!</div>
-      <div class="sq-heading-home sq-text">
-        Scegli Le&nbsp<strong> 2 Iniziali</strong>
-        , materiale e genere e clicca il bottone&nbsp;
-        <strong> CERCA </strong>
-      </div>
+      <div class="sq-heading-home">Filter</div>
       <div class="sq-home">
         <div class="sq-row-container">
           <div class="sq-filter-home">
             <div class="sq-fix-row">
               <div class="sq-row">
-                <div class="sq-col">CALZA SINISTRA</div>
+                <div class="sq-col">Brand</div>
                 <div class="sq-col">
                   <select @change="window.sq.leftSock(store, $event.target.value)">
-                    <option value="" selected disabled>scegli</option>
+                    <option value="" selected disabled>Select Brand</option>
                     <option
                       v-for="opt in window.sq.leftInitial(store)"
                       :value="opt.label"
