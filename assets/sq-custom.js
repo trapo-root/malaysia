@@ -18,8 +18,6 @@ if(window.href.includes("/collections")) {
   XHR.prototype.send = function (data) {
     var self = this;
     var url = this._url;
-    let location = window.location.href;
-    let collectionHandle = location.split("/collections/")[1];
     if (
       url &&
       url.toLowerCase() ===
@@ -27,10 +25,10 @@ if(window.href.includes("/collections")) {
     ) {
       const body = JSON.parse(data);
        body.facetCount = 1000; 
+      data = JSON.stringify(body);
       }
 
-      data = JSON.stringify(body);
-    }
+
     send.call(this, data);
   }
 })(XMLHttpRequest);
