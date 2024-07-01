@@ -611,5 +611,8 @@ sq-dropdown{
   .sq-app.sq-dropdown .sq-dropdown-body .sq-results{
     width:100%;
   }
+  .sq-app.sq-dropdown .sq-dropdown-body{
+    right:4px !important;
+  }
     /* Search Dropdown css Start  */
 }
