@@ -186,6 +186,9 @@
   gap:10px;
   flex-direction:row;
 }
+.sq-app.sq-dropdown .sq-dropdown-body .sq-results-item:hover{
+  background-color:unset;
+}
 .search-product-card .sq-results-item{
       width: calc(33.33% - 7px);
 }
