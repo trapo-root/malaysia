@@ -1,0 +1,81 @@
+  <div class="desktop-only">
+  <div id="sparq-container">
+    <div class="sq-app">
+      <sq-config
+          app-id="WWHVLJUE9GEDQYI9XN1LD5DK"
+          collection-id="MLLQGSCV3BLNBQDNGA4PSFAN"
+          search-token="F1JB7PN3KKUMVP1JHR6JEUY5"
+  ></sq-config>
+      <sq-url-manager v-once></sq-url-manager>
+
+      <div class="sq-heading-home">Filter</div>
+      <div class="sq-home">
+        <div class="sq-row-container">
+          <div class="sq-filter-home">
+            <div class="sq-fix-row">
+              <div class="sq-row">
+                <div class="sq-col">Brand</div>
+                <div class="sq-col">
+                  <select @change="window.sq.brandValue(store, $event.target.value)">
+                    <option value="" selected disabled>Select Brand</option>
+                    <option
+                      v-for="opt in window.sq.brandOptions(store)"
+                      :value="opt.label"
+                      :key="opt.label"
+                      class="sq-custom"
+                    >
+                      {% raw %}{{ opt.displayLabel.toUpperCase() }}{% endraw %}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+           <div class="sq-filter-home">
+            <div class="sq-fix-row">
+              <div class="sq-row">
+                <div class="sq-col">Model</div>
+                <div class="sq-col">
+                  <select @change="window.sq.modelValue(store, $event.target.value)">
+                    <option value="" selected disabled>Select Brand</option>
+                    <option
+                      v-for="opt in window.sq.modelOptions(store)"
+                      :value="opt.label"
+                      :key="opt.label"
+                      class="sq-custom"
+                    >
+                      {% raw %}{{ opt.displayLabel.toUpperCase() }}{% endraw %}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+           <div class="sq-filter-home">
+            <div class="sq-fix-row">
+              <div class="sq-row">
+                <div class="sq-col">Year</div>
+                <div class="sq-col">
+                  <select @change="window.sq.yearValue(store, $event.target.value)">
+                    <option value="" selected disabled>Select Brand</option>
+                    <option
+                      v-for="opt in window.sq.yearOptions(store)"
+                      :value="opt.label"
+                      :key="opt.label"
+                      class="sq-custom"
+                    >
+                      {% raw %}{{ opt.displayLabel.toUpperCase() }}{% endraw %}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sq-socks">
+            <button class="sq-button" onclick="window.location.href='/search'+window.location.search">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
