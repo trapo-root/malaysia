@@ -464,7 +464,7 @@ sq-dropdown{
     border-radius: 5px;
     font-weight: bold;
 }
-.sq-home .sq-filter-group-system_collections{
+.sq-home .sq-filter-group-system_collections,.sq-home .sq-filter-group-tags_product_type_ge5aiacboayiggnros1bdeud{
   display:none;
 }
 /* HOME SPARQ FILTER CSS END */
