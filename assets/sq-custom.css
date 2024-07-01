@@ -463,6 +463,9 @@ sq-dropdown{
 /* .sq-home .sq-filter-group.sq-topbar [class*="sq-filter-group-"]{
   width:25%;
 } */
+.sq-home .sq-filter-group.sq-topbar [class*=sq-filter-title-]:first-child{
+  margin-left:0px;
+}
 .sq-home .sq-button{
   background: #E12C7B;
     color: white;
