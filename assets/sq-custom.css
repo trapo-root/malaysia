@@ -447,6 +447,12 @@ sq-dropdown{
 .sq-home .sq-label{
   text-transform:uppercase;
 }
+.sq-home .sq-row-container{
+  display:flex;
+}
+.sq-home .sq-filter-home .sq-row-container{
+  width:50%;
+}
 /* HOME SPARQ FILTER CSS END */
 @media only screen and (max-width: 1078px) {
   .sq-app.sq-dropdown .sq-dropdown-body{
