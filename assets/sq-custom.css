@@ -455,6 +455,14 @@ sq-dropdown{
 .sq-home .sq-row-container .sq-filter-home {
   width:25%;
 }
+.sq-home{
+      display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.sq-home [class*="sq-filter-group-"]{
+  width:25%;
+}
 .sq-home .sq-button{
   background: #E12C7B;
     color: white;
