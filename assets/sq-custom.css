@@ -454,6 +454,15 @@ sq-dropdown{
 .sq-home .sq-row-container .sq-filter-home {
   width:25%;
 }
+.sq-heading-home .sq-button{
+  background: #E12C7B;
+    color: white;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    margin-bottom: -7px;
+    border-radius: 5px;
+    font-weight: bold;
+}
 /* HOME SPARQ FILTER CSS END */
 @media only screen and (max-width: 1078px) {
   .sq-app.sq-dropdown .sq-dropdown-body{
