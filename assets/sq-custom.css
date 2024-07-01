@@ -436,6 +436,13 @@ sq-dropdown{
   display:flex;
   gap:10px;
 }
+
+/* HOME SPARQ FILTER CSS START */
+.sq-heading-home{
+  font-size:24px;
+  color:#16406D;
+}
+/* HOME SPARQ FILTER CSS END */
 @media only screen and (max-width: 1078px) {
   .sq-app.sq-dropdown .sq-dropdown-body{
         width: 650px;
