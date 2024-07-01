@@ -211,6 +211,9 @@
   flex-direction:column;
   margin:0px;
 }
+.sq-app.sq-dropdown .sq-dropdown-body{
+  max-height:calc(100vh - 130px) 1important;
+}
 
 .sq-dropdown.search-product-card .sq-dropdown-body .row:first-child{
   overflow:auto
