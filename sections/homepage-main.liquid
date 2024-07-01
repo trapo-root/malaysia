@@ -1,16 +1,70 @@
 <div id="gf-form"></div>
 
 <section class="Comfort_style">
-<div class="sq-app">
-  <sq-config
+
+  <div class="desktop-only">
+  <div id="sparq-container">
+    <div class="sq-app">
+      <sq-config
           app-id="WWHVLJUE9GEDQYI9XN1LD5DK"
           collection-id="MLLQGSCV3BLNBQDNGA4PSFAN"
           search-token="F1JB7PN3KKUMVP1JHR6JEUY5"
   ></sq-config>
-  <sq-url-manager></sq-url-manager>
-  <sq-filter-group></sq-filter-group>
+      <sq-url-manager v-once></sq-url-manager>
+
+      <div class="sq-heading-home">TROVA SUBITO LE CALZE CHE DESIDERI!</div>
+      <div class="sq-heading-home sq-text">
+        Scegli Le&nbsp<strong> 2 Iniziali</strong>
+        , materiale e genere e clicca il bottone&nbsp;
+        <strong> CERCA </strong>
+      </div>
+      <div class="sq-home">
+        <div class="sq-row-container">
+          <div class="sq-filter-home">
+            <div class="sq-fix-row">
+              <div class="sq-row">
+                <div class="sq-col">CALZA SINISTRA</div>
+                <div class="sq-col">
+                  <select @change="window.sq.leftSock(store, $event.target.value)">
+                    <option value="" selected disabled>scegli</option>
+                    <option
+                      v-for="opt in window.sq.leftInitial(store)"
+                      :value="opt.label"
+                      :key="opt.label"
+                      class="sq-custom"
+                    >
+                      {% raw %}{{ opt.displayLabel.toUpperCase() }}{% endraw %}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sq-socks">
+            <button class="sq-button" onclick="window.location.href='/search'+window.location.search">CERCA</button>
+          </div>
+        </div>
+        <div class="sq-rowsss">
+          <div class="image-with-text__image-wrapper">
+            <img
+              src="//www.individualsocks.com/cdn/shop/files/Screenshot_from_2024-04-05_17-16-15.png?v=1712317626&amp;width=600"
+              alt=""
+              srcset="//www.individualsocks.com/cdn/shop/files/Screenshot_from_2024-04-05_17-16-15.png?v=1712317626&amp;width=600 600w"
+              width="600"
+              height="600"
+              loading="lazy"
+              id="block-22c4fa84-74c1-4815-aa04-e96848e24188-41651582861640"
+              sizes="(max-width: 740px) calc(100vw - 96px), (max-width: 999px) calc(100vw - 160px), 600px"
+              reveal-visibility="true"
+              class="image-with-text__image"
+              style="visibility: visible;"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-  
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-sm-12 left">
