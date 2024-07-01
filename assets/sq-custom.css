@@ -173,6 +173,12 @@
   left: unset !important;
     right: 283px;
 }
+.result-content{
+  text-align:center;
+}
+.sq-app.sq-dropdown .sq-dropdown-body h3.sq-dropdown-title{
+  font-weight:bold;
+}
 .sq-app.sq-dropdown .sq-dropdown-body .search-result{
   height:unset;
 }
