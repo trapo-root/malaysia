@@ -386,6 +386,7 @@ sq-dropdown{
     position:static;
         padding: 10px;
     width:100%;
+        overflow: unset;
   }
   .sq-filter-main .sq-filter-dropdown .sq-dropdown{
     display:block;
