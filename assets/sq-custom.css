@@ -478,7 +478,7 @@ sq-dropdown{
 .sq-home .sq-filter-group-system_collections,.sq-home .sq-filter-group-tags_product_type_ge5aiacboayiggnros1bdeud{
   display:none;
 }
-.sq-filter-dropdown.open .sq-filter-body{
+.sq-filter-dropdown.close .sq-filter-body{
   display:none;
 }
 /* HOME SPARQ FILTER CSS END */
