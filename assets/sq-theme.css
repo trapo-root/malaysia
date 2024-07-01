@@ -527,7 +527,7 @@ a.sq-previous {
   width: 25%;
 }
 .sq-results-item {
-      width: calc(25% - 14px);
+      width: calc(25% - 15px);
 }
 .sparq-product-title a {
   color: #121212;
