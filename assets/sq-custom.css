@@ -450,11 +450,12 @@ sq-dropdown{
 .sq-home .sq-row-container{
   display:flex;
   gap:15px;
+  align-items:center;
 }
 .sq-home .sq-row-container .sq-filter-home {
   width:25%;
 }
-.sq-heading-home .sq-button{
+.sq-home .sq-button{
   background: #E12C7B;
     color: white;
     text-transform: uppercase;
