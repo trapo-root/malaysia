@@ -36,7 +36,7 @@
               <div class="sq-row">
                 <div class="sq-col sq-label">Model</div>
                 <div class="sq-col">
-                  <select @change="window.sq.brandValue(store, $event.target.value,'tags_model_yid1zsi8u8ok6nozp2vb5zg9')">
+                  <!-- <select @change="window.sq.brandValue(store, $event.target.value,'tags_model_yid1zsi8u8ok6nozp2vb5zg9')">
                     <option value="" selected disabled>--Select--</option>
                     <option
                       v-if="window.sq.brandSelected()"
@@ -47,7 +47,10 @@
                     >
                       {% raw %}{{ opt.displayLabel.toUpperCase() }}{% endraw %}
                     </option>
-                  </select>
+                  </select> -->
+                  <ul>
+                    <li v-for="opt in window.sq.brandOptions(store,'tags_model_yid1zsi8u8ok6nozp2vb5zg9')">{% raw %}{{ opt.displayLabel.toUpperCase() }}{% endraw %}</li>
+                  </ul>
                 </div>
               </div>
             </div>
