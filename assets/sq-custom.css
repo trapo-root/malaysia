@@ -449,6 +449,7 @@ sq-dropdown{
 }
 .sq-home .sq-row-container{
   display:flex;
+  gap:15px;
 }
 .sq-home .sq-row-container .sq-filter-home {
   width:25%;
