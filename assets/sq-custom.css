@@ -460,9 +460,9 @@ sq-dropdown{
     align-items: center;
     gap: 10px;
 }
-.sq-home .sq-filter-group.sq-topbar [class*="sq-filter-group-"]{
+/* .sq-home .sq-filter-group.sq-topbar [class*="sq-filter-group-"]{
   width:25%;
-}
+} */
 .sq-home .sq-button{
   background: #E12C7B;
     color: white;
