@@ -55,6 +55,7 @@ const dropdownBody = document.querySelector(".sq-app.sq-dropdown .sq-dropdown-bo
 // }
 
 document.querySelectorAll("[class*='sq-filter-title-']").forEach(e=>{
+  console.log(e);
   e.addEventListener("click",(j)=>{
     console.log(j);
   })
