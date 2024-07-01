@@ -21,6 +21,7 @@ window.sq.brandOptions = (store,textFacet) => {
 };
 
 
+
 // Handles selection and optionally resorts if data might have changed
 window.sq.brandValue = (store, selectedValue) => {
   const filter = store.filters.find(item => item.stFieldName === textFacet);
