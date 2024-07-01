@@ -407,7 +407,9 @@ sq-dropdown{
   .sq-filter-group{
     width:100%;
   }
- 
+  .sq-filter-main .sq-dropdown{
+    display:none;
+  }
   .sq-filter-header-title {
     display: block;
 }
