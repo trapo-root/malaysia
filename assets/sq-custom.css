@@ -453,6 +453,7 @@ sq-dropdown{
     padding: 0 15px;
         border-left: solid 1px lightgray;
         flex: 0 0 50%;
+    display:none;
   }
 
   .sparq-mobile-filterby svg {
