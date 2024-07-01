@@ -163,6 +163,16 @@
   display:block;
 }
 /* TOPBAR HEADER CSS END  */
+
+
+/* Search Dropdown Filter Css Start  */
+.sq-app.sq-dropdown .sq-dropdown-body{
+  width:901px;
+  max-width:1000px;
+}
+
+/* Search Dropdown Filter Css End  */
+
 .sq-filter-wrapper{
       display: flex;
     align-items: center;
