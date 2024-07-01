@@ -436,7 +436,11 @@ sq-dropdown{
   display:flex;
   gap:10px;
 }
-
+@media only screen and (max-width: 1078px) {
+  .sq-app.sq-dropdown .sq-dropdown-body{
+        width: 650px;
+  }
+}
 @media only screen and (max-width: 767px) {
   .sq-app .sq-filter-main {
     display:block;
