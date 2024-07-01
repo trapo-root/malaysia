@@ -169,7 +169,7 @@
 .sq-app.sq-dropdown .sq-dropdown-body{
   width:901px;
   max-width:1000px;
-  left: unset;
+  left: unset !important;
     right: 283px;
 }
 .sq-app.sq-dropdown .sq-dropdown-body .sq-results{
