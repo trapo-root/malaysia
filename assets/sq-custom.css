@@ -441,6 +441,7 @@ sq-dropdown{
 .sq-heading-home{
   font-size:24px;
   color:#16406D;
+  margin-bottom:16px;
 }
 /* HOME SPARQ FILTER CSS END */
 @media only screen and (max-width: 1078px) {
