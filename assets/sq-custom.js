@@ -27,7 +27,7 @@ window.sq.brandOptions = (store,textFacet) => {
 window.sq.brandValue = (store, selectedValue,textFacet) => {
   const filter = store.filters.find(item => item.stFieldName === textFacet);
   
-  if (filter && filter.items) {
+  if (filter && filter.items) {sq-filter-title-
     let selectedItemLabel = null;
     filter.items.forEach(item => {
       if (item.displayLabel === selectedValue) {
@@ -53,3 +53,9 @@ window.sq.brandSelected = function(){
   if(window.location.href.includes('tags_brand_u7o52s8y6lzdgk23zhoyn81w')) return true;
   return false;
 }
+
+document.querySelectorAll("[class*='sq-filter-title-']").forEach(e=>{
+  e.addEventListener("click",(j)=>{
+    console.log(j);
+  })
+})
