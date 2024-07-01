@@ -393,6 +393,9 @@ sq-dropdown{
     width:100%;
     margin:0px;
   }
+  .sq-filter-group.sq-topbar [class*="sq-filter-title-"]{
+    margin:0px;
+  }
   .sq-filter-dropdown .sq-filter-header{
     border:none;
   }
