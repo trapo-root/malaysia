@@ -36,10 +36,10 @@
               <div class="sq-row">
                 <div class="sq-col">Model</div>
                 <div class="sq-col">
-                  <select @change="window.sq.brandValue(store, $event.target.value)">
+                  <select @change="window.sq.brandValue(store, $event.target.value,'tags_model_yid1zsi8u8ok6nozp2vb5zg9')">
                     <option value="" selected disabled>Select Brand</option>
                     <option
-                      v-for="opt in window.sq.brandOptions(store)"
+                      v-for="opt in window.sq.brandOptions(store,'tags_model_yid1zsi8u8ok6nozp2vb5zg9')"
                       :value="opt.label"
                       :key="opt.label"
                       class="sq-custom"
@@ -56,10 +56,10 @@
               <div class="sq-row">
                 <div class="sq-col">Year</div>
                 <div class="sq-col">
-                  <select @change="window.sq.brandValue(store, $event.target.value)">
+                  <select @change="window.sq.brandValue(store, $event.target.value,'tags_model_cx9fhj5cuqpozs1ac828aoho')">
                     <option value="" selected disabled>Select Brand</option>
                     <option
-                      v-for="opt in window.sq.brandOptions(store)"
+                      v-for="opt in window.sq.brandOptions(store,'tags_model_cx9fhj5cuqpozs1ac828aoho')"
                       :value="opt.label"
                       :key="opt.label"
                       class="sq-custom"
