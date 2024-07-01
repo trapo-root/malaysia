@@ -46,3 +46,7 @@ window.sq.brandValue = (store, selectedValue,textFacet) => {
     }
   }
 };
+window.sq.brandSelected = function(){
+  if(window.location.href.includes('tags_brand_u7o52s8y6lzdgk23zhoyn81w')) return true;
+  return false;
+}
