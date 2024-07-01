@@ -12,6 +12,7 @@ const dropdownBody = document.querySelector(".sq-app.sq-dropdown .sq-dropdown-bo
 
 
 window.sq.brandOptions = (store,textFacet) => {
+  console.log(store);
   const leftInitialItems = store.filters.find(item => item.stFieldName === textFacet)?.items?.sort((a, b) => {
     const cleanLabelA = a.displayLabel.replaceAll('- ', '').trim();
     const cleanLabelB = b.displayLabel.replaceAll('- ', '').trim();
@@ -46,7 +47,7 @@ window.sq.brandValue = (store, selectedValue,textFacet) => {
       window.history.pushState({ path: newUrl }, '', newUrl);
     }
   }
-  console.log(filter);
+ 
 };
 window.sq.brandSelected = function(){
   if(window.location.href.includes('tags_brand_u7o52s8y6lzdgk23zhoyn81w')) return true;
