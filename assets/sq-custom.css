@@ -397,10 +397,15 @@ sq-dropdown{
   .sq-filter-main [class*="sq-filter-group-"]{
     width:100%;
     margin:0px;
-        justify-content: space-between;
+        
+  }
+  .sq-filter-dropdown .sq-dropdown-body[style*="max-height: 300px"]{
+    width:100%;
   }
   .sq-filter-group.sq-topbar [class*="sq-filter-title-"]{
     margin:0px;
+    justify-content: space-between;
+    padding:0px;
   }
   .sq-filter-dropdown .sq-filter-header{
     border:none;
