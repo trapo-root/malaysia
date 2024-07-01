@@ -14,10 +14,10 @@
           <div class="sq-filter-home">
             <div class="sq-fix-row">
               <div class="sq-row">
-                <div class="sq-col">Brand</div>
+                <div class="sq-col sq-label">Brand</div>
                 <div class="sq-col">
                   <select @change="window.sq.brandValue(store, $event.target.value,'tags_brand_u7o52s8y6lzdgk23zhoyn81w')">
-                    <option value="" selected disabled>Select Brand</option>
+                    <option value="" selected disabled>--Select--</option>
                     <option
                       v-for="opt in window.sq.brandOptions(store,'tags_brand_u7o52s8y6lzdgk23zhoyn81w')"
                       :value="opt.label"
@@ -34,10 +34,10 @@
            <div class="sq-filter-home">
             <div class="sq-fix-row">
               <div class="sq-row">
-                <div class="sq-col">Model</div>
+                <div class="sq-col sq-label">Model</div>
                 <div class="sq-col">
                   <select @change="window.sq.brandValue(store, $event.target.value,'tags_model_yid1zsi8u8ok6nozp2vb5zg9')">
-                    <option value="" selected disabled>Select Brand</option>
+                    <option value="" selected disabled>--Select--</option>
                     <option
                       v-for="opt in window.sq.brandOptions(store,'tags_model_yid1zsi8u8ok6nozp2vb5zg9')"
                       :value="opt.label"
@@ -54,10 +54,10 @@
            <div class="sq-filter-home">
             <div class="sq-fix-row">
               <div class="sq-row">
-                <div class="sq-col">Year</div>
+                <div class="sq-col sq-label">Year</div>
                 <div class="sq-col">
                   <select @change="window.sq.brandValue(store, $event.target.value,'tags_model_cx9fhj5cuqpozs1ac828aoho')">
-                    <option value="" selected disabled>Select Brand</option>
+                    <option value="" selected disabled>--Select--</option>
                     <option
                       v-for="opt in window.sq.brandOptions(store,'tags_model_cx9fhj5cuqpozs1ac828aoho')"
                       :value="opt.label"
