@@ -217,7 +217,8 @@
 }
 
 .sq-dropdown.search-product-card .sq-dropdown-body .row:first-child{
-  overflow:auto
+  overflow:auto;
+  overflow-x:hidden;
 }
 /* Search Dropdown Filter Css End  */
 
