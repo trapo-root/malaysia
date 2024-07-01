@@ -61,11 +61,13 @@ window.onload = function(){
     if(j.target.closest(".sq-filter-dropdown")){
       const parentClass =  j.target.closest(".sq-filter-dropdown");
       if(parentClass.classList.contains('open')) {
-        parentClass.classList.toggle("close");
+        parentClass.classList.add("close");
+        parentClass.classList.remove("open");
       }else if(parentClass.classList.contains('close')){
-        parentClass.classList.toggle("open");
+         parentClass.classList.add("open");
+        parentClass.classList.remove("close");
       }
-      else parentClass.classList.toggle("open");
+      else parentClass.classList.add("open");
     }
   })
 })
