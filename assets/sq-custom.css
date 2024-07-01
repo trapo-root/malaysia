@@ -602,4 +602,11 @@ sq-dropdown{
   .sq-desktop-view-filter{
     display: none !important;
   }
+
+
+  /* Search Dropdown css Start  */
+  .search-product-card .sq-results-item{
+        width: calc(50% - 7px);
+  }
+    /* Search Dropdown css Start  */
 }
