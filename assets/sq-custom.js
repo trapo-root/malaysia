@@ -58,7 +58,15 @@ window.onload = function(){
   document.querySelectorAll("[class*='sq-filter-title-']").forEach(e=>{
   console.log(e);
   e.addEventListener("click",(j)=>{
-    if(j.target.closest(".sq-filter-dropdown")) j.target.closest(".sq-filter-dropdown").classList.toggle("open");
+    if(j.target.closest(".sq-filter-dropdown")){
+      const parentClass =  j.target.closest(".sq-filter-dropdown");
+      if(parentClass.classList.has('open')) {
+        parentClass.classList.toggle("close");
+      }else if(parentClass.classList.has('close')){
+        parentClass.classList.toggle("open");
+      }
+      else parentClass.classList.toggle("open");
+    }
   })
 })
 }
