@@ -393,6 +393,9 @@ sq-dropdown{
     width:100%;
     margin:0px;
   }
+  .sq-filter-dropdown .sq-filter-header{
+    border:none;
+  }
     span.sq-filter-value.sq-label.sq-out-of-stock {
     font-size: 16px;
     color: #252525;
