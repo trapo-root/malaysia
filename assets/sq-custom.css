@@ -162,6 +162,7 @@
 .sq-filter-dropdown .sq-filter-header{
   display:block;
 }
+
 /* TOPBAR HEADER CSS END  */
 
 
@@ -194,6 +195,9 @@
 }
 .sq-app.sq-dropdown .sq-dropdown-body .column.column-20.float-left.pl0.mb0.pr0{
   flex-direction:column;
+}
+.sq-app.sq-dropdown .sq-dropdown-body{
+  
 }
 /* Search Dropdown Filter Css End  */
 
