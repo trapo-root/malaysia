@@ -386,7 +386,7 @@ sq-dropdown{
     position:static;
         padding: 10px;
   }
-  .sq-app #overlay,.sq-filter-main .sq-filter-header{
+  .sq-app #overlay,.sq-filter-main > .sq-filter-header{
     display:none;
   }
     span.sq-filter-value.sq-label.sq-out-of-stock {
