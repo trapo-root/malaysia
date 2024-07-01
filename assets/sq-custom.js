@@ -1,9 +1,5 @@
 window.sq.config.themeSettings.topBarFilters = true;
 
-if(window.href.includes("/collections")) {
-  
-}
-
 window.onload = function(){
   const rect = document.querySelector('[name="q"]').getClientRects()[0];
 const dropdownBody = document.querySelector(".sq-app.sq-dropdown .sq-dropdown-body");
