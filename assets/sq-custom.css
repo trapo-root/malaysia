@@ -613,6 +613,7 @@ sq-dropdown{
   }
   .sq-app.sq-dropdown .sq-dropdown-body{
     right:4px !important;
+        top: 110.203px !important;
   }
     /* Search Dropdown css Start  */
 }
