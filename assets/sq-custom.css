@@ -196,8 +196,9 @@
 .sq-app.sq-dropdown .sq-dropdown-body .column.column-20.float-left.pl0.mb0.pr0{
   flex-direction:column;
 }
-.sq-app.sq-dropdown .sq-dropdown-body{
-  
+
+.sq-dropdown.search-product-card .sq-dropdown-body .row:first-child{
+  overflow:auto
 }
 /* Search Dropdown Filter Css End  */
 
