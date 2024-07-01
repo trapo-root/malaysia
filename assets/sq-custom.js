@@ -32,5 +32,5 @@ if(window.href.includes("/collections")) {
       data = JSON.stringify(body);
     }
     send.call(this, data);
-  };
+  }
 })(XMLHttpRequest);
