@@ -332,7 +332,6 @@ span.sq-applied-filter-item .sq-icon{
  }
 .sq-dropdown.search-product-card .sq-dropdown-body .row:first-child{
   height: calc(100% - 60px);
-  overflow:hidden;
     width: 100%;
     margin: 0px;
     margin-bottom: 10px;
