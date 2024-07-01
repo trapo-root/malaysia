@@ -172,6 +172,9 @@
   left: unset !important;
     right: 283px;
 }
+.sq-app.sq-dropdown .sq-dropdown-body .search-result{
+  height:unset;
+}
 .sq-app.sq-dropdown .sq-dropdown-body .sq-results{
   gap:10px;
   flex-direction:row;
