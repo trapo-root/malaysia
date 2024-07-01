@@ -608,5 +608,8 @@ sq-dropdown{
   .search-product-card .sq-results-item{
         width: calc(50% - 7px);
   }
+  .sq-app.sq-dropdown .sq-dropdown-body .sq-results{
+    width:100%;
+  }
     /* Search Dropdown css Start  */
 }
