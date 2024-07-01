@@ -18,17 +18,17 @@ if(window.href.includes("/collections")) {
   XHR.prototype.send = function (data) {
     var self = this;
     var url = this._url;
+   
     if (
       url &&
       url.toLowerCase() ===
-      "https://wwhvljue9gedqyi9xn1ld5dk-fast.searchtap.net/v2".toLowerCase()
+        "https://wwhvljue9gedqyi9xn1ld5dk-fast.searchtap.net/v2".toLowerCase() //v2 link
     ) {
       const body = JSON.parse(data);
+      //logic
        body.facetCount = 1000; 
       data = JSON.stringify(body);
-      }
-
-
+    }
     send.call(this, data);
-  }
+  };
 })(XMLHttpRequest);
