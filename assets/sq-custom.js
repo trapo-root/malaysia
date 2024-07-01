@@ -25,6 +25,7 @@ window.sq.brandOptions = (store,textFacet) => {
 // Handles selection and optionally resorts if data might have changed
 window.sq.brandValue = (store, selectedValue,textFacet) => {
   const filter = store.filters.find(item => item.stFieldName === textFacet);
+  
   if (filter && filter.items) {
     let selectedItemLabel = null;
     filter.items.forEach(item => {
@@ -45,6 +46,7 @@ window.sq.brandValue = (store, selectedValue,textFacet) => {
       window.history.pushState({ path: newUrl }, '', newUrl);
     }
   }
+  console.log(filter);
 };
 window.sq.brandSelected = function(){
   if(window.location.href.includes('tags_brand_u7o52s8y6lzdgk23zhoyn81w')) return true;
