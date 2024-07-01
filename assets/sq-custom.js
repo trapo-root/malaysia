@@ -6,6 +6,6 @@ const dropdownBody = document.querySelector(".sq-app.sq-dropdown .sq-dropdown-bo
   setTimeout(()=>{
     console.log(window.innerWidth - rect.right);
   dropdownBody.style.right = (window.innerWidth - rect.right) + "px";
-},200); 
+},1000); 
 }
 
