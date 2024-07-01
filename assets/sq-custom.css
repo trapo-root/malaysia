@@ -389,6 +389,9 @@ sq-dropdown{
   .sq-app #overlay,.sq-filter-main > .sq-filter-header{
     display:none;
   }
+  .sq-filter-main [class*="sq-filter-group-"]{
+    width:100%;
+  }
     span.sq-filter-value.sq-label.sq-out-of-stock {
     font-size: 16px;
     color: #252525;
