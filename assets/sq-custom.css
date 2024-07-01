@@ -531,15 +531,6 @@ sq-dropdown{
   .sq-clear-button-desktop{
     display:flex;
   }
-  .sq-mobile-applied-filter{
-    display:block;
-  }
-  .sq-mobile-applied-filter .sq-applied-filter-wrapper{
-    margin:0px;
-  }
-  .sq-mobile-applied-filter .sq-applied{
-    display:flex;
-  }
   .sq-pagination{
         margin-bottom: 40px;
   }
