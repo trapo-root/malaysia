@@ -16,6 +16,26 @@
               <div class="sq-row">
                 <div class="sq-col">Brand</div>
                 <div class="sq-col">
+                  <select @change="window.sq.brandValue(store, $event.target.value,'tags_brand_u7o52s8y6lzdgk23zhoyn81w')">
+                    <option value="" selected disabled>Select Brand</option>
+                    <option
+                      v-for="opt in window.sq.brandOptions(store,'tags_brand_u7o52s8y6lzdgk23zhoyn81w')"
+                      :value="opt.label"
+                      :key="opt.label"
+                      class="sq-custom"
+                    >
+                      {% raw %}{{ opt.displayLabel.toUpperCase() }}{% endraw %}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+           <div class="sq-filter-home">
+            <div class="sq-fix-row">
+              <div class="sq-row">
+                <div class="sq-col">Model</div>
+                <div class="sq-col">
                   <select @change="window.sq.brandValue(store, $event.target.value)">
                     <option value="" selected disabled>Select Brand</option>
                     <option
@@ -34,32 +54,12 @@
            <div class="sq-filter-home">
             <div class="sq-fix-row">
               <div class="sq-row">
-                <div class="sq-col">Model</div>
-                <div class="sq-col">
-                  <select @change="window.sq.modelValue(store, $event.target.value)">
-                    <option value="" selected disabled>Select Brand</option>
-                    <option
-                      v-for="opt in window.sq.modelOptions(store)"
-                      :value="opt.label"
-                      :key="opt.label"
-                      class="sq-custom"
-                    >
-                      {% raw %}{{ opt.displayLabel.toUpperCase() }}{% endraw %}
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-           <div class="sq-filter-home">
-            <div class="sq-fix-row">
-              <div class="sq-row">
                 <div class="sq-col">Year</div>
                 <div class="sq-col">
-                  <select @change="window.sq.yearValue(store, $event.target.value)">
+                  <select @change="window.sq.brandValue(store, $event.target.value)">
                     <option value="" selected disabled>Select Brand</option>
                     <option
-                      v-for="opt in window.sq.yearOptions(store)"
+                      v-for="opt in window.sq.brandOptions(store)"
                       :value="opt.label"
                       :key="opt.label"
                       class="sq-custom"
