@@ -390,18 +390,26 @@
     font-size: 12px;
         font-style: italic;
       }
-      .sec-products .p-grid{
+      .sec-products :is(.left-img, .right-img),
+.sec-products .p-grid{
     position: relative;
 }
-.sec-products .p-grid .pp-details{
+.sec-products :is(.left-img, .right-img) .pp-details{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+.sec-products :is(.p-grid .pp-details, .pp-details){
     background: rgba(22, 64, 109, 0.5);
     position: absolute;
     width: 100%;
     bottom: 0;
     color: #fff;
-    padding:15px 20px;
+    padding:20px 20px;
     border-radius: 16px;
 }
+.sec-products :is(.left-img, .right-img) .pp-details .right,
 .sec-products .p-grid .pp-details .right{
     display: flex;
     flex-direction: column;
