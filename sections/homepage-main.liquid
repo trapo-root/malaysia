@@ -20,10 +20,10 @@
               <div class="sq-row">
                 <div class="sq-col">Brand</div>
                 <div class="sq-col">
-                  <select @change="window.sq.leftSock(store, $event.target.value)">
+                  <select @change="window.sq.brandValue(store, $event.target.value)">
                     <option value="" selected disabled>Select Brand</option>
                     <option
-                      v-for="opt in window.sq.leftInitial(store)"
+                      v-for="opt in window.sq.brandOptions(store)"
                       :value="opt.label"
                       :key="opt.label"
                       class="sq-custom"
