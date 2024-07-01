@@ -442,6 +442,7 @@ sq-dropdown{
   font-size:24px;
   color:#16406D;
   margin-bottom:16px;
+  font-weight:bold;
 }
 /* HOME SPARQ FILTER CSS END */
 @media only screen and (max-width: 1078px) {
