@@ -54,9 +54,11 @@ const dropdownBody = document.querySelector(".sq-app.sq-dropdown .sq-dropdown-bo
 //   return false;
 // }
 
-document.querySelectorAll("[class*='sq-filter-title-']").forEach(e=>{
+window.onload = function(){
+  document.querySelectorAll("[class*='sq-filter-title-']").forEach(e=>{
   console.log(e);
   e.addEventListener("click",(j)=>{
     console.log(j);
   })
 })
+}
