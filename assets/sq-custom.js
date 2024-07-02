@@ -73,6 +73,6 @@ window.onload = function(){
 })
 }
 window.sq.updatePage = function(store){
-  console.log(store);
+  console.log(store.currentPage,store.totalPages);
   return true;
 }
