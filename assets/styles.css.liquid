@@ -20256,4 +20256,121 @@ margin-top: 0;
     font-weight: 700;
   
 }
+/* =========== MEGANTIC CUSTOM CSS */
+.mgc-subcategories-button {
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    color: var(--filter-header-color);
+    color: #17406d;
+    font-size: 16px;
+    margin: 0 15px;
+    font-weight: 700;
+}
+
+.mgc-subcategories-button:hover {
+  text-decoration: underline;
+  text-decoration-color: #5a006e;
+}
+
+.mgc-subcategories-button:after {
+  content: "";
+  background-image: url(https://i.ibb.co/716WGwn/Mask-group-3.png);
+  background-size: 16px 16px;
+  width: 16px;
+  height: 14px;
+  background-repeat: no-repeat;
+}
+
+.mgc-subcategories-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    padding-left: 15px;
+    min-height: max-content;
+    padding-right: 10px;
+    background-color: #fff;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    z-index: 1;
+    margin-top: 13px;
+}
+
+.mgc-subcategories-dropdown a {
+    padding: 4px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.show {
+    display: block;
+}
+.mgc-li {
+  list-style-type: none;
+  margin-bottom: 0px;
+}
+.mgc-ul {
+  padding: 0;
+}
+.accordion {
+  background: transparent;
+  color: #23263b;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  transition: 0.4s;
+  padding: 7px 0;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.accordion:after {
+  background-image: url(https://i.ibb.co/QFsZShC/arrow-up.png); 
+  background-repeat: no-repeat;
+  background-size: 100%;
+  bottom: 8px;
+  content: "";
+  height: 16px;
+  position: absolute;
+  right: 0;
+  width: 16px;
+}
+.accordion.active:after {
+    background-image: url(https://i.ibb.co/QD4FzYJ/arrow-down.png);
+}
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+
+.panel.show {
+  display: block;
+}
+@media only screen and (max-width: 766px) {
+    .mgc-subcategories-button {
+        display: none;
+    }
+
+  .mgc-accordion {
+        display: block;
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 767px) {
+    .mgc-accordion {
+        display: none;
+    }
+}
+
 /*======== End Custom CSS =========*/
