@@ -65,7 +65,8 @@
             "button2_style": "global-button--banner",
             "text_position": "center",
             "text_align": "center",
-            "caption_content_background": "original"
+            "caption_content_background": "original",
+            "mobile_image": "shopify:\/\/shop_images\/Attract-Texts-Web_6_421ac47c-edb5-4fc7-bb3f-06acff988810.png"
           }
         }
       },
