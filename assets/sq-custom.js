@@ -71,18 +71,23 @@ window.onload = function () {
 window.sq.updatePage = function (store) {
   console.log(store.currentPage, store.totalPages);
   const breadcrumbElement = document.querySelector(".breadcrumb_text");
+
   if (breadcrumbElement) {
     const breadcrumbText = breadcrumbElement.textContent.trim();
     const match = breadcrumbText.match(/Page \d+ of \d+/);
 
     if (match) {
       const oldText = match[0];
-      const newText = oldText.replace(/Page \d+/, "Page 3");
+      const newPageNumber = store.currentPage; // Update with the new page number
+      const newTotalPages = store.totalPages; // Update with the new total pages
+      const newText = oldText
+        .replace(/Page \d+/, `Page ${newPageNumber}`)
+        .replace(/of \d+/, `of ${newTotalPages}`);
       breadcrumbElement.innerHTML = breadcrumbElement.innerHTML.replace(
         oldText,
         newText
       );
-      console.log("Updated text:", newText); // Outputs: "Page 3 of 86"
+      console.log("Updated text:", newText); // Outputs: "Page 3 of 100"
     } else {
       console.log("Pattern not found in the breadcrumb text.");
     }
