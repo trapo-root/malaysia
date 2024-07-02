@@ -72,3 +72,7 @@ window.onload = function(){
   })
 })
 }
+window.sq.updatePage = function(store){
+  console.log(store);
+  return true;
+}
