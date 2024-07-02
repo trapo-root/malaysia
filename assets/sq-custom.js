@@ -70,7 +70,6 @@ window.onload = function () {
 };
 window.sq.updatePage = function (store) {
   console.log(store.currentPage, store.totalPages);
-  setTimeout(()=>{
     const breadcrumbElement = document.querySelector(".breadcrumb_text");
 
   if (breadcrumbElement) {
@@ -96,6 +95,5 @@ window.sq.updatePage = function (store) {
     return true;
     console.log("Breadcrumb element not found.");
   }
-  },100);
   return true;
 };
