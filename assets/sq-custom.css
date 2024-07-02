@@ -510,7 +510,7 @@ sq-dropdown{
         
   }
   .sq-filter-dropdown .sq-dropdown-body[style*="max-height: 300px"]{
-    width:100%;
+    width:70%;
   }
   .sq-filter-group.sq-topbar [class*="sq-filter-title-"]{
     margin:0px;
@@ -613,7 +613,8 @@ sq-dropdown{
  
   label.sq-filter-value.sq-multi-select, label.sq-filter-value.sq-multi-select .sq-filter{
     font-size: 16px;
-    color: #252525;
+    color: #e12c7b;
+    text-transform: capitalize;
   }
   .sq-accordion-body{
     padding-bottom:10px;
