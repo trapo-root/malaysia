@@ -77,7 +77,7 @@ window.sq.updatePage = function (store) {
     const breadcrumbText = breadcrumbElement.textContent.trim();
     const match = breadcrumbText.match(/Page \d+ of \d+/);
 
-    if (match) {
+    if (match && !isNaN(store.totalPages)) {
       const oldText = match[0];
       const newPageNumber = store.currentPage; // Update with the new page number
       const newTotalPages = store.totalPages; // Update with the new total pages
