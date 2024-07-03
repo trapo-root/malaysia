@@ -329,16 +329,23 @@
                 </div>
               {% endcomment %}
             {% when 'features' %}
-              {% unless product.tags contains 'star-wars' or product.tags contains 'wiper-refill' %}
+              {% assign jsc_product_description = product.description | split: '<!-- break -->' %}
+              {% assign jsc_product_description_last = jsc_product_description.first
+                | split: '<!-- firstbreak -->'
+                | last
+              %}
+              {% unless product.tags contains 'star-wars'
+                or product.tags contains 'wiper-refill'
+                or jsc_product_description_last == blank
+              %}
                 <details class="collapsible-tab">
                   <summary class="collapsible-tab__heading">
                     <span>Other Great Features</span>
                   </summary>
                   <div class="collapsible-tab__text">
                     {% if product.description contains '<!-- break -->' %}
-                      {% assign jsc_product_description = product.description | split: '<!-- break -->' %}
                       <div class="nine columns medium-down--one-whole medium-p-r">
-                        {{ jsc_product_description.first | split: '<!-- firstbreak -->' | last }}
+                        {{ jsc_product_description_last }}
                       </div>
                       <div class="seven columns medium-down--one-whole">
                         {{ product.description | split: '<!-- break -->' | last }}
