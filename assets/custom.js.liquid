@@ -1,4 +1,30 @@
+// ====================== MEGANTIC SUBCATEGORIES JS =========================== 
+document.addEventListener('DOMContentLoaded', function() {
+    var dropdownButton = document.querySelector('.mgc-subcategories-button');
+    var dropdownContent = document.querySelector('.mgc-subcategories-dropdown');
+    var accordion = document.querySelector('.accordion');
+    var panel = document.querySelector('.panel');
 
+    dropdownButton.addEventListener('click', function(event) {
+        event.stopPropagation(); 
+        dropdownContent.classList.toggle('show');
+    });
+
+    window.addEventListener('click', function() {
+        if (dropdownContent.classList.contains('show')) {
+            dropdownContent.classList.remove('show');
+        }
+    });
+
+    dropdownContent.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+
+    accordion.addEventListener('click', function() {
+        this.classList.toggle('active');
+        panel.classList.toggle('show');
+    });
+});
 /** Start Check Ultimate Hex & Xtreme Product **/
  $(document).ready(function(){
 		var currentProductHandle  = $(".product_form").attr("data-product-handle");
@@ -624,13 +650,39 @@ $("#s-brand option").each(function() {
 $("#s-model option").each(function() {
   $(this).siblings('[value="'+ this.value +'"]').remove();
 });
+$("#s-year option").each(function() {
+  $(this).siblings('[value="'+ this.value +'"]').remove();
+});
 
 $(".search-submit").click(function() {
         $(".search_form").submit();
     });
 
-
 /** End Car Size Functionality **/
+
+
+jQuery(document).ready(function() {
+        // Toggle modal visibility
+        jQuery('.modal-toggle').on('click', function(e) {
+            e.preventDefault();
+            jQuery('.offer-modal').toggleClass('is-visible');
+            jQuery('body').toggleClass('modal-open');
+        });
+
+        // Close modal when clicking on the close button
+        jQuery('.close').on('click', function() {
+            jQuery('.offer-modal').removeClass('is-visible');
+            jQuery('body').removeClass('modal-open');
+        });
+
+        // Close modal when clicking outside of it
+        jQuery(document).on('click', function(e) {
+            if (jQuery('.offer-modal').hasClass('is-visible') && !jQuery(e.target).closest('.offer-modal').length && !jQuery(e.target).closest('.modal-toggle').length) {
+                jQuery('.offer-modal').removeClass('is-visible');
+                jQuery('body').removeClass('modal-open');
+            }
+        });
+    });
 
 
 
