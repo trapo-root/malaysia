@@ -330,14 +330,14 @@
               {% endcomment %}
             {% when 'features' %}
               {% assign jsc_tab_product_description = product.description | split: '<!-- firstbreak -->' %}
-              {% if jsc_tab_product_description == '' %}
+              {% if jsc_tab_product_description.last == '' %}
                 Blank
               {% endif %}
               {% unless product.tags contains 'star-wars'
                 or product.tags contains 'wiper-refill'
                 or jsc_tab_product_description.last == blank
               %}
-                <details class="collapsible-tab {{ jsc_tab_product_description }}">
+                <details class="collapsible-tab {{ jsc_tab_product_description.last }}">
                   <summary class="collapsible-tab__heading">
                     <span>Other Great Features</span>
                   </summary>
