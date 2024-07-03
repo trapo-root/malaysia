@@ -330,7 +330,7 @@
               {% endcomment %}
             {% when 'features' %}
               {% assign jsc_tab_product_description = product.description | split: '<!-- firstbreak -->' %}
-              {% if jsc_tab_product_description.last == blank %}
+              {% if jsc_tab_product_description.last == '' %}
                 Blank
               {% endif %}
               {% unless product.tags contains 'star-wars'
