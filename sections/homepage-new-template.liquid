@@ -104,6 +104,7 @@
 
 
 
+
 <section class="new_car">
     <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/image_74.png?v=1720027401" alt="">
     <div class="content">
@@ -229,6 +230,34 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="liked_trapo">
+    <div class="sec_title">
+        <div class="container">
+            <h2>PEOPLE WHO ALSO LIKED TRAPO @TRAPOMALAYSIA</h2>
+        </div>
+    </div>
+    <div class="sec_content">
+        <div class="liked_trapo_row">
+            <div class="item">
+                <video src="https://cdn.shopify.com/videos/c/o/v/82e2ef33a88d4ca6a18ba992d63aed94.webm"></video>
+            </div>
+            <div class="item">
+                <video src="https://cdn.shopify.com/videos/c/o/v/82e2ef33a88d4ca6a18ba992d63aed94.webm"></video>
+            </div>
+            <div class="item">
+                <video src="https://cdn.shopify.com/videos/c/o/v/82e2ef33a88d4ca6a18ba992d63aed94.webm"></video>
+            </div>
+            <div class="item">
+                <video src="https://cdn.shopify.com/videos/c/o/v/82e2ef33a88d4ca6a18ba992d63aed94.webm"></video>
+            </div>
+            <div class="item">
+                <video src="https://cdn.shopify.com/videos/c/o/v/82e2ef33a88d4ca6a18ba992d63aed94.webm"></video>
             </div>
         </div>
     </div>
@@ -581,6 +610,34 @@
               settings: {
                   slidesToShow: 3,
                   slidesToScroll: 3
+              }
+              }
+          ]
+      });
+    $('.liked_trapo_row').slick({
+          dots: false,
+          infinite: false,
+          speed: 300,
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          responsive: [
+              {
+              breakpoint: 1024,
+              settings: {
+                  slidesToShow: 3
+              }
+              },
+              {
+              breakpoint: 600,
+              settings: {
+                  slidesToShow: 2
+              }
+              },
+              {
+              breakpoint: 480,
+              settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
               }
               }
           ]
