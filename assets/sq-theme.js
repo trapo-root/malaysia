@@ -36,6 +36,7 @@ window.sq = window.sq || {};
         "https://wwhvljue9gedqyi9xn1ld5dk-fast.searchtap.net/v2".toLowerCase() //v2 link
     ) {
       const body = JSON.parse(data);
+      console.log(body.filter)
 
       if(collectionHandle == "clearnance"){
         body.filter = body.filter.replace('AND NOT tags = "clearance"', '').trim();
