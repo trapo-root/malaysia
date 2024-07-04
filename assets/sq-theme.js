@@ -39,7 +39,7 @@ window.sq = window.sq || {};
       console.log(body.filter)
 
       if(collectionHandle == "clearnance"){
-        body.filter = body.filter.replace('AND NOT tags = "clearance"', '').trim();
+        body.filter.replace('AND NOT tags = "clearance"', '').trim();
       }
       
        body.facetCount = 1000; 
