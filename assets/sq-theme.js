@@ -28,14 +28,19 @@ window.sq = window.sq || {};
   XHR.prototype.send = function (data) {
     var self = this;
     var url = this._url;
-   
+    let location = window.location.href;
+    let collectionHandle = location.split("/collections/")[1];
     if (
       url &&
       url.toLowerCase() ===
         "https://wwhvljue9gedqyi9xn1ld5dk-fast.searchtap.net/v2".toLowerCase() //v2 link
     ) {
       const body = JSON.parse(data);
-      //logic
+
+      if(collectionHandle == "clearnance"){
+        body.filter = body.filter.replace('AND NOT tags = "clearance"', '').trim();
+      }
+      
        body.facetCount = 1000; 
       data = JSON.stringify(body);
     }
