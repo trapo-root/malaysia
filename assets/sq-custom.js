@@ -6,7 +6,7 @@ window.onload = function () {
     ".sq-app.sq-dropdown .sq-dropdown-body"
   );
   setTimeout(() => {
-    console.log(window.innerWidth - rect.right);
+    // console.log(window.innerWidth - rect.right);
     dropdownBody.style.right = window.innerWidth - rect.right + "px";
   }, 1000);
 };
@@ -69,7 +69,7 @@ window.onload = function () {
   });
 };
 window.sq.updatePage = function (store) {
-  console.log(store.currentPage, store.totalPages);
+  // console.log(store.currentPage, store.totalPages);
     const breadcrumbElement = document.querySelector(".breadcrumb_text");
 
   if (breadcrumbElement) {
@@ -87,13 +87,13 @@ window.sq.updatePage = function (store) {
         oldText,
         newText
       );
-      console.log("Updated text:", newText); // Outputs: "Page 3 of 100"
+      // console.log("Updated text:", newText); // Outputs: "Page 3 of 100"
     } else {
-      console.log("Pattern not found in the breadcrumb text.");
+      // console.log("Pattern not found in the breadcrumb text.");
     }
   } else {
     return true;
-    console.log("Breadcrumb element not found.");
+    // console.log("Breadcrumb element not found.");
   }
   return true;
 };
