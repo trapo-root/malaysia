@@ -37,9 +37,8 @@ window.sq = window.sq || {};
     ) {
       const body = JSON.parse(data);
       console.log(body.filter)
-  console.log(collectionHandle)
+
       if(collectionHandle == "clearance"){
-        console.log("OK")
         body.filter.replace('AND NOT tags = "clearance"', '').trim();
       }
       
@@ -49,6 +48,7 @@ window.sq = window.sq || {};
     send.call(this, data);
   };
 })(XMLHttpRequest);
+
 window.addEventListener("load", () => {
     if (window.matchMedia("(max-width: 767px)").matches) {
         document
