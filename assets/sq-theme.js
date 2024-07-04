@@ -38,7 +38,7 @@ window.sq = window.sq || {};
       const body = JSON.parse(data);
       console.log(body.filter)
 
-      if(collectionHandle == "clearnance"){
+      if(collectionHandle == "clearance"){
         body.filter.replace('AND NOT tags = "clearance"', '').trim();
       }
       
