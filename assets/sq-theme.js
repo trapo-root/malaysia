@@ -36,18 +36,11 @@ window.sq = window.sq || {};
         "https://wwhvljue9gedqyi9xn1ld5dk-fast.searchtap.net/v2".toLowerCase() //v2 link
     ) {
       const body = JSON.parse(data);
-      // console.log(body.filter)
+      console.log(body.filter)
 
-      if (collection.handle === 'clearance') {
-    body.filter = body.filter.replace(/AND NOT tags = "clearance"/, '').trim();
-    
-    // Ensure the filter string is properly formatted
-    // Remove any leading or trailing "AND" operators if present
-    body.filter = body.filter.replace(/^AND\s+/, '').replace(/\s+AND$/, '');
-}
-
-// Now you can use body.filter in your query
-console.log(body.filter);
+      if(collectionHandle == "clearnance"){
+        body.filter = body.filter.replace('AND NOT tags = "clearance"', '').trim();
+      }
       
        body.facetCount = 1000; 
       data = JSON.stringify(body);
