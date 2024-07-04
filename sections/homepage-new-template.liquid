@@ -1290,4 +1290,39 @@
             }
         ]
     });
+
+  $(".map-items-wrapper li a").click(function() {
+        var locId = $(this).data("id");
+        $(".locimg").removeClass('active');
+        if(locId == 'location-1'){
+          $("#loc-img-1").addClass('active');
+        }
+        if(locId == 'location-2'){
+          $("#loc-img-2").addClass('active');
+        }
+        if(locId == 'location-3'){
+          $("#loc-img-3").addClass('active');
+        }
+        if(locId == 'location-4'){
+          $("#loc-img-4").addClass('active');
+        }
+        if(locId == 'location-5'){
+          $("#loc-img-5").addClass('active');
+        }
+        if(locId == 'location-6'){
+          $("#loc-img-6").addClass('active');
+        }
+        if(locId == 'location-7'){
+          $("#loc-img-7").addClass('active');
+        }
+        if(locId == 'location-8'){
+          $("#loc-img-8").addClass('active');
+        }
+        if(locId == 'location-9'){
+          $("#loc-img-9").addClass('active');
+        }
+        if(locId == 'location-10'){
+          $("#loc-img-10").addClass('active');
+        }
+      });
 </script>
