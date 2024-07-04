@@ -39,6 +39,7 @@ window.sq = window.sq || {};
       console.log(body.filter)
 
       if(collectionHandle == "clearance"){
+        console.log("OK")
         body.filter.replace('AND NOT tags = "clearance"', '').trim();
       }
       
