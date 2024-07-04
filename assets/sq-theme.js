@@ -38,8 +38,11 @@ window.sq = window.sq || {};
       const body = JSON.parse(data);
       console.log(body.filter)
 
-      if(collectionHandle == "clearance"){
-        body.filter.replace('AND NOT tags = "clearance"', '').trim();
+      if (collectionHandle === "clearance") {
+        body.filter = body.filter.replace('AND NOT tags = "clearance"', '').trim();
+        // Ensure the filter string is properly formatted
+        // Remove any leading or trailing "AND" operators if present
+        body.filter = body.filter.replace(/^AND\s+/, '').replace(/\s+AND$/, '');
       }
       
        body.facetCount = 1000; 
