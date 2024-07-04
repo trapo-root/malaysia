@@ -140,7 +140,9 @@
 </section>
 
 <section class="new_car">
-  <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/image_74.png?v=1720027401" alt="">
+  <img class="mobile_view" src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/image_75.png?v=1720109630" alt="">
+  <img class="desk_view" src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/image_74.png?v=1720027401" alt="">
+
   <div class="container">
     <div class="content">
       <h2>Got a new car?</h2>
@@ -1190,7 +1192,15 @@
                 margin-bottom: 10px;
             }
         }
+        @media(min-width:768px){
+            .mobile_view{
+                display: none !important;
+            }
+        }
         @media(max-width:767px){
+            .desk_view{
+                display: none !important;
+            }
             .trapo_ecosystem .container {
                 grid-template-columns: 1fr;
                 padding-inline: 15px;
