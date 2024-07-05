@@ -65,10 +65,9 @@ window.addEventListener("load", () => {
 });
 
 window.sq.getStore = (store) => {
-  const systemFilter = store.filters.find(x => x.stFieldName === 'system_collections');
-  console.log("sysyte",systemFilter)
-  // systemFilter.items[0].displayLabel = '2D Mat';
-  // systemFilter.items[2].displayLabel = '3D Mat';
+  const systemFilter = store?.filters?.find(x => x.stFieldName === 'system_collections');
+  systemFilter.items[0].displayLabel = '2D Mat';
+  systemFilter.items[2].displayLabel = '3D Mat';
   return true;
 }
 
