@@ -1,3 +1,19 @@
+function toggleFilter() {
+    let x = document.querySelector(".sq-filter-main");
+    x.classList.toggle("opening");
+}
+function toggleClass() {
+    let y = document.querySelector(".sq-filter-main");
+    y.classList.remove("opening");
+}
+function removeClass() {
+    let z = document.querySelector(".sq-filter-main");
+    z.classList.remove("opening");
+}
+
+window.sq = window.sq || {};
+
+
 (function (XHR) {
   "use strict";
 
@@ -14,41 +30,27 @@
     var url = this._url;
     let location = window.location.href;
     let collectionHandle = location.split("/collections/")[1];
-
     if (
       url &&
       url.toLowerCase() ===
-        "https://wwhvljue9gedqyi9xn1ld5dk-fast.searchtap.net/v2".toLowerCase() // v2 link
+        "https://wwhvljue9gedqyi9xn1ld5dk-fast.searchtap.net/v2".toLowerCase() //v2 link
     ) {
       const body = JSON.parse(data);
-      if (location.includes("clearance")) {
-        if (body.filter.includes('AND NOT tags = "clearance"')) {
-          body.filter = body.filter.replace('AND NOT tags = "clearance"', '').trim();
-        }
-      }
+      console.log(body.filter)
 
-      body.facetCount = 1000;
+      if (collectionHandle === "clearance") {
+        body.filter = body.filter.replace('AND NOT tags = "clearance"', '').trim();
+        // Ensure the filter string is properly formatted
+        // Remove any leading or trailing "AND" operators if present
+        body.filter = body.filter.replace(/^AND\s+/, '').replace(/\s+AND$/, '');
+      }
+      
+       body.facetCount = 1000; 
       data = JSON.stringify(body);
     }
     send.call(this, data);
   };
 })(XMLHttpRequest);
-
-
-function toggleFilter() {
-    let x = document.querySelector(".sq-filter-main");
-    x.classList.toggle("opening");
-}
-function toggleClass() {
-    let y = document.querySelector(".sq-filter-main");
-    y.classList.remove("opening");
-}
-function removeClass() {
-    let z = document.querySelector(".sq-filter-main");
-    z.classList.remove("opening");
-}
-
-window.sq = window.sq || {};
 
 window.addEventListener("load", () => {
     if (window.matchMedia("(max-width: 767px)").matches) {
@@ -66,9 +68,15 @@ window.addEventListener("load", () => {
 });
 
 window.sq.getStore = (store) => {
-  const systemFilter = store.filters.find(x => x.stFieldName === 'system_collections');
-  systemFilter.items[0].displayLabel = '2D Mat';
-  systemFilter.items[2].displayLabel = '3D Mat';
+  console.log("Working")
+  store.filters.forEach((e) => {
+    console.log(e)
+    if (e.dispalyName && e.displayName.includes("Type of Car Mat")) {
+      console.log("true")
+      e.items[0].displayLabel = "2D Mat"
+      e.items[2].displayLabel = "3D Mat";
+    }
+  }); 
   return true;
 }
 
