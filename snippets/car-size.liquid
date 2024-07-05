@@ -3,7 +3,8 @@
 {% if tag_count > 0 %}
   {% for tag in collection.all_tags %}
     {% if tag contains 'model:' %}
-      {{ tag }}
+      {{ tag -}}
+      <br>
     {% endif %}
   {% endfor %}
 {% endif %}
