@@ -70,6 +70,7 @@ window.addEventListener("load", () => {
 window.sq.getStore = (store) => {
   console.log("Working")
   store.filters.forEach((e) => {
+    console.log(e.displayLabel)
     if (e.dispalyName && e.displayName.includes("Type of Car Mat")) {
       e.items[0].displayLabel = "2D Mat"
       e.items[2].displayLabel = "3D Mat";
