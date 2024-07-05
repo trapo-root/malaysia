@@ -1,3 +1,13 @@
+{% assign collection = collections.all %}
+{% assign tag_count = collection.all_tags | size %}
+{% if tag_count > 0 %}
+  {% for tag in collection.all_tags %}
+    {% if tag contains 'brand:' %}
+      {{ tag }}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
 <form class="main-rear-filter loaded" id="s-form">
   <div class="r-form-inner">
     {% assign collection = collections.all %}
