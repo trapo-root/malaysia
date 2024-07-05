@@ -65,11 +65,21 @@ window.addEventListener("load", () => {
 });
 
 window.sq.getStore = (store) => {
-  const systemFilter = store?.filters?.find(x => x.stFieldName === 'system_collections');
-  systemFilter.items[0].displayLabel = '2D Mat';
-  systemFilter.items[2].displayLabel = '3D Mat';
-  return true;
+  if (store && store.filters) {
+    const systemFilter = store.filters.find(x => x.stFieldName === 'system_collections');
+    if (systemFilter && systemFilter.items && systemFilter.items.length > 0) {
+      if (systemFilter.items[0]) {
+        systemFilter.items[0].displayLabel = '2D Mat';
+      }
+      if (systemFilter.items[2]) {
+        systemFilter.items[2].displayLabel = '3D Mat';
+      }
+      return true;
+    }
+  }
+  return false;
 }
+
 
 window.sq.initSearch = (store) => {
     store.search();
