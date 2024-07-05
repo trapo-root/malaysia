@@ -2,7 +2,7 @@
 {% assign tag_count = collection.all_tags | size %}
 {% if tag_count > 0 %}
   {% for tag in collection.all_tags %}
-    {% if tag contains 'brand:' %}
+    {% if tag contains 'model:' %}
       {{ tag }}
     {% endif %}
   {% endfor %}
