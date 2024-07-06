@@ -686,8 +686,7 @@ sq-dropdown{
 }
 
 .sq-price.trans-money{
-  font-family: 'Roboto' !important;
-    font-weight: 600 !important;
-    color: #e82276 !important;
-    font-size: 16px;
+      color: #1b3d6d;
+    font-weight: 600;
+    font-size: 14px;
 }
