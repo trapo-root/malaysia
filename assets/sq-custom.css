@@ -690,3 +690,6 @@ sq-dropdown{
     font-weight: 600;
     font-size: 14px;
 }
+.sq-sort{
+  display: none;
+}
