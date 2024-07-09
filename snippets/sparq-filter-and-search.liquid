@@ -48,9 +48,7 @@
     <sq-filter-group v-if="store.results.length && (window.sq.getStore(store) || window.sq.getStore(store))">
       <template #header="filter"> </template>
     </sq-filter-group>
-{% comment %} MEGANTIC SUBCATEGORIES START {% endcomment %}
-  {% render 'megantic-subcategories-dropdown' %}
-{% comment %} MEGANTIC SUBCATEGORIES END {% endcomment %}
+
                 <div class="sq-dropdown"  v-if="store.results.length">
           Sort By:
           <sq-sort></sq-sort>
