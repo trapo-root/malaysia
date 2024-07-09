@@ -30,6 +30,12 @@
             "display_savings": true
           }
         },
+        "custom_liquid_njar9E": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{% render 'offer-block' %}"
+          }
+        },
         "text_MH9KVi": {
           "type": "text",
           "settings": {
@@ -76,6 +82,7 @@
       "block_order": [
         "title",
         "price",
+        "custom_liquid_njar9E",
         "text_MH9KVi",
         "form",
         "description",
