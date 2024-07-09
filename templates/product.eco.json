@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -12,6 +21,12 @@
           "type": "price",
           "settings": {
             "display_savings": false
+          }
+        },
+        "custom_liquid_ntjyYg": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{% render 'offer-block' %}"
           }
         },
         "cb209a7c-aef5-4eb5-a9f0-139c7d81d62d": {
@@ -49,6 +64,7 @@
       "block_order": [
         "title",
         "price",
+        "custom_liquid_ntjyYg",
         "cb209a7c-aef5-4eb5-a9f0-139c7d81d62d",
         "form",
         "description",
