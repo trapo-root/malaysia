@@ -83,7 +83,7 @@
     "custom_liquid_by8Npw": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "",
+        "custom_liquid": "{% render 'accordian-collection' %}",
         "css_class": "",
         "custom_css": ""
       }
