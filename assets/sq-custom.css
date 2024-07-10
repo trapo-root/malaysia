@@ -705,10 +705,10 @@ sq-dropdown{
     font-size: 16px;
     padding: 0 5px;
 }
-/*.was-price .sq-price.trans-money{
+.was-price .sq-price.trans-money{
   font-family: 'Roboto' !important;
     font-weight: 500 !important;
     color: grey !important;
     font-size: 14px;
     text-decoration: line-through;
-}*/
+}
