@@ -140,13 +140,6 @@
                     v-if="item.variants.length > 1 && item.variants.filter(variant=> variant.price==item.price).length !== item.variants.length"
                     ><em>from</em></small
                   >
-                  <span
-                    v-if="item.productType === 'TRAPO ECO'"
-                    style="padding-left: 10px; text-decoration: line-through"
-                    class="current-price"
-                  >
-                    {% raw %} RM{{ (item.price * 0.73).toFixed(2) }} {% endraw %}
-                  </span>
 
                   <span v-if="item.tags.includes('bundle-15')" class="current-price">
                     {% raw %} RM{{ (item.price * 0.85).toFixed(2) }} {% endraw %}
