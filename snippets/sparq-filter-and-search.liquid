@@ -135,7 +135,7 @@
                   </div>
                 -->
                 <div
-                  class="sq-price-main {% if item.tags contains 'bundle' %}bundle{% endif %}"
+                  class="sq-price-main {% if item.title contains 'Kit' or item.title contains 'Bundle' or  item.title contains 'Mix and Match' %}bundle{% endif %}"
                   v-if="item.in_stock ==1"
                 >
                   <span v-if="item.tags.includes('bundle-15')" class="current-price">
