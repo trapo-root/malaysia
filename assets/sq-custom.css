@@ -693,3 +693,22 @@ sq-dropdown{
 .sq-sort{
   display: none;
 }
+.sq-price-main{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.current-price{
+  font-family: 'Roboto' !important;
+    font-weight: 600 !important;
+    color: #e82276 !important;
+    font-size: 16px;
+    padding: 0 5px;
+}
+/*.was-price .sq-price.trans-money{
+  font-family: 'Roboto' !important;
+    font-weight: 500 !important;
+    color: grey !important;
+    font-size: 14px;
+    text-decoration: line-through;
+}*/
