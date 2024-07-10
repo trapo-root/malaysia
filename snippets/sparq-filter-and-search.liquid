@@ -141,7 +141,29 @@
                   <span v-else-if="item.tags.includes('bundle-20')" class="current-price">
                     {% raw %} RM{{ (item.price * 0.80).toFixed(2) }} {% endraw %}
                   </span>
-                  <div class="sq-child-price-main was-price">
+                  <div v-if="item.tags.includes('bundle-15')" class="sq-child-price-main was-price">
+                    <small
+                      class="sq-from"
+                      v-if="item.variants.length > 1 && item.variants.filter(variant=> variant.price==item.price).length !== item.variants.length"
+                      ><em>from</em></small
+                    >
+                    {% raw %} <div class="sq-compare-price trans-money" v-if="item.compare_at_price" style="text-decoration: line-through" translate="no"> RM{{ item.compare_at_price.toFixed(2) }}</div> {% endraw %}
+                    {% raw %} <div class="sq-price trans-money" translate="no">
+  
+                  RM{{ item.price.toFixed(2) }} </div> {% endraw %}
+                  </div>
+                  <div v-else-if="item.tags.includes('bundle-20')" class="sq-child-price-main was-price">
+                    <small
+                      class="sq-from"
+                      v-if="item.variants.length > 1 && item.variants.filter(variant=> variant.price==item.price).length !== item.variants.length"
+                      ><em>from</em></small
+                    >
+                    {% raw %} <div class="sq-compare-price trans-money" v-if="item.compare_at_price" style="text-decoration: line-through" translate="no"> RM{{ item.compare_at_price.toFixed(2) }}</div> {% endraw %}
+                    {% raw %} <div class="sq-price trans-money" translate="no">
+  
+                  RM{{ item.price.toFixed(2) }} </div> {% endraw %}
+                  </div>
+                  <div class="sq-child-price-main">
                     <small
                       class="sq-from"
                       v-if="item.variants.length > 1 && item.variants.filter(variant=> variant.price==item.price).length !== item.variants.length"
