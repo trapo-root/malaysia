@@ -66,19 +66,21 @@ window.addEventListener("load", () => {
 
 window.sq.getStore = (store) => {
   if (store && store.filters) {
-    const systemFilter = store.filters.find(x => x.stFieldName === 'system_collections');
+    const systemFilter = store.filters.find(
+      (x) => x.stFieldName === "system_collections"
+    );
+
+    console.log(systemFilter);
+
     if (systemFilter && systemFilter.items && systemFilter.items.length > 0) {
-      if (systemFilter.items[0]) {
-        systemFilter.items[0].displayLabel = '2D Mat';
-      }
-      if (systemFilter.items[2]) {
-        systemFilter.items[2].displayLabel = '3D Mat';
-      }
-      return true;
+      systemFilter.items.map((item) => {
+        if (item.label.includes("2d car mats")) item.displayLabel = "2D Mat";
+        if (item.label.includes("trapo xtreme")) item.displayLabel = "3D Mat";
+      });
     }
   }
-  return false;
-}
+  return true;
+};
 
 
 window.sq.initSearch = (store) => {
