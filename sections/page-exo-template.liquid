@@ -584,16 +584,15 @@
    .car-package{
      margin-bottom:35px;
    }
-  .car-package .container{
-    background: #DEDEDE;
-    padding: 25px;
-    border-radius: 15px;
-  }
+
   .car-package .container .main-package{
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background: #DEDEDE;
+    padding: 25px;
+    border-radius: 15px;
   }
   .car-package .container .main-package h3{
     color: #16406D;
@@ -939,6 +938,19 @@
           }
       }
   @media(max-width:767px){
+    .car-package .container .main-package{
+          flex-direction: column;
+      text-align: center;
+    }
+    .car-package .container .main-package h3{
+      font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    }
+    .car-package .container .main-package p{
+      width: 100%;
+    margin-bottom: 20px;
+    }
       .intr_extr_img_wrap .intr_extr_desk_img{
           display: none
       }
