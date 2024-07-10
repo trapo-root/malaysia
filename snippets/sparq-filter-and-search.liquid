@@ -50,7 +50,7 @@
           <sq-filter-group :top-bar="false"></sq-filter-group>
         </div>
       -->
-      <sq-filter-group v-if="store.results.length && (window.sq.getStore(store) || window.sq.getStore(store))">
+      <sq-filter-group v-if="store.results.length && window.sq.getStore(store)">
         <template #header="filter"> </template>
       </sq-filter-group>
 
