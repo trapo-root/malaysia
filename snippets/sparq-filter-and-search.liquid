@@ -135,7 +135,7 @@
                   </div>
                 -->
                 <div
-                  class="sq-price-main{% raw %}  {% if item.handle contains 'kit' or item.handle contains 'bundle' %}bundle{% endif %}{% endraw %}"
+                  class="sq-price-main {% if item.handle contains 'kit' or item.handle contains 'bundle' %}bundle{% endif %}"
                   v-if="item.in_stock ==1"
                 >
                   <span v-if="item.tags.includes('bundle-15')" class="current-price">
