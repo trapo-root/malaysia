@@ -147,21 +147,6 @@
                   >
                     {% raw %} RM{{ (item.price * 0.73).toFixed(2) }} {% endraw %}
                   </span>
-                  <span
-                    v-if="
-                      item.productType === 'TRAPO CLASSIC' ||
-                      item.productType === 'TRAPO HEX' ||
-                      item.productType === 'TRAPO HEX ULTIMATE' ||
-                      item.productType === 'TRAPO XTREME' ||
-                      item.productType === 'TRAPO ACCESSORIES' ||
-                      item.productType === 'TRAPO DASHCAM' ||
-                      item.productType === 'WIPER' ||
-                      item.productType === 'OXTRA WIPER'
-                    "
-                    class="current-price"
-                  >
-                    {% raw %} RM{{ (item.price * 0.87).toFixed(2) }} {% endraw %}
-                  </span>
 
                   <span v-if="item.tags.includes('bundle-15')" class="current-price">
                     {% raw %} RM{{ (item.price * 0.85).toFixed(2) }} {% endraw %}
