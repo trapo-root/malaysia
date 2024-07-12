@@ -283,6 +283,23 @@
         "disabled": false,
         "settings": {
         }
+      },
+      "874997913381123487": {
+        "type": "shopify:\/\/apps\/social-login-by-devcloud\/blocks\/automatic_login\/8de41085-9237-4829-86d0-25e862482fec",
+        "disabled": false,
+        "settings": {
+          "appblock_width": 100,
+          "code_integration": false
+        }
+      },
+      "8776485610325655785": {
+        "type": "shopify:\/\/apps\/hiko-social-login\/blocks\/hiko-auth\/3832d7e1-5bcd-4b72-91da-236b57feef8f",
+        "disabled": true,
+        "settings": {
+          "social_font": "enable",
+          "spinner_top": 50,
+          "spinner_left": 50
+        }
       }
     }
   }
