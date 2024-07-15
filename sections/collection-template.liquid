@@ -126,13 +126,11 @@
         </div>
       {% endif %}
 
-      {% if collection.handle == 'car-mats'
-        or collection.handle == 'car-wipers'
-        or collection.handle == 'trapo-xtreme-car-mats'
-      %}
+      {% if collection.handle == 'car-mats' or collection.handle == 'car-wipers'%}
         <div class="one-whole column">
           <h4 class="headline">Search Your Car Model</h4>
         </div>
+        {% render 'popular-searches' %}
         <style>
           h4.headline{
             font-size: 1.3rem;
