@@ -1,0 +1,245 @@
+<div class="tos_warning cart_content animated">
+				    <div class="minicart-header">
+						<div class="minicart-header-logo">
+						  <img class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/cart-svg.svg?v=1698656782" width="34" height="26" alt="logo">
+						</div>
+						<h4 style="color:#1b3d6d">Cart</h4>
+						<div class="minicart-header-close-btn" role="button">
+						  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+							<path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"></path>
+						  </svg>
+						</div>
+					</div>
+					<div class="js-empty-cart__message {% if cart.item_count > 0 %}hidden{% endif %}">
+					  <p class="empty_cart">{{ 'layout.general.empty_cart' | t }}</p>
+					</div>
+
+					<form action="{{ routes.cart_url }}"
+						  method="post"
+						  class="{% if cart.item_count == 0 %}hidden{% endif %}"
+						  data-total-discount="{{ cart.total_discount }}"
+						  data-money-format="{{ shop.money_format | strip_html }}"
+						  data-shop-currency="{{ shop.currency }}"
+						  data-shop-name="{{ shop.name | escape }}"
+						  data-cart-form="mini-cart">
+					  <!--<a class="cart_content__continue-shopping secondary_button">
+						{{ 'cart.general.continue_shopping' | t }}
+					  </a>-->
+					  {%- if cart.item_count > 0 -%}
+                      <div class="minicart-box-out-bar">
+						  <h3><span>{{cart.item_count}}</span> Products</h3>
+						  <div class="cart-slider-pointer" role="button"></div>
+					  </div>
+					  {%- endif -%}
+					  <ul class="cart_items js-cart_items">
+						{%- assign total_saving = 0 -%}
+
+						{% for item in cart.items %}
+						  {% if item.variant.compare_at_price > item.variant.price %}
+							{%- assign saving = item.variant.compare_at_price | minus: item.variant.price | times: item.quantity -%}
+							{%- assign total_saving = saving | plus: total_saving -%}
+						  {% endif %}
+
+						  <li class="mini-cart__item" data-cart-item data-line-id="{{ forloop.index }}" data-variant-id="{{ item.id }}">
+							<a href="{{ item.url }}">
+							  {% if item.image %}
+								<div class="cart_image mini-cart__item-image">
+								  <img src="{{ item.image | img_url: '320x' }}" alt="{{ item.title | escape }}" class="lazyload" />
+								</div>
+							  {% endif %}
+							</a>
+
+							<div class="mini-cart__item-content">
+							  <div class="mini-cart__item-title">
+								<a href="{{ item.url }}" class="cart_item-product-title">
+								  {{- item.product.title | escape -}}
+								</a>
+
+								{% if item.selling_plan_allocation.selling_plan %}
+								  <p class="meta">{{ item.selling_plan_allocation.selling_plan.name }}</p>
+								{% endif %}
+
+								  <div class="mini-cart__item-properties">
+									{% unless item.product.has_only_default_variant or item.variant.title contains "Title" %}
+										{% for option in item.product.options %}
+										  {{ item.variant.options[forloop.index0] }} {% unless forloop.last %}/{% endunless %}
+										{% endfor %}
+									 {% endunless %}
+								  </div>
+							  </div>
+							  
+							  <div class="mini-cart__item-bottom">
+								 <div class="mini-cart__item-price">
+									{% if item.price > 0 %}
+									  <span class="money {% if item.price < item.variant.compare_at_price or item.line_level_discount_allocations.size > 0 %}sale{% endif %}">
+										{% assign itemFinalPrice = item.final_price | times : item.quantity %}
+										{%
+										  render 'price-element',
+										  price: itemFinalPrice
+										%}
+									  </span>
+									 
+									  {% if item.price < item.variant.compare_at_price %}
+									    {% assign itemComparePrice = item.variant.compare_at_price | times : item.quantity %}
+										<span class="money was_price">
+										  {%
+											render 'price-element',
+											price: itemComparePrice
+										  %}
+										</span>
+									  {% elsif item.line_level_discount_allocations.size > 0 %}
+										{% assign itemComparePrice1 = item.original_price | times : item.quantity %}
+										<span class="money was_price hh">
+										  {%
+											render 'price-element',
+											price: itemComparePrice1
+										  %}
+										</span>
+									  {% endif %}
+									{% else %}
+									  {{ settings.free_price_text }}
+									{% endif %}
+								  </div>
+
+								  {%
+									render 'unit-price',
+									item: item,
+									variant: item.variant,
+									product: item.product,
+									class: 'mini-cart__unit-price'
+								  %}
+
+								 {% comment %} {% if item.line_level_discount_allocations.size > 0 %}
+									{% for discount_allocation in item.line_level_discount_allocations %}
+									  <p class="notification-discount meta">
+										{{ discount_allocation.discount_application.title }}
+									  </p>
+									{% endfor %}
+								  {% endif %}{% endcomment %}
+
+								  <div class="product-quantity-box">
+									<span class="ss-icon product-minus js-change-quantity" data-func="minus">
+									  <span class="icon-minus"></span>
+									</span>
+
+									<input type="number" min="0" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-cart-quantity-input="mini-cart" {% if settings.limit_quantity and item.variant.inventory_management != blank and item.variant.inventory_quantity > 0 and item.variant.inventory_policy == "deny" %}max="{{ item.variant.inventory_quantity }}"{% endif %}/>
+
+									<span class="ss-icon product-plus js-change-quantity" data-func="plus">
+									  <span class="icon-plus"></span>
+									</span>
+								  </div>
+							  </div>
+							</div>
+
+							<a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="cart__remove-btn" data-line-id="{{ forloop.index }}" data-remove-item="mini-cart"><span class="remove-icon"></span></a>
+						  </li>
+						{% endfor %}
+					  </ul>
+					  
+					  <div class="mini-cart-middle">
+						  <div class="write-a-note-box">
+							<h5>Additional Notes</h5>
+							{% if settings.display_special_instructions and settings.go_to_checkout %}
+								<textarea id="note" name="note" placeholder="For manual transmission cars, kindly reach out to our customer support for assistance..">{{ cart.note }}</textarea>
+							{% endif %}
+						  </div>
+						  {%- include 'genie-store-pickup-template-drawer' -%} 
+					  </div>
+
+					  <ul class="minicart-bottom">
+					  {%- comment -%}
+						<li class="cart_discounts js-cart_discounts sale">
+						  {% if cart.cart_level_discount_applications != blank %}
+							{% for discount_application in cart.cart_level_discount_applications %}
+							  <span class="cart_discounts--title">{{ discount_application.title }}</span>
+
+							  <span class="cart_discounts--price">
+								-<span class="money">
+								  {%
+									render 'price-element',
+									price: discount_application.total_allocated_amount
+								  %}
+								</span>
+							  </span>
+							{% endfor %}
+						  {% endif %}
+						</li>{%- endcomment -%}
+
+						<li class="cart_subtotal js-cart_subtotal">
+						  <span class="right">
+							<span class="money">
+							  {%
+								render 'price-element',
+								price: cart.total_price
+							  %}
+							</span>
+						  </span>
+
+						  <span class="subtotal-text">{{ 'layout.general.subtotal' | t }}</span>
+						</li>
+						{%- comment -%}
+						<li class="cart_savings sale js-cart_savings">
+						  {% if settings.display_savings and total_saving > 0 or settings.display_savings and cart.total_discount > 0 %}
+							<span class="right">
+							  <span class="money">
+								{% assign total_savings = total_saving | plus: cart.total_discount %}
+								{%
+								  render 'price-element',
+								  price: total_savings
+								%}
+							  </span>
+							</span>
+							<span>{{ 'layout.general.savings' | t }}</span>
+						  {% endif %}
+						</li>
+						{%- endcomment -%}
+						<li>
+						  {%- capture taxes_shipping_checkout -%}
+							{%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+							  {{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+							{%- elsif cart.taxes_included -%}
+							  {{ 'cart.general.taxes_included_but_shipping_at_checkout' | t }}
+							{%- elsif shop.shipping_policy.body != blank -%}
+							  {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+							{%- else -%}
+							  {{ 'cart.general.tax_and_shipping' | t }}
+							{%- endif -%}
+						  {%- endcapture -%}
+
+						  <p class="cart-message meta">{{ taxes_shipping_checkout }}</p>
+						</li>
+						
+
+						<li>
+
+						  {% if settings.display_tos_checkbox and settings.go_to_checkout %}
+							<p class="tos">
+							  <input type="checkbox" class="tos_agree" id="sliding_agree" required />
+
+							  <label class="tos_label">
+								{{ 'cart.general.agree_to_terms_html' | t }}
+							  </label>
+
+							  {% if settings.tos_page != blank %}
+								<a href="{{ settings.tos_page }}" target="_blank" class="tos_icon">{{ 'cart.general.view_terms' | t }}</a>
+							  {% endif %}
+							</p>
+						  {% endif %}
+
+						  {% if settings.cart_message != blank %}
+							<div class="cart_text">
+							  {{ settings.cart_message }}
+							</div>
+						  {% endif %}
+
+						  {% if settings.go_to_checkout %}
+							<button type="submit" name="checkout" class="global-button global-button--primary add_to_cart" data-minicart-checkout-button>{% if settings.show_lock_icon %}<span class="icon-lock"></span>{% endif %}{{ 'layout.general.checkout' | t }}</button>
+						  {% else %}
+							<button type="submit" class="global-button global-button--primary add_to_cart" data-minicart-checkout-button>{% if settings.show_lock_icon and settings.go_to_checkout %}<span class="icon-lock"></span>{% endif %}{{ 'layout.general.go_to_cart' | t }} </button>
+						  {% endif %}
+						</li>
+						
+						
+					  </ul>
+					</form>
+				  </div>
