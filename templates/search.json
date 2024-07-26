@@ -1,0 +1,49 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "search-template",
+      "disabled": true,
+      "settings": {
+        "wide_display": true,
+        "caption_content_background": "original",
+        "search_breadcrumb": true,
+        "search_term": "Search...",
+        "products_per_row": 3,
+        "pagination_limit": 48,
+        "blog_author": false,
+        "read_more_link": true,
+        "blog_date": true,
+        "toggle": false
+      }
+    },
+    "sparqAppBlock": {
+      "type": "apps",
+      "blocks": {
+        "sparqAppBlock": {
+          "type": "shopify:\/\/apps\/product-filter-search-app\/blocks\/sparq-app-block\/8fd7d3d6-d46d-4322-92f0-3e36acf0ae32",
+          "settings": {
+            "template": "{% render 'sparq-filter-and-search' %}"
+          }
+        }
+      },
+      "block_order": [
+        "sparqAppBlock"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sparqAppBlock"
+  ]
+}
