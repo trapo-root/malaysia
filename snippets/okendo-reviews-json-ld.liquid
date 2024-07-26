@@ -1,0 +1,37 @@
+{% if template contains 'product' %}
+{%- capture newline %}
+{% endcapture -%}
+ {% comment %}
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": "{{ product.title }}",
+    "image": "https:{{ product.featured_image | product_img_url: '450x450' }}",
+    "description": "{{ product.description | strip_html | strip | escape | replace: newline, ' ' }}",
+    "mpn": "{{ product.id }}",
+    "brand": {
+      "@type": "Thing",
+      "name": "{{ product.vendor }}"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "{{ shop.currency }}",
+      "price": "{{ product.selected_or_first_available_variant.price | money_without_currency | remove: "," }}",
+      "availability": "{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+      "seller": {
+        "@type": "Organization",
+        "name": "{{ shop.name }}"
+      }
+    }
+    {% if product.metafields.okendo.ReviewCount > 0 %}
+    ,"aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "{{ product.metafields.okendo.ReviewAverageValue }}",
+      "ratingCount": "{{ product.metafields.okendo.ReviewCount }}"
+    }
+    {% endif %}
+  }
+</script>
+ {% endcomment %}
+{% endif %}

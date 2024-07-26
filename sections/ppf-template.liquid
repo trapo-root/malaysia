@@ -1,0 +1,668 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+<style>
+      .ppf_section .ppf_banner{ background-color: rgba(0, 0, 0, 1); padding: 60px 20px 25px; text-align: center; }
+      .ppf_section .ppf_banner img{ width: 100%;max-width: 940px;margin: 0 auto; }
+      .ppf_section .ppf_video_sec .sec_container{ max-width: 1090px; width: 100%; margin: 0 auto; padding: 45px 20px 60px; text-align: center; }
+      .ppf_section .ppf_video_sec .ppf_video_desc{ max-width: 794px; width: 100%; margin: 0 auto 42px; font-size: 19px; letter-spacing: 0.19px; line-height: 27px; color: #1B3D6D; }
+      .ppf_section .our_partners .sec_container{ max-width: 1090px; width: 100%; margin: 0 auto; padding: 0 20px 77px; text-align: center; }
+      .ppf_section .ppf_video_sec .video_content > img{ width: 100%; }
+      .ppf_section .our_partners .sec_title h2{ font-size: 24px; font-weight: bold; line-height: 28px; letter-spacing: 2px; color: #1B3D6D; margin: 0 0 36px; }
+      .ppf_section .our_partners .our_partners_raw{ display: flex; gap:12px; }
+      .ppf_section .our_partners .our_partners_raw .our_partner_item{ background-color: #1B3D6D; color: #fff; padding: 40px 20px 30px; border-radius: 12px; }
+      .ppf_section .our_partners .our_partners_raw .our_partner_item span{ font-size: 11px; line-height: 16.8px; font-weight: bold; display: block; margin: 10px 0; text-transform: uppercase; }
+      .ppf_section .our_partners .our_partners_raw .our_partner_item p{ font-size: 16px; line-height: 24px; letter-spacing: 0.19px; width: 100%; }
+      .ppf_section .our_partners .our_partners_raw .our_partner_item:last-child{ display: flex; flex-wrap: wrap; justify-content: center; gap:0 20px }
+      .intallment_sec .intallment_row .intallment_icons{ display: flex; align-items: center; justify-content: space-evenly; gap:20px; }
+      .intallment_sec .intallment_row a:not(.ppf_btn){ font-size: 16px; line-height: 16px; color: #808080; font-weight: bold; text-transform: uppercase; margin: 45px auto 105px; display: block; }
+      a.ppf_btn{ font-size: 14px; line-height: 16.8px; color: #fff; text-transform: uppercase; background-color: #EE2A7B; display: block; padding: 15px 40px; margin: 0 auto; width: fit-content; border-radius: 50px; min-width: 219px; }
+      .ppf_slider .sec_container{ max-width: 1090px; width: 100%; margin: 0 auto; padding: 45px 20px 60px; text-align: center; }
+      #ppf_slider .slide-item img{ width: 100%; }
+      #ppf_slider .slide-arrow{ position: absolute; top: 27%; left: 130px; width: 90px; height: 90px; background-color: transparent; background-size: 100%; padding: 0; background-position: center; background-repeat: no-repeat; }
+      #ppf_slider .prev-arrow{ background-image: url('https://cdn.shopify.com/s/files/1/0234/7089/9277/files/left_arrow.png?v=1705596438') }
+      #ppf_slider .next-arrow{ left: unset; background-image: url('https://cdn.shopify.com/s/files/1/0234/7089/9277/files/right_arrow.png?v=1705596438'); right: 130px; }
+      .ppf_rating .sec_container{ max-width: 1090px; width: 100%; margin: 0 auto; padding: 45px 20px 60px; text-align: center; display: flex; align-items: center; justify-content: center; width: fit-content; overflow: hidden; }
+      .ppf_rating  .ppf_rating_text{ display: flex; flex-direction: column; text-align: right; height: fit-content; justify-content: center; background-color: #DEDEDE; padding: 20px 37px 20px 30px; position: relative; }
+      .ppf_rating  .ppf_rating_text:before{ content: ''; position: absolute; background-color: #DEDEDE; height: 100%; width: 300%; left: 0; }
+      .ppf_rating  .ppf_rating_text a{ font-size: 18px; line-height: 30px; color: #808080; font-weight: bold; margin-bottom: 20px; }
+      .ppf_rating  .ppf_rating_blk{ display: grid; gap:20px; grid-template-columns: 1fr 1fr }
+      .ppf_rating  .ppf_rating_blk .ppf_rate_item{ position: relative; }
+      .ppf_rating  .ppf_rating_blk .ppf_rate_item.active:before{ content: 'OUR BEST PPF FILM!'; position: absolute; top: -45px; left: 0; height: 65px; background-color: #E82276; width: 100%; font-size: 18px; line-height: 22.4px; font-weight: 300; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 12px; z-index: 9; padding-bottom: 15px }
+      .ppf_rating  .ppf_rating_blk .ppf_rate_item .ppf_rate_inside{ box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.25); border-radius: 12px; padding: 60px 20px 15px; text-align: center; background-color: #fff; display: flex; flex-direction: column; gap:40px; position: relative; z-index: 9; }
+      .ppf_rating  .ppf_rating_blk .ppf_rate_item .ppf_rate_logo{ height: 50px; object-fit: contain; }
+      .ppf_rating  .ppf_rating_blk .ppf_rate_item .ppf_rate{ height: 20px; width: auto; object-fit: contain; display: block; }
+      .ppf_rating  .ppf_rating_blk .ppf_rate_item span{ font-size: 18px; line-height: 51px; font-weight: bold; color: #808080; }
+      .ppf_rating  .ppf_rating_blk .ppf_rate_item .ppf_rate_btn{ border: 1px solid #1B3D6D; width: 100%; padding: 15px 20px; font-size: 14px; line-height: 16.8px; color: #1B3D6D; display: block; font-weight: bold; text-transform: uppercase; border-radius: 12px; }
+      .ppf_rating  .ppf_rating_blk .ppf_rate_item.active .ppf_rate_btn{ background-color: #E82276; color: #fff; border-color: #E82276; }
+      .blog_post_container{ max-width: 1210px; width: 100%; margin: 0 auto ; padding: 0 20px;}
+      .blog_post_blk{ display: flex; align-items: center; background-image: url('https://cdn.shopify.com/s/files/1/0234/7089/9277/files/post_bg.png?v=1705597485'); background-size: cover; background-repeat: no-repeat; background-position:  right 100px top; padding: 27px 0 15px 47px; margin-block:92px 77px}
+      .blog_post_blk .blog_post_content{ padding-right: 40px }
+      .blog_post_blk .blog_post_content strong{ font-size: 13px; line-height: 19.2px; color: #fff; margin-bottom: 14px; display: block; font-weight: 400 !important; }
+      .blog_post_blk .blog_post_content h6{ font-size: 22px; line-height: 24.6px; color: #fff; margin:0 0 14px; font-weight: 500 !important }
+      .blog_post_blk .blog_post_content p{ font-size: 19px; line-height: 27px; letter-spacing: 0.19px; color: #fff; margin:0 0 10px; font-weight: 300 !important; }
+      .blog_post_blk .blog_post_content span{ font-size: 19px; line-height: 27px; letter-spacing: 0.19px; color: #fff; }
+      .blog_post_blk .blog_post_img{ margin-top: -150px }
+      .tint_service_tab{ margin-bottom: 65px; }
+      .tint_service_tab #tabs-nav{ list-style-type: none; display: flex; justify-content: space-evenly; margin: 0 20px 50px; border-bottom: 3px solid #DEDEDE; padding: 0; }
+      .tint_service_tab #tabs-nav li{ margin: 0; }
+      .tint_service_tab #tabs-nav li a{ font-size: 19px; line-height: 16.8px; color: #E82276; position: relative; cursor: pointer; }
+      .tint_service_tab #tabs-nav li.active a:after{ content: ''; position: absolute; width: 100%; height: 3px; background-color: #E82276; bottom: -5px; left: 0 }
+      .tint_service_tab #tabs-content .tab-content .tab_img{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap:15px; }
+      .tint_service_tab #tabs-content img{ width: 100%; }
+      .tint_service_tab .ppf_btn{ margin-bottom: 40px; }
+     .ppf_banner_link{
+      max-width: 720px;
+      padding: 0 ;
+      width: calc(100% - 40px);
+      margin: 40px auto 0;
+      border-bottom: 2px solid #D9D9D9;
+      display: flex;
+      justify-content: space-between;
+       position: relative;
+  }
+  .ppf_banner_link .ppf_banner_link_item{
+      font-size: 16.8px;
+      line-height: 19px;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: bold;
+      display: block;
+      flex: 1;
+      position: relative;
+      padding-bottom: 1px;
+  }
+  .ppf_banner_link .ppf_banner_link_item.active{
+      color: #E82276;
+  }
+  .ppf_banner_link .ppf_banner_link_item.active:before{
+      content: '';
+      position: absolute;
+      bottom: -2.5px;
+      width: 100%;
+      background-color: #E82276;
+      height: 2px;
+      left: 0;
+  }
+  .video{
+    width: 80%;
+      margin: 0 auto;
+      margin-top: 50px;
+      -webkit-box-shadow: 0px 0px 34px -10px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 34px -10px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 0px 34px -10px rgba(0,0,0,0.75);
+  }
+    .video_icons_sec img{
+      width:15%;
+    }
+    .ppf_section .our_partners .our_partners_raw .our_partner_item img{
+          width: 135px;
+    }
+    .ppf_rating .ppf_rating_text a{
+      pointer-events:none;
+    }
+    img.ppf-main-logo{
+      width:30%;
+    }
+      @media(max-width:1199px){
+          .blog_post_blk { background-position: right 60px top; }
+          .blog_post_blk .blog_post_content{ width: 50%; }
+          .blog_post_blk .blog_post_img{ width: 50%; margin-top:-200px }
+          .blog_post_blk .blog_post_img img{ width: 100%; height: auto; }
+          #ppf_slider .slide-arrow{
+              width: 60px;
+              height: 60px;
+          }
+      }
+      @media(max-width:992px){
+          .blog_post_blk{ flex-wrap: wrap; flex-direction: column-reverse; background-position: center; gap:20px; padding: 27px 0 27px 47px; border-radius: 8px }
+          .blog_post_blk .blog_post_img { margin-top: -150px; text-align: right; margin-inline: auto; width: 80%; }
+          .blog_post_container{ margin-top: 170px; }
+          .blog_post_blk .blog_post_content { padding-right: 120px; width: 100%; }
+          .tint_service_tab #tabs-nav{ margin: 0 20px 15px }
+          .tint_service_tab #tabs-content .tab-content .tab_img{ gap:10px }
+          #ppf_slider .slide-arrow{
+              width: 40px;
+              height: 40px;
+          }
+      }
+      @media(max-width:767px){
+          .ppf_section .ppf_banner{padding: 0;}
+          .blog_post_container { margin-top: 150px; }
+          .blog_post_blk .blog_post_content p{ color: #fff !important; margin: 0 }
+          .blog_post_blk .blog_post_content{ padding-right: 47px }
+          .blog_post_blk .blog_post_content h6{ margin: 0; padding: 0 }
+          .tint_service_tab #tabs-nav li a{ font-size: 16px; }
+          .ppf_section .our_partners .our_partners_raw { flex-wrap: wrap; gap:20px 4%}
+          .ppf_section .our_partners .our_partners_raw .our_partner_item:nth-child(1),
+          .ppf_section .our_partners .our_partners_raw .our_partner_item:nth-child(2){
+              width: 48%;
+          }
+          .intallment_sec .intallment_row .intallment_icons{
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr;
+              gap: 10px;
+          }
+        .video{
+         margin: 0 -18px 25px;
+      width: calc(100% + 58px);
+        }
+        .video_icons_sec img {
+      width: 35%;
+  }
+      }
+      @media(min-width:577px){
+              .mobile_view{ display: none !important; }
+      }
+      @media(max-width:576px){
+          .desc_view{ display: none !important; }
+          .tint_service_tab #tabs-content .tab-content .tab_img { grid-template-columns: 1fr; gap:0; }
+          .tint_service_tab #tabs-nav li a { font-size: 19px; }
+          .tint_service_tab #tabs-nav{ margin-bottom: 25px; border-bottom: 2px solid #DEDEDE; }
+          .tint_service_tab #tabs-nav li.active a:after{ height: 2px; bottom: -2px }
+          #ppf_slider .slide-arrow { width: 40px; height: 40px; top: 15%; left: 35px; }
+          #ppf_slider .next-arrow.slide-arrow { left: unset; right: 35px; }
+          .ppf_section .ppf_video_sec .sec_container{
+              padding-block: 25px 49px;
+          }
+          .ppf_section .ppf_video_sec .sec_container > img{
+              max-width: 225px;
+              width: 100%;
+              margin-bottom: 25px
+          }
+          .ppf_section .ppf_video_sec .video_content > img{
+              margin:0 -20px 25px;
+              width: calc(100% + 40px);
+          }
+          .ppf_section .ppf_video_sec .ppf_video_desc{
+              margin-bottom: 30px
+          }
+          .ppf_section .ppf_video_sec .video_icons_sec{
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+          }
+          /*.ppf_section .our_partners .our_partners_raw{
+              margin:0 -20px 0;
+              width: calc(100% + 40px);
+              gap:5px;
+          }*/
+        .ppf_section .our_partners .our_partners_raw{
+            margin: 0 0;
+          width: 100%;
+          gap: 5px;
+        }
+          .ppf_section .our_partners .our_partners_raw .our_partner_item:nth-child(1),
+          .ppf_section .our_partners .our_partners_raw .our_partner_item:nth-child(2){
+              flex: 1;
+          }
+          .ppf_section .our_partners .our_partners_raw .our_partner_item p {
+              font-size: 12px;
+              line-height: 20px;
+              letter-spacing: 0.19px;
+              width: 100%;
+              text-align: justify;
+              margin-bottom: 0;
+          }
+          .ppf_section .our_partners .our_partners_raw .our_partner_item{
+              padding: 30px 18px;
+          }
+          .ppf_section .our_partners .our_partners_raw .our_partner_item img{
+              height: 50px;
+          }
+          .ppf_section .our_partners .our_partners_raw .our_partner_item:last-child{
+              gap: 0 40px;
+          }
+          .ppf_rating .ppf_rating_text a{
+              font-size: 12px;
+              line-height: 25px;
+              color: #1B3D6D;
+              margin-bottom: 0;
+              white-space: nowrap;
+
+          }
+          .ppf_rating .sec_container{
+              padding: 0;
+              width: 100%;
+              overflow: visible;
+          }
+          .ppf_rating .ppf_rating_text{
+              padding: 12px;
+              width: 100%;
+          }
+          .ppf_rating .ppf_rating_blk .ppf_rate_item .ppf_rate_inside{
+              padding: 16px 15px 10px;
+              gap:0;
+              box-shadow: 0px 0px 3px 1.5px rgba(0,0,0,0.25);
+              border-radius: 8px;
+          }
+          .ppf_rating .ppf_rating_blk .ppf_rate_item .ppf_rate_inside .ppf_rate_logo {
+              margin-bottom: 21px;
+          }
+          .ppf_rating .ppf_rating_blk .ppf_rate_item .ppf_rate_inside .ppf_rate{
+              margin-bottom: 12px;
+          }
+          .ppf_rating .ppf_rating_blk{
+              gap:10px;
+              padding-right: 15px;
+          }
+          .ppf_rating .ppf_rating_blk .ppf_rate_item .ppf_rate_btn{
+              white-space: nowrap;
+              padding: 10px 20px;
+              border-radius: 4px;
+              font-size: 12px;
+          }
+          .ppf_rating .ppf_rating_blk .ppf_rate_item span{
+              font-size: 14px;
+              line-height: 25px;
+              margin-bottom: 10px
+          }
+          .ppf_rating .ppf_rating_text:before{
+              width: 100vw
+          }
+          .ppf_rating .ppf_rating_blk .ppf_rate_item.active:before{
+              font-size: 12px;
+              line-height: 16.8px;
+              font-weight: bold;
+              height: 43px;
+              top: -25px;
+              line-height: 1;
+          }
+          .ppf_section .our_partners .sec_container{
+              padding-bottom: 65px
+          }
+          .ppf_slider .sec_container{
+              padding-top: 60px
+          }
+          .intallment_sec .intallment_row .intallment_icons{
+              padding: 0 20px;
+              gap:20px
+          }
+          .intallment_sec .intallment_row .intallment_icons img{
+              width: 100%;
+              height: 20px;
+              object-fit: contain
+          }
+          .ppf_section .our_partners.intallment_sec .sec_title h2{
+              margin-bottom: 20px
+          }
+          .intallment_sec .intallment_row a:not(.ppf_btn){
+              margin: 25px 0 55px;
+          }
+          .blog_post_blk .blog_post_img{
+              margin-top: -100px;
+              width: 100%;
+          }
+          .blog_post_blk{
+              padding: 0 20px 40px 30px;
+              border-radius: 0;
+              margin-bottom: 60px
+          }
+          .blog_post_container:not(.tint_service_blk){
+              margin:0 -20px 0;
+              width: calc(100% + 40px);
+          }
+          .blog_post_blk .blog_post_content{
+              text-align: center;
+              padding-inline:15px 25px;
+          }
+          .blog_post_blk .blog_post_content p{
+              margin-block: 20px;
+          }
+          .tint_service_blk{
+              margin-top: 0;
+              margin:0 -20px 0;
+              width: calc(100% + 40px);
+          }
+          .tint_service_tab {
+              margin-bottom: 38px;
+          }
+          .tint_service_tab #tabs-nav li a{
+              font-weight: bold
+          }
+          .tint_service_tab #tabs-nav li.active a:after{
+              bottom: -5px;
+          }
+          .tint_service_tab #tabs-content #tab2{
+              padding: 0 20px
+          }
+        .ppf_banner_link{
+          margin:-50px auto 20px;
+        }
+      }
+</style>
+<div class="ppf_section">
+  <section class="ppf_banner">
+    <div class="ppf_banner_img">
+      <img
+        class="desc_view"
+        src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_303_1.png?v=1708967941"
+        alt=""
+      >
+      <img
+        class="mobile_view"
+        src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/mobile_header_ppf.png?v=1709109286"
+        alt=""
+      >
+    </div>
+    <div class="ppf_banner_link">
+      <a href="https://my.trapo.asia/pages/trapo-ppf" class="ppf_banner_link_item active">new</a>
+      <a href="https://my.trapo.asia/pages/trapo-car-coating" class="ppf_banner_link_item">well-used</a>
+    </div>
+  </section>
+  <section class="ppf_video_sec">
+    <div class="sec_container">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/logo_ppf.png?v=1709108969"
+        class="ppf-main-logo"
+        alt="PPF Logo"
+      >
+      <div class="video_content">
+        <div class="video">
+          <div class="wrapper">
+            <div data-embed="Nk95DbWKbmo" class="youtube">
+              <div class="play-button"></div>
+            </div>
+          </div>
+        </div>
+        <p class="ppf_video_desc">
+          Trapo PPF Films shield your car's paint, offering near-invisible protection against scratches, chips, and
+          environmental damage. Installed by certified professionals, it maintains your vehicle's pristine appearance
+          and resale value, ensuring long-term beauty and protection from debris while you enjoy driving your prized
+          possession.
+        </p>
+        <div class="video_icons_sec">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/logo_coat_usp_heatActivated.png?v=1709110272"
+            alt="PPFI5"
+          >
+          <img
+            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/logo_coat_usp_extremeGloss.png?v=1709110271"
+            alt="PPFI4"
+          >
+          <img
+            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/logo_coat_usp_superiorPaint.png?v=1709110272"
+            alt="PPFI3"
+          >
+          <img
+            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/logo_coat_usp_noGlueResidue.png?v=1709110271"
+            alt="PPFI2"
+          >
+          <img
+            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/logo_coat_usp_easyMaintenance.png?v=1709110271"
+            alt="PPFI1"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="our_partners">
+    <div class="sec_container">
+      <div class="sec_title">
+        <h2>OUR TECHNICAL PARTNERS</h2>
+      </div>
+      <div class="our_partners_raw">
+        <div class="our_partner_item">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Toray.svg?v=1709619917" alt="PPFL1">
+          <span>japan</span>
+          <p>
+            Trapo's PPF Film uses Toray's PET layer for glossiness and scratch self-repair. Toray is a Tokyo-based
+            chemical giant in the Mitsui Group.
+          </p>
+        </div>
+        <div class="our_partner_item">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Ashland.svg?v=1709619918" alt="PPFL1">
+          <span>usa</span>
+          <p>
+            We utilizes Ashland's high-quality adhesive, ensuring a strong bond with paint and residue-free removal.
+            Ashland is a US-based leading sustainable specialty materials corporation.
+          </p>
+        </div>
+        <div class="our_partner_item">
+          <div>
+            <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Basf.svg?v=1709619918" alt="PPFL1">
+            <span>Germany</span>
+          </div>
+          <div>
+            <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Lubrizol.svg?v=1709619917" alt="PPFL1">
+            <span>usa</span>
+          </div>
+          <p>
+            Our PPF Film utilizes Basf and Lubrizol's TPU layer, known for heat resistance and durability, ideal for
+            prolonged exposure to high temperatures and sunlight. BASF, founded in 1865 in Germany, is the country's
+            largest chemical company. Lubrizol is an American specialty chemicals provider for various markets,
+            including transportation, industrial, and consumer sectors.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ppf_rating">
+    <div class="sec_container">
+      <div class="ppf_rating_text">
+        <a href="#">Anti-Scratch</a>
+        <a href="#">Anti-Foul</a>
+        <a href="#">Anti-Yellowing</a>
+        <a href="#">Warranty</a>
+      </div>
+      <div class="ppf_rating_blk">
+        <div class="ppf_rate_item">
+          <div class="ppf_rate_inside">
+            <img
+              class="ppf_rate_logo desc_view"
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/PPFL5.png?v=1707841977"
+              alt=""
+            >
+            <img
+              class="ppf_rate_logo mobile_view"
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/logo_mobile_ppf_protect.png?v=1709109589"
+              alt=""
+            >
+            <img
+              class="ppf_rate"
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/rate4.png?v=1707931779"
+              alt=""
+            >
+            <img
+              class="ppf_rate"
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/rate4.png?v=1707931779"
+              alt=""
+            >
+            <img
+              class="ppf_rate"
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/rate4.png?v=1707931779"
+              alt=""
+            >
+            <span>5 Years</span>
+            <a href="https://wa.link/v7t6iv" class="ppf_rate_btn ppf-slide-1">more info</a>
+          </div>
+        </div>
+        <div class="ppf_rate_item active">
+          <div class="ppf_rate_inside">
+            <img
+              class="ppf_rate_logo desc_view"
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/PPFL6.png?v=1707841978"
+              alt=""
+            >
+            <img
+              class="ppf_rate_logo mobile_view"
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/logo_mobile_ppf_proplus.png?v=1709109589"
+              alt=""
+            >
+            <img
+              class="ppf_rate"
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/rate5.png?v=1707931779"
+              alt=""
+            >
+            <img
+              class="ppf_rate"
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/rate5.png?v=1707931779"
+              alt=""
+            >
+            <img
+              class="ppf_rate"
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/rate5.png?v=1707931779"
+              alt=""
+            >
+            <span>7 Years</span>
+            <a href="https://wa.link/v7t6iv" class="ppf_rate_btn ppf-slide-2">more info</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ppf_slider">
+    <div class="sec_container">
+      <div id="ppf_slider">
+        <div class="slide-item">
+          <img
+            class="desc_view"
+            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/ppf-slider-1.png?v=1711336725"
+            alt=""
+          >
+          <img
+            class="mobile_view"
+            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/ppf-slider-m-1.png?v=1711336724"
+            alt=""
+          >
+        </div>
+        <div class="slide-item">
+          <img
+            class="desc_view"
+            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/ppf-slider-2.png?v=1711336725"
+            alt=""
+          >
+          <img
+            class="mobile_view"
+            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/ppf-slider-m-2.png?v=1711336724"
+            alt=""
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="our_partners intallment_sec">
+    <div class="sec_container">
+      <div class="sec_title">
+        <h2>0% INSTALLMENT AVAILABLE!*</h2>
+      </div>
+      <div class="intallment_row">
+        <div class="intallment_icons">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/IAI1.png?v=1707926919" alt="">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/IAI2.png?v=1707926919" alt="">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/IAI3.png?v=1707926919" alt="">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/IAI4.png?v=1707926919" alt="">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/IAI5.png?v=1707926919" alt="">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/IAI6.png?v=1707926919" alt="">
+        </div>
+        <a href="">and many more banks</a>
+        <a href="https://wa.link/v7t6iv" class="ppf_btn">book now</a>
+      </div>
+    </div>
+  </section>
+  <section class="blog_post_container">
+    <div class="blog_post_blk">
+      <div class="blog_post_content">
+        <strong>TRAPO PROTECT+ PPF FILM</strong>
+        <h6>Loving my awesome car!</h6>
+        <p>
+          <i
+            >“Trapo does an awesome job! They really take care of every little detail and make sure everything's done
+            right... The staff is super pro. Definitely recommend them for their top-notch work! 🔥”</i
+          >
+        </p>
+        <span>- Steven W.</span>
+      </div>
+      <div class="blog_post_img">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/loving_PPF.png?v=1707926452"
+          alt="Trapo Car Tint hooked up my beast ride! Installation was smooth.. thank you Trapo team~ No more heat vibes from sunny day. Glare's down for the fam, and the sleek look is lit. Everyone felt safer with their belongings!"
+          width="700px"
+        >
+      </div>
+    </div>
+  </section>
+  <section class="blog_post_container tint_service_blk">
+    <div class="tint_service_tab">
+      <ul id="tabs-nav">
+        <li><a class="active" href="#tab1">Our Process</a></li>
+        <li><a href="#tab2">FAQ</a></li>
+      </ul>
+      <div id="tabs-content">
+        <div id="tab1" class="tab-content">
+          <div class="tab_img">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/ourProcess_ppf_1.png?v=1709564799"
+              alt="Cleaning the Glass"
+            >
+            <img
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/ourProcess_ppf_2.png?v=1709564799"
+              alt="Installing Tint Film"
+            >
+            <img
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/ourProcess_ppf_3.png?v=1709564798"
+              alt="Drying and Quality Check"
+            >
+          </div>
+        </div>
+        <div id="tab2" class="tab-content">
+          <p class="faq-title"><strong>1) Does the PPF damage my car paint after few years?</strong></p>
+          <p>
+            - No, Trapo PPF is using TPU material from BASF & Lubrizol that’s able to withstand high temperature and
+            Ashland glue technology, it’s able to stay on top of the paint steadily and without damaging the paint.
+          </p>
+          <p class="faq-title"><strong>2) After applying PPF, do we still need to apply coating?</strong></p>
+          <p>
+            - No, there is a layer of coating bond of top of PPF already, PPF is able to block >98% of UV from sunlight
+            and protecting the paint from fade.
+          </p>
+          <p>
+            - ⁠However , we’re able to do as below to pass thru the toll : <br>
+            1) Wind down the window and expose smart tag externally<br>
+            2) Cut a small square on the windscreen and attach smart tag on it <br>
+            3) Apply RFID on headlamp or stick behind the car number plate , as for Crystal / Dfend , it’s able to stick
+            on the top right corner of windscreen .
+          </p>
+          <p class="faq-title"><strong>3) Can we apply PPF on old car?</strong></p>
+          <p>
+            - We will need to check on the car paint condition before applying, as old / thin pain will have a risk of
+            pulling the paint off from the car when removing PPF. For car that’s repainted, it’s advised to go with
+            coating service to protect the car paint instead of PPF.
+          </p>
+        </div>
+      </div>
+    </div>
+    <a href="https://wa.link/v7t6iv" class="ppf_btn">DROP BY OUR HUB FOR ASSESSMENT</a>
+  </section>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
+<script>
+   $("#ppf_slider").slick({
+           speed: 1000,
+           dots: false,
+           centerMode: false,
+           focusOnSelect: true,
+           prevArrow: '<button class="slide-arrow prev-arrow"></button>',
+           nextArrow: '<button class="slide-arrow next-arrow"></button>',
+           infinite: true,
+           speed: 500,
+       });
+
+   $('#tabs-nav li:first-child').addClass('active');
+       $('.tab-content').hide();
+       $('.tab-content:first').show();
+       $('#tabs-nav li').click(function(){
+           $('#tabs-nav li').removeClass('active');
+           $(this).addClass('active');
+           $('.tab-content').hide();
+           var activeTab = $(this).find('a').attr('href');
+           $(activeTab).fadeIn();
+           return false;
+       });
+
+  $(document).ready(function() {
+           $(".ppf_banner_link .ppf_banner_link_item").click(function () {
+               $(".ppf_banner_link .ppf_banner_link_item").removeClass("active");
+               $(this).addClass("active");
+           });
+       });
+</script>

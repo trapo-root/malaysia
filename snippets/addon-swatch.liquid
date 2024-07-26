@@ -1,0 +1,27 @@
+<!-- START TRAPO FIX ADDON -->
+	{%- if addon == "trapo_fix" -%}
+		
+		{% assign existSeaterTag = false %}
+			{%- for tag in main_product.tags -%}
+				{%- if tag contains '1-seater' -%}
+				  {%- include 'trapo-fix', seater: tag -%}
+				  {% assign existSeaterTag = true %}
+				  {%- break -%}
+				{%- elsif tag contains '2 seater' -%}
+				  {%- include 'trapo-fix', seater: tag -%}
+				  {% assign existSeaterTag = true %}
+				  {%- break -%}
+				{%- elsif tag contains '7 seater' -%}
+				  {%- include 'trapo-fix', seater: tag -%}
+				  {% assign existSeaterTag = true %}
+				  {%- break -%}
+				{%- endif -%}
+			{%- endfor -%}
+
+			{%- unless existSeaterTag -%}
+				{%- render 'trapo-fix', seater: '5-seater' -%}
+			{%- endunless -%}
+		  
+	<!-- START TRAPO FIX ADDON -->
+		  
+	{%- endif -%}

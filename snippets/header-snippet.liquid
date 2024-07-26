@@ -1,0 +1,1895 @@
+<header class="sticky1">
+  {% if section.settings.promo_text != blank %}
+    <div class="promo-banner">
+      <div class="promo-banner__content">
+        {% comment %}{{ section.settings.promo_text }} {% endcomment %}
+        <ul id="slides">
+          <li class="slide showing">
+            <a href="/pages/byd-giveaway"
+              >Here's how you can win a car fully-equipped with Trapo products (worth over RM112,000!). Find out more
+              <span>here</span>.</a
+            >
+          </li>
+          <li class="slide">Buy any 2 items and get 8% off (Use Code : BUY2FREE8)</li>
+          <li class="slide">
+            NEW ARRIVAL! Same Price. Double The Size. Check out our car care collection
+            <a href="/car-care-products" style="text-decoration:underline">here</a>
+          </li>
+          <!--
+            <li class="slide">Free Shipping for West Malaysia (no min spend!)</li>
+            <li class="slide">NOW OPEN: Taman Daya Hub at Johor Bahru!</li>
+          -->
+        </ul>
+      </div>
+      <div class="promo-banner__close"></div>
+    </div>
+  {% endif %}
+  <nav>
+    <div class="">
+      <div class="menu_row">
+        <div class="logo">
+          <a href="{% if shop.locale == 'ms' %}/ms{% else %}/{% endif %}">
+            <img
+              data-src="//my.trapo.asia/cdn/shop/files/Trapo-logo-white_5e13c87c-55d3-4c36-bc23-c7e82d8622ba_410x.png"
+              alt="TRAPO® Car Mat Malaysia"
+              class="lazyload"
+            >
+          </a>
+        </div>
+        <div class="main_menu ">
+          <li class="nav__item" style="display:none">
+            <a class="nav__link sub__close" href="javascript:void(0);">Home</a>
+          </li>
+          <ul class="main_menu_list ">
+            <li class="main_menu_item mega_menu_dropdown has_dropdown">
+              <a href="#" class="down_arrow mobile_title_2">Shop </a>
+              <div class="mega_menu sub_menu">
+                <div class="mega_menu_item left_line">
+                  <h3 class="mobile_title down_arrow nav__link car-mat-title">
+                    <span>Car Mats </span>
+                    <img
+                      loading="lazy"
+                      class="mobile_view lazyload"
+                      data-src="{{ 'icon_carMat_v2-mobile.svg' | asset_url }}"
+                      width="22px"
+                    >
+                    <img
+                      loading="lazy"
+                      class="desk_viev lazyload"
+                      data-src="{{ 'icon_carMat_v2.svg' | asset_url }}"
+                      width="22px"
+                    >
+                  </h3>
+                  <div class="mega_menu_item_inside desk_viev">
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title" data-product="classic"
+                        >2D Mats <span class="most_label" style="background:#ee2a7b">BEST SELLERS</span></a
+                      >
+                      <ul class="sub_menu_2  grid_sub_menu grid_menu" style="display: none;">
+                        <li>
+                          <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/perodua-myvi-2017-present-trapo-classic"
+                            >Perodua Myvi (2017-present)</a
+                          >
+                        </li>
+                        <li>
+                          <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/toyota-corolla-cross-hybrid-2020-present-trapo-classic"
+                            >Toyota Corolla Cross (2020-Present)</a
+                          >
+                        </li>
+                        <li>
+                          <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/perodua-axia-2014-present-trapo-classic"
+                            >Perodua Axia (2014-2022)</a
+                          >
+                        </li>
+                        <li>
+                          <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/proton-saga-facelift-2019-present-trapo-classic"
+                            >Proton Saga Facelift (2019-Present)</a
+                          >
+                        </li>
+                        <li>
+                          <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/proton-persona-2016-present-trapo-classic"
+                            >Proton Persona (2016-Present)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-mats"
+                            data-product="all-car-mats"
+                            >Other Models</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title" data-product="xtreme"
+                        >3D Mats<span
+                          class="most_label"
+                          style="background:#ee2a7b"
+                          >NEW</span
+                        ></a
+                      >
+                      <ul class="sub_menu_2 grid_sub_menu grid_menu" style="display: none;">
+                        <li>
+                          <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/toyota-hilux-revo-2015-2020-trapo-xtreme-3d-car-mat"
+                            >Toyota Hilux (2015-Present)</a
+                          >
+                        </li>
+                        <li>
+                          <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/ford-ranger-2022-present-trapo-xtreme-3d-car-mat"
+                            >Ford Ranger (2022-Present))</a
+                          >
+                        </li>
+                        <li>
+                          <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/toyota-hilux-2004-2015-trapo-xtreme-3d-car-mat"
+                            >Toyota Hilux (2004-2015)</a
+                          >
+                        </li>
+                        <li>
+                          <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/isuzu-d-max-2019-present-trapo-xtreme-3d-car-mat"
+                            >Isuzu D-MAX (2019-Present)</a
+                          >
+                        </li>
+                        <li>
+                          <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/mitsubishi-triton-2015-present-trapo-xtreme-3d-car-mat"
+                            >Mitsubishi Triton (2015-Present)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/trapo-xtreme"
+                            data-product="xtreme"
+                            >Other Models</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="no_dropdown">
+                      <a
+                        href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-mats"
+                        class="sub_menu_2_title no-dropdown"
+                        data-product="all-car-mats"
+                        >All Car Mats</a
+                      >
+                    </div>
+                  </div>
+                  <div class="nav__sub mobile_view">
+                    <div class="nav__item"><a class="nav__link sub__close" href="#"></a></div>
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title nav__link" data-product="classic"
+                        >2D Mats <span class="most_label" style="background:#ee2a7b">BEST SELLERS</span></a
+                      >
+                      <ul class="sub_menu_2  grid_sub_menu grid_menu" style="display: none;">
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/perodua-myvi-2017-present-trapo-classic"
+                            >Perodua Myvi (2017-present)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/toyota-corolla-cross-hybrid-2020-present-trapo-classic"
+                            >Toyota Corolla Cross (2020-Present)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/perodua-axia-2014-present-trapo-classic"
+                            >Perodua Axia (2014-2022)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/proton-saga-facelift-2019-present-trapo-classic"
+                            >Proton Saga Facelift (2019-Present)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/proton-persona-2016-present-trapo-classic"
+                            >Proton Persona (2016-Present)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-mats"
+                            data-product="all-car-mats"
+                            >Other Models</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title nav__link"
+                        >3D Mats
+                        <span
+                          class="most_label"
+                          style="background:#ee2a7b"
+                          >NEW</span
+                        ></a
+                      >
+                      <ul class="sub_menu_2 grid_sub_menu grid_menu" style="display: none;">
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/toyota-hilux-revo-2015-2020-trapo-xtreme-3d-car-mat"
+                            data-product="p1"
+                            >Toyota Hilux (2015-Present)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/ford-ranger-2022-present-trapo-xtreme-3d-car-mat"
+                            data-product="p2"
+                            >Ford Ranger (2022-Present))</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/toyota-hilux-2004-2015-trapo-xtreme-3d-car-mat"
+                            data-product="p3"
+                            >Toyota Hilux (2004-2015)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/isuzu-d-max-2019-present-trapo-xtreme-3d-car-mat"
+                            data-product="p4"
+                            >Isuzu D-MAX (2019-Present)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/mitsubishi-triton-2015-present-trapo-xtreme-3d-car-mat"
+                            data-product="p5"
+                            >Mitsubishi Triton (2015-Present)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/trapo-xtreme"
+                            data-product="p6"
+                            >Other Models</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="no_dropdown">
+                      <a
+                        href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-mats"
+                        class="sub_menu_2_title nav__link no-dropdown"
+                        data-product="all-car-mats"
+                        >All Car Mats</a
+                      >
+                    </div>
+
+                    <div class="sub_menu_img">
+                      <a href="/pages/byd-giveaway">
+                        <img
+                          loading="lazy"
+                          data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/568x213.png?v=1719243134"
+                          class="lazyload"
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <h3 class="mobile_title down_arrow nav__link bundle-title desk_viev" style="margin-top:15px;">
+                    <span>Bundle Deals</span>
+                    <img
+                      loading="lazy"
+                      class="desk_viev lazyload"
+                      data-src="{{ 'icon_bundle.svg' | asset_url }}"
+                      width="22px"
+                    >
+                    <span class="most_label" style="background:#ee2a7b;position: inherit;margin-left: 0;"
+                      >SAVE UP TO 15%</span
+                    >
+                  </h3>
+                  <div class="mega_menu_item_inside desk_viev">
+                    <div class="no_dropdown">
+                      <a
+                        href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/trapo-new-car-package"
+                        class="sub_menu_2_title no-dropdown"
+                        data-product="new-car-package"
+                      >
+                        New Car Package
+                        <span class="most_label" style="background:#ee2a7b;position: inherit;margin-left: 0;">NEW</span>
+                      </a>
+                    </div>
+                    <div class="no_dropdown">
+                      <a
+                        href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/bundle"
+                        class="sub_menu_2_title no-dropdown"
+                        data-product=""
+                      >
+                        Other Bundles</a
+                      >
+                    </div>
+                  </div>
+
+                  <div class="sub_menu_img">
+                    <a href="/pages/byd-giveaway">
+                      <img
+                        loading="lazy"
+                        data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/568x213.png?v=1719243134"
+                        class="lazyload"
+                      >
+                    </a>
+                  </div>
+                </div>
+                <div class="mega_menu_item left_line mobile_view">
+                  <h3 class="mobile_title down_arrow nav__link bundle-title">
+                    <img
+                      loading="lazy"
+                      class="mobile_view lazyload"
+                      data-src="{{ 'icon_bundle-mobile.svg' | asset_url }}"
+                      width="22px"
+                    >
+                    <span>Bundle Deals</span>
+
+                    <span class="most_label" style="background:#ee2a7b;position: inherit;margin-left: 0;"
+                      >SAVE UP TO 15%</span
+                    >
+                  </h3>
+                  <div class="nav__sub mobile_view">
+                    <div class="nav__item"><a class="nav__link sub__close" href="#"></a></div>
+                    <div class="no_dropdown">
+                      <a
+                        href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/trapo-new-car-package"
+                        class="sub_menu_2_title nav__link no-dropdown"
+                        data-product="new-car-package"
+                      >
+                        New Car Package
+                        <span class="most_label" style="background:#ee2a7b;position: inherit;margin-left: 0;">NEW</span>
+                      </a>
+                    </div>
+                    <div class="no_dropdown">
+                      <a
+                        href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/bundle"
+                        class="sub_menu_2_title nav__link no-dropdown"
+                        data-product=""
+                      >
+                        Other Bundles</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="mega_menu_item left_line ">
+                  <h3 class="mobile_title down_arrow nav__link">
+                    <span>Accessories</span>
+                    <img
+                      loading="lazy"
+                      class="desk_viev lazyload"
+                      src="{{ 'icon_accessories.svg' | asset_url }}"
+                      width="24px"
+                    >
+                    <img
+                      loading="lazy"
+                      class="mobile_view lazyload"
+                      src="{{ 'icon_accessories_black.svg' | asset_url }}"
+                      width="22px"
+                    >
+                  </h3>
+                  <div class="mega_menu_item_inside desk_viev">
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title " data-product="dashcam">Dashcams</a>
+                      <ul class="sub_menu_2  grid_sub_menu grid_menu" style="display: none;">
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-i-sight-t350-dashcam"
+                            data-product="t350"
+                            >Trapo i-SIGHT Dashcam T-350</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-i-sight-t550-dashcam"
+                            data-product="t550"
+                            >Trapo i-SIGHT Dashcam T-550</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-dash-cams"
+                            data-product="all-dashcams"
+                            >All Dashcams</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title " data-product="wiper">
+                        Car Wipers & Refill</a
+                      >
+                      <ul class="sub_menu_2  grid_sub_menu grid_menu" style="display: none;">
+                        <li class="sub_menu_li">
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-wipers"
+                            data-product="wiper"
+                            >Car Wipers</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/bmw-car-wipers"
+                            data-product="bmw-wiper"
+                            >BMW Car Wipers</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/ford-car-wipers"
+                            data-product="ford-wiper"
+                            >Ford Car Wipers</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/honda-car-wipers"
+                            data-product="honda-wiper"
+                            >Honda Car Wipers</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/toyota-car-wipers"
+                            data-product="toyota-wiper"
+                            >Toyota Car Wipers</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-wipers"
+                            data-product="all-wiper"
+                            >All Car Wipers</a
+                          >
+                        </li>
+                        <li class="sub_menu_li">
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/car-hydrophobic-wiper-blade-refill"
+                            data-product="wiper-refill"
+                            >Wiper Refill</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title " data-product="car-care"
+                        >Car Care<span
+                          class="most_label"
+                          style="background:#ee2a7b"
+                          >NEW</span
+                        ></a
+                      >
+                      <ul class="sub_menu_2 " style="display: none;">
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/coating-series"
+                            data-product="coating"
+                            >Coating Series <span class="most_label" style="background:#ee2a7b">NEW</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/cleaning-series"
+                            data-product="cleaning"
+                            >Cleaning Series <span class="most_label" style="background:#ee2a7b">NEW</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-care-products"
+                            data-product="carcare-all"
+                            >All Car Care</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title " data-product="car-interior"
+                        >Car Interior</a
+                      >
+                      <ul class="sub_menu_2  grid_sub_menu grid_menu" style="display: none;">
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/3-in-1-cable-charger-apple-car-play-compatible"
+                            data-product="3in1"
+                            >3 in 1 Cable</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/oxtra-diatomite-car-coaster"
+                            data-product="car-coaster"
+                            >Car Coaster</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/star-wars"
+                            data-product="star-wars"
+                            >Star Wars</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-accessories?gf_84040=car-interior"
+                            data-product="all-car-interior"
+                            >All Car Interior</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title " data-product="phone-holders"
+                        >Phone Holders</a
+                      >
+                      <ul class="sub_menu_2  grid_sub_menu grid_menu" style="display: none;">
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/premium-foldable-magsafe-car-phone-holder"
+                            data-product="phoneholder-premiumfoldable"
+                            >Premium Foldable Magsafe Car Phone Holder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/gravity-car-phone-holder"
+                            data-product="phoneholder-gravity"
+                            >Gravity Car Phone Holder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/magsafe-car-phone-holder"
+                            data-product="phoneholder-magsafe"
+                            >Magsafe Car Phone Holder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/flexgrip-car-tablet-holder"
+                            data-product="phoneholder-flexgrip"
+                            >Flexgrip Car Tablet Holder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-phone-holders"
+                            data-product="phone-holders"
+                            >All Phone Holders</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!--
+                      <a
+                        href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/car-cordless-vacuum-pro"
+                        class="sub_menu_2_title no-dropdown"
+                        data-product="vaccum"
+                        >Vacuum</a
+                      >
+                    -->
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/car-motion-sensing-air-purifier"
+                      class="sub_menu_2_title no-dropdown"
+                      data-product="purifier"
+                      >Purifier</a
+                    >
+
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/gift-card"
+                      class="sub_menu_2_title no-dropdown"
+                      data-product="giftcard"
+                      >Gift Card</a
+                    >
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-accessories"
+                      class="sub_menu_2_title no-dropdown"
+                      data-product="other"
+                      >Other Accessories</a
+                    >
+                  </div>
+                  <div class="nav__sub mobile_view">
+                    <div class="nav__item"><a class="nav__link sub__close" href="#"></a></div>
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title nav__link"> Dashcams </a>
+                      <ul class="sub_menu_2 grid_sub_menu grid_menu" style="display: none !important;">
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-i-sight-t350-dashcam"
+                            >Trapo i-SIGHT Dashcam T-350</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-i-sight-t550-dashcam"
+                            >Trapo i-SIGHT Dashcam T-550</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-dash-cams"
+                            >All Dashcams</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title nav__link"> Car Wipers & Refill </a>
+                      <ul class="sub_menu_2 grid_sub_menu grid_menu" style="display: none !important;">
+                        <li class="sub_menu_li">
+                          <a class="nav__link" href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-wipers"
+                            >Car Wipers</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/bmw-car-wipers"
+                            >BMW Car Wipers</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/ford-car-wipers"
+                            >Ford Car Wipers</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/honda-car-wipers"
+                            >Honda Car Wipers</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/toyota-car-wipers"
+                            >Toyota Car Wipers</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a class="nav__link" href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-wipers"
+                            >All Car Wipers</a
+                          >
+                        </li>
+                        <li class="sub_menu_li">
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/car-hydrophobic-wiper-blade-refill"
+                            >Wiper Refill</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title nav__link">
+                        Car Care <span class="most_label" style="background:#ee2a7b">NEW</span>
+                      </a>
+                      <ul class="sub_menu_2 grid_sub_menu grid_menu" style="display: none !important;">
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/coating-series"
+                            >Coating Series<span class="most_label" style="background:#ee2a7b">NEW</span></a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/cleaning-series"
+                            >Cleaning Series<span class="most_label" style="background:#ee2a7b">NEW</span></a
+                          >
+                        </li>
+
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-care-products"
+                            >All Car Care</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title nav__link">Car Interior</a>
+                      <ul class="sub_menu_2 grid_sub_menu grid_menu" style="display: none !important;">
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/3-in-1-cable-charger-apple-car-play-compatible"
+                            data-product="3in1"
+                            >3 in 1 Cable</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/oxtra-diatomite-car-coaster"
+                            data-product="car-coaster"
+                            >Car Coaster</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/star-wars"
+                            data-product="star-wars"
+                            >Star Wars</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-accessories?gf_84040=car-interior"
+                            data-product="all-car-interior"
+                            >All Car Interior</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title nav__link" data-product="phone-holders"
+                        >Phone Holders</a
+                      >
+                      <ul class="sub_menu_2  grid_sub_menu grid_menu" style="display: none;">
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/premium-foldable-magsafe-car-phone-holder"
+                            >Premium Foldable Magsafe Car Phone Holder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/gravity-car-phone-holder"
+                            >Gravity Car Phone Holder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/magsafe-car-phone-holder"
+                            >Magsafe Car Phone Holder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/flexgrip-car-tablet-holder"
+                            >Flexgrip Car Tablet Holder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-phone-holders"
+                            data-product="phone-holders"
+                            >All Phone Holders</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!--
+                      <a
+                        href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/car-cordless-vacuum-pro"
+                        class="sub_menu_2_title nav__link no-dropdown"
+                        >Vacuum</a
+                      >
+                    -->
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/car-motion-sensing-air-purifier"
+                      class="sub_menu_2_title nav__link no-dropdown"
+                      >Purifier</a
+                    >
+
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/gift-card"
+                      class="sub_menu_2_title nav__link no-dropdown"
+                      >Gift Card</a
+                    >
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-accessories"
+                      class="sub_menu_2_title nav__link no-dropdown"
+                      >Other Accessories</a
+                    >
+                    <!--
+                      <div class="sub_menu_img">
+                      <a href="#">
+                      <img loading="lazy" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/accessories_584d9f9c-7601-49c2-8ad9-22362a0f135e.webp">
+                      </a>
+                      </div>
+                    -->
+                  </div>
+                  <!--
+                    <div class="sub_menu_img">
+                    <a href="#">
+                    <img loading="lazy" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/accessories_584d9f9c-7601-49c2-8ad9-22362a0f135e.webp">
+                    </a>
+                    </div>
+                  -->
+                </div>
+                <div class="mega_menu_item left_line">
+                  <h3 class="mobile_title down_arrow nav__link">
+                    <span>Offline Services</span>
+                    <img
+                      loading="lazy"
+                      class="desk_viev lazyload"
+                      src="{{ 'icon_services.svg' | asset_url }}"
+                      width="24px"
+                    >
+                    <img
+                      loading="lazy"
+                      class="mobile_view lazyload"
+                      src="{{ 'icon_services_black.svg' | asset_url }}"
+                      width="22px"
+                    >
+                  </h3>
+                  <div class="mega_menu_item_inside desk_viev">
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/trapo-car-tint"
+                      class="sub_menu_2_title no-dropdown"
+                      data-product="tint"
+                      >Trapo Tint<span class="most_label" style="background:#ee2a7b">NEW</span></a
+                    >
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/trapo-ppf"
+                      class="sub_menu_2_title no-dropdown"
+                      data-product="ppf"
+                      >Trapo PPF<span class="most_label" style="background:#ee2a7b">NEW</span></a
+                    >
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/trapo-car-coating"
+                      class="sub_menu_2_title no-dropdown"
+                      data-product="coat"
+                      >Trapo Coating<span class="most_label" style="background:#ee2a7b">NEW</span></a
+                    >
+                    <!--
+                      <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/book-an-appointment-nanovac-interior-deep-cleaning" class="sub_menu_2_title no-dropdown" data-product="nanovac">NanoVAC Interior</a>
+                    -->
+
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/trapo-offline-services"
+                      class="sub_menu_2_title no-dropdown"
+                      data-product="services"
+                      >Premium Offline Services</a
+                    >
+                  </div>
+                  <div class="nav__sub mobile_view">
+                    <div class="nav__item"><a class="nav__link sub__close" href="javascript:void(0);"></a></div>
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/trapo-car-tint"
+                      class="sub_menu_2_title nav__link no-dropdown"
+                      data-product="tint"
+                      >Trapo Tint<span class="most_label" style="background:#ee2a7b">NEW</span></a
+                    >
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/trapo-ppf"
+                      class="sub_menu_2_title nav__link no-dropdown"
+                      data-product="tint"
+                      >Trapo PPF<span class="most_label" style="background:#ee2a7b">NEW</span></a
+                    >
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/trapo-car-coating"
+                      class="sub_menu_2_title nav__link no-dropdown"
+                      data-product="tint"
+                      >Trapo Coating<span class="most_label" style="background:#ee2a7b">NEW</span></a
+                    >
+                    <!--
+                      <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/book-an-appointment-nanovac-interior-deep-cleaning" class="sub_menu_2_title nav__link no-dropdown">NanoVAC Interior</a>
+                    -->
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/trapo-offline-services"
+                      class="sub_menu_2_title nav__link no-dropdown"
+                      >Premium Offline Services</a
+                    >
+                    <!--
+                      <div class="sub_menu_img">
+                      <a href="#">
+                      <img loading="lazy" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/service.webp" class="lazyload">
+                      </a>
+                      </div>
+                    -->
+                  </div>
+                  <!--
+                    <div class="sub_menu_img">
+                    <a href="#">
+                    <img loading="lazy" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/service.webp" class="lazyload">
+                    </a>
+                    </div>
+                  -->
+                </div>
+                <div class="mega_menu_item" style="padding:30px">
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/1-mat-xtreme.webp"
+                    alt="xtreme"
+                    class="product-img lazyload"
+                    style="width:100%"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/2-mat-hex.webp"
+                    alt="hex"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/3-mat-classic.webp"
+                    alt="classic"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/4-mat-eco.webp"
+                    alt="eco"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/5-mat-all.webp"
+                    alt="all-car-mats"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/6-purifier.webp"
+                    alt="purifier"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/7-carCare.webp"
+                    alt="car-care"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/8-wiper.webp"
+                    alt="wiper"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/9-vacuum.webp"
+                    alt="vaccum"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carinterior.webp"
+                    alt="car-interior"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/dashcamAllNew.webp"
+                    alt="dashcam"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/12-seatCover.webp"
+                    alt="seat-cover"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/13-bundle.webp"
+                    alt="bundle"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/14-other.webp"
+                    alt="other"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/15-nanoPro.webp"
+                    alt="nanopro"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/16-nanoVac.webp"
+                    alt="nanovac"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/17-services.webp"
+                    alt="services"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/purifierClassic.webp"
+                    alt="purifier-classic"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/purifierLite.webp"
+                    alt="purifier-lite"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/purifierAll.webp"
+                    alt="purifier-all"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carCareAntibac.webp"
+                    alt="antibac"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carCareDirtOff.webp"
+                    alt="dirtoff"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carCareIronOff.webp"
+                    alt="ironoff"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carCareStreakOff.webp"
+                    alt="streakoff"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carCareMicrofiber.webp"
+                    alt="moicrofiber"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carCarePlastiguard.webp"
+                    alt="plastiguard"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carCareRainguard.webp"
+                    alt="rainguard"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carCareShineguard.webp"
+                    alt="shineguard"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Car_Care_MICROSITE-10.png?v=1721027168"
+                    alt="coating"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Car_Care_MICROSITE-11.png?v=1721027168"
+                    alt="cleaning"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Car_Care_MICROSITE-09.png?v=1721027167"
+                    alt="carcare-all"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/wiperBMW.webp"
+                    alt="bmw-wiper"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/wiperFord.webp"
+                    alt="ford-wiper"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/wiperHonda.webp"
+                    alt="honda-wiper"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/wiperToyota.webp"
+                    alt="toyota-wiper"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/8-wiper.webp"
+                    alt="all-wiper"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/vacuumPro.webp"
+                    alt="vaccum-pro"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/vacuumFilterMesh.webp"
+                    alt="replacement"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/vacuumAll.webp"
+                    alt="vaccum-all"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carInteriorPhoneHolder.webp"
+                    alt="phone-holders"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carInteriorCarCharger.webp"
+                    alt="fast-charger"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carInterior3in1Cable.webp"
+                    alt="3in1"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carInteriorCoaster.webp"
+                    alt="car-coaster"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carInteriorStarWars.webp"
+                    alt="star-wars"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carInteriorAll.webp"
+                    alt="all-car-interior"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  {% comment %}
+                    <img loading="lazy" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/dashcamM300.webp" alt="m300" class="product-img lazyload" style="width:100%;display:none">
+                    <img loading="lazy" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/dashcamA500s.webp" alt="a500s" class="product-img lazyload" style="width:100%;display:none">
+                    <img loading="lazy" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/7mai810S.webp" alt="a800s" class="product-img lazyload" style="width:100%;display:none">
+                  {% endcomment %}
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/dashcamAllNew.webp"
+                    alt="all-dashcams"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/dashcamT350_menu.webp"
+                    alt="t350"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/dashcamT550_menu.webp"
+                    alt="t550"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/phoneholder-premiumfoldable.webp?v=1707107960"
+                    alt="phoneholder-premiumfoldable"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/phoneholder-gravity.webp?v=1707107959"
+                    alt="phoneholder-gravity"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/phoneholder-magsafe.webp?v=1707107959"
+                    alt="phoneholder-magsafe"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/phoneholder-flexgrip.webp?v=1707107959"
+                    alt="phoneholder-flexgrip"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/tint.webp?v=1707376179"
+                    alt="tint"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/ppf.webp?v=1707376179"
+                    alt="ppf"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/coat.webp?v=1707376179"
+                    alt="coat"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/wiper-refill.webp?v=1707376179"
+                    alt="wiper-refill"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/giftcard.png?v=1712042246"
+                    alt="giftcard"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                </div>
+              </div>
+            </li>
+            <li class="submenu_item desk_view">
+              <a class="dropdown_toggle submenu_title down_arrow" href="javascript:void(0)">Explore</a>
+              <div class="submenu-main">
+                <ul class="dropdown_list submenu_list">
+                  <li>
+                    <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/exo" data-product="exo"
+                      >Trapo EXO SYSTEM</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/location" data-product="location"
+                      >Store Locator</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/car-mats" data-product="mats-page"
+                      >Car Mat</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/car-accessories"
+                      data-product="accessories-page"
+                      >Car Accessories</a
+                    >
+                  </li>
+                </ul>
+
+                <div class="sub_menu_item">
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/exo.png?v=1720881100"
+                    alt="exo"
+                    class="product-img lazyload"
+                    style="width:100%"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/location_9996bfe9-eb5a-4e6c-8632-56257b9fd6de.png?v=1720881101"
+                    alt="location"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carmats.png?v=1720881101"
+                    alt="mats-page"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/accessories.png?v=1720881100"
+                    alt="accessories-page"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                </div>
+              </div>
+            </li>
+
+            <li class="submenu_item mobile_view">
+              <a class="dropdown_toggle submenu_title down_arrow" href="javascript:void(0)">Explore</a>
+
+              <ul class="dropdown_list submenu_list">
+                <li>
+                  <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/exo" data-product="exo">Trapo EXO SYSTEM</a>
+                </li>
+                <li>
+                  <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/location" data-product="location"
+                    >Store Locator</a
+                  >
+                </li>
+                <li>
+                  <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/car-mats" data-product="mats-page"
+                    >Car Mat</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/car-accessories"
+                    data-product="accessories-page"
+                    >Car Accessories</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li class="main_menu_item">
+              <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/loyalty-program">Loyalty</a>
+            </li>
+
+            <li class="main_menu_item">
+              <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/clearance" style="color:#d82477">SALE</a>
+            </li>
+          </ul>
+        </div>
+        <div class="mobile_btn mobile_nav " id="mobileButton">
+          <!--
+            <div data-mobile-menu-icon=""> <span></span> <span></span> <span></span> <span></span></div>
+            <div data-mobile-menu-icon="" class="open"> <span></span> <span></span> <span></span> <span></span></div>
+          -->
+          <i class="fas fa-bars"></i>
+          <i class="fas fa-close"></i>
+        </div>
+        <div
+          class="right_sec"
+          {% if customer %}
+            style="gap:8px;"
+          {% endif %}
+        >
+          <div class="searchbar">
+            <!--
+              <input type="text" class="searchbar__input" name="q" placeholder="Search Videos">
+              <button type="submit" class="searchbar__button">
+                  <img loading="lazy" data-src="//my.trapo.asia/cdn/shop/t/321/assets/Search_New.svg" class="lazyload" alt="" width="23px">
+              </button>
+              <form action="/search" class="bc-search-form search_form">
+                <span class="icon-search search-submit"></span>
+                <input class="bc-sf-input-collection" style="display: none" type="hidden" name="collection_scope" value="134875971661">
+                <input type="text" name="q" placeholder="Search for Hex, Wiper, Proton..." value="" autocapitalize="off" autocomplete="off" autocorrect="off" class="boost-pfs-search-box" id="boost-pfs-search-box-4" data-search-box="boost-pfs-search-box-4" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-label="When autocomplete results are available use up and down arrows to review and enter to select" aria-owns="boost-pfs-search-suggestion-4" data-already-init="true">
+              </form>
+            -->
+            <form action="/search" class="bc-search-form search_form">
+              <span class="icon-search search-submit"></span>
+              <input
+                type="text"
+                name="q"
+                placeholder="What are you looking for?"
+                value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
+                autocapitalize="off"
+                autocomplete="off"
+                autocorrect="off"
+              >
+            </form>
+          </div>
+          <a href="/account" class="user_icon mobile_view" title="{% if customer %}Account{% else %}Login{% endif %}">
+            <img
+              loading="lazy"
+              data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/User.svg"
+              class="lazyload"
+              alt=""
+              width="23"
+            >
+            <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+          </a>
+          {% if customer %}
+            <a href="/account/logout" class="user_icon mobile_view" title="Logout">
+              <img
+                loading="lazy"
+                data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/icon_logout.svg"
+                class="lazyload"
+                alt=""
+                width="18"
+              >
+              <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+            </a>
+          {% endif %}
+
+          <div class="cart-container">
+            <a href="javascript:void(0)" class="cart_icon minicart mobile_view mini_cart" title="Minicart">
+              <img
+                loading="lazy"
+                data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Cart.svg"
+                class="lazyload"
+                alt=""
+                width="23"
+              >
+              <span class="cart_count">{{ cart.item_count }}</span>
+              <!-- <i class="fa fa-shopping-cart" aria-hidden="true"></i> -->
+            </a>
+
+            {% unless settings.cart_action == 'ajax' and template contains 'cart' %}
+              {% comment %} {% render 'mini-cart' %} {% endcomment %}
+            {% endunless %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+       body { overflow-x: hidden; }
+       a:focus { outline: none !important; }
+       .menu_row { display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: center; max-width: 1770px; padding-inline: 60px; margin-inline: auto; }
+       nav { background: #16406D; z-index: 9999; position: relative; }
+       div.log{padding-top:5px;}
+       .logo a { font-size: 20px; font-weight: 700; color: #ffffff; text-transform: uppercase; }
+       .main_menu .main_menu_item { display: inline-block; position: relative; margin: 0 -2px; }
+       .main_menu .main_menu_item.has_dropdown{padding: 0 20px;}
+       .main_menu .main_menu_list { margin-block: 0; display: flex; flex-direction: row; gap: 70px; letter-spacing: 0.5px; }
+       .main_menu .main_menu_list li>a { font-size: 14px; color: #ffffff; padding: 25px 0; display: block; font-weight: 600; text-decoration: none;text-transform: uppercase;
+        line-height: 16px; }
+       .main_menu .main_menu_list li .active,
+       .main_menu .main_menu_listul li ul li a { font-size: 16px; text-decoration: none; }
+       .mega_menu_dropdown { position: static !important; }
+       .mega_menu { left: 0; right: 0; background: #fff; display: flex; flex-wrap: wrap; transition: 0.5s; box-shadow: 0px 5px 15px 0px rgba(212, 201, 201, 0.75); }
+       .mega_menu_item { width: 25%; padding: 30px 0; }
+       .main_menu .main_menu_list li .mega_menu_item a { padding: 8px 30px 8px 30px;; color: #1A1A1A; display: block; text-decoration: none; font-size: 14px;line-height:normal }
+       .main_menu .main_menu_list li .mega_menu_item .mega_menu_item_inside .sub_menu_2 li a:hover { color: #16406D;background:transparent; }
+      .main_menu .main_menu_list li .mega_menu_item .mega_menu_item_inside .sub_menu_2 li a{font-weight:500;line-height: 16px;}
+      .main_menu .main_menu_list li .mega_menu_item .mega_menu_item_inside .sub_menu_2 li.sub_menu_li a{font-weight: 600;}
+      .main_menu .main_menu_list li .mega_menu_item .mega_menu_item_inside a{font-size: 14px;line-height: 19px;font-weight: 600;}
+       .main_menu .main_menu_list li .mega_menu_item .mega_menu_item_inside a:hover{background: #eee;color: #16406D}
+       .mega_menu_item h3 { margin-bottom: 5px; font-size: 18px; text-transform: uppercase; color: #16406D; display: flex; align-items: center; gap: 10px;padding-left:30px;font-weight:700 }
+       .mobile_btn { display: none; }
+       .searchbar { width: 100%; max-width: 300px; display: inline-flex; }
+       .menu_row .searchbar--max-width { max-width: 100%; }
+       .menu_row .searchbar__input { margin-bottom: 0; padding: 10px 10px 10px 20px; outline: none; font-size: 17px; border: 1px solid #fff; border-radius: 50px 0 0 50px; background: transparent; border-right: 0; transition: background 0.25s, box-shadow 0.25s; margin-bottom: 0; }
+       .menu_row .searchbar__input:focus { background: white; box-shadow: 0 0 2px #8CC6BA; }
+       .menu_row .searchbar__input::placeholder { color: #8CC6BA; }
+       .menu_row .searchbar__button { width: 40px; border: 1px solid #fff; color: #ffffff; outline: none; display: flex; background-color: transparent !important; align-items: center; border-left: 0; justify-content: center; border-radius: 0 50px 50px 0; cursor: pointer; user-select: none; font-size: 20px; }
+       .menu_row .searchbar__button:active { box-shadow: none; }
+       .main_menu .main_menu_list li .sub_menu_2 { display: none; list-style: none; padding: 15px 10px 15px 20px; background: #E6E6E6; margin-left: 0; margin-top: 10px; }
+       .main_menu .main_menu_list li .sub_menu_2 a { padding: 5px 0 5px 15px; font-size: 14px;    text-transform: capitalize; font-weight:500; }
+       .left_line { position: relative; }
+       .mega_menu_item { display: flex; flex-direction: column; justify-content: space-between; }
+       .mega_menu_item_inside { flex: 1; }
+       .left_line:after { content: ''; position: absolute; height: calc(100% - 60px); width: 1px; background: #cccccc; top: 30px; right: 0; }
+       .sub_menu_2_title,
+       .down_arrow { position: relative; }
+       .sub_menu_2_title::after,
+       .down_arrow::after { content: ''; background-image: url({{ 'down_arrow.svg' | asset_url }}); height: 12px; width: 12px; background-repeat: no-repeat; background-size: 12px; position: absolute; right: 30px; }
+       .sub_menu_2_title.no-dropdown::after{background-image:none}
+       .sub_menu_2_title::after { transform: rotate(0deg); transition: all 0.3s ease-in-out; margin-top:6px; }
+       .has_dropdown_2.active .sub_menu_2_title:after { transform: rotate(0); }
+       .has_dropdown_2 .sub_menu_2_title:after {     margin-top: 8px; }
+       .mega_menu_dropdown>.down_arrow:after,.main_menu_list .submenu_item .submenu_title:after { background-image: url({{ 'down_arrow_whihte.svg' | asset_url }}); right: -17px; margin-top: 3px; top: auto; }
+         .main_menu_list .submenu_item{list-style: none;
+      padding: 0;
+      margin: 0;
+      width: fit-content;
+         position: relative;
+    left: -7px;}
+         .main_menu .main_menu_list .submenu_item .submenu_list {
+      margin: 0;
+    list-style-type: none;
+    width: fit-content;
+    background-color: #fff;
+    color: #222222;
+    padding: 15px 0;
+    min-width: 50%;
+  }
+         .main_menu .main_menu_list .submenu_item .submenu_list a {
+      color: #222222;
+    margin: 0;
+    padding: 3px 20px;
+    display: block;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 600;
+    text-transform: inherit;
+  }
+         .main_menu .main_menu_list .submenu_item .submenu_list a:hover{
+         background: #eee;
+    color: #16406D;
+         }
+       .sub_menu_img { max-width: 378px; overflow: hidden; width: 100%; margin-top: 20px; }
+       .sub_menu_img img { width: 100%; object-fit: cover; object-position: center; }
+       .right_sec { display: flex; /*grid-template-columns: 1fr 40px 40px;*/ gap: 20px; align-items: center;}
+       .right_sec>a { background: transparent; padding: 6px 0; display: block;text-align: center; }
+       .right_sec>a img { vertical-align: middle; }
+       .right_sec img{    max-width: none;height: unset;}
+       .mobile_title>span { font-family: "Roboto" !important; line-height: 20px; }
+       .main_menu .main_menu_list li .sub_menu_2.grid_sub_menu { display: grid; grid-template-columns: 1fr 1fr; gap: 0 5px; /* column-count: 2; */ padding-top: 5px; padding-bottom: 10px;padding-right:0px; }
+       span.most_label { background: #1A1A1A; font-size: 9px; color: #fff; margin-left: 10px; padding: 1px 4px 0px; border-radius: 2px; position: absolute;line-height: 1.32;margin-block: 4px;}
+       .main_menu .main_menu_list li .sub_menu_2.grid_sub_menu.grid_menu{ grid-template-columns: 1fr;padding-right:0 }
+       .main_menu .main_menu_list li .sub_menu_2.grid_sub_menu.grid_menu li{
+       margin-bottom:0;
+         list-style:none;
+       }
+       .main_menu .main_menu_list li .sub_menu_2.grid_sub_menu.grid_menu li.sub_li{
+        padding-left: 20px;
+       }
+      .sub_menu_2 li{
+        list-style:none;
+      }
+       .main_menu .main_menu_list li .sub_menu_2.grid_sub_menu.grid_menu li:hover{
+       background: #bbb;
+       }
+       .main_menu .main_menu_list li .sub_menu_2.grid_sub_menu li:hover{
+       background: #bbb;
+       }
+       .sub_menu_2_title.active::after { transform: rotate(-90deg);    margin-top: 3px;right: 27px; }
+       .searchbar form { width: 100%; }
+       .searchbar form input { border-radius: 50px;width:275px; }
+       .mega_menu_item h3 img {
+       height: 23px;
+       }
+       span.cart_count{
+       position: absolute;
+       top: -13px;
+       color: #fff;
+        right:-13px;
+       }
+       .ht-tms-single-dropdown__container.ht-tms-dropdown--language-code .ht-tms-option__text{
+         width: 20px;
+       }
+       .ht-tms-option__item{
+         padding: 5px 20px 5px 10px;
+       }
+  .promo-banner__content li a{
+           color:#fff;
+    text-transform: initial;
+         }
+  .promo-banner__content li a span{
+    text-decoration:underline;
+    color:#fff;
+  }
+  .promo-banner .promo-banner__close:before{
+    top:10px;
+  }
+  .promo-banner--show .promo-banner{
+   min-height: 50px;
+  }
+       @media (max-width: 1440px) {
+       .menu_row { padding-inline: 20px; }
+       .main_menu .main_menu_list { gap: 50px; }
+       .main_menu .main_menu_list li .sub_menu_2 {     padding-left: 0; margin-left: 45px;margin-right: 30px; }
+       }
+       @media (max-width: 1199px) {
+       .searchbar { max-width: 230px; align-items: center; }
+         .searchbar form input{width:100%}
+         .main_menu .main_menu_list {gap: 35px;}
+         .banner .caption.position-left {left: 0;}
+       }
+       @media (max-width: 1023px) {
+       .main_menu { width: 80%; }
+       .main_menu .main_menu_list li>a { padding-block: 15px; font-size: 14px; }
+       .main_menu .main_menu_list { justify-content: center; padding-left:0}
+       .right_sec { grid-template-columns: 1fr 40px 25px; }
+       .menu_row .searchbar__input,
+       .menu_row .searchbar__button { height: 35px; min-height: unset }
+       .mega_menu_item { padding: 15px; }
+       .left_line:after { top: 15px; height: calc(100% - 30px); }
+       .main_menu .main_menu_list li .mega_menu_item a { font-size: 13px; padding-top: 5px; }
+       .mega_menu_item h3 { font-size: 15px; margin-bottom: 0; }
+       }
+       @media (min-width: 768px) {
+       .main_menu .main_menu_list li>ul { visibility: hidden; opacity: 0; position: absolute; margin-top: 50px; }
+       .main_menu .main_menu_list li .mega_menu { visibility: hidden; opacity: 0; position: absolute; margin-top: 0px; z-index: 1; }
+       .main_menu .main_menu_list li:hover>ul { visibility: visible; opacity: 1; margin-top: 0px; z-index: 99; }
+       .main_menu .main_menu_list li:hover>.mega_menu { visibility: visible; opacity: 1; margin-top: 0; z-index: 99; }
+       .mobile_title.down_arrow:after { display: none; }
+       .mobile_view { display: none; }
+         .main_menu .main_menu_list li>.submenu-main { visibility: hidden; opacity: 0; position: absolute; margin-top: 50px; }
+          .main_menu .main_menu_list li:hover>.submenu-main { visibility: visible; opacity: 1; margin-top: 0px; z-index: 99; }
+         .submenu-main{
+    justify-content: space-around;
+    background: #fff;
+    display: flex;
+    min-width: 750px;
+  }
+  .sub_menu_item{
+    margin: 15px;
+    width: 50%;
+    border-left: 1px solid #dfe0e0;
+    padding-left: 15px;
+  }
+       }
+       @media (max-width: 767px) {
+         .sub_menu_item{
+           display:none;
+         }
+         .main_menu .main_menu_list .submenu_item {
+        width: 100%;
+           left:0;
+    }
+         .main_menu .main_menu_list .submenu_item a {
+        width: 100%;
+        position: relative;
+
+    }
+         .main_menu .main_menu_list .submenu_item .submenu_list a{
+                   padding: 8px 32px;
+        line-height: normal;
+        font-size: 16px;
+         }
+         .main_menu .main_menu_list .submenu_item .submenu_list {
+        width: 100%;
+        display: none;
+        transition: none;
+        box-shadow: none;
+        padding-inline: 20px !important;
+        background: #E6E6E6;
+        padding: 10px 0;
+        padding-bottom: 5px;
+
+    }
+         .main_menu .main_menu_list .submenu_item .submenu_title:after {
+        content: '';
+        background-image: url({{ 'down_arrow.svg' | asset_url }});
+        position: absolute;
+        top: 13px;
+        right: 26px;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+              .main_menu .main_menu_list .submenu_item .submenu_list.active {
+        display: block;
+    }
+       .main_menu .main_menu_list .nav__sub .sub_menu_2 li.sub_menu_li a.nav__link{
+        font-weight:600;
+       }
+                    .main_menu .main_menu_list li .sub_menu_2.grid_sub_menu.grid_menu li:hover{
+       background: transparent;
+       }
+       .main_menu .main_menu_list li .sub_menu_2.grid_sub_menu li:hover{
+       background: transparent;
+       }
+         .right_sec .cart_content {
+           max-width:100%;
+         }
+       .desk_viev { display: none !important; }
+        span.cart_count{right:-10px;top:-15px;}
+       .container { width: 100%; }
+       nav { padding: 15px; }
+       .mobile_btn { cursor: pointer; display: block; }
+       .main_menu { width: 100%; }
+       .main_menu .main_menu_item { display: block; margin: 0;padding:0px }
+      .main_menu .main_menu_item.has_dropdown{padding:0px}
+       .mega_menu .mega_menu_item { width: 100%; padding-inline: 0; }
+       .main_menu .main_menu_list li .mega_menu { display: none; transition: none; box-shadow: none; padding-inline: 20px !important; background: #E6E6E6; padding-block: 5px; }
+       .main_menu .main_menu_list li .mega_menu.sub_menu.active { display: block; }
+       .main_menu .main_menu_list li .mega_menu .left_line:after { display: none; }
+       .main_menu .main_menu_list li>a { color: #16406D; padding-inline: 20px; font-size: 18px; }
+       .mega_menu_item h3 { font-size: 16px; color: #1A1A1A; margin-bottom: 0; text-transform: capitalize; font-weight: 500; display: flex; width: 100%; align-items: center; flex-direction: row-reverse; justify-content: flex-end; gap: 20px;font-weight:600; }
+          .mega_menu_item h3.bundle-title{
+          flex-direction: row;
+    justify-content: flex-start;
+          }
+       .mega_menu .mega_menu_item:last-child { display: none; }
+       .mega_menu_item_inside { padding-left: 25px; }
+       .mega_menu_item.left_line .nav__sub.is-active .sub_menu_img { display: block;
+       margin: auto;
+       position: absolute;
+       bottom: 155px;
+       left: 0;
+       right: 0; }
+       .mega_menu_item.left_line .sub_menu_img{
+       display:none;
+       }
+       .mega_menu_demo_2 .mega_menu { transform: translateX(0); }
+       .sub_menu_2 { padding-left: 20px; }
+       .main_menu .main_menu_list { display: block;margin-top:15px; }
+       .main_menu { order: 3; background: #fff; position: fixed; top: 0; left: -100%; height: 100%; padding: 30px 0px 20px; transition: all 0.3s ease; z-index: 9999; }
+       .main_menu.active { left: 0; }
+       .menu_row { flex-wrap: wrap; padding-inline: 0; }
+       .mega_menu_item h3.down_arrow::after { right: 6px; }
+       .mega_menu_dropdown>.down_arrow:after { right: 26px; }
+       .right_sec { width: 100%; padding-top: 15px; }
+       .menu_row .logo { width: 27%; }
+       .mobile_btn i { color: #fff; font-size: 20px; }
+       .mobile_btn.active .fa-bars { opacity: 0; display: none; transition: all 0.3s ease; }
+       .mobile_btn .fa-close { opacity: 0; display: none; transition: all 0.3s ease; }
+       .mobile_btn.active .fa-close { opacity: 1; display: block; }
+
+       .searchbar { max-width: 100% }
+       .mobile_btn.active { z-index: 9999; width: 25px; height: 18px; position: relative; }
+       .mega_menu_item>img,
+       .mega_menu_item_inside { display: none; }
+       .main_menu .main_menu_list li .sub_menu_2 { padding: 0; margin-block: 0; }
+       .main_menu .main_menu_list li .sub_menu_2 li { margin-bottom: 0; }
+       .main_menu .main_menu_list li .sub_menu_2 li a { padding-top: 0; }
+       .nav__sub { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: #fff; opacity: 0; visibility: hidden; transition: all 0.35s ease-in-out; transform: translateX(-100%); z-index: 1; }
+       .nav__sub.is-active { opacity: 1; visibility: visible; transform: translateX(0%); }
+       .main_menu.active .nav__sub.mobile_view .nav__item{ text-align: center;position: relative;top: 0px;padding-bottom: 15px; }
+       .main_menu.active .nav__item{ text-align: center; list-style: none;position: relative;top: -10px; }
+       .main_menu.active .sub__close {
+       padding-block: 20px 10px;
+       font-size: 16px;
+       color: #A0A0A0;
+       }
+       .main_menu .main_menu_list .nav__sub .sub_menu_2_title.nav__link { font-size: 16px; padding-inline: 20px; padding-bottom: 20px;font-weight:600; }
+       .main_menu .main_menu_list .nav__sub .sub_menu_2_title:after { right: 26px; }
+       .main_menu .main_menu_list .nav__sub .has_dropdown_2.active { margin-bottom: 15px; }
+       .main_menu .main_menu_list .nav__sub .sub_menu_2 { padding: 15px 30px 15px 50px; margin-left: 0;margin-right:0;margin-bottom:15px; }
+       .main_menu .main_menu_list .nav__sub .sub_menu_2 .nav__link { font-size: 14px; margin-bottom: 10px; }
+       .main_menu .main_menu_list .nav__sub .sub_menu_2 li:last-child .nav__link { margin-bottom: 0; }
+       .main_menu .main_menu_list .nav__sub .sub__close { padding-block: 20px 10px; font-size: 16px; color: #A0A0A0; }
+       .mega_menu_dropdown>.down_arrow:after { background-image: url({{ 'down_arrow.svg' | asset_url }}); }
+       .mobile_btn.active .fa-close:before { height: 30px; background-image: url({{ 'Close_icon.svg' | asset_url }}); background-repeat: no-repeat; width: 18px; height: 18px; background-size: 18px; /* background-color: #fff; */ font-size: 0; position: absolute; bottom: -1px; }
+       .main_menu .main_menu_list li .sub_menu_2.grid_sub_menu { display: grid ; padding-top: 10px;margin-bottom:15px; }
+       .main_menu .main_menu_list .nav__sub .sub__close:before { content: ''; position: absolute; background-image: url({{ 'long_arrow.svg' | asset_url }}); width: 30px; height: 13px; background-repeat: no-repeat; left: 20px; margin-top: 4px; background-size: contain; }
+       .searchbar form input{
+         width: 100%;
+       }
+         .right_sec>a{
+           width:10%;
+         }
+       }
+       .fixed:not(.ly-switcher-wrapper) {
+       position: fixed;
+       top:0; left:0;
+       width: 100%;
+       z-index:9999;
+       }
+      .ly-switcher-wrapper.fixed.top_left, .ly-switcher-wrapper.absolute.top_left{
+        top: unset !important;
+        left: unset !important;
+        right: 0;
+        bottom: 0;
+      }
+
+      #slides{
+      position: relative;
+      padding: 0px;
+      margin: 0px;
+      list-style-type: none;
+    }
+
+    .slide{
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 1;
+      -webkit-transition: opacity 1s;
+      -moz-transition: opacity 1s;
+      -o-transition: opacity 1s;
+      transition: opacity 1s;
+    }
+
+    .showing{
+      opacity: 1;
+      z-index: 2;
+    }
+
+
+    .slide{
+      box-sizing: border-box;
+        color: #fff;
+        padding: 9px 0;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: inherit;
+        letter-spacing: 0.5px;
+    	margin-bottom: 0;
+    }
+         .promo-banner__content .slide{
+           padding: 18px 0;
+         }
+
+
+    	@media (max-width: 767px){
+    		.mobile_btn.active .fa-close {
+    			position: fixed;
+    			top: 35px;
+    		}
+    		.slide {
+    			padding: 11px 0;
+    			font-size: 11px;
+    		}
+
+    	}
+</style>
