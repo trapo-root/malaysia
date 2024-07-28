@@ -30,10 +30,10 @@ $(document).ready(function() {
 
             var available_ids = []; //array of 'varaint_id - qty'
             //the following loop was for my case, you need to change the DOM selector for yours
-            $('.collection .collection-item').each(function() {
+            $('#checkboxes input:checked').each(function() {
                 var thisQty = 1;
                 if (thisQty > 0) {
-                    var xVarID = $(this).find('#checkboxes :input:checked').attr('data-pid');
+                    var xVarID = $(this).attr('data-pid');
                     var toPushItem = xVarID + '-' + thisQty;
                     available_ids.push(toPushItem);
                 }
