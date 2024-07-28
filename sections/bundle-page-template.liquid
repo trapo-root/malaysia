@@ -176,971 +176,83 @@
 
     <ul id="collection-list">
       <div class="row collection page-width">
-        <li id="7172030431276" class="collection-item">
-          <div class="one-fourth-column">
-            <div class="product-info">
-              <span class="product_counter _hidden">1</span>
-              <svg
-                class="added_to_cart _hidden"
-                clip-rule="evenodd"
-                fill-rule="evenodd"
-                stroke-linejoin="round"
-                stroke-miterlimit="2"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
-                fill-rule="nonzero"></path>
-              </svg>
-              <div class="image">
-                <div class="grid-view-item">
-                  <a class="grid-view-item__link  has-secondary" href="javascript:void()">
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/DateWoman-01.jpg?v=1695109186&amp;width=500"
-                      alt="Date Woman shower gel"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/DateWoman-01.jpg?v=1695109186&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/DateWoman-01.jpg?v=1695109186&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="grid-view-item__image"
-                    >
-
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/2_7.jpg?v=1709991887&amp;width=500"
-                      alt="DATE Woman Shower Gel - 500ml"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/2_7.jpg?v=1709991887&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/2_7.jpg?v=1709991887&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="secondary"
-                    >
-                  </a>
+        {%- assign products = collections['car-wipers'].products -%}
+        {% for product in products limit: 15 %}
+          <li id="{{ product.selected_or_first_available_variant.id }}" class="collection-item">
+            <div class="one-fourth-column">
+              <div class="product-info">
+                <span class="product_counter _hidden">{{ forloop.index }}</span>
+                <svg
+                  class="added_to_cart _hidden"
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                  stroke-linejoin="round"
+                  stroke-miterlimit="2"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
+                  fill-rule="nonzero"></path>
+                </svg>
+                <div class="image">
+                  <div class="grid-view-item">
+                    <a class="grid-view-item__link" href="javascript:void()">
+                      <!--
+                        <img
+                          src="{{ product.featured_media.preview_image | img_url }}"
+                          alt="{{ product.title }}"
+                          srcset="//bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=500 500w"
+                          width="500"
+                          height="500"
+                          loading="lazy"
+                          fetchpriority="low"
+                          sizes="100vw"
+                          class="grid-view-item__image"
+                        >
+                      -->
+                      {% render 'image-element',
+                        image: product.featured_media.preview_image,
+                        alt: alt_text,
+                        object_fit: settings.align_height,
+                        max_height: settings.collection_height
+                      %}
+                    </a>
+                  </div>
                 </div>
-              </div>
-              <style>
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                @media screen and (min-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                }
-                @media screen and (max-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                }
-              </style>
-              <div class="product_grid_items">
-                <h3 class="card-information__text h5">
-                  <span></span>
+                <div class="product_grid_items">
+                  <h3 class="card-information__text h5">
+                    <a href="javascript:void(0);">{{ product.title }}</a>
+                  </h3>
+                  <!-- Custom code for product rating -->
 
-                  <a href="javascript:void(0);"> DATE Woman Shower Gel - 500ml </a>
-                </h3>
-                <!-- Custom code for product rating -->
-                <div class="rating" role="img" aria-label="4.81 out of 5.0 stars">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    focusable="false"
-                    class="icon icon-star"
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#FFB503"></path>
-                  </svg>
-                  <span aria-hidden="true"> 4.8 </span>
-                  <span aria-hidden="true"> | </span>
-                  <svg
-                    viewBox="0 0 18 18"
-                    class="icon icon-whatsapp-verified"
-                    height="14"
-                    width="14"
-                    preserveAspectRatio="xMidYMid meet"
-                    version="1.1"
-                    x="0px"
-                    y="0px"
-                    enable-background="new 0 0 18 18"
-                    xml:space="preserve"
-                  >
-                    <polygon id="Star-2" fill="#005eff" points="9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9 "></polygon>
-                    <polygon id="Check-Icon" fill="#FFFFFF" points="13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4 "></polygon>
-                  </svg>
-                  <span aria-hidden="true">(42 Reviews)</span>
+                  <!-- Custom code for product rating ends here -->
                 </div>
-                <!-- Custom code for product rating ends here -->
-              </div>
 
-              <div id="checkboxes">
-                <p class="line-item-property__field add-to-box">
-                  <label>
-                    <input type="hidden" autocomplete="off" name="properties[_ITEM2]" value="No">
-                    <input
-                      id="date-woman-shower-gel"
-                      class="button"
-                      type="checkbox"
-                      data-id-products="tab_2_product"
-                      data-id="tab_2_product_1"
-                      autocomplete="off"
-                      name="properties[_ITEM2]"
-                      value="
-                        DATE Woman Shower Gel - 500ml
-                        SKU: 8906150344785
-                      "
+                <div id="checkboxes">
+                  <p class="line-item-property__field add-to-box">
+                    <label>
+                      <input type="hidden" autocomplete="off" name="properties[_ITEM1]" value="No">
+                      <input
+                        id="{{ product.handle }}"
+                        class="button"
+                        type="checkbox"
+                        data-id-products="tab_1_product"
+                        data-id="tab_1_product_{{ forloop.index }}"
+                        autocomplete="off"
+                        name="properties[_ITEM1]"
+                        value="
+                          {{ product.selected_or_first_available_variant.title }}
+                          SKU: {{ product.selected_or_first_available_variant.image.sku }}
+                        "
 
-                    ><span></span>
-                  </label>
-                </p>
+                      ><span></span>
+                    </label>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-
-        <li id="7162138198060" class="collection-item">
-          <div class="one-fourth-column">
-            <div class="product-info">
-              <span class="product_counter _hidden">1</span>
-              <svg
-                class="added_to_cart _hidden"
-                clip-rule="evenodd"
-                fill-rule="evenodd"
-                stroke-linejoin="round"
-                stroke-miterlimit="2"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
-                fill-rule="nonzero"></path>
-              </svg>
-              <div class="image">
-                <div class="grid-view-item">
-                  <a class="grid-view-item__link  has-secondary" href="javascript:void()">
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/CEOMan500mlShowerGel-01.jpg?v=1692771792&amp;width=500"
-                      alt="CEO Man Shower Gel (500ml) - Bella Vita Luxury"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/CEOMan500mlShowerGel-01.jpg?v=1692771792&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/CEOMan500mlShowerGel-01.jpg?v=1692771792&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="grid-view-item__image"
-                    >
-
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/2_6.jpg?v=1709991756&amp;width=500"
-                      alt="CEO Man Shower Gel - 500ml"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/2_6.jpg?v=1709991756&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/2_6.jpg?v=1709991756&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="secondary"
-                    >
-                  </a>
-                </div>
-              </div>
-              <style>
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                @media screen and (min-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                }
-                @media screen and (max-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                }
-              </style>
-              <div class="product_grid_items">
-                <h3 class="card-information__text h5">
-                  <span></span>
-
-                  <a href="javascript:void(0);"> CEO Man Shower Gel - 500ml </a>
-                </h3>
-                <!-- Custom code for product rating -->
-                <div class="rating" role="img" aria-label="4.7 out of 5.0 stars">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    focusable="false"
-                    class="icon icon-star"
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#FFB503"></path>
-                  </svg>
-                  <span aria-hidden="true"> 4.7 </span>
-                  <span aria-hidden="true"> | </span>
-                  <svg
-                    viewBox="0 0 18 18"
-                    class="icon icon-whatsapp-verified"
-                    height="14"
-                    width="14"
-                    preserveAspectRatio="xMidYMid meet"
-                    version="1.1"
-                    x="0px"
-                    y="0px"
-                    enable-background="new 0 0 18 18"
-                    xml:space="preserve"
-                  >
-                    <polygon id="Star-2" fill="#005eff" points="9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9 "></polygon>
-                    <polygon id="Check-Icon" fill="#FFFFFF" points="13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4 "></polygon>
-                  </svg>
-                  <span aria-hidden="true">(37 Reviews)</span>
-                </div>
-                <!-- Custom code for product rating ends here -->
-              </div>
-
-              <div id="checkboxes">
-                <p class="line-item-property__field add-to-box">
-                  <label>
-                    <input type="hidden" autocomplete="off" name="properties[_ITEM2]" value="No">
-                    <input
-                      id="ceo-man-shower-gel-500ml"
-                      class="button"
-                      type="checkbox"
-                      data-id-products="tab_2_product"
-                      data-id="tab_2_product_2"
-                      autocomplete="off"
-                      name="properties[_ITEM2]"
-                      value="
-                        CEO Man Shower Gel - 500ml
-                        SKU: 8906150344747
-                      "
-
-                    ><span></span>
-                  </label>
-                </p>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li id="7186715672620" class="collection-item">
-          <div class="one-fourth-column">
-            <div class="product-info">
-              <span class="product_counter _hidden">1</span>
-              <svg
-                class="added_to_cart _hidden"
-                clip-rule="evenodd"
-                fill-rule="evenodd"
-                stroke-linejoin="round"
-                stroke-miterlimit="2"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
-                fill-rule="nonzero"></path>
-              </svg>
-              <div class="image">
-                <div class="grid-view-item">
-                  <a class="grid-view-item__link  has-secondary" href="javascript:void()">
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/OUDWhite500mlShowerGel-01.jpg?v=1697013797&amp;width=500"
-                      alt="OUD WHITE Shower Gel - 500ml - Bella Vita Luxury"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/OUDWhite500mlShowerGel-01.jpg?v=1697013797&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/OUDWhite500mlShowerGel-01.jpg?v=1697013797&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="grid-view-item__image"
-                    >
-
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/2_11.jpg?v=1709993225&amp;width=500"
-                      alt="OUD WHITE Shower Gel - 500ml"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/2_11.jpg?v=1709993225&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/2_11.jpg?v=1709993225&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="secondary"
-                    >
-                  </a>
-                </div>
-              </div>
-              <style>
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                @media screen and (min-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                }
-                @media screen and (max-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                }
-              </style>
-              <div class="product_grid_items">
-                <h3 class="card-information__text h5">
-                  <span></span>
-
-                  <a href="javascript:void(0);"> OUD WHITE Shower Gel - 500ml </a>
-                </h3>
-                <!-- Custom code for product rating -->
-                <div class="rating" role="img" aria-label="4.89 out of 5.0 stars">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    focusable="false"
-                    class="icon icon-star"
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#FFB503"></path>
-                  </svg>
-                  <span aria-hidden="true"> 4.9 </span>
-                  <span aria-hidden="true"> | </span>
-                  <svg
-                    viewBox="0 0 18 18"
-                    class="icon icon-whatsapp-verified"
-                    height="14"
-                    width="14"
-                    preserveAspectRatio="xMidYMid meet"
-                    version="1.1"
-                    x="0px"
-                    y="0px"
-                    enable-background="new 0 0 18 18"
-                    xml:space="preserve"
-                  >
-                    <polygon id="Star-2" fill="#005eff" points="9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9 "></polygon>
-                    <polygon id="Check-Icon" fill="#FFFFFF" points="13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4 "></polygon>
-                  </svg>
-                  <span aria-hidden="true">(45 Reviews)</span>
-                </div>
-                <!-- Custom code for product rating ends here -->
-              </div>
-
-              <div id="checkboxes">
-                <p class="line-item-property__field add-to-box">
-                  <label>
-                    <input type="hidden" autocomplete="off" name="properties[_ITEM2]" value="No">
-                    <input
-                      id="oud-white-shower-gel-500ml"
-                      class="button"
-                      type="checkbox"
-                      data-id-products="tab_2_product"
-                      data-id="tab_2_product_3"
-                      autocomplete="off"
-                      name="properties[_ITEM2]"
-                      value="
-                        OUD WHITE Shower Gel - 500ml
-                        SKU: 8906150344778
-                      "
-
-                    ><span></span>
-                  </label>
-                </p>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li id="7169726677036" class="collection-item">
-          <div class="one-fourth-column">
-            <div class="product-info">
-              <span class="product_counter _hidden">1</span>
-              <svg
-                class="added_to_cart _hidden"
-                clip-rule="evenodd"
-                fill-rule="evenodd"
-                stroke-linejoin="round"
-                stroke-miterlimit="2"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
-                fill-rule="nonzero"></path>
-              </svg>
-              <div class="image">
-                <div class="grid-view-item">
-                  <a class="grid-view-item__link  has-secondary" href="javascript:void()">
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/SkaiAquatic500mlShowerGel-01.jpg?v=1694782301&amp;width=500"
-                      alt="SKAI Aquatic Shower Gel - 500 ml - Bella Vita Luxury"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/SkaiAquatic500mlShowerGel-01.jpg?v=1694782301&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/SkaiAquatic500mlShowerGel-01.jpg?v=1694782301&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="grid-view-item__image"
-                    >
-
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/2_13_9965e2d9-e278-408c-b49a-8183d05ca15b.jpg?v=1709993578&amp;width=500"
-                      alt="SKAI Aquatic Shower Gel - 500ml"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/2_13_9965e2d9-e278-408c-b49a-8183d05ca15b.jpg?v=1709993578&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/2_13_9965e2d9-e278-408c-b49a-8183d05ca15b.jpg?v=1709993578&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="secondary"
-                    >
-                  </a>
-                </div>
-              </div>
-              <style>
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                @media screen and (min-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                }
-                @media screen and (max-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                }
-              </style>
-              <div class="product_grid_items">
-                <h3 class="card-information__text h5">
-                  <span></span>
-
-                  <a href="javascript:void(0);"> SKAI Aquatic Shower Gel - 500ml </a>
-                </h3>
-                <!-- Custom code for product rating -->
-                <div class="rating" role="img" aria-label="4.62 out of 5.0 stars">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    focusable="false"
-                    class="icon icon-star"
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#FFB503"></path>
-                  </svg>
-                  <span aria-hidden="true"> 4.6 </span>
-                  <span aria-hidden="true"> | </span>
-                  <svg
-                    viewBox="0 0 18 18"
-                    class="icon icon-whatsapp-verified"
-                    height="14"
-                    width="14"
-                    preserveAspectRatio="xMidYMid meet"
-                    version="1.1"
-                    x="0px"
-                    y="0px"
-                    enable-background="new 0 0 18 18"
-                    xml:space="preserve"
-                  >
-                    <polygon id="Star-2" fill="#005eff" points="9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9 "></polygon>
-                    <polygon id="Check-Icon" fill="#FFFFFF" points="13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4 "></polygon>
-                  </svg>
-                  <span aria-hidden="true">(32 Reviews)</span>
-                </div>
-                <!-- Custom code for product rating ends here -->
-              </div>
-
-              <div id="checkboxes">
-                <p class="line-item-property__field add-to-box">
-                  <label>
-                    <input type="hidden" autocomplete="off" name="properties[_ITEM2]" value="No">
-                    <input
-                      id="skai-aquatic-shower-gel-500-ml"
-                      class="button"
-                      type="checkbox"
-                      data-id-products="tab_2_product"
-                      data-id="tab_2_product_4"
-                      autocomplete="off"
-                      name="properties[_ITEM2]"
-                      value="
-                        SKAI Aquatic Shower Gel - 500ml
-                        SKU: 8906150344761
-                      "
-
-                    ><span></span>
-                  </label>
-                </p>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li id="7176466399276" class="collection-item">
-          <div class="one-fourth-column">
-            <div class="product-info">
-              <span class="product_counter _hidden">1</span>
-              <svg
-                class="added_to_cart _hidden"
-                clip-rule="evenodd"
-                fill-rule="evenodd"
-                stroke-linejoin="round"
-                stroke-miterlimit="2"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
-                fill-rule="nonzero"></path>
-              </svg>
-              <div class="image">
-                <div class="grid-view-item">
-                  <a class="grid-view-item__link  has-secondary" href="javascript:void()">
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/KLUBMan-01.jpg?v=1695892539&amp;width=500"
-                      alt="Klub man shower gel"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/KLUBMan-01.jpg?v=1695892539&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/KLUBMan-01.jpg?v=1695892539&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="grid-view-item__image"
-                    >
-
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/2_10.jpg?v=1709993076&amp;width=500"
-                      alt="KLUB Man Shower Gel - 500ml"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/2_10.jpg?v=1709993076&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/2_10.jpg?v=1709993076&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="secondary"
-                    >
-                  </a>
-                </div>
-              </div>
-              <style>
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                @media screen and (min-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                }
-                @media screen and (max-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                }
-              </style>
-              <div class="product_grid_items">
-                <h3 class="card-information__text h5">
-                  <span></span>
-
-                  <a href="javascript:void(0);"> KLUB Man Shower Gel - 500ml </a>
-                </h3>
-                <!-- Custom code for product rating -->
-                <div class="rating" role="img" aria-label="4.79 out of 5.0 stars">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    focusable="false"
-                    class="icon icon-star"
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#FFB503"></path>
-                  </svg>
-                  <span aria-hidden="true"> 4.8 </span>
-                  <span aria-hidden="true"> | </span>
-                  <svg
-                    viewBox="0 0 18 18"
-                    class="icon icon-whatsapp-verified"
-                    height="14"
-                    width="14"
-                    preserveAspectRatio="xMidYMid meet"
-                    version="1.1"
-                    x="0px"
-                    y="0px"
-                    enable-background="new 0 0 18 18"
-                    xml:space="preserve"
-                  >
-                    <polygon id="Star-2" fill="#005eff" points="9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9 "></polygon>
-                    <polygon id="Check-Icon" fill="#FFFFFF" points="13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4 "></polygon>
-                  </svg>
-                  <span aria-hidden="true">(19 Reviews)</span>
-                </div>
-                <!-- Custom code for product rating ends here -->
-              </div>
-
-              <div id="checkboxes">
-                <p class="line-item-property__field add-to-box">
-                  <label>
-                    <input type="hidden" autocomplete="off" name="properties[_ITEM2]" value="No">
-                    <input
-                      id="klub-man-shower-gel"
-                      class="button"
-                      type="checkbox"
-                      data-id-products="tab_2_product"
-                      data-id="tab_2_product_5"
-                      autocomplete="off"
-                      name="properties[_ITEM2]"
-                      value="
-                        KLUB Man Shower Gel - 500ml
-                        SKU: 8906150344754
-                      "
-
-                    ><span></span>
-                  </label>
-                </p>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li id="7298916450348" class="collection-item">
-          <div class="one-fourth-column">
-            <div class="product-info">
-              <span class="product_counter _hidden">1</span>
-              <svg
-                class="added_to_cart _hidden"
-                clip-rule="evenodd"
-                fill-rule="evenodd"
-                stroke-linejoin="round"
-                stroke-miterlimit="2"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
-                fill-rule="nonzero"></path>
-              </svg>
-              <div class="image">
-                <div class="grid-view-item">
-                  <a class="grid-view-item__link  has-secondary" href="javascript:void()">
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/SenoritaShowerGel500ml-01.jpg?v=1706856961&amp;width=500"
-                      alt="Senorita  woman shower gel, Body wash for women, Shower Gel, Best shower gel for women, body wash gel, woman shower gel, aloe vera shower gel, body shop shower gel,Best Shower Gel"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/SenoritaShowerGel500ml-01.jpg?v=1706856961&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/SenoritaShowerGel500ml-01.jpg?v=1706856961&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="grid-view-item__image"
-                    >
-
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/2_12.jpg?v=1709993456&amp;width=500"
-                      alt="SENORITA Woman Shower Gel - 500 ml"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/2_12.jpg?v=1709993456&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/2_12.jpg?v=1709993456&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="secondary"
-                    >
-                  </a>
-                </div>
-              </div>
-              <style>
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                @media screen and (min-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                }
-                @media screen and (max-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                }
-              </style>
-              <div class="product_grid_items">
-                <h3 class="card-information__text h5">
-                  <span></span>
-
-                  <a href="javascript:void(0);"> SENORITA Woman Shower Gel - 500 ml </a>
-                </h3>
-                <!-- Custom code for product rating -->
-                <div class="rating" role="img" aria-label="4.84 out of 5.0 stars">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    focusable="false"
-                    class="icon icon-star"
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#FFB503"></path>
-                  </svg>
-                  <span aria-hidden="true"> 4.8 </span>
-                  <span aria-hidden="true"> | </span>
-                  <svg
-                    viewBox="0 0 18 18"
-                    class="icon icon-whatsapp-verified"
-                    height="14"
-                    width="14"
-                    preserveAspectRatio="xMidYMid meet"
-                    version="1.1"
-                    x="0px"
-                    y="0px"
-                    enable-background="new 0 0 18 18"
-                    xml:space="preserve"
-                  >
-                    <polygon id="Star-2" fill="#005eff" points="9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9 "></polygon>
-                    <polygon id="Check-Icon" fill="#FFFFFF" points="13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4 "></polygon>
-                  </svg>
-                  <span aria-hidden="true">(115 Reviews)</span>
-                </div>
-                <!-- Custom code for product rating ends here -->
-              </div>
-
-              <div id="checkboxes">
-                <p class="line-item-property__field add-to-box">
-                  <label>
-                    <input type="hidden" autocomplete="off" name="properties[_ITEM2]" value="No">
-                    <input
-                      id="senorita-woman-shower-gel-500-ml"
-                      class="button"
-                      type="checkbox"
-                      data-id-products="tab_2_product"
-                      data-id="tab_2_product_6"
-                      autocomplete="off"
-                      name="properties[_ITEM2]"
-                      value="
-                        SENORITA Woman Shower Gel - 500 ml
-                        SKU: 8906150344808
-                      "
-
-                    ><span></span>
-                  </label>
-                </p>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li id="7264929480748" class="collection-item">
-          <div class="one-fourth-column">
-            <div class="product-info">
-              <span class="product_counter _hidden">1</span>
-              <svg
-                class="added_to_cart _hidden"
-                clip-rule="evenodd"
-                fill-rule="evenodd"
-                stroke-linejoin="round"
-                stroke-miterlimit="2"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
-                fill-rule="nonzero"></path>
-              </svg>
-              <div class="image">
-                <div class="grid-view-item">
-                  <a class="grid-view-item__link  has-secondary" href="javascript:void()">
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/Glamshowergel-01.jpg?v=1703067259&amp;width=500"
-                      alt="Glam Woman Shower Gel"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/Glamshowergel-01.jpg?v=1703067259&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/Glamshowergel-01.jpg?v=1703067259&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="grid-view-item__image"
-                    >
-
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/2_8.jpg?v=1709992955&amp;width=500"
-                      alt="GLAM Woman Shower Gel - 500ml"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/2_8.jpg?v=1709992955&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/2_8.jpg?v=1709992955&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="secondary"
-                    >
-                  </a>
-                </div>
-              </div>
-              <style>
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                @media screen and (min-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                }
-                @media screen and (max-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                }
-              </style>
-              <div class="product_grid_items">
-                <h3 class="card-information__text h5">
-                  <span></span>
-
-                  <a href="javascript:void(0);"> GLAM Woman Shower Gel - 500ml </a>
-                </h3>
-                <!-- Custom code for product rating -->
-                <div class="rating" role="img" aria-label="4.81 out of 5.0 stars">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    focusable="false"
-                    class="icon icon-star"
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#FFB503"></path>
-                  </svg>
-                  <span aria-hidden="true"> 4.8 </span>
-                  <span aria-hidden="true"> | </span>
-                  <svg
-                    viewBox="0 0 18 18"
-                    class="icon icon-whatsapp-verified"
-                    height="14"
-                    width="14"
-                    preserveAspectRatio="xMidYMid meet"
-                    version="1.1"
-                    x="0px"
-                    y="0px"
-                    enable-background="new 0 0 18 18"
-                    xml:space="preserve"
-                  >
-                    <polygon id="Star-2" fill="#005eff" points="9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9 "></polygon>
-                    <polygon id="Check-Icon" fill="#FFFFFF" points="13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4 "></polygon>
-                  </svg>
-                  <span aria-hidden="true">(102 Reviews)</span>
-                </div>
-                <!-- Custom code for product rating ends here -->
-              </div>
-
-              <div id="checkboxes">
-                <p class="line-item-property__field add-to-box">
-                  <label>
-                    <input type="hidden" autocomplete="off" name="properties[_ITEM2]" value="No">
-                    <input
-                      id="glam-woman-shower-gel"
-                      class="button"
-                      type="checkbox"
-                      data-id-products="tab_2_product"
-                      data-id="tab_2_product_7"
-                      autocomplete="off"
-                      name="properties[_ITEM2]"
-                      value="
-                        GLAM Woman Shower Gel - 500ml
-                        SKU: 8906150344792
-                      "
-
-                    ><span></span>
-                  </label>
-                </p>
-              </div>
-            </div>
-          </div>
-        </li>
+          </li>
+        {% endfor %}
       </div>
     </ul>
   </div>
@@ -1160,557 +272,83 @@
 
     <ul id="collection-list">
       <div class="row collection page-width">
-        <li id="6843775254572" class="collection-item">
-          <div class="one-fourth-column">
-            <div class="product-info">
-              <span class="product_counter _hidden">1</span>
-              <svg
-                class="added_to_cart _hidden"
-                clip-rule="evenodd"
-                fill-rule="evenodd"
-                stroke-linejoin="round"
-                stroke-miterlimit="2"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
-                fill-rule="nonzero"></path>
-              </svg>
-              <div class="image">
-                <div class="grid-view-item">
-                  <a class="grid-view-item__link  has-secondary" href="javascript:void()">
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/CEOManDeoParfum.jpg?v=1696226746&amp;width=500"
-                      alt="CEO Man Body Parfum - 150ml - Bella Vita Luxury"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/CEOManDeoParfum.jpg?v=1696226746&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/CEOManDeoParfum.jpg?v=1696226746&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="grid-view-item__image"
-                    >
-
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/CEOMan-05_1e8983e5-68d3-4c65-bf7c-6f89b64f7fc2.jpg?v=1696246608&amp;width=500"
-                      alt="CEO Man Body Parfum - 150 ML - Bella Vita Luxury"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/CEOMan-05_1e8983e5-68d3-4c65-bf7c-6f89b64f7fc2.jpg?v=1696246608&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/CEOMan-05_1e8983e5-68d3-4c65-bf7c-6f89b64f7fc2.jpg?v=1696246608&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="secondary"
-                    >
-                  </a>
+        {%- assign products = collections['car-dash-cams'].products -%}
+        {% for product in products %}
+          <li id="{{ product.selected_or_first_available_variant.id }}" class="collection-item">
+            <div class="one-fourth-column">
+              <div class="product-info">
+                <span class="product_counter _hidden">{{ forloop.index }}</span>
+                <svg
+                  class="added_to_cart _hidden"
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                  stroke-linejoin="round"
+                  stroke-miterlimit="2"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
+                  fill-rule="nonzero"></path>
+                </svg>
+                <div class="image">
+                  <div class="grid-view-item">
+                    <a class="grid-view-item__link" href="javascript:void()">
+                      <!--
+                        <img
+                          src="{{ product.featured_media.preview_image | img_url }}"
+                          alt="{{ product.title }}"
+                          srcset="//bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=500 500w"
+                          width="500"
+                          height="500"
+                          loading="lazy"
+                          fetchpriority="low"
+                          sizes="100vw"
+                          class="grid-view-item__image"
+                        >
+                      -->
+                      {% render 'image-element',
+                        image: product.featured_media.preview_image,
+                        alt: alt_text,
+                        object_fit: settings.align_height,
+                        max_height: settings.collection_height
+                      %}
+                    </a>
+                  </div>
                 </div>
-              </div>
-              <style>
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                @media screen and (min-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                }
-                @media screen and (max-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                }
-              </style>
-              <div class="product_grid_items">
-                <h3 class="card-information__text h5">
-                  <span>DEODORANT &amp; ANTI-PERSPIRANT</span>
+                <div class="product_grid_items">
+                  <h3 class="card-information__text h5">
+                    <a href="javascript:void(0);">{{ product.title }}</a>
+                  </h3>
+                  <!-- Custom code for product rating -->
 
-                  <a href="javascript:void(0);"> CEO Man Body Parfum - 150ml </a>
-                </h3>
-                <!-- Custom code for product rating -->
-                <div class="rating" role="img" aria-label="4.6 out of 5.0 stars">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    focusable="false"
-                    class="icon icon-star"
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#FFB503"></path>
-                  </svg>
-                  <span aria-hidden="true"> 4.6 </span>
-                  <span aria-hidden="true"> | </span>
-                  <svg
-                    viewBox="0 0 18 18"
-                    class="icon icon-whatsapp-verified"
-                    height="14"
-                    width="14"
-                    preserveAspectRatio="xMidYMid meet"
-                    version="1.1"
-                    x="0px"
-                    y="0px"
-                    enable-background="new 0 0 18 18"
-                    xml:space="preserve"
-                  >
-                    <polygon id="Star-2" fill="#005eff" points="9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9 "></polygon>
-                    <polygon id="Check-Icon" fill="#FFFFFF" points="13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4 "></polygon>
-                  </svg>
-                  <span aria-hidden="true">(58 Reviews)</span>
+                  <!-- Custom code for product rating ends here -->
                 </div>
-                <!-- Custom code for product rating ends here -->
-              </div>
 
-              <div id="checkboxes">
-                <p class="line-item-property__field add-to-box">
-                  <label>
-                    <input type="hidden" autocomplete="off" name="properties[_ITEM3]" value="No">
-                    <input
-                      id="ceo-man-body-parfum-no-gas-deodorant-150-ml"
-                      class="button"
-                      type="checkbox"
-                      data-id-products="tab_3_product"
-                      data-id="tab_3_product_1"
-                      autocomplete="off"
-                      name="properties[_ITEM3]"
-                      value="
-                        CEO Man Body Parfum - 150ml
-                        SKU: 8906150340442
-                      "
+                <div id="checkboxes">
+                  <p class="line-item-property__field add-to-box">
+                    <label>
+                      <input type="hidden" autocomplete="off" name="properties[_ITEM1]" value="No">
+                      <input
+                        id="{{ product.handle }}"
+                        class="button"
+                        type="checkbox"
+                        data-id-products="tab_1_product"
+                        data-id="tab_1_product_{{ forloop.index }}"
+                        autocomplete="off"
+                        name="properties[_ITEM1]"
+                        value="
+                          {{ product.selected_or_first_available_variant.title }}
+                          SKU: {{ product.selected_or_first_available_variant.image.sku }}
+                        "
 
-                    ><span></span>
-                  </label>
-                </p>
+                      ><span></span>
+                    </label>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-
-        <li id="6843782168620" class="collection-item">
-          <div class="one-fourth-column">
-            <div class="product-info">
-              <span class="product_counter _hidden">1</span>
-              <svg
-                class="added_to_cart _hidden"
-                clip-rule="evenodd"
-                fill-rule="evenodd"
-                stroke-linejoin="round"
-                stroke-miterlimit="2"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
-                fill-rule="nonzero"></path>
-              </svg>
-              <div class="image">
-                <div class="grid-view-item">
-                  <a class="grid-view-item__link  has-secondary" href="javascript:void()">
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/SkaiAquaticDeoParfum.jpg?v=1696231639&amp;width=500"
-                      alt="SKAI Aquatic Man Body Parfum - 150 ML - Bella Vita Luxury"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/SkaiAquaticDeoParfum.jpg?v=1696231639&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/SkaiAquaticDeoParfum.jpg?v=1696231639&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="grid-view-item__image"
-                    >
-
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/SKAIAquatic-02.jpg?v=1696231639&amp;width=500"
-                      alt="SKAI Aquatic Man Body Parfum - 150 ML - Bella Vita Luxury"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/SKAIAquatic-02.jpg?v=1696231639&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/SKAIAquatic-02.jpg?v=1696231639&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="secondary"
-                    >
-                  </a>
-                </div>
-              </div>
-              <style>
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                @media screen and (min-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                }
-                @media screen and (max-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                }
-              </style>
-              <div class="product_grid_items">
-                <h3 class="card-information__text h5">
-                  <span>DEODORANT &amp; ANTI-PERSPIRANT</span>
-
-                  <a href="javascript:void(0);"> SKAI Aquatic Man Body Parfum - 150ml </a>
-                </h3>
-                <!-- Custom code for product rating -->
-                <div class="rating" role="img" aria-label="4.66 out of 5.0 stars">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    focusable="false"
-                    class="icon icon-star"
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#FFB503"></path>
-                  </svg>
-                  <span aria-hidden="true"> 4.7 </span>
-                  <span aria-hidden="true"> | </span>
-                  <svg
-                    viewBox="0 0 18 18"
-                    class="icon icon-whatsapp-verified"
-                    height="14"
-                    width="14"
-                    preserveAspectRatio="xMidYMid meet"
-                    version="1.1"
-                    x="0px"
-                    y="0px"
-                    enable-background="new 0 0 18 18"
-                    xml:space="preserve"
-                  >
-                    <polygon id="Star-2" fill="#005eff" points="9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9 "></polygon>
-                    <polygon id="Check-Icon" fill="#FFFFFF" points="13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4 "></polygon>
-                  </svg>
-                  <span aria-hidden="true">(35 Reviews)</span>
-                </div>
-                <!-- Custom code for product rating ends here -->
-              </div>
-
-              <div id="checkboxes">
-                <p class="line-item-property__field add-to-box">
-                  <label>
-                    <input type="hidden" autocomplete="off" name="properties[_ITEM3]" value="No">
-                    <input
-                      id="skai-aquatic-man-body-parfum-no-gas-deodorant-150-ml"
-                      class="button"
-                      type="checkbox"
-                      data-id-products="tab_3_product"
-                      data-id="tab_3_product_2"
-                      autocomplete="off"
-                      name="properties[_ITEM3]"
-                      value="
-                        SKAI Aquatic Man Body Parfum - 150ml
-                        SKU: 8906150340480
-                      "
-
-                    ><span></span>
-                  </label>
-                </p>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li id="7159973511212" class="collection-item">
-          <div class="one-fourth-column">
-            <div class="product-info">
-              <span class="product_counter _hidden">1</span>
-              <svg
-                class="added_to_cart _hidden"
-                clip-rule="evenodd"
-                fill-rule="evenodd"
-                stroke-linejoin="round"
-                stroke-miterlimit="2"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
-                fill-rule="nonzero"></path>
-              </svg>
-              <div class="image">
-                <div class="grid-view-item">
-                  <a class="grid-view-item__link  has-secondary" href="javascript:void()">
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/WhiteOudDeoParfum.jpg?v=1696231332&amp;width=500"
-                      alt="Oud White Deo Parfum - 150ml - Bella Vita Luxury"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/WhiteOudDeoParfum.jpg?v=1696231332&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/WhiteOudDeoParfum.jpg?v=1696231332&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="grid-view-item__image"
-                    >
-
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/OUDWhite-05.jpg?v=1696249958&amp;width=500"
-                      alt="OUD WHITE DEO PARFUM - 150 ml - Bella Vita Luxury"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/OUDWhite-05.jpg?v=1696249958&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/OUDWhite-05.jpg?v=1696249958&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="secondary"
-                    >
-                  </a>
-                </div>
-              </div>
-              <style>
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                @media screen and (min-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                }
-                @media screen and (max-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                }
-              </style>
-              <div class="product_grid_items">
-                <h3 class="card-information__text h5">
-                  <span></span>
-
-                  <a href="javascript:void(0);"> Oud White Deo Parfum - 150ml </a>
-                </h3>
-                <!-- Custom code for product rating -->
-                <div class="rating" role="img" aria-label="4.73 out of 5.0 stars">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    focusable="false"
-                    class="icon icon-star"
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#FFB503"></path>
-                  </svg>
-                  <span aria-hidden="true"> 4.7 </span>
-                  <span aria-hidden="true"> | </span>
-                  <svg
-                    viewBox="0 0 18 18"
-                    class="icon icon-whatsapp-verified"
-                    height="14"
-                    width="14"
-                    preserveAspectRatio="xMidYMid meet"
-                    version="1.1"
-                    x="0px"
-                    y="0px"
-                    enable-background="new 0 0 18 18"
-                    xml:space="preserve"
-                  >
-                    <polygon id="Star-2" fill="#005eff" points="9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9 "></polygon>
-                    <polygon id="Check-Icon" fill="#FFFFFF" points="13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4 "></polygon>
-                  </svg>
-                  <span aria-hidden="true">(63 Reviews)</span>
-                </div>
-                <!-- Custom code for product rating ends here -->
-              </div>
-
-              <div id="checkboxes">
-                <p class="line-item-property__field add-to-box">
-                  <label>
-                    <input type="hidden" autocomplete="off" name="properties[_ITEM3]" value="No">
-                    <input
-                      id="oud-white-deo-parfum-150-ml"
-                      class="button"
-                      type="checkbox"
-                      data-id-products="tab_3_product"
-                      data-id="tab_3_product_3"
-                      autocomplete="off"
-                      name="properties[_ITEM3]"
-                      value="
-                        Oud White Deo Parfum - 150ml
-                        SKU: 8906150344648
-                      "
-
-                    ><span></span>
-                  </label>
-                </p>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li id="7159973117996" class="collection-item">
-          <div class="one-fourth-column">
-            <div class="product-info">
-              <span class="product_counter _hidden">1</span>
-              <svg
-                class="added_to_cart _hidden"
-                clip-rule="evenodd"
-                fill-rule="evenodd"
-                stroke-linejoin="round"
-                stroke-miterlimit="2"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
-                fill-rule="nonzero"></path>
-              </svg>
-              <div class="image">
-                <div class="grid-view-item">
-                  <a class="grid-view-item__link  has-secondary" href="javascript:void()">
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/KLUBManDeoParfum.jpg?v=1696231331&amp;width=500"
-                      alt="KLUB MAN DEO PARFUM - 150 ml - Bella Vita Luxury"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/KLUBManDeoParfum.jpg?v=1696231331&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/KLUBManDeoParfum.jpg?v=1696231331&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="grid-view-item__image"
-                    >
-
-                    <img
-                      src="//bellavitaluxury.co.in/cdn/shop/files/KLUBMan-02_2.jpg?v=1696231331&amp;width=500"
-                      alt="KLUB MAN DEO PARFUM - 150 ml - Bella Vita Luxury"
-                      srcset="//bellavitaluxury.co.in/cdn/shop/files/KLUBMan-02_2.jpg?v=1696231331&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/KLUBMan-02_2.jpg?v=1696231331&amp;width=500 500w"
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      fetchpriority="low"
-                      sizes="100vw"
-                      class="secondary"
-                    >
-                  </a>
-                </div>
-              </div>
-              <style>
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                @media screen and (min-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                .has-secondary.grid-view-item__link:hover img.secondary{
-                 display:block;
-                }
-                .has-secondary.grid-view-item__link:hover img.grid-view-item__image{
-                 display:none;
-                }
-                }
-                @media screen and (max-width:767px){
-                .has-secondary.grid-view-item__link img.secondary{
-                 display:none;
-                }
-                }
-              </style>
-              <div class="product_grid_items">
-                <h3 class="card-information__text h5">
-                  <span></span>
-
-                  <a href="javascript:void(0);"> KLUB MAN DEO PARFUM - 150ml </a>
-                </h3>
-                <!-- Custom code for product rating -->
-                <div class="rating" role="img" aria-label="4.47 out of 5.0 stars">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    focusable="false"
-                    class="icon icon-star"
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#FFB503"></path>
-                  </svg>
-                  <span aria-hidden="true"> 4.5 </span>
-                  <span aria-hidden="true"> | </span>
-                  <svg
-                    viewBox="0 0 18 18"
-                    class="icon icon-whatsapp-verified"
-                    height="14"
-                    width="14"
-                    preserveAspectRatio="xMidYMid meet"
-                    version="1.1"
-                    x="0px"
-                    y="0px"
-                    enable-background="new 0 0 18 18"
-                    xml:space="preserve"
-                  >
-                    <polygon id="Star-2" fill="#005eff" points="9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9 "></polygon>
-                    <polygon id="Check-Icon" fill="#FFFFFF" points="13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4 "></polygon>
-                  </svg>
-                  <span aria-hidden="true">(19 Reviews)</span>
-                </div>
-                <!-- Custom code for product rating ends here -->
-              </div>
-
-              <div id="checkboxes">
-                <p class="line-item-property__field add-to-box">
-                  <label>
-                    <input type="hidden" autocomplete="off" name="properties[_ITEM3]" value="No">
-                    <input
-                      id="klub-man-deo-parfum-150-ml"
-                      class="button"
-                      type="checkbox"
-                      data-id-products="tab_3_product"
-                      data-id="tab_3_product_4"
-                      autocomplete="off"
-                      name="properties[_ITEM3]"
-                      value="
-                        KLUB MAN DEO PARFUM - 150ml
-                        SKU: 8906150344631
-                      "
-
-                    ><span></span>
-                  </label>
-                </p>
-              </div>
-            </div>
-          </div>
-        </li>
+          </li>
+        {% endfor %}
       </div>
     </ul>
   </div>
@@ -1724,8 +362,8 @@
     <div class="product-details page-width">
       <div class="prd-details prd-details-left">
         <div class="prd-image-title">
-          <img src="//bellavitaluxury.co.in/cdn/shop/files/1-1_4_300x.jpg?v=1715241264">
-          <h3>Hello Summer Combo</h3>
+          <img src="data:image/png;base64,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">
+          <h3>Car Bundle</h3>
         </div>
       </div>
       <div class="prd-details prd-details-right">
