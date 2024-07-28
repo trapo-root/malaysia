@@ -1,6 +1,4 @@
-<div id="flexi-box-form" class="shopify-product-form">
-  <input type="hidden" name="form_type" value="product">
-  <input type="hidden" name="utf8" value="✓">
+{% form 'product', id: 'flexi-box-form', class: 'shopify-product-form' %}
   <!-- Tab menu -->
   <div class="tab-menu sticky-header center show">
     <ul class="tab-items">
@@ -372,7 +370,7 @@
       </div>
     </div>
   </div>
-</div>
+{% endform %}
 <style>
         .tab-menu ul.tab-items {
     	display: flex;
