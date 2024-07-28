@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "bundle-page-template",
+      "type": "bundle-product-template",
       "settings": {
       }
     }
