@@ -100,19 +100,26 @@
                 </svg>
                 <div class="image">
                   <div class="grid-view-item">
-                    {{ product.featured_media.preview_image | img_url }}
                     <a class="grid-view-item__link" href="javascript:void()">
-                      <img
-                        src="//bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=500"
-                        alt="CEO Man"
-                        srcset="//bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=500 500w"
-                        width="500"
-                        height="500"
-                        loading="lazy"
-                        fetchpriority="low"
-                        sizes="100vw"
-                        class="grid-view-item__image"
-                      >
+                      <!--
+                        <img
+                          src="{{ product.featured_media.preview_image | img_url }}"
+                          alt="{{ product.title }}"
+                          srcset="//bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=500 500w"
+                          width="500"
+                          height="500"
+                          loading="lazy"
+                          fetchpriority="low"
+                          sizes="100vw"
+                          class="grid-view-item__image"
+                        >
+                      -->
+                      {% render 'image-element',
+                        image: product.featured_media.preview_image,
+                        alt: alt_text,
+                        object_fit: settings.align_height,
+                        max_height: settings.collection_height
+                      %}
                     </a>
                   </div>
                 </div>
