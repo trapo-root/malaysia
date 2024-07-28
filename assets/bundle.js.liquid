@@ -66,7 +66,7 @@ $(document).ready(function() {
                                 //reached the last item. Now we redirect to cart or may be show pop up
                                 if (iteration_length == available_ids.length) {
                                     //redirect to cart or 
-                                    document.location.href = '/cart';
+                                    //document.location.href = '/cart';
                                     //do whatever
                                 }
                             },
@@ -75,7 +75,7 @@ $(document).ready(function() {
                             }
                         };
                         $.ajax(params);
-                    }, 1000 * i);
+                    }, 500 * i);
                     //1000*i means this code fires 1 seconds after each iteration which makes sure addition of add to cart is 
                     //successful
                 }(i));
