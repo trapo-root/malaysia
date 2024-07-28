@@ -33,7 +33,7 @@ $(document).ready(function() {
             $('.collection .collection-item').each(function() {
                 var thisQty = 1;
                 if (thisQty > 0) {
-                    var xVarID = $(this).find('#checkboxes input').attr('data-pid');
+                    var xVarID = $(this).find('#checkboxes :input:checked').attr('data-pid');
                     var toPushItem = xVarID + '-' + thisQty;
                     available_ids.push(toPushItem);
                 }
