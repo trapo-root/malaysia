@@ -1,13 +1,4 @@
-<form
-  method="post"
-  action="/cart/add"
-  id="flexi-box-form"
-  accept-charset="UTF-8"
-  class="shopify-product-form"
-  enctype="multipart/form-data"
-  novalidate="novalidate"
-  data-type="add-to-cart-form"
->
+{% form 'product', class: 'add-to-cart-form', id: 'flexi-box-form' %}
   <input type="hidden" name="form_type" value="product">
   <input type="hidden" name="utf8" value="✓">
   <!-- Tab menu -->
@@ -381,10 +372,7 @@
       </div>
     </div>
   </div>
-  <input type="hidden" name="product-id" value="7404318654508">
-  <input type="hidden" name="section-id" value="template--16588205588524__flexi-box-multi-steps">
-</form>
-
+{% endform %}
 <style>
         .tab-menu ul.tab-items {
     	display: flex;
