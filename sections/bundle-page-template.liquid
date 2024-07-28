@@ -1,4 +1,13 @@
-<div class="shopify-product-form" id="flexi-box-form">
+<form
+  method="post"
+  action="/cart/add"
+  class="shopify-product-form"
+  id="flexi-box-form"
+  accept-charset="UTF-8"
+  enctype="multipart/form-data"
+>
+  <input type="hidden" name="form_type" value="product"><input type="hidden" name="utf8" value="✓">
+  <!-- <div class="shopify-product-form" id="flexi-box-form"> -->
   <!-- Tab menu -->
   <div class="tab-menu sticky-header center show">
     <ul class="tab-items">
@@ -373,7 +382,7 @@
       </div>
     </div>
   </div>
-</div>
+</form>
 <style>
   .announcement-banner{
     display:none;
