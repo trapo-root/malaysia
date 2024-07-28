@@ -763,9 +763,7 @@ $(document).ready(function () {
             }
             $("#flexi-box-form input[type=checkbox]:checked").length == totalproductSelection ? $("#submit-btn").css("display", "inline-block") : $("#submit-btn").css("display", "none");
         }),
-        $(document).bind("contextmenu", function (e) {
-            e.preventDefault();
-        }),
+        
         $(document).keydown(function (e) {
             if (e.which === 123) return !1;
         }),
