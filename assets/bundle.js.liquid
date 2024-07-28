@@ -1,0 +1,87 @@
+/** Bundle Page Start **/
+$(document).ready(function () {
+    $("input[type='checkbox']").prop("disabled", !1),
+        $(window).on("beforeunload", function () {
+            $(window).scrollTop(0);
+        }),
+        $(".tab").click(function () {
+            $(".tab-content").removeClass("active-tab-content"),
+                $(".tab-content[data-id='" + $(this).attr("data-id") + "']").addClass("active-tab-content"),
+                $(".tab").removeClass("active-tab"),
+                $(this).parent().find(".tab").addClass("active-tab"),
+                $("#searchbar").val("").trigger("keyup"),
+                $("html, body").animate({ scrollTop: 0 }, 500, "swing");
+        }),
+        $(window).scroll(function (event) {
+            var height = $(window).height(),
+                scroll = $(window).scrollTop();
+            scroll > height ? $(".sticky-header").addClass("show") : $(".sticky-header").removeClass("show");
+        }),
+        $("#submit-btn").click(function () {
+            let items = 1;
+            $("#flexi-box-form")
+                .find(":input:checked")
+                .each(function () {
+                    $(this).val() == "No" ? $(this).prop("disabled", !0) : ($(this).attr("name", "properties[_ITEM" + items + "]"), items++);
+                }),
+                $(this).submit();
+        });
+    const totalTabs = $(".tab").length;
+    let checkboxes = $("input[type='checkbox']");
+    const initProdValues = {};
+    checkboxes.each(function () {
+        initProdValues[$(this).attr("id")] = $(this).val().trim();
+    }),
+        checkboxes.click(function () {
+            const initProductValue = initProdValues[this.id];
+            $(this).val().trim() !== initProductValue && location.reload();
+            let currProduct = $(this).attr("data-id"),
+                currProductDataId = $(this).attr("data-id-products"),
+                nextTab = null,
+                action = !0,
+                currTabId = Number(currProductDataId.split("_")[1]),
+                selectionLimit = $('.tab-content[data-id="tab' + currTabId + '"]').attr("data-product-limit");
+            if (($(this).parents(".product-info").find(".added_to_cart").addClass("_hidden"), $(this).parents(".product-info").find(".product_counter").addClass("_hidden"), $(this).is(":checked"))) {
+                $(this).parents(".product-info").find(".added_to_cart").removeClass("_hidden"), $(this).parents(".product-info").find(".product_counter").removeClass("_hidden");
+                let productTitle = $(this).val().split(" SKU:")[0];
+                $(".Message_Bar").removeClass("is-hidden"),
+                    $(".Message_Bar p span").text(productTitle),
+                    setTimeout(function () {
+                        $(".Message_Bar").addClass("is-hidden"), $(".Message_Bar p span").text("");
+                    }, 2500);
+            }
+            let n = $("[data-id=tab" + currTabId + "] input:checked").length;
+            if (
+                (n == selectionLimit ? $("[data-id=tab" + currTabId + "] input:not(:checked)").prop("disabled", !0) : ((action = !1), $("[data-id=tab" + currTabId + "] input:not(:checked)").prop("disabled", !1)),
+                n > selectionLimit && location.reload(),
+                n == selectionLimit
+                    ? ($("#checkbox_count_" + currProductDataId).css("display", "inline-block"),
+                      $("#checkbox_count_" + currProductDataId).html(
+                          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" class="check-icon"><path d="M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z" fill="rgba(255,255,255,1)"></path></svg>'
+                      ))
+                    : n > 0
+                    ? ($("#checkbox_count_" + currProductDataId).css("display", "inline-block"), $("#checkbox_count_" + currProductDataId).html(n))
+                    : $("#checkbox_count_" + currProductDataId).css("display", "none"),
+                action == !0)
+            ) {
+                let nextTab2 = `tab${currTabId + 1}`;
+                $(`.tab[data-id='${nextTab2}']`).click(), $("#searchbar").val("").trigger("keyup"), $("html, body").animate({ scrollTop: 0 }, 500, "swing");
+            }
+            $("#flexi-box-form input[type=checkbox]:checked").length == totalproductSelection ? $("#submit-btn").css("display", "inline-block") : $("#submit-btn").css("display", "none");
+        }),
+        
+        $(document).keydown(function (e) {
+            if (e.which === 123) return !1;
+        }),
+        $("#searchbar").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#collection-list li").filter(function () {
+                $(this).toggle($(this).find("a").text().toLowerCase().indexOf(value) > -1);
+            });
+        }),
+        $(".search-clear").click(function (e) {
+            $("#searchbar").val("").trigger("keyup");
+        });
+}); 
+
+/** Bundle Page End **/
