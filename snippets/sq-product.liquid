@@ -11,18 +11,7 @@
       class="sparq-loop-product"
       :class="item.images.length >1 && item.images[1].src ? 'sq-class':''"
     >
-      <!-- <sq-sy-image :size="300" :item="item" :show-secondary-image="true"></sq-sy-image> -->
-      <img
-        v-if="item.image && item.image.src"
-        class="primary-img"
-        :src="item.image.src"
-      >
-      <!--
-        <img
-        v-if="item.images && item.images[1]"
-        class="secondary-img"
-        :src="window.sq.getImage(item,true)" />
-      -->
+      <sq-sy-image :size="300" :item="item" :show-secondary-image="true"></sq-sy-image>
     </a>
     <div class="sq-add-to-cart grid-view">
       <sq-sy-atc :item="item">
