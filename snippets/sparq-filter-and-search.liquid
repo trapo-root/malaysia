@@ -121,7 +121,22 @@
                 class="sparq-loop-product"
                 :class="item.images?.length >1 && item.images[1].src ? 'sq-class':''"
               >
-                <sq-sy-image :size="700" :item="item" :show-secondary-image="true"></sq-sy-image>
+                <!-- <sq-sy-image :size="700" :item="item" :show-secondary-image="true"></sq-sy-image> -->
+                <!-- Primary Image -->
+                <img
+                  v-if="item.image && item.image.src"
+                  class="primary-img"
+                  :src="item.image.src"
+                  alt=""
+                >
+
+                <!-- Secondary Image -->
+                <img
+                  v-if="item.images && item.images.length > 1"
+                  class="secondary-img"
+                  :src="item.images.length > 2 ? item.images[2].src : item.images[1].src"
+                  alt=""
+                >
               </a>
             </div>
             <div class="sparq-bottom">
