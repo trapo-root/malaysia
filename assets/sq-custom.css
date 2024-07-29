@@ -845,6 +845,16 @@ sq-dropdown{
     font-size: 14px;
     text-decoration: line-through;
 }
+[product-handle="gift-card"] .was-price .sq-price.trans-money,
+[product-id="6870038970445"] .was-price .sq-price.trans-money,
+[product-id="7301366644813"] .was-price .sq-price.trans-money{
+  font-family: 'Roboto' !important;
+    font-weight: 600 !important;
+    color: #e82276 !important;
+    font-size: 16px;
+    padding: 0 5px;
+  text-decoration: none;
+}
 .sq-app div:empty{
   display:none;
 }
