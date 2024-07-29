@@ -83,7 +83,7 @@ $(document).ready(function() {
             }
         });
     const totalTabs = $(".tab").length;
-    let checkboxes = $("input[type='checkbox']");
+    let checkboxes = $(".collection-item input[type='checkbox']");
     const initProdValues = {};
     checkboxes.each(function() {
             initProdValues[$(this).attr("id")] = $(this).val().trim();
