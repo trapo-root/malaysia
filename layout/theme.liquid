@@ -100,9 +100,11 @@
     <link rel="preload" href="{{ 'app.js' | asset_url }}" as="script">
     <link rel="preload" href="{{ 'social_login.js' | asset_url }}" as="script">
 	<link rel="preload" href="{{ 'custom.js' | asset_url }}" as="script">
+    {% comment %}
     {% if template contains 'bundle' %}
       <link rel="preload" href="{{ 'bundle.js' | asset_url }}" as="script">
     {% endif %}
+     {% endcomment %}
 
     <!-- Stylesheet for Fancybox library -->
     {{ 'fancybox.css' | asset_url | stylesheet_tag }}
@@ -203,9 +205,11 @@
     <script src="{{ 'app.js' | asset_url }}" defer></script>
     <script src="{{ 'social_login.js' | asset_url }}" defer></script>
 	<script src="{{ 'custom.js' | asset_url }}" defer></script>
+     {% comment %}
     {% if template contains 'bundle' %}
       <script src="{{ 'bundle.js' | asset_url }}" defer></script>
     {% endif %}
+     {% endcomment %}
     <script src="{{ 'lazyload-yt.js' | asset_url }}" defer></script>
     <script src="https://kit.fontawesome.com/145824be6c.js" ></script>
 
