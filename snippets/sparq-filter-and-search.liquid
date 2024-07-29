@@ -121,22 +121,7 @@
                 class="sparq-loop-product"
                 :class="item.images?.length >1 && item.images[1].src ? 'sq-class':''"
               >
-                <!-- <sq-sy-image :size="700" :item="item" :show-secondary-image="true"></sq-sy-image> -->
-                <!-- Primary Image -->
-                <img
-                  v-if="item.image && item.image.src"
-                  class="primary-img"
-                  :src="item.image.src"
-                  alt=""
-                >
-
-                <!-- Secondary Image -->
-                <img
-                  v-if="item.images && item.images.length > 1"
-                  class="secondary-img"
-                  :src="item.images.length > 2 ? item.images[2].src : item.images[1].src"
-                  alt=""
-                >
+                <sq-sy-image :size="700" :item="item" :show-secondary-image="true"></sq-sy-image>
               </a>
             </div>
             <div class="sparq-bottom">
@@ -152,42 +137,45 @@
                     <sq-sy-price :item="item" :decimal-count="2"></sq-sy-price>
                   </div>
                 -->
-                <div class="sq-price-main" v-if="item.in_stock ==1">
-                  <small
-                    class="sq-from"
-                    v-if="item.variants.length > 1 && item.variants.filter(variant=> variant.price==item.price).length !== item.variants.length"
-                    ><em>from</em></small
-                  >
-                  <span
-                    v-if="item.productType === 'TRAPO ECO'"
-                    style="padding-left: 10px; text-decoration: line-through"
-                    class="current-price"
-                  >
-                    {% raw %} RM{{ (item.price * 0.73).toFixed(2) }} {% endraw %}
-                  </span>
-                  <span
-                    v-if="
-                      item.productType === 'TRAPO CLASSIC' ||
-                      item.productType === 'TRAPO HEX' ||
-                      item.productType === 'TRAPO HEX ULTIMATE' ||
-                      item.productType === 'TRAPO XTREME' ||
-                      item.productType === 'TRAPO ACCESSORIES' ||
-                      item.productType === 'TRAPO DASHCAM' ||
-                      item.productType === 'WIPER' ||
-                      item.productType === 'OXTRA WIPER'
-                    "
-                    class="current-price"
-                  >
-                    {% raw %} RM{{ (item.price * 0.89).toFixed(2) }} {% endraw %}
-                  </span>
-
+                <div
+                  class="sq-price-main {% if item.handle contains 'kit' or item.handle contains 'bundle' %}bundle{% endif %}"
+                  v-if="item.in_stock ==1"
+                >
                   <span v-if="item.tags.includes('bundle-15')" class="current-price">
                     {% raw %} RM{{ (item.price * 0.85).toFixed(2) }} {% endraw %}
                   </span>
                   <span v-else-if="item.tags.includes('bundle-20')" class="current-price">
                     {% raw %} RM{{ (item.price * 0.80).toFixed(2) }} {% endraw %}
                   </span>
-                  <div class="sq-child-price-main was-price">
+
+                  <div v-if="item.tags.includes('bundle-15')" class="sq-child-price-main was-price">
+                    <small
+                      class="sq-from"
+                      v-if="item.variants.length > 1 && item.variants.filter(variant=> variant.price==item.price).length !== item.variants.length"
+                      ><em>from</em></small
+                    >
+                    {% raw %} <div class="sq-compare-price trans-money" v-if="item.compare_at_price" style="text-decoration: line-through" translate="no"> RM{{ item.compare_at_price.toFixed(2) }}</div> {% endraw %}
+                    {% raw %} <div class="sq-price trans-money" translate="no">
+  
+                  RM{{ item.price.toFixed(2) }} </div> {% endraw %}
+                  </div>
+                  <div v-else-if="item.tags.includes('bundle-20')" class="sq-child-price-main was-price">
+                    <small
+                      class="sq-from"
+                      v-if="item.variants.length > 1 && item.variants.filter(variant=> variant.price==item.price).length !== item.variants.length"
+                      ><em>from</em></small
+                    >
+                    {% raw %} <div class="sq-compare-price trans-money" v-if="item.compare_at_price" style="text-decoration: line-through" translate="no"> RM{{ item.compare_at_price.toFixed(2) }}</div> {% endraw %}
+                    {% raw %} <div class="sq-price trans-money" translate="no">
+  
+                  RM{{ item.price.toFixed(2) }} </div> {% endraw %}
+                  </div>
+                  <div v-else="" class="sq-child-price-main">
+                    <small
+                      class="sq-from"
+                      v-if="item.variants.length > 1 && item.variants.filter(variant=> variant.price==item.price).length !== item.variants.length"
+                      ><em>from</em></small
+                    >
                     {% raw %} <div class="sq-compare-price trans-money" v-if="item.compare_at_price" style="text-decoration: line-through" translate="no"> RM{{ item.compare_at_price.toFixed(2) }}</div> {% endraw %}
                     {% raw %} <div class="sq-price trans-money" translate="no">
   
