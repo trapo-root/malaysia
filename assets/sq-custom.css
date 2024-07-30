@@ -619,7 +619,7 @@ sq-dropdown{
 
 @media only screen and (max-width: 767px) {
       .sq-custom-app .sq-filter {
-        width: 33%;
+        width: 45%;
     }
   .sq-custom-app .sq-filter-group.sq-topbar{
     flex-wrap:wrap !important;
