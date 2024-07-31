@@ -612,7 +612,7 @@ img.alternative.item-image {
   top: 0;
   left: 0;
   height: 100%;
-  object-fit: var(--image-fit, cover);
+  object-fit: contain;
   object-position: center;
 }
 .sparq-loop-product .secondary-img {
