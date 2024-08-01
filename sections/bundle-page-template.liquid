@@ -168,6 +168,7 @@
       <div class="row collection page-width">
         {%- assign products = collections['bundle-car-wiper'].products -%}
         {% for product in products limit: 15 %}
+          
           <li id="{{ product.selected_or_first_available_variant.id }}" class="collection-item">
             <div class="one-fourth-column">
               <div class="product-info">
@@ -265,6 +266,7 @@
       <div class="row collection page-width">
         {%- assign products = collections['car-dash-cams'].products -%}
         {% for product in products %}
+          {% if product.type == 'TRAPO DASHCAM' %}
           <li id="{{ product.selected_or_first_available_variant.id }}" class="collection-item">
             <div class="one-fourth-column">
               <div class="product-info">
@@ -340,6 +342,7 @@
               </div>
             </div>
           </li>
+            {% endif %}
         {% endfor %}
       </div>
     </ul>
