@@ -153,7 +153,7 @@
         "mobile_text_below_image": true,
         "mobile_text_color": "",
         "css_class": "",
-        "custom_css": ".homepage-slideshow .gallery-cell{\n    background-color: transparent !important;\n}"
+        "custom_css": ".homepage-slideshow .gallery-cell{\n    background-color: transparent !important;\n}\n.banner {\n    background-color: transparent;\n}"
       }
     },
     "80a86057-b696-402d-8105-99f9e7f65aef": {
