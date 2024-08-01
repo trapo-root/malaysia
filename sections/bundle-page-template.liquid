@@ -69,7 +69,7 @@
 
     <ul id="collection-list">
       <div class="row collection page-width">
-        {%- assign products = collections['car-mats'].products -%}
+        {%- assign products = collections['bundle-car-mat'].products -%}
         {% for product in products limit: 15 %}
           <li id="{{ product.selected_or_first_available_variant.id }}" class="collection-item">
             <div class="one-fourth-column">
@@ -166,7 +166,7 @@
 
     <ul id="collection-list">
       <div class="row collection page-width">
-        {%- assign products = collections['car-wipers'].products -%}
+        {%- assign products = collections['bundle-car-wiper'].products -%}
         {% for product in products limit: 15 %}
           <li id="{{ product.selected_or_first_available_variant.id }}" class="collection-item">
             <div class="one-fourth-column">
