@@ -89,10 +89,12 @@
 }
 
 .sq-custom-app .sq-filter-value.sq-single-select {
-    padding-left: 15px;
     position: relative;
     text-transform: capitalize;
     color: #e12c7b;
+      padding: 0 15px;
+  font-size: 13px;
+    font-weight: 600;
 }
 
 
