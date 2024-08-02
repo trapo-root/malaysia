@@ -1275,8 +1275,17 @@ input.sq-input-max {
   height: 100% !important;
   width: 100% !important;
 }
-.sq-filter-item .sq-filter-value.sq-multi-select.\32 D_Car_Mats .proton_car_wipers {
+.sq-filter-item .sq-filter-value.sq-multi-select.\32 D_Car_Mats{
     display: none;
+}
+label.sq-filte.proton_car_wipers,
+label.sq-filter-value.sq-multi-select.perodua_car_wipers,
+label.sq-filter-value.sq-multi-select.cleaning_series,
+label.sq-filter-value.sq-multi-select.coating_series,
+label.sq-filter-value.sq-multi-select.Perodua_Car_Wipers,
+label.sq-filter-value.sq-multi-select.Proton_Car_Wipers,
+label.sq-filter-value.sq-multi-select.Trapo_Xtreme{
+  display: none;
 }
 .sq-filter-item label.sq-filter-value.sq-multi-select.\32 d_car_mats {
     text-transform: capitalize;
