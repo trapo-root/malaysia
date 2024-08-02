@@ -91,7 +91,22 @@ function updateSelectedValue(f,stFieldName){
     }
 }
 
-
+window.sq.okendoRating = async function(item) {
+    try {
+        const response = await fetch(`/products/${item.handle}?view=sparq`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+       let text = await response.text();  // Get the raw response text
+      let data = text.replace(/^\s*{\s*"reviewHTML"\s*:\s*|\s*}\s*$/g, '').replace(/\n\s*/g, '');
+      let sprqCard = document.querySelector(`.sparq-card[product-handle="${item.handle}"]`);
+      let reviewElement = sprqCard.querySelector(".product-rating");
+      if(reviewElement) reviewElement.innerHTML = data;
+    } catch (error) {
+        console.error('There was an error fetching the metafields:', error);
+    }
+  return true;
+}
 
 
 
