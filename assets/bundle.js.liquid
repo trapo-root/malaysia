@@ -115,9 +115,8 @@ $(document).ready(function() {
                       $(".tab-item-" + currTabId).addClass("act-tab")
                       ) :
                     n > 0 ?
-                    ($("#checkbox_count_" + currProductDataId).html(n)) :
+                    ($("#checkbox_count_" + currProductDataId).html(n)),$(".tab-item-" + currTabId).removeClass("act-tab") :
                     $("#checkbox_count_" + currProductDataId).css("display", "none"),
-                    $(".tab-item-" + currTabId).removeClass("act-tab")
                     action == !0)
             ) {
                 let nextTab2 = `tab${currTabId + 1}`;
