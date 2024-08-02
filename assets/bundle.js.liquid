@@ -10,6 +10,7 @@ $(document).ready(function() {
                 $(".tab-content[data-id='" + $(this).attr("data-id") + "']").addClass("active-tab-content"),
                 $(".tab").removeClass("active-tab"),
                 $(this).parent().find(".tab").addClass("active-tab"),
+                $(this).parent().find(".tab-item").addClass("act-tab"),
                 $("#searchbar").val("").trigger("keyup"),
                 $("html, body").animate({
                     scrollTop: 0
