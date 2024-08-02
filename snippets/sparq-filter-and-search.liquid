@@ -198,7 +198,9 @@
                   </div>
                 </div>
                 <div v-else>Sold Out</div>
-                
+                <div class="sq-rating-div">
+                  <div class="product-rating" v-if="window.sq.okendoRating(item)"></div>
+                </div>
               </div>
             </div>
           </div>
