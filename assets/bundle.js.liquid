@@ -10,7 +10,6 @@ $(document).ready(function() {
                 $(".tab-content[data-id='" + $(this).attr("data-id") + "']").addClass("active-tab-content"),
                 $(".tab").removeClass("active-tab"),
                 $(this).parent().find(".tab").addClass("active-tab"),
-                $(this).parent().find(".tab-item").addClass("act-tab"),
                 $("#searchbar").val("").trigger("keyup"),
                 $("html, body").animate({
                     scrollTop: 0
@@ -113,9 +112,8 @@ $(document).ready(function() {
                     n > selectionLimit && location.reload(),
                     n == selectionLimit ?
                     ($("#checkbox_count_" + currProductDataId).css("display", "inline-block"),
-                        $("#checkbox_count_" + currProductDataId).html(
-                            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" class="check-icon"><path d="M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z" fill="rgba(255,255,255,1)"></path></svg>'
-                        )) :
+                      $(".tab-item-" + currTabId).addClass("act-tab")
+                      ) :
                     n > 0 ?
                     ($("#checkbox_count_" + currProductDataId).css("display", "inline-block"), $("#checkbox_count_" + currProductDataId).html(n)) :
                     $("#checkbox_count_" + currProductDataId).css("display", "none"),
