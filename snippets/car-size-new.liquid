@@ -30,27 +30,30 @@
         </div>
         <select class="r-form-select" id="s-model" required>
           <option value="">-- Select --</option>
-
-          {% paginate collection.products by 50 %}
-            {%- for product in collection.products -%}
-              {% if product.type == 'TRAPO CLASSIC' %}
-                {% for tag in product.tags %}
-                  {% if tag contains 'brand:' %}
-                    {% assign brandName = tag | remove: 'brand:' %}
-                  {% endif %}
-                  {% if tag contains 'model:' %}
-                    <option
-                      value="{{ tag | remove:'model:' }}"
-                      data-brand="{{ brandName }}"
-                      style="display:none"
-                    >
-                      {{ tag | remove: 'model:' }}
-                    </option>
+          {%- for collection in collections -%}
+            {% if collection.title == 'Trapo Classic' %}
+              {% paginate collection.products by 50 %}
+                {%- for product in collection.products -%}
+                  {% if product.type == 'TRAPO CLASSIC' %}
+                    {% for tag in product.tags %}
+                      {% if tag contains 'brand:' %}
+                        {% assign brandName = tag | remove: 'brand:' %}
+                      {% endif %}
+                      {% if tag contains 'model:' %}
+                        <option
+                          value="{{ tag | remove:'model:' }}"
+                          data-brand="{{ brandName }}"
+                          style="display:none"
+                        >
+                          {{ tag | remove: 'model:' }}
+                        </option>
+                      {% endif %}
+                    {%- endfor -%}
                   {% endif %}
                 {%- endfor -%}
-              {% endif %}
-            {%- endfor -%}
-          {% endpaginate %}
+              {% endpaginate %}
+            {% endif %}
+          {%- endfor -%}
         </select>
       </div>
     </div>
