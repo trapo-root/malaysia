@@ -32,7 +32,7 @@
           <option value="">-- Select --</option>
           {%- for collection in collections -%}
             {% if collection.title == 'Trapo Classic' %}
-              {% paginate collection.products by 250 %}
+              {% paginate collection.products by 400 %}
                 {%- for product in collection.products -%}
                   {% if product.type == 'TRAPO CLASSIC' %}
                     {% for tag in product.tags %}
