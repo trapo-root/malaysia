@@ -1,0 +1,10 @@
+{% assign collection = collections.all %}
+{% assign tag_count = collection.all_tags | size %}
+{% if tag_count > 0 %}
+  {% for tag in collection.all_tags %}
+    {% if tag contains 'model:' %}
+      {{ tag }}
+      <br>
+    {% endif %}
+  {% endfor %}
+{% endif %}
