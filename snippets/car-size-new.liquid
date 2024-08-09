@@ -25,6 +25,42 @@
 
     <div class="r-form-input-wrapper">
       <div class="r-form-input-inner">
+        <div class="r-form-input-label">
+          <label><span>Select Model</span></label>
+        </div>
+        <select class="r-form-select" id="s-model" required>
+          <option value="">-- Select --</option>
+
+          {%- for collection in collections -%}
+            {% if collection.title == 'Trapo Classic' %}
+              {% paginate collection.products by 600 %}
+                {%- for product in collection.products -%}
+                  {% if product.type == 'TRAPO CLASSIC' %}
+                    {% for tag in product.tags %}
+                      {% if tag contains 'brand:' %}
+                        {% assign brandName = tag | remove: 'brand:' %}
+                      {% endif %}
+                      {% if tag contains 'model:' %}
+                        <option
+                          value="{{ tag | remove:'model:' }}"
+                          data-brand="{{ brandName }}"
+                          style="display:none"
+                        >
+                          {{ tag | remove: 'model:' }}
+                        </option>
+                      {% endif %}
+                    {%- endfor -%}
+                  {% endif %}
+                {%- endfor -%}
+              {% endpaginate %}
+            {% endif %}
+          {%- endfor -%}
+        </select>
+      </div>
+    </div>
+
+    <div class="r-form-input-wrapper">
+      <div class="r-form-input-inner">
         <div class="r-form-button-group">
           <button type="button" class="size-btn">GET CAR SIZE</button>
         </div>
