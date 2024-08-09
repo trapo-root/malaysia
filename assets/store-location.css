@@ -153,5 +153,8 @@ button.btn-direction{
   .taman{
   background-image: url("https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Johor-TD-info.jpg?v=1717566100");
 }
+  #banner .banner-text{
+    padding-top:32vh;
+  }
 }
 
