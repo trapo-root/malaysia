@@ -31,7 +31,7 @@
         <select class="r-form-select" id="s-model" required>
           <option value="">-- Select --</option>
 
-          {% paginate collection.products by 500 %}
+          {% paginate collection.products by 50 %}
             {%- for product in collection.products -%}
               {% if product.type == 'TRAPO CLASSIC' %}
                 {% for tag in product.tags %}
