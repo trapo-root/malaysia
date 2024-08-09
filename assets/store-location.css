@@ -56,7 +56,7 @@
   background-image: url("https://cdn.shopify.com/s/files/1/0234/7089/9277/files/trapo_penang.jpg");
 }
 .taman{
-  background-image: url("https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_511.png?v=1723042878");
+  background-image: url("https://cdn.shopify.com/s/files/1/0234/7089/9277/files/td.jpg?v=1723194118");
 }
 
 #banner .banner-text{
@@ -195,12 +195,6 @@ button.btn-direction{
   .description-icon h4, .services h4{
     font-size: 1.2rem;
   }
-  .bangsar{
-  background-image: url("https://cdn.shopify.com/s/files/1/0234/7089/9277/files/trapo_bangsar.jpg?v=1695007323");
-}
-  .taman{
-  background-image: url("https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Johor-TD-info.jpg?v=1717566100");
-}
   #banner .banner-text{
     padding-top:31vh;
   }
