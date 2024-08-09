@@ -23,17 +23,30 @@
         {% assign allBrands = '' | split: ',' %}
         <select class="r-form-select" id="s-brand" name="s-brand" required>
           <option value="">-- Select --</option>
-          {%- for collection in collections -%}
-            {% if collection.title == 'Trapo Classic' %}
-              {% for tag in collection.all_tags %}
-                {% if tag contains 'brand:' %}
-                  {% assign brandName = tag | split: ',' %}
-                  {% assign allBrands = allBrands | push: brandName %}
-                  <option value="{{ tag | remove:'brand:' }}">{{ tag | remove: 'brand:' }}</option>
-                {% endif %}
-              {% endfor %}
-            {% endif %}
-          {%- endfor -%}
+          {% assign collection = collections.all %}
+          {% assign tag_count = collection.all_tags | size %}
+          {% if tag_count > 0 %}
+            {% for tag in collection.all_tags %}
+              {% if tag contains 'brand:' %}
+                {% assign brandName = tag | split: ',' %}
+                {% assign allBrands = allBrands | push: brandName %}
+                <option value="{{ tag | remove:'brand:' }}">{{ tag | remove: 'brand:' }}</option>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          {% comment %}
+            {%- for collection in collections -%}
+              {% if collection.title == 'Trapo Classic' %}
+                {% for tag in collection.all_tags %}
+                  {% if tag contains 'brand:' %}
+                    {% assign brandName = tag | split: ',' %}
+                    {% assign allBrands = allBrands | push: brandName %}
+                    <option value="{{ tag | remove:'brand:' }}">{{ tag | remove: 'brand:' }}</option>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {%- endfor -%}
+          {% endcomment %}
         </select>
       </div>
     </div>
