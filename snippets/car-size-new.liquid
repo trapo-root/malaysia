@@ -4,6 +4,7 @@
     {% for product in collections.all.products %}
       {% if product.type == 'TRAPO CLASSIC' %}
         <h3>{{ product.title }}</h3>
+        {{ forloop.index }}
         <ul>
           {% for tag in product.tags %}
             <li>{{ tag }}</li>
