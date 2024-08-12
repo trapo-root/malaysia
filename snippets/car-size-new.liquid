@@ -1,21 +1,24 @@
-<div class="container">
-  <div class="product-tags">
-    <h2>Product Tags</h2>
-    {% for product in collections.all.products %}
-      {% if product.type == 'TRAPO CLASSIC' %}
-        <h3>{{ product.title }}</h3>
-        {{ forloop.index }}
-        <ul>
-          {% for tag in product.tags %}
-            <li>{{ tag }}</li>
-          {% else %}
-            <li>No tags for this product</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    {% endfor %}
+{% paginate collections.all.products by 1000000 %}
+  <div class="container">
+    <h1>All Products</h1>
+
+    <div class="product-grid">
+      {% for product in collections.all.products %}
+        <div class="product-item">
+          <a href="{{ product.url }}">
+            {% if product.featured_image %}
+              <img src="{{ product.featured_image | img_url: '300x300' }}" alt="{{ product.title | escape }}">
+            {% else %}
+              <img src="{{ 'product-image-placeholder.svg' | asset_url }}" alt="{{ product.title | escape }}">
+            {% endif %}
+            <h2>{{ product.title }}</h2>
+            <p>{{ product.price | money }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
   </div>
-</div>
+{% endpaginate %}
 
 {% assign collection = collections.all %}
 {% assign tag_count = collection.all_tags | size %}
