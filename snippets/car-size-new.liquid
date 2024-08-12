@@ -1,20 +1,18 @@
-
-    <div class="container">
-       
-        <div class="product-tags">
-            <h2>Product Tags</h2>
-            {% for product in collections.all.products %}
-                <h3>{{ product.title }}</h3>
-                <ul>
-                {% for tag in product.tags %}
-                    <li>{{ tag }}</li>
-                {% else %}
-                    <li>No tags for this product</li>
-                {% endfor %}
-                </ul>
-            {% endfor %}
-        </div>
- 
+<div class="container">
+  <div class="product-tags">
+    <h2>Product Tags</h2>
+    {% for product in collections.all.products %}
+      <h3>{{ product.title }}</h3>
+      <ul>
+        {% for tag in product.tags %}
+          <li>{{ tag }}</li>
+        {% else %}
+          <li>No tags for this product</li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  </div>
+</div>
 
 {% assign collection = collections.all %}
 {% assign tag_count = collection.all_tags | size %}
