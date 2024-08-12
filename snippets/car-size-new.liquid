@@ -23,75 +23,77 @@
   </div>
 {% endpaginate %}
 
-{% assign collection = collections.all %}
-{% assign tag_count = collection.all_tags | size %}
+{% comment %}
+  {% assign collection = collections.all %}
+  {% assign tag_count = collection.all_tags | size %}
 
-<form class="main-rear-filter loaded" id="s-form">
-  <div class="r-form-inner">
-    {% assign collection = collections.all %}
+  <form class="main-rear-filter loaded" id="s-form">
+    <div class="r-form-inner">
+      {% assign collection = collections.all %}
 
-    <div class="r-form-input-wrapper">
-      <div class="r-form-input-inner">
-        <div class="r-form-input-label">
-          <label><span>Select Brand</span></label>
-        </div>
-        <select class="r-form-select" id="s-brand" name="s-brand" required>
-          <option value="">-- Select --</option>
-          {% if tag_count > 0 %}
-            {% for tag in collection.all_tags %}
-              {% if tag contains 'brand:' %}
-                <option value="{{ tag | remove:'brand:' }}">{{ tag | remove: 'brand:' }}</option>
-              {% endif %}
-            {% endfor %}
-          {% endif %}
-        </select>
-      </div>
-    </div>
-
-    <div class="r-form-input-wrapper">
-      <div class="r-form-input-inner">
-        <div class="r-form-input-label">
-          <label><span>Select Model</span></label>
-        </div>
-        <select class="r-form-select" id="s-model" required>
-          <option value="">-- Select --</option>
-          {%- for collection in collections -%}
-            {% if collection.title == 'Trapo Classic' %}
-              {% paginate collection.products by 400 %}
-                {%- for product in collection.products -%}
-                  {% if product.type == 'TRAPO CLASSIC' %}
-                    {% for tag in product.tags %}
-                      {% if tag contains 'brand:' %}
-                        {% assign brandName = tag | remove: 'brand:' %}
-                      {% endif %}
-                      {% if tag contains 'model:' %}
-                        <option
-                          value="{{ tag | remove:'model:' }}"
-                          data-brand="{{ brandName }}"
-                          style="display:none"
-                        >
-                          {{ tag | remove: 'model:' }}
-                        </option>
-                      {% endif %}
-                    {%- endfor -%}
-                  {% endif %}
-                {%- endfor -%}
-              {% endpaginate %}
+      <div class="r-form-input-wrapper">
+        <div class="r-form-input-inner">
+          <div class="r-form-input-label">
+            <label><span>Select Brand</span></label>
+          </div>
+          <select class="r-form-select" id="s-brand" name="s-brand" required>
+            <option value="">-- Select --</option>
+            {% if tag_count > 0 %}
+              {% for tag in collection.all_tags %}
+                {% if tag contains 'brand:' %}
+                  <option value="{{ tag | remove:'brand:' }}">{{ tag | remove: 'brand:' }}</option>
+                {% endif %}
+              {% endfor %}
             {% endif %}
-          {%- endfor -%}
-        </select>
+          </select>
+        </div>
       </div>
-    </div>
 
-    <div class="r-form-input-wrapper">
-      <div class="r-form-input-inner">
-        <div class="r-form-button-group">
-          <button type="button" class="size-btn">GET CAR SIZE</button>
+      <div class="r-form-input-wrapper">
+        <div class="r-form-input-inner">
+          <div class="r-form-input-label">
+            <label><span>Select Model</span></label>
+          </div>
+          <select class="r-form-select" id="s-model" required>
+            <option value="">-- Select --</option>
+            {%- for collection in collections -%}
+              {% if collection.title == 'Trapo Classic' %}
+                {% paginate collection.products by 400 %}
+                  {%- for product in collection.products -%}
+                    {% if product.type == 'TRAPO CLASSIC' %}
+                      {% for tag in product.tags %}
+                        {% if tag contains 'brand:' %}
+                          {% assign brandName = tag | remove: 'brand:' %}
+                        {% endif %}
+                        {% if tag contains 'model:' %}
+                          <option
+                            value="{{ tag | remove:'model:' }}"
+                            data-brand="{{ brandName }}"
+                            style="display:none"
+                          >
+                            {{ tag | remove: 'model:' }}
+                          </option>
+                        {% endif %}
+                      {%- endfor -%}
+                    {% endif %}
+                  {%- endfor -%}
+                {% endpaginate %}
+              {% endif %}
+            {%- endfor -%}
+          </select>
+        </div>
+      </div>
+
+      <div class="r-form-input-wrapper">
+        <div class="r-form-input-inner">
+          <div class="r-form-button-group">
+            <button type="button" class="size-btn">GET CAR SIZE</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>
+{% endcomment %}
 
 <style>
     #s-form.loaded{
