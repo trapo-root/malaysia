@@ -1,3 +1,27 @@
+<!-- ... existing code ... -->
+<body>
+    <div class="container">
+        <!-- ... existing content ... -->
+        
+        <div class="product-tags">
+            <h2>Product Tags</h2>
+            {% for product in collections.all.products %}
+                <h3>{{ product.title }}</h3>
+                <ul>
+                {% for tag in product.tags %}
+                    <li>{{ tag }}</li>
+                {% else %}
+                    <li>No tags for this product</li>
+                {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
+        
+        <!-- ... existing content ... -->
+    </div>
+</body>
+</html>
+
 {% assign collection = collections.all %}
 {% assign tag_count = collection.all_tags | size %}
 
