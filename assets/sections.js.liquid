@@ -619,11 +619,10 @@ window.cart = {
 ==============================================================================*/
 window.selectCallback = function (variant, selector, $element) {
 
-  var variantTitle = variant.title;
+   var variantTitle = variant.title;
   var productHandle = $(".product_form ").data('product-handle');
-  console.log(variantTitle);
   if(productHandle == 'trapo-i-sight-t350-dashcam' || productHandle == 'trapo-i-sight-t550-dashcam'){
-  if(variantTitle == 'Dashcam with OBD Hardwire / None'){
+  if(variantTitle == 'Dashcam with OBD Hardwire / None' || variantTitle == 'Dashcam with OBD Hardwire / 64GB' || variantTitle == 'Dashcam with OBD Hardwire / 128GB' ){
     $('.product-text p').text('(Ships out in 30 working days)');
     setTimeout( function(){ 
     $('.add-cart-text').text('Pre Order');
