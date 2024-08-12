@@ -619,6 +619,21 @@ window.cart = {
 ==============================================================================*/
 window.selectCallback = function (variant, selector, $element) {
 
+  var variantTitle = variant.title;
+  var productHandle = $(".product_form ").data('product-handle');
+  console.log(variantTitle);
+  if(productHandle == 'trapo-i-sight-t350-dashcam'){
+  if(variantTitle == 'Dashcam with OBD Hardwire / None'){
+    $('.product-text p').text('(Ships out in 30 working days)');
+    setTimeout( function(){ 
+    $('.add-cart-text').text('Pre Order');
+    }  , 1000 );
+  }else{
+    $('.product-text p').text('(Ships out in 2 working days)');
+    $('.add-cart-text').text('Add to Cart');
+  }
+  }
+
   var selectedVarPrice = variant.price;
   var finalVarPrice = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
   $(".footer-p-price").find(".was-price").empty();
