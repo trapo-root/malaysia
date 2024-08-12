@@ -4,17 +4,20 @@
 
     <div class="product-grid">
       {% for product in collections.all.products %}
-        <div class="product-item">
-          <a href="{{ product.url }}">
-            {% if product.featured_image %}
-              <img src="{{ product.featured_image | img_url: '300x300' }}" alt="{{ product.title | escape }}">
-            {% else %}
-              <img src="{{ 'product-image-placeholder.svg' | asset_url }}" alt="{{ product.title | escape }}">
-            {% endif %}
-            <h2>{{ product.title }}</h2>
-            <p>{{ product.price | money }}</p>
-          </a>
-        </div>
+        {% if product.type == 'TRAPO CLASSIC' %}
+          <div class="product-item">
+            <a href="{{ product.url }}">
+              {% if product.featured_image %}
+                <img src="{{ product.featured_image | img_url: '300x300' }}" alt="{{ product.title | escape }}">
+              {% else %}
+                <img src="{{ 'product-image-placeholder.svg' | asset_url }}" alt="{{ product.title | escape }}">
+              {% endif %}
+              <h2>{{ product.title }}</h2>
+              {{ forloop.index }}
+              <p>{{ product.price | money }}</p>
+            </a>
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>
