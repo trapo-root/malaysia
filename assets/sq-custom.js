@@ -102,7 +102,7 @@ window.sq.okendoRating = async function(item) {
       let sprqCard = document.querySelector(`.sparq-card[product-handle="${item.handle}"]`);
       let reviewElement = sprqCard.querySelector(".product-rating");
       if(reviewElement) reviewElement.innerHTML = data;
-      console.log();
+      console.log(data);
     } catch (error) {
         console.error('There was an error fetching the metafields:', error);
     }
