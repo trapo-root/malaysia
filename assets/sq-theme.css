@@ -1291,6 +1291,7 @@ label.sq-filter-value.sq-multi-select.proton_car_wipers{
 .sq-filter-item label.sq-filter-value.sq-multi-select.\32 d_car_mats {
     text-transform: capitalize;
 }
-label.sq-filter-value.sq-multi-select.\32 d_mats{
+label.sq-filter-value.sq-multi-select.\32 d_mats,
+label.sq-filter-value.sq-multi-select.\33 d_mat{
   display: none;
 }
