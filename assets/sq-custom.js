@@ -101,7 +101,7 @@ window.sq.okendoRating = async function(item) {
       let data = text.replace(/^\s*{\s*"reviewHTML"\s*:\s*|\s*}\s*$/g, '').replace(/\n\s*/g, '');
       let sprqCard = document.querySelector(`.sparq-card[product-handle="${item.handle}"]`);
       let reviewElement = sprqCard.querySelector(".product-rating");
-      if(reviewElement) reviewElement.innerHTML = data;
+      // if(reviewElement) reviewElement.innerHTML = data;
       console.log(data);
     } catch (error) {
         console.error('There was an error fetching the metafields:', error);
