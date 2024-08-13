@@ -921,3 +921,6 @@ label.sq-filter-value.sq-multi-select {
     height: 100%;
     width: 100%;
 }
+.sparq-card .product-rating{
+  justify-content:center;
+}
