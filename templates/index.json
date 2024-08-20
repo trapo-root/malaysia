@@ -33,6 +33,7 @@
         },
         "image_NYgbG4": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/2000x760_9d6fa62d-8899-403e-b9d2-755fbf3cca67.jpg",
             "pretext": "",
@@ -52,6 +53,7 @@
         },
         "image_yDRQaC": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/desktop_2000x760_dashcamRainy.webp",
             "pretext": "",
