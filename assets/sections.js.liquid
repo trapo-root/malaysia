@@ -632,6 +632,19 @@ window.selectCallback = function (variant, selector, $element) {
     $('.add-cart-text').text('Add to Cart');
   }
   }
+  
+   var str2 = '26”';
+  if(productHandle == 'car-hydrophobic-wiper-blade'){
+  if(variantTitle.indexOf(str2) != -1){
+    $('.product-text p').text('(Ships out in 60 working days)');
+    setTimeout( function(){ 
+    $('.add_to_cart .text').text('Pre-Order');
+    }  , 1000 );
+  }else{
+    $('.product-text p').text('(Ships out in 2 working days)');
+    $('.add_to_cart .text').text('Add to Cart');
+  }
+  }
 
   var selectedVarPrice = variant.price;
   var finalVarPrice = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
