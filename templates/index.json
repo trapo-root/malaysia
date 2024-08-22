@@ -28,7 +28,7 @@
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify:\/\/shop_images\/1000x1740_75db0b5c-5b75-484b-90ad-bf72a754ed0a.jpg"
+            "mobile_image": "shopify:\/\/shop_images\/1080x1080_b24d67c8-0a14-4c66-8eb2-a0a0361952e1.jpg"
           }
         },
         "image_NYgbG4": {
@@ -91,7 +91,7 @@
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/loyalty_referAFrienddesktop_2000x760_f9bd5d6b-0643-401d-b571-8d43b5b72a1f.jpg",
+            "image": "shopify:\/\/shop_images\/loyalty_giveNtake_desktop_2000x760_a5af4563-f99b-4e3f-8003-ca57cba49879.jpg",
             "pretext": "",
             "title": "",
             "subtitle": "",
@@ -104,7 +104,7 @@
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify:\/\/shop_images\/loyalty_referAFriend__mobile_1000x1740_beb6efb3-3699-49cd-bfc5-7bd39a2252e6.jpg"
+            "mobile_image": "shopify:\/\/shop_images\/loyalty_giveNtake_mobile_1080x1080_3efc2982-46b7-41d3-8040-29b6f772318c.jpg"
           }
         }
       },
