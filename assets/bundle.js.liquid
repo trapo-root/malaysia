@@ -145,6 +145,8 @@ $(document).ready(function() {
           console.log(disPrice);
             var finalMainPrice = selVarPrice + mainPrice;
           var finalDisPrice = selVarSalePrice + disPrice;
+          $('.prd-price .dis_price').attr('data-mainprice', finalMainPrice);
+          $('.prd-price .money').attr('data-disprice', finalDisPrice);
           var finalMainPrice = window.Shopify.formatMoney(finalMainPrice, $('body').data('money-format'));
           var finalDisPrice = window.Shopify.formatMoney(finalDisPrice, $('body').data('money-format'));
 		 $('.prd-price .dis_price').html(finalMainPrice);
