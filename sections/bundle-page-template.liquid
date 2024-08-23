@@ -237,8 +237,8 @@
                           {{ product.selected_or_first_available_variant.title }}
                           SKU: {{ product.selected_or_first_available_variant.image.sku }}
                         "
-                        data-pid="{{ product.selected_or_first_available_variant.id }}"
-                        data-price="{{ product.selected_or_first_available_variant.price }}"
+                        data-price="{{ product.selected_or_first_available_variant.price | money_without_currency }}"
+                        data-saleprice="{{ product.selected_or_first_available_variant.price | times:0.87 | money_without_currency }}"
 
                       ><span></span>
                     </label>
@@ -336,8 +336,8 @@
                             {{ product.selected_or_first_available_variant.title }}
                             SKU: {{ product.selected_or_first_available_variant.image.sku }}
                           "
-                          data-pid="{{ product.selected_or_first_available_variant.id }}"
-                          data-price="{{ product.selected_or_first_available_variant.price }}"
+                          data-price="{{ product.selected_or_first_available_variant.price | money_without_currency }}"
+                          data-saleprice="{{ product.selected_or_first_available_variant.price | times:0.87 | money_without_currency }}"
 
                         ><span></span>
                       </label>
