@@ -7,6 +7,14 @@ $(document).ready(function() {
         }),
         $(".tab").click(function() {
             $(".tab-content").removeClass("active-tab-content"),
+              var currentTabID = $(this).attr("data-id"),
+          if(currentTabID == 'tab2'){
+              $('#tab1').addClass('active-tab');
+          },
+          if(currentTabID == 'tab3'){
+            $('#tab1').addClass('active-tab');
+              $('#tab2').addClass('active-tab');
+          },
                 $(".tab-content[data-id='" + $(this).attr("data-id") + "']").addClass("active-tab-content"),
                 $(".tab").removeClass("active-tab"),
                 $(this).parent().find(".tab").addClass("active-tab"),
