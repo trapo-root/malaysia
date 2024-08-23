@@ -50,6 +50,25 @@
             "mobile_image": "shopify:\/\/shop_images\/Heat_Wiper-Mob.jpg"
           }
         },
+        "image_mgiWca": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2000x760_4c6272ab-2f9e-442c-ba93-cda820b45396.jpg",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "shopify:\/\/pages\/car-mats",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original",
+            "mobile_image": "shopify:\/\/shop_images\/1080x1080_823088bd-c682-438d-8eec-847ef5fc41a8.jpg"
+          }
+        },
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-1": {
           "type": "image",
           "settings": {
@@ -149,6 +168,7 @@
       "block_order": [
         "image_DXyUMG",
         "image_NYgbG4",
+        "image_mgiWca",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-1",
         "image_yDRQaC",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2",
