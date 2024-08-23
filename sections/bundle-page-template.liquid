@@ -1,3 +1,23 @@
+<section class="section">
+  <div class="container announcement-banner center">
+    <div class="one-whole column">
+      <img
+        class="lazyload header-announcement-banner"
+        data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/bundleHeader_desktop.png?v=1724396456"
+        alt="Bundle"
+        width="100%"
+        loading="lazy"
+      >
+      <img
+        class="lazyload header-announcement-banner-m"
+        data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/bundleHeader_mobile.png?v=1724396458"
+        alt="Bundle"
+        width="100%"
+        loading="lazy"
+      >
+    </div>
+  </div>
+</section>
 <div class="shopify-product-form" id="flexi-box-form">
   <h2>POPULAR PICKS bundle</h2>
   <!-- Tab menu -->
@@ -992,4 +1012,38 @@
   }
 
       }
+
+  .announcement-banner {
+  	padding: 20px 0;
+  }
+
+  .header-announcement-banner {
+  	display: block;
+  }
+
+  .header-announcement-banner-m {
+  	display: none;
+  }
+
+  @media(max-width: 768px) {
+  	div.container {
+  		padding: 0px 0px;
+  	}
+
+  	.header-announcement-banner {
+  		display: none;
+  	}
+
+  	.header-announcement-banner-m {
+  		display: block;
+  		margin-top: 2.5rem;
+  	}
+  }
+
+  @media(max-width: 500px) {
+  	.header-announcement-banner-m {
+  		display: block;
+  		margin-top: 0rem;
+  	}
+  }
 </style>
