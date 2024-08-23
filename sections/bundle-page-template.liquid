@@ -140,7 +140,7 @@
                         "
                         data-pid="{{ product.selected_or_first_available_variant.id }}"
                         data-price="{{ product.selected_or_first_available_variant.price }}"
-                        data-saleprice="{{ product.selected_or_first_available_variant.price | times:0.87 | money_without_trailing_zeros  }}"
+                        data-saleprice="{{ product.selected_or_first_available_variant.price | times:0.87 | round: 0  }}"
 
                       ><span></span>
                     </label>
