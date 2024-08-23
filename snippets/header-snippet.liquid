@@ -1467,7 +1467,11 @@
               >
             </form>
           </div>
-          <a href="/account" class="user_icon mobile_view" title="{% if customer %}Account{% else %}Login{% endif %}">
+          <a
+            href="{% if customer %}/account{% else %}/account/register{% endif %}"
+            class="user_icon mobile_view"
+            title="{% if customer %}Account{% else %}Login{% endif %}"
+          >
             <img
               loading="lazy"
               data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/User.svg"
