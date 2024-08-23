@@ -121,7 +121,8 @@ $(document).ready(function() {
                     n > selectionLimit && location.reload(),
                     n == selectionLimit ?
                     ($("#checkbox_count_" + currProductDataId).css("display", "inline-block"),
-                      $(".tab-item-" + currTabId).addClass("act-tab")
+                      //$(".tab-item-" + currTabId).addClass("act-tab")
+                     $("#tab" + currTabId).addClass("active-tab")
                       ) :
                     n > 0 ?
                     ($("#checkbox_count_" + currProductDataId).html(n)) :
