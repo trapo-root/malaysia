@@ -139,7 +139,7 @@
                           SKU: {{ product.selected_or_first_available_variant.image.sku }}
                         "
                         data-pid="{{ product.selected_or_first_available_variant.id }}"
-                        data-price="{{ product.selected_or_first_available_variant.price | money }}"
+                        data-price="{{ product.selected_or_first_available_variant.price | money_without_currency }}"
 
                       ><span></span>
                     </label>
