@@ -137,8 +137,8 @@ $(document).ready(function() {
             $("#flexi-box-form input[type=checkbox]:checked").length == totalproductSelection ? $("#submit-btn").css("display", "inline-block") : $("#submit-btn").css("display", "none");
             var selVarPrice = $(this).data('price');
             var selVarSalePrice = $(this).data('saleprice');
-            var mainPrice = $('.prd-price .dis_price').data('mainprice');
-            var disPrice = $('.prd-price .money').data('disprice');
+            var mainPrice = $('.prd-price .dis_price').attr('data-mainprice');
+            var disPrice = $('.prd-price .money').attr('data-disprice');
           console.log(selVarPrice);
           console.log(selVarSalePrice);
           console.log(mainPrice);
