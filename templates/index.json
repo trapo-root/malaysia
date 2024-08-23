@@ -160,7 +160,7 @@
         "slideshow_text_animation": "fadeInDown",
         "slideshow_animation": "slide",
         "slideshow_speed": 0,
-        "activate_adaptiveHeight": false,
+        "activate_adaptiveHeight": true,
         "mobile_text_below_image": false,
         "mobile_text_color": "",
         "css_class": "homepage-slideshow",
