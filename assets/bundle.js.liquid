@@ -137,8 +137,14 @@ $(document).ready(function() {
             $("#flexi-box-form input[type=checkbox]:checked").length == totalproductSelection ? $("#submit-btn").css("display", "inline-block") : $("#submit-btn").css("display", "none");
             var selVarPrice = $(this).data('price');
             var selVarSalePrice = $(this).data('saleprice');
-            console.log(selVarPrice);
-          console.log(selVarSalePrice);
+            var mainPrice = $('.prd-price .dis_price').data('mainprice');
+            var disPrice = $('.prd-price .money').data('disprice');
+            var finalMainPrice = selVarPrice + mainPrice;
+          var finalDisPrice = selVarSalePrice + disPrice;
+          var finalMainPrice = window.Shopify.formatMoney(finalMainPrice, $('body').data('money-format'));
+          var finalDisPrice = window.Shopify.formatMoney(finalDisPrice, $('body').data('money-format'));
+		 $('.prd-price .dis_price').html(finalMainPrice);
+          $('.prd-price .money').html(finalDisPrice);
         }),
 
         $(document).keydown(function(e) {
