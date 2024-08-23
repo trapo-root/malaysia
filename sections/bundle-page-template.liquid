@@ -136,7 +136,7 @@
                         name="properties[_ITEM1]"
                         value="
                           {{ product.selected_or_first_available_variant.title }}
-                          SKU: {{ product.selected_or_first_available_variant.image.sku }}
+                          SKU: {{ product.selected_or_first_available_variant.sku }}
                         "
                         data-pid="{{ product.selected_or_first_available_variant.id }}"
                         data-price="{{ product.selected_or_first_available_variant.price }}"
@@ -235,8 +235,9 @@
                         name="properties[_ITEM2]"
                         value="
                           {{ product.selected_or_first_available_variant.title }}
-                          SKU: {{ product.selected_or_first_available_variant.image.sku }}
+                          SKU: {{ product.selected_or_first_available_variant.sku }}
                         "
+                        data-pid="{{ product.selected_or_first_available_variant.id }}"
                         data-price="{{ product.selected_or_first_available_variant.price }}"
                         data-saleprice="{{ product.selected_or_first_available_variant.price | times:0.87  }}"
 
@@ -334,8 +335,9 @@
                           name="properties[_ITEM3]"
                           value="
                             {{ product.selected_or_first_available_variant.title }}
-                            SKU: {{ product.selected_or_first_available_variant.image.sku }}
+                            SKU: {{ product.selected_or_first_available_variant.sku }}
                           "
+                          data-pid="{{ product.selected_or_first_available_variant.id }}"
                           data-price="{{ product.selected_or_first_available_variant.price }}"
                           data-saleprice="{{ product.selected_or_first_available_variant.price | times:0.87  }}"
 
