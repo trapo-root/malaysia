@@ -135,6 +135,10 @@ $(document).ready(function() {
                 }, 500, "swing");
             }
             $("#flexi-box-form input[type=checkbox]:checked").length == totalproductSelection ? $("#submit-btn").css("display", "inline-block") : $("#submit-btn").css("display", "none");
+            var selVarPrice = $(this).data('price');
+            var selVarSalePrice = $(this).data('saleprice');
+            console.log(selVarPrice);
+          console.log(selVarSalePrice);
         }),
 
         $(document).keydown(function(e) {
