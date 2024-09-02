@@ -52,6 +52,7 @@
         },
         "image_mgiWca": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/2000x760_4c6272ab-2f9e-442c-ba93-cda820b45396.jpg",
             "pretext": "",
