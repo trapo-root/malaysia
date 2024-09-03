@@ -1,0 +1,109 @@
+{% raw %}
+  {% assign root_url = {% endraw %}"{%- if routes.root_url != "/" -%}{{ routes.root_url }}{%- endif -%}"{% raw %} %}
+  {% assign currencyFormat = {% endraw %}{{ shop.money_format | json }}{% raw %} %}
+  {% assign swatch_options = 'lining color~~lining colour~~base color~~base colour' | downcase | split: "~~" | uniq  %}
+  {% assign image_options  = '' | downcase | split: "~~" | uniq  %}
+  {% assign text_options   = '' | downcase | split: "~~" | uniq  %}
+  {% assign show_selected_variant_info = true %}
+ 
+  {% assign image_size     = '286x191' %}
+  {% assign images_count   = product.images | size %}
+  {% assign variants_count = product.variants | size %}
+  {% assign options_count  = product.options | size %}
+  {% assign no_image = 'https://cdn.shopify.com/s/images/themes/product-1.png' %}
+
+  {% assign featured_image            = product.featured_image %}
+  {% assign product_price             = product.price %}
+  {% assign product_compare_at_price  = product.compare_at_price %}
+  {% assign second_image_index        = 2 %}
+  {% assign selected_or_first_available_variant = product.selected_or_first_available_variant %}
+  {% assign variant_url = '' %}
+    {% if show_selected_variant_info and product.selected_variant %}
+    {% assign selected_or_first_available_variant = product.selected_variant %}
+    {% assign product_price             = selected_or_first_available_variant.price %}
+    {% assign product_compare_at_price  = selected_or_first_available_variant.compare_at_price %}
+    {% if selected_or_first_available_variant.image %}
+      {% assign featured_image = selected_or_first_available_variant.image %}
+    {% endif %}
+  {% endif %}
+
+  {% for image in product.images %}
+    {% if image.id == featured_image.id %}
+      {% if forloop.index == images_count %}
+        {% assign second_image_index = 1 %}
+      {% else %}
+        {% assign second_image_index = forloop.index | plus: 1 %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+            <div {% if showPageData %} data-page="{{page}}"{% endif %} class="spf-col-xl-3 spf-col-lg-3 spf-col-md-6 spf-col-sm-6 spf-col-6">
+  <div class="spf-product-card spf-product-card__center spf-product-card__template-1{% unless product.available %} spf-soldout{% endunless %}">
+    <div class="spf-product-card__inner">
+      {% unless product.available %}
+            <span translatable class="spf-product__label spf-product__label-soldout">{{translation.product.sold_out | default: "Sold out"}}</span>
+                  {% endunless %}
+                      <a class="spf-product-card__image-wrapper" href="{{root_url}}{{ product.url }}{{variant_url}}" style="padding-top:66.783216783217%;">
+        {% if images_count > 0 %}
+          {% for image in product.images limit: 2 %}
+            <img
+              data-variants="{% if image.variant_ids %}{{image.variant_ids | join: ','}}{% endif %}"
+              class="gflazyload spf-product-card__image spf-product-card__image-{% if featured_image.id == image.id %}main{% elsif forloop.index == second_image_index %}secondary{% else %}hidden{% endif %}"
+              srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              src="{{image.src | img_url: image_size}}"
+              data-src="{{image.src | img_lazyload_url}}"
+              data-sizes="auto"
+              data-aspectratio="{{image.aspect_ratio}}"
+              data-parent-fit="contain"
+              alt="{{image.alt | escape}}"
+              />
+          {% endfor %}
+        {% else %}
+        <img data-variants="" class="gflazyload spf-product-card__image spf-product-card__image-main" src="{{no_image}}" alt="{{product.title | escape}}">
+        {% endif %}
+      </a>
+      <form class="spf-product__form" action="{{ root_url }}/cart/add" method="post">
+        <select name="id" class="spf-product__variants">
+          {% for variant in product.variants %}
+          <option data-option1="{{variant.option1 | escape}}" data-option2="{{variant.option2 | escape}}" data-option3="{{variant.option3 | escape}}" data-price="{{variant.price}}" data-compare_at_price="{{variant.compare_at_price}}" data-available="{{variant.available}}" data-image="{% if variant.image.src %}{{variant.image.src | img_url: image_size }}{% endif %}" {% if variant.id == selected_or_first_available_variant.id %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }}</option>
+          {% endfor %}
+        </select>
+                      </form>
+    </div>
+
+    <div class="spf-product__info">      <div class="h4 spf-product-card__title">
+        <a translatable href="{{root_url}}{{ product.url }}{{variant_url}}">{{product.title}}</a>
+              </div>
+
+{% comment %}<div class="ruk_rating_snippet" data-sku="{{ product.variants | map: 'sku' | join: ';' }}"></div>{% endcomment %}
+      
+ 
+                  <div class="spf-product-card__price-wrapper {{ product.tags }} {{ product.type }}">
+                  
+                  {% if product.type == 'TRAPO ECO' %}
+                    <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
+                    <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.75 | money }}</span>
+                  {% elsif product.tags contains 'bundle-15' %}
+                    <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
+                    <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.85 | money }}</span>
+                  {% elsif product.tags contains 'bundle-20' %}
+                    <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
+                    <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.80 | money }}</span>
+                  {% else %}
+                    {% if product_compare_at_price > product_price %}
+                    <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_compare_at_price | money }}</span>
+                    <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
+                    {% else %}
+                    <span class="spf-product-card__price{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
+                    {% endif %}
+                  {% endif %}
+                  
+                 
+      </div>
+      <div class="product-rating">{{product.metafields.okendo.ProductListingSnippet}}</div>
+        <div data-oke-star-rating data-oke-reviews-product-id="shopify-{{ product.id }}">{{ product.metafields.okendo.StarRatingSnippet }}</div>  
+  
+                </div>
+  </div>
+</div>
+      {% endraw %}

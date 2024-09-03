@@ -1,0 +1,13 @@
+{% assign is_in_okendo_collection = false %}
+{% for collection in product.collections %}
+    {% if collection.title contains 'okendo_' %}
+        {% assign is_in_okendo_collection = true %}
+        {% assign oke_collection_id = collection.id %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+{% if is_in_okendo_collection == true %}
+    <div data-oke-reviews-product-listing-rating data-oke-reviews-collection-id="{{ oke_collection_id }}"></div>
+{% else %}
+    <div data-oke-reviews-product-listing-rating>{{ product.metafields.okendo.ProductListingSnippet }}</div>
+{% endif %}

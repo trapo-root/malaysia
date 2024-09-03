@@ -1,0 +1,198 @@
+<div class="container main content">
+  <a name="pagecontent" id="pagecontent"></a>
+
+  <div class="sixteen columns page clearfix">
+    <div class="feature_divider"></div>
+
+    <div class="location-content">
+      <div class="sec-callus">
+        <h1>Contact Us</h1>
+        <div class="sec-callus-inner">
+          <div class="desktop">
+            <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/contactus_CS6.jpg?v=1693299728">
+          </div>
+          <div class="mobile">
+            <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/contactus_CS6_mobile.jpg?v=1693299729">
+          </div>
+        </div>
+      </div>
+      <div>
+        <ul class="mandate-contact">
+          <h2 class="fcontact-head">Reach us at</h2>
+          <li><i class="icon-email"></i> <a href="mailto:enquiry.my@trapo.com">enquiry.my@trapo.com</a></li>
+          <li><i class="icon-phone"></i> <a href="tel:03-9212-5882">03-9212-5882</a></li>
+        </ul>
+      </div>
+      <div class="location-form">
+        <p>Alternatively, you can fill up the form below. We will get back to you as soon as we can.</p>
+        {% comment %}
+          {% form 'contact' %}
+
+
+          {% if form.posted_successfully? %}
+          <p class="quote">{{ 'contact.form.post_success' | t }}</p>
+          {% endif %}
+
+          {% if form.errors %}
+          <p class="quote">{{ 'general.forms.post_error' | t }}</p>
+
+          {% assign message = 'contact.form.message' | t %}
+          <ul class="center">
+            {% for field in form.errors %}
+            {% if field == 'form' %}
+            <li>
+              {{ form.errors.messages[field] }}
+            </li>
+            {% else %}
+            <li>
+              {% assign field_name = field | replace: 'body', message %}
+              {{ 'general.forms.post_field_error_html' | t: field: field_name, error: form.errors.messages[field] }}
+            </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+          {% endif %}
+
+          <br class="clear" />
+          <div class="eight columns alpha">
+            {% assign name_attr = 'contact.form.name' | handle %}
+            <label for="contactFormName">{{ 'contact.form.name' | t }} <span class="red">*</span></label>
+            <input type="text" id="contactFormName" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.name' | t }}" autocapitalize="words" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}" required="required">
+          </div>
+          <div class="eight columns omega">
+            <label for="contactFormEmail">{{ 'contact.form.email' | t }} <span class="red">*</span></label>
+            <input type="email" id="contactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" required="required">
+          </div>
+
+          {% comment %}
+          {% assign name_attr = 'contact.form.phone' | t | handle %}
+          <label for="contactFormPhone" class="hidden-label">{{ 'contact.form.phone' | t }}</label>
+          <input type="tel" id="contactFormPhone" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9\-]*" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+          {% endcomment %}
+
+          <div class="sixteen columns alpha">
+            <label for="contactFormMessage">{{ 'contact.form.message' | t }} <span class="red">*</span></label>
+            <textarea rows="5" id="contactFormMessage" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}" required="required">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+          </div>
+          {% if section.settings.text %}
+          {{ section.settings.text }}
+          {% endif %}
+          <div class="twelve columns alpha">
+            <input type="submit" class="submit action_button" value="{{ 'contact.form.send' | t }}" />
+          </div>
+          {% endform %}
+        {% endcomment %}
+        <div style="margin:0 auto;" class="pxFormGenerator" id="PqCZDnBFAJ5b3yW-d3CfUQ"></div>
+      </div>
+
+      {% include 'hub-location-contact' %}
+
+      <div class="sec-services">
+        <h1>Other things we can help you with</h1>
+        <div class="services-list-outer">
+          <ul class="services-list">
+            <li>
+              <a href="/community/faqs">
+                <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/faq-c.png?v=1636359853">
+                <h2>FAQ</h2>
+              </a>
+            </li>
+            <li>
+              <a href="/pages/cleaning-guide-video">
+                <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/cleaning-c.png?v=1636359853">
+                <h2>Cleaning Guide</h2>
+              </a>
+            </li>
+            <li>
+              <a href="/pages/installation-guide-video">
+                <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/installation-c.png?v=1636359853">
+                <h2>Installation Guide</h2>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+    .location-content #contactFormMessage{
+    	width: 100% !important;
+    }
+    .location-form{
+      margin-bottom: 0px;
+    }
+    .sec-services{
+      margin-top:50px;
+    }
+    ul.services-list{
+      display: flex;
+      flex-direction:row;
+      padding:5px;
+      padding-left: 0;
+      list-style: none;
+      margin: 0px -15px;
+    }
+    ul.services-list li{
+      flex:1 1 auto;
+      margin:0 15px;
+    }
+    ul.services-list li h2{
+      margin: 0;
+      background: #ee2a7b;
+      text-align: center;
+      text-transform: uppercase;
+      color: #fff;
+      font-size: 22px;
+      padding: 0px 50px;
+      min-height: 65px;
+      vertical-align: middle;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: normal;
+      position: relative;
+      top: -6px;
+      font-weight:700;
+    }
+    .container.content p.addressmain {
+      text-align: left;
+      color: #fff;
+      font-size: 14px;
+      padding-top: 10px;
+      margin-bottom: 15px;
+      font-weight: normal;
+  }
+    ul.mandate-contact{
+      list-style: none;
+      padding: 0 0;
+    }
+    .mandate-contact .fcontact-head{
+      font-size: 1.1rem;
+      font-weight: 600;
+  }
+    .mandate-contact li i{
+      vertical-align: middle;
+    }
+    @media screen and (max-width: 767px){
+      .container.main.content{
+        padding-top:0;
+      }
+      ul.services-list{
+        flex-direction:column;
+      }
+      ul.services-list li{
+        margin-bottom:10px;
+      }
+      .location-content h1{
+        font-size:28px;
+      }
+      .twelve {
+      width: calc(100% - 20px);
+  }
+      .offset-by-two {
+      left: 0;
+  }
+    }
+</style>
