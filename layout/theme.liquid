@@ -491,7 +491,47 @@
 {% endunless %}
           {% endcomment %}
     {% include 'globo.filter.action' %}
+<!--Structed data markup code added by Simprosys Infomedia - Start-->
+
+{% if template contains 'product' %}
+  	{%- assign simp_current_variant = product.selected_or_first_available_variant -%}
   
+    {%- if cart.currency.iso_code == 'SGD' or cart.currency.iso_code == 'EUR' or cart.currency.iso_code == 'CHF' or cart.currency.iso_code == 'GBP' or cart.currency.iso_code == 'PKR' or cart.currency.iso_code == 'CAD' or cart.currency.iso_code == 'USD' or cart.currency.iso_code == 'AUD' or cart.currency.iso_code == 'BWP' or cart.currency.iso_code == 'BND' or cart.currency.iso_code == 'DOP' or cart.currency.iso_code == 'GTQ' or cart.currency.iso_code == 'HKD' or cart.currency.iso_code == 'INR' or cart.currency.iso_code == 'ILS' or cart.currency.iso_code == 'YEN' or cart.currency.iso_code == 'KES' or cart.currency.iso_code == 'KOR' or cart.currency.iso_code == 'LBP' or cart.currency.iso_code == 'MYR' or cart.currency.iso_code == 'MXN' or cart.currency.iso_code == 'NPR' or cart.currency.iso_code == 'NZD' or cart.currency.iso_code == 'NIO' or cart.currency.iso_code == 'NGN' or cart.currency.iso_code == 'PKR' or cart.currency.iso_code == 'CNY' or cart.currency.iso_code == 'PHP' or cart.currency.iso_code == 'SGD' or cart.currency.iso_code == 'LKR' or cart.currency.iso_code == 'CHF' or cart.currency.iso_code == 'TWD' or cart.currency.iso_code == 'TSH' or cart.currency.iso_code == 'THB' or cart.currency.iso_code == 'UGX' or cart.currency.iso_code == 'KWD' or cart.currency.iso_code == 'CLP' -%}
+    	{%- assign p_price = simp_current_variant.price | money_without_currency | remove:',' -%}		
+	{%- else -%}
+    	{%- assign p_price = simp_current_variant.price | money_without_currency | remove:'.' | replace: ',', '.' -%}
+	{%- endif -%}
+  
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org",
+  "@type":"Product",
+  "@id":"{{ shop.url }}{{ product.url}}", 
+  "name": {{ product.title | json }},
+  "sku": {{ product.selected_or_first_available_variant.sku | json }},
+  "description": {{ product.description | strip_html | truncatewords: 50 | json }},
+  "url": {{ canonical_url | json }},
+  "image": "https:{{ product.featured_image | product_img_url: 'grande' }}",
+  "brand": {
+    "@type": "Brand",
+    "name": {{ product.vendor | json }},
+    "url": {{ jsonld_brand_url | json }}
+  },
+  "gtin": "{{ product.selected_or_first_available_variant.barcode }}",
+  "offers": [{
+    "@type": "Offer",
+    "priceCurrency": "{{ cart.currency.iso_code }}",
+    "price": "{{ p_price }}",
+    "availability": "{% if product.selected_or_first_available_variant.available %}InStock{% else %}OutOfStock{% endif %}",
+    "itemCondition": "http://schema.org/NewCondition",
+    "seller": "{{ shop.name | escape }}",
+    "url": "{{ shop.secure_url }}{{ product.selected_or_first_available_variant.url }}"
+  }]
+  
+}
+</script>
+ {% endif %}
+<!--Structed data markup code added by Simprosys Infomedia - End -->  
   </body>
 
   {%- render 'campaign-logic' -%}
