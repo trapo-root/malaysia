@@ -47,21 +47,6 @@
         "custom_css": ""
       }
     },
-    "172541548205436cfd": {
-      "type": "apps",
-      "blocks": {
-        "smart_product_filter_search_ymm_hGgpLz": {
-          "type": "shopify:\/\/apps\/smart-product-filter-search\/blocks\/YMM\/5cc1944c-3014-4a2a-af40-7d65abc0ef73",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "smart_product_filter_search_ymm_hGgpLz"
-      ],
-      "settings": {
-      }
-    },
     "main": {
       "type": "collection-template",
       "settings": {
@@ -88,7 +73,6 @@
   },
   "order": [
     "slideshow_LUGTUE",
-    "172541548205436cfd",
     "main",
     "custom_liquid_by8Npw"
   ]
