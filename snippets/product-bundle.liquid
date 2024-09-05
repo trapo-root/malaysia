@@ -253,9 +253,10 @@
                             unit_pricing: false
                           -%}
                         </div>
-                        {{ mainprice }} - {{ disprice }}
-                        {% assign save_amount = mainprice | minus: disprice %}
-                        {% assign save_percentage = save_amount | times: 100.0 | divided_by: disprice | round: 0 %}
+                        {% assign compareprice = mainprice | money_without_currency %}
+                        {% assign actualprice = disprice | money_without_currency %}
+                        {% assign save_amount = compareprice | minus: actualprice %}
+                        {% assign save_percentage = save_amount | times: 100.0 | divided_by: compareprice | round: 0 %}
 
                         <p class="savings">Save {{ save_amount | money }} ({{ save_percentage }}%)</p>
                       </div>
