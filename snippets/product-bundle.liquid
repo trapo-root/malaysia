@@ -257,6 +257,7 @@
                         {% assign actualprice = disprice | remove: 'RM' %}
                         {{ compareprice }}
                         {% assign save_amount = compareprice | minus: actualprice %}
+                        {{ save_amount }}
                         {% assign save_percentage = save_amount | times: 100.0 | divided_by: compareprice | round: 0 %}
 
                         <p class="savings">Save {{ save_amount | money }} ({{ save_percentage }}%)</p>
