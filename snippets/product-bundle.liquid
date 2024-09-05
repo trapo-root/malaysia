@@ -253,7 +253,7 @@
                             unit_pricing: false
                           -%}
                         </div>
-                        {% assign compareprice = mainprice | money_without_currency %}
+                        {% assign compareprice = mainprice | remove: 'RM' %}
                         {% assign actualprice = disprice | money_without_currency %}
                         {{ compareprice }}
                         {% assign save_amount = compareprice | minus: actualprice %}
