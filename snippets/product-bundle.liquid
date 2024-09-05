@@ -257,7 +257,7 @@
                         {% assign actualprice = discounted_price | divided_by: 100 %}
                         {% assign save_amount = compareprice | minus: actualprice %}
                         {% assign save_percentage = save_amount | times: 100.0 | divided_by: compareprice | round: 0 %}
-                        <p class="savings">Save {{ save_amount | times: 100.0 | money }} ({{ save_percentage }}%)</p>
+                        <p class="savings">(Save {{ save_percentage }}%)</p>
                       </div>
 
                     {% else %}
@@ -362,7 +362,7 @@
                             | round: 0
                           %}
 
-                          <p class="savings">Save {{ save_amount | money }} ({{ save_percentage }}%)</p>
+                          <p class="savings">(Save {{ save_percentage }}%)</p>
                         {% endif %}
                       </div>
                     {% endif %}
