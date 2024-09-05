@@ -253,6 +253,7 @@
                             unit_pricing: false
                           -%}
                         </div>
+                        {{ mainprice }} - {{ disprice }}
                         {% assign save_amount = mainprice | minus: disprice %}
                         {% assign save_percentage = save_amount | times: 100.0 | divided_by: disprice | round: 0 %}
 
