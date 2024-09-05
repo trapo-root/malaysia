@@ -255,7 +255,7 @@
                         </div>
                         {% assign compareprice = variant.price %}
                         {% assign actualprice = discounted_price %}
-                        {% assign save_amount = compareprice | minus: actualprice | divided_by: 100 | %}
+                        {% assign save_amount = compareprice | minus: actualprice | divided_by: 100 %}
                         {{ save_amount }}
                         {% assign save_percentage = save_amount | times: 100.0 | divided_by: compareprice | round: 0 %}
                         <p class="savings">(Save {{ save_percentage }}%)</p>
