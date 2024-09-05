@@ -254,7 +254,7 @@
                           -%}
                         </div>
                         {% assign compareprice = mainprice | remove: 'RM' %}
-                        {% assign actualprice = discounted_price | times: 100.0 %}
+                        {% assign actualprice = discounted_price | divided_by: 100 %}
                         {{ compareprice }}
                         {% assign save_amount = compareprice | minus: actualprice %}
                         {{ save_amount }}
