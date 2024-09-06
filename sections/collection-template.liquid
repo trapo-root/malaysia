@@ -126,7 +126,10 @@
         </div>
       {% endif %}
 
-      {% if collection.handle contains 'car-mats' or collection.handle contains 'trapo-xtreme-car-mats' %}
+      {% if collection.handle contains 'car-mats'
+        or collection.handle contains 'car-wipers'
+        or collection.handle contains 'trapo-xtreme-car-mats'
+      %}
         <div class="one-whole column">
           <h4 class="headline">Search Your Car Model</h4>
           <div id="gf-form"></div>
@@ -137,10 +140,10 @@
             font-weight: 700;
           }
           #gf-form h2, #gf-tree {
-              /* display: none; */
+              display: none;
           }
           form .gf-form-input-inner .gf-form-button-group .spf-btn{
-            /* display: none; */
+            display: none;
           }
           #gf-form.loaded{
             padding:0;
