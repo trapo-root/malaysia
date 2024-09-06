@@ -559,7 +559,7 @@
 
                     <div class="has_dropdown_2">
                       <a href="javascript:void(0);" class="sub_menu_2_title " data-product="phone-holders"
-                        >Phone Holders</a
+                        >Phone Holders & Car Chargers</a
                       >
                       <ul class="sub_menu_2  grid_sub_menu grid_menu" style="display: none;">
                         <li>
@@ -592,9 +592,23 @@
                         </li>
                         <li>
                           <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/slimcharge-car-charger-90w"
+                            data-product="slimcharge"
+                            >SlimCharge</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/duracharge-car-charger-95w"
+                            data-product="duracharge"
+                            >DuraCharge</a
+                          >
+                        </li>
+                        <li>
+                          <a
                             href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-phone-holders"
                             data-product="phone-holders"
-                            >All Phone Holders</a
+                            >All Phone Holders & Car Chargers</a
                           >
                         </li>
                       </ul>
@@ -777,7 +791,7 @@
 
                     <div class="has_dropdown_2">
                       <a href="javascript:void(0);" class="sub_menu_2_title nav__link" data-product="phone-holders"
-                        >Phone Holders</a
+                        >Phone Holders & Car Chargers</a
                       >
                       <ul class="sub_menu_2  grid_sub_menu grid_menu" style="display: none;">
                         <li>
@@ -811,9 +825,22 @@
                         <li>
                           <a
                             class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/slimcharge-car-charger-90w"
+                            >SlimCharge</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/duracharge-car-charger-95w"
+                            >DuraCharge</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
                             href="{% if shop.locale == 'ms' %}/ms{% endif %}/collections/car-phone-holders"
-                            data-product="phone-holders"
-                            >All Phone Holders</a
+                            >All Phone Holders & Car Chargers</a
                           >
                         </li>
                       </ul>
@@ -1351,6 +1378,20 @@
                     loading="lazy"
                     data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/giftcard.png?v=1712042246"
                     alt="giftcard"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carCharger_slimcharge.png?v=1725604432"
+                    alt="slimcharge"
+                    class="product-img lazyload"
+                    style="width:100%;display:none"
+                  >
+                  <img
+                    loading="lazy"
+                    data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/carCharger_duracharge.png?v=1725604432"
+                    alt="duracharge"
                     class="product-img lazyload"
                     style="width:100%;display:none"
                   >
