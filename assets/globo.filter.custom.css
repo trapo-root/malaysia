@@ -3545,10 +3545,10 @@ body>#gf-tree .gf-filter-footer button {
         border-radius: 2px
     }
 
-    .gf-top_one .gf-option-ddr .gf-block-content {
+    /*.gf-top_one .gf-option-ddr .gf-block-content {
         left: auto;
         right: 0
-    }
+    }*/
 
     .gf-top_one .gf-filter-contents {
         position: relative;
