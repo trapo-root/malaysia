@@ -800,7 +800,7 @@
           <input type="hidden" name="return_to" value="{{ checkout_url }}">
         {% endif %}
 
-        {% capture add_to_cart_label %}{% if product.tags contains 'pre-order' or product.type == 'WIPER' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+        {% capture add_to_cart_label %}{% if product.tags contains 'pre-order' or product.type == 'WIPER' or product.handle == 'car-hydrophobic-wiper-blade' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
         <button
           type="{% if settings.cart_action == 'ajax' %}button{% else %}submit{% endif %}"
           name="add"
