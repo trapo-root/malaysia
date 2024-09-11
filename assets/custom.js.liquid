@@ -692,3 +692,10 @@ jQuery(document).ready(function() {
     });
 
 
+  $(".scroll-tc").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#terms_condition").offset().top
+    }, 2000);
+});
+
+
