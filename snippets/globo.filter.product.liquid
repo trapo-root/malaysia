@@ -40,6 +40,11 @@
             <div {% if showPageData %} data-page="{{page}}"{% endif %} class="spf-col-xl-3 spf-col-lg-3 spf-col-md-6 spf-col-sm-6 spf-col-6">
   <div class="spf-product-card spf-product-card__center spf-product-card__template-1{% unless product.available %} spf-soldout{% endunless %}">
     <div class="spf-product-card__inner">
+      {% if product.tags contains 'pre-order' %}
+        <div class="preorder-badge">
+          Pre-Order
+        </div>
+      {% endif %}
       {% unless product.available %}
             <span translatable class="spf-product__label spf-product__label-soldout">{{translation.product.sold_out | default: "Sold out"}}</span>
                   {% endunless %}
