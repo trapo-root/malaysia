@@ -22,7 +22,7 @@
     const limit = 250;
 
     function fetchProducts(page, brand = null, model = null) {
-      let url = `/collections/trapo-classic-car-mats/products.json?limit=${limit}&page=${page}`;
+      let url = `/collections/trapo-classic/products.json?limit=${limit}&page=${page}`;
       if (brand) {
         url += `&tag=brand:${brand}`;
       }
@@ -80,24 +80,30 @@
 
     function fetchModelsForBrand(brand, page = 1) {
       models.clear();
-      fetchProducts(page, brand).then(count => {
-        if (count === limit) {
-          fetchModelsForBrand(brand, page + 1);
-        } else {
-          populateDropdown(document.getElementById('model-dropdown'), models);
-        }
-      });
+      function fetchPage(page) {
+        fetchProducts(page, brand).then(count => {
+          if (count === limit) {
+            fetchPage(page + 1);
+          } else {
+            populateDropdown(document.getElementById('model-dropdown'), models);
+          }
+        });
+      }
+      fetchPage(page);
     }
 
     function fetchYearsForModel(brand, model, page = 1) {
       years.clear();
-      fetchProducts(page, brand, model).then(count => {
-        if (count === limit) {
-          fetchYearsForModel(brand, model, page + 1);
-        } else {
-          populateDropdown(document.getElementById('year-dropdown'), years);
-        }
-      });
+      function fetchPage(page) {
+        fetchProducts(page, brand, model).then(count => {
+          if (count === limit) {
+            fetchPage(page + 1);
+          } else {
+            populateDropdown(document.getElementById('year-dropdown'), years);
+          }
+        });
+      }
+      fetchPage(page);
     }
 
     document.getElementById('brand-dropdown').addEventListener('change', function() {
