@@ -22,7 +22,7 @@
     const limit = 250;
 
     function fetchProducts(page, brand = null, model = null) {
-      let url = `/collections/trapo-classic/products.json?limit=${limit}&page=${page}`;
+      let url = `/collections/trapo-classic-car-mats/products.json?limit=${limit}&page=${page}`;
       if (brand) {
         url += `&tag=brand:${brand}`;
       }
@@ -69,13 +69,17 @@
     }
 
     function fetchAllBrands(page = 1) {
-      fetchProducts(page).then(count => {
-        if (count === limit) {
-          fetchAllBrands(page + 1);
-        } else {
-          populateDropdown(document.getElementById('brand-dropdown'), brands);
-        }
-      });
+      brands.clear();
+      function fetchPage(page) {
+        fetchProducts(page).then(count => {
+          if (count === limit) {
+            fetchPage(page + 1);
+          } else {
+            populateDropdown(document.getElementById('brand-dropdown'), brands);
+          }
+        });
+      }
+      fetchPage(page);
     }
 
     function fetchModelsForBrand(brand, page = 1) {
