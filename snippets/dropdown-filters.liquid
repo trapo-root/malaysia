@@ -1,54 +1,100 @@
-{% assign brands = "" | split: "," %}
-{% assign models = "" | split: "," %}
-{% assign years = "" | split: "," %}
+<div id="dropdown-container">
+  <select id="brand-dropdown">
+    <option value="">Select Brand</option>
+  </select>
 
-{% assign trapo_classic_collection = collections['trapo-classic-car-mats'] %}
+  <select id="model-dropdown">
+    <option value="">Select Model</option>
+  </select>
 
-{% if trapo_classic_collection %}
-  {% for product in trapo_classic_collection.products %}
-    {% for tag in product.tags %}
-      {% if tag contains 'brand:' %}
-        {% assign brand = tag | remove: 'brand:' | strip %}
-        {% unless brands contains brand %}
-          {% assign brands = brands | push: brand %}
-        {% endunless %}
-      {% elsif tag contains 'model:' %}
-        {% assign model = tag | remove: 'model:' | strip %}
-        {% unless models contains model %}
-          {% assign models = models | push: model %}
-        {% endunless %}
-      {% elsif tag contains 'year:' %}
-        {% assign year = tag | remove: 'year:' | strip %}
-        {% unless years contains year %}
-          {% assign years = years | push: year %}
-        {% endunless %}
-      {% endif %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  <p>Collection 'Trapo Classic' not found.</p>
-{% endif %}
+  <select id="year-dropdown">
+    <option value="">Select Year</option>
+  </select>
+</div>
 
-<select id="brand-dropdown">
-  <option value="">Select Brand</option>
-  {% for brand in brands %}
-    <option value="{{ brand }}">{{ brand }}</option>
-  {% endfor %}
-</select>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded and parsed'); // Debugging
 
-<select id="model-dropdown">
-  <option value="">Select Model</option>
-  {% for model in models %}
-    <option value="{{ model }}">{{ model }}</option>
-  {% endfor %}
-</select>
+    const brands = new Set();
+    const models = new Set();
+    const years = new Set();
+    let page = 1;
+    const limit = 250;
 
-<select id="year-dropdown">
-  <option value="">Select Year</option>
-  {% for year in years %}
-    <option value="{{ year }}">{{ year }}</option>
-  {% endfor %}
-</select>
+    function fetchProducts(page) {
+      console.log(`Fetching products from page ${page}`); // Debugging
+      return fetch(`/collections/trapo-classic/products.json?limit=${limit}&page=${page}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log(`Fetched ${data.products.length} products from page ${page}`); // Debugging
+          data.products.forEach(product => {
+            product.tags.forEach(tag => {
+              console.log(`Processing tag: ${tag}`); // Debugging
+              if (tag.startsWith('brand:')) {
+                brands.add(tag.replace('brand:', '').trim());
+              } else if (tag.startsWith('model:')) {
+                models.add(tag.replace('model:', '').trim());
+              } else if (tag.startsWith('year:')) {
+                years.add(tag.replace('year:', '').trim());
+              }
+            });
+          });
+          return data.products.length;
+        })
+        .catch(error => {
+          console.error('There has been a problem with your fetch operation:', error); // Debugging
+        });
+    }
+
+    function populateDropdowns() {
+      const brandDropdown = document.getElementById('brand-dropdown');
+      brands.forEach(brand => {
+        const option = document.createElement('option');
+        option.value = brand;
+        option.textContent = brand;
+        brandDropdown.appendChild(option);
+      });
+
+      const modelDropdown = document.getElementById('model-dropdown');
+      models.forEach(model => {
+        const option = document.createElement('option');
+        option.value = model;
+        option.textContent = model;
+        modelDropdown.appendChild(option);
+      });
+
+      const yearDropdown = document.getElementById('year-dropdown');
+      years.forEach(year => {
+        const option = document.createElement('option');
+        option.value = year;
+        option.textContent = year;
+        yearDropdown.appendChild(option);
+      });
+
+      console.log('Brands:', Array.from(brands)); // Debugging
+      console.log('Models:', Array.from(models)); // Debugging
+      console.log('Years:', Array.from(years)); // Debugging
+    }
+
+    function fetchAllProducts(page) {
+      fetchProducts(page).then(count => {
+        if (count === limit) {
+          fetchAllProducts(page + 1);
+        } else {
+          populateDropdowns();
+        }
+      });
+    }
+
+    fetchAllProducts(page);
+  });
+</script>
 
 <style>
   select{
