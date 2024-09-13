@@ -12,6 +12,8 @@
   </select>
 </div>
 
+<div id="loading-indicator" style="display: none;">Loading...</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM fully loaded and parsed'); // Debugging
@@ -20,6 +22,14 @@
     const models = new Set();
     const years = new Set();
     const limit = 250;
+
+    function showLoadingIndicator() {
+      document.getElementById('loading-indicator').style.display = 'block';
+    }
+
+    function hideLoadingIndicator() {
+      document.getElementById('loading-indicator').style.display = 'none';
+    }
 
     function fetchProducts(url) {
       console.log(`Fetching products from URL: ${url}`); // Debugging
@@ -51,6 +61,7 @@
     }
 
     function fetchAllBrands(page = 1) {
+      showLoadingIndicator();
       const url = `/collections/trapo-classic-car-mats/products.json?limit=${limit}&page=${page}`;
       fetchProducts(url).then(products => {
         products.forEach(product => {
@@ -64,12 +75,14 @@
           fetchAllBrands(page + 1);
         } else {
           populateDropdown(document.getElementById('brand-dropdown'), Array.from(brands));
+          hideLoadingIndicator();
         }
       });
     }
 
     function fetchModelsForBrand(brand, page = 1) {
       models.clear();
+      showLoadingIndicator();
       const url = `/collections/trapo-classic-car-mats/products.json?limit=${limit}&page=${page}&tag=brand:${brand}`;
       fetchProducts(url).then(products => {
         products.forEach(product => {
@@ -83,12 +96,14 @@
           fetchModelsForBrand(brand, page + 1);
         } else {
           populateDropdown(document.getElementById('model-dropdown'), Array.from(models));
+          hideLoadingIndicator();
         }
       });
     }
 
     function fetchYearsForModel(brand, model, page = 1) {
       years.clear();
+      showLoadingIndicator();
       const url = `/collections/trapo-classic-car-mats/products.json?limit=${limit}&page=${page}&tag=brand:${brand}&tag=model:${model}`;
       fetchProducts(url).then(products => {
         products.forEach(product => {
@@ -102,6 +117,7 @@
           fetchYearsForModel(brand, model, page + 1);
         } else {
           populateDropdown(document.getElementById('year-dropdown'), Array.from(years));
+          hideLoadingIndicator();
         }
       });
     }
