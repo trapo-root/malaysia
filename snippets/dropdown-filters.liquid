@@ -2,27 +2,32 @@
 {% assign models = "" | split: "," %}
 {% assign years = "" | split: "," %}
 
-{% for product in collections.all.products %}
-  {% for tag in product.tags %}
-    <!-- <p>Tag: {{ tag }}</p> <!-- Debug output --> -->
-    {% if tag contains 'brand:' %}
-      {% assign brand = tag | remove: 'brand:' | strip %}
-      {% unless brands contains brand %}
-        {% assign brands = brands | push: brand %}
-      {% endunless %}
-    {% elsif tag contains 'model:' %}
-      {% assign model = tag | remove: 'model:' | strip %}
-      {% unless models contains model %}
-        {% assign models = models | push: model %}
-      {% endunless %}
-    {% elsif tag contains 'year:' %}
-      {% assign year = tag | remove: 'year:' | strip %}
-      {% unless years contains year %}
-        {% assign years = years | push: year %}
-      {% endunless %}
-    {% endif %}
+{% assign trapo_classic_collection = collections['trapo-classic'] %}
+
+{% if trapo_classic_collection %}
+  {% for product in trapo_classic_collection.products %}
+    {% for tag in product.tags %}
+      {% if tag contains 'brand:' %}
+        {% assign brand = tag | remove: 'brand:' | strip %}
+        {% unless brands contains brand %}
+          {% assign brands = brands | push: brand %}
+        {% endunless %}
+      {% elsif tag contains 'model:' %}
+        {% assign model = tag | remove: 'model:' | strip %}
+        {% unless models contains model %}
+          {% assign models = models | push: model %}
+        {% endunless %}
+      {% elsif tag contains 'year:' %}
+        {% assign year = tag | remove: 'year:' | strip %}
+        {% unless years contains year %}
+          {% assign years = years | push: year %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
   {% endfor %}
-{% endfor %}
+{% else %}
+  <p>Collection 'Trapo Classic' not found.</p>
+{% endif %}
 
 <select id="brand-dropdown">
   <option value="">Select Brand</option>
