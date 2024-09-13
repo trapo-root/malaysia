@@ -1,0 +1,45 @@
+{% assign brands = "" | split: "," %}
+{% assign models = "" | split: "," %}
+{% assign years = "" | split: "," %}
+
+{% for product in collections.all.products %}
+  {% for tag in product.tags %}
+    {% if tag contains 'brand:' %}
+      {% assign brand = tag | remove: 'brand:' | strip %}
+      {% unless brands contains brand %}
+        {% assign brands = brands | push: brand %}
+      {% endunless %}
+    {% elsif tag contains 'model:' %}
+      {% assign model = tag | remove: 'model:' | strip %}
+      {% unless models contains model %}
+        {% assign models = models | push: model %}
+      {% endunless %}
+    {% elsif tag contains 'year:' %}
+      {% assign year = tag | remove: 'year:' | strip %}
+      {% unless years contains year %}
+        {% assign years = years | push: year %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+<select id="brand-dropdown">
+  <option value="">Select Brand</option>
+  {% for brand in brands %}
+    <option value="{{ brand }}">{{ brand }}</option>
+  {% endfor %}
+</select>
+
+<select id="model-dropdown">
+  <option value="">Select Model</option>
+  {% for model in models %}
+    <option value="{{ model }}">{{ model }}</option>
+  {% endfor %}
+</select>
+
+<select id="year-dropdown">
+  <option value="">Select Year</option>
+  {% for year in years %}
+    <option value="{{ year }}">{{ year }}</option>
+  {% endfor %}
+</select>
