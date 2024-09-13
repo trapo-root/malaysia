@@ -41,7 +41,6 @@
           console.log(`Fetched ${data.products.length} products from page ${page}`); // Debugging
           data.products.forEach(product => {
             product.tags.forEach(tag => {
-              console.log(`Processing tag: ${tag}`); // Debugging
               if (tag.startsWith('brand:')) {
                 brands.add(tag.replace('brand:', '').trim());
               } else if (tag.startsWith('model:')) {
@@ -69,32 +68,32 @@
       dropdown.disabled = false;
     }
 
-    function fetchAllBrands() {
-      fetchProducts(1).then(count => {
+    function fetchAllBrands(page = 1) {
+      fetchProducts(page).then(count => {
         if (count === limit) {
-          fetchAllBrands();
+          fetchAllBrands(page + 1);
         } else {
           populateDropdown(document.getElementById('brand-dropdown'), brands);
         }
       });
     }
 
-    function fetchModelsForBrand(brand) {
+    function fetchModelsForBrand(brand, page = 1) {
       models.clear();
-      fetchProducts(1, brand).then(count => {
+      fetchProducts(page, brand).then(count => {
         if (count === limit) {
-          fetchModelsForBrand(brand);
+          fetchModelsForBrand(brand, page + 1);
         } else {
           populateDropdown(document.getElementById('model-dropdown'), models);
         }
       });
     }
 
-    function fetchYearsForModel(brand, model) {
+    function fetchYearsForModel(brand, model, page = 1) {
       years.clear();
-      fetchProducts(1, brand, model).then(count => {
+      fetchProducts(page, brand, model).then(count => {
         if (count === limit) {
-          fetchYearsForModel(brand, model);
+          fetchYearsForModel(brand, model, page + 1);
         } else {
           populateDropdown(document.getElementById('year-dropdown'), years);
         }
@@ -124,6 +123,7 @@
       }
     });
 
+    // Fetch all brands on page load
     fetchAllBrands();
   });
 </script>
