@@ -4,6 +4,7 @@
 
 {% for product in collections.all.products %}
   {% for tag in product.tags %}
+    <p>Tag: {{ tag }}</p> <!-- Debug output -->
     {% if tag contains 'brand:' %}
       {% assign brand = tag | remove: 'brand:' | strip %}
       {% unless brands contains brand %}
