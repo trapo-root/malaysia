@@ -3,11 +3,11 @@
     <option value="">Select Brand</option>
   </select>
 
-  <select id="model-dropdown">
+  <select id="model-dropdown" disabled>
     <option value="">Select Model</option>
   </select>
 
-  <select id="year-dropdown">
+  <select id="year-dropdown" disabled>
     <option value="">Select Year</option>
   </select>
 </div>
@@ -19,12 +19,18 @@
     const brands = new Set();
     const models = new Set();
     const years = new Set();
-    let page = 1;
     const limit = 250;
 
-    function fetchProducts(page) {
-      console.log(`Fetching products from page ${page}`); // Debugging
-      return fetch(`/collections/trapo-classic-car-mats/products.json?limit=${limit}&page=${page}`)
+    function fetchProducts(page, brand = null, model = null) {
+      let url = `/collections/trapo-classic-car-mats/products.json?limit=${limit}&page=${page}`;
+      if (brand) {
+        url += `&tag=brand:${brand}`;
+      }
+      if (model) {
+        url += `&tag=model:${model}`;
+      }
+      console.log(`Fetching products from URL: ${url}`); // Debugging
+      return fetch(url)
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
@@ -52,53 +58,72 @@
         });
     }
 
-    function populateDropdowns() {
-      const brandDropdown = document.getElementById('brand-dropdown');
-      brands.forEach(brand => {
+    function populateDropdown(dropdown, items) {
+      dropdown.innerHTML = '<option value="">Select</option>';
+      items.forEach(item => {
         const option = document.createElement('option');
-        option.value = brand;
-        option.textContent = brand;
-        brandDropdown.appendChild(option);
+        option.value = item;
+        option.textContent = item;
+        dropdown.appendChild(option);
       });
-
-      const modelDropdown = document.getElementById('model-dropdown');
-      models.forEach(model => {
-        const option = document.createElement('option');
-        option.value = model;
-        option.textContent = model;
-        modelDropdown.appendChild(option);
-      });
-
-      const yearDropdown = document.getElementById('year-dropdown');
-      years.forEach(year => {
-        const option = document.createElement('option');
-        option.value = year;
-        option.textContent = year;
-        yearDropdown.appendChild(option);
-      });
-
-      console.log('Brands:', Array.from(brands)); // Debugging
-      console.log('Models:', Array.from(models)); // Debugging
-      console.log('Years:', Array.from(years)); // Debugging
+      dropdown.disabled = false;
     }
 
-    function fetchAllProducts(page) {
-      fetchProducts(page).then(count => {
+    function fetchAllBrands() {
+      fetchProducts(1).then(count => {
         if (count === limit) {
-          fetchAllProducts(page + 1);
+          fetchAllBrands();
         } else {
-          populateDropdowns();
+          populateDropdown(document.getElementById('brand-dropdown'), brands);
         }
       });
     }
 
-    fetchAllProducts(page);
+    function fetchModelsForBrand(brand) {
+      models.clear();
+      fetchProducts(1, brand).then(count => {
+        if (count === limit) {
+          fetchModelsForBrand(brand);
+        } else {
+          populateDropdown(document.getElementById('model-dropdown'), models);
+        }
+      });
+    }
+
+    function fetchYearsForModel(brand, model) {
+      years.clear();
+      fetchProducts(1, brand, model).then(count => {
+        if (count === limit) {
+          fetchYearsForModel(brand, model);
+        } else {
+          populateDropdown(document.getElementById('year-dropdown'), years);
+        }
+      });
+    }
+
+    document.getElementById('brand-dropdown').addEventListener('change', function() {
+      const brand = this.value;
+      if (brand) {
+        fetchModelsForBrand(brand);
+      } else {
+        document.getElementById('model-dropdown').innerHTML = '<option value="">Select Model</option>';
+        document.getElementById('model-dropdown').disabled = true;
+        document.getElementById('year-dropdown').innerHTML = '<option value="">Select Year</option>';
+        document.getElementById('year-dropdown').disabled = true;
+      }
+    });
+
+    document.getElementById('model-dropdown').addEventListener('change', function() {
+      const brand = document.getElementById('brand-dropdown').value;
+      const model = this.value;
+      if (model) {
+        fetchYearsForModel(brand, model);
+      } else {
+        document.getElementById('year-dropdown').innerHTML = '<option value="">Select Year</option>';
+        document.getElementById('year-dropdown').disabled = true;
+      }
+    });
+
+    fetchAllBrands();
   });
 </script>
-
-<!-- <style>
-  select{
-    width: 33% !important;
-    margin-right: 10px !important;
-  }
-</style> -->
