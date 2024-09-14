@@ -45,6 +45,11 @@
           Pre-Order
         </div>
       {% endif %}
+      {% if product.tags contains 'new' %}
+        <div class="preorder-badge" style="backgground:#EE2A7B">
+          NEW
+        </div>
+      {% endif %}
       {% unless product.available %}
             <span translatable class="spf-product__label spf-product__label-soldout">{{translation.product.sold_out | default: "Sold out"}}</span>
                   {% endunless %}
