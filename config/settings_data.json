@@ -277,15 +277,6 @@
         "settings": {
         }
       },
-      "sparqAppEmbedBlock": {
-        "type": "shopify:\/\/apps\/product-filter-search-app\/blocks\/sparq-app-embed-dropdown\/8fd7d3d6-d46d-4322-92f0-3e36acf0ae32",
-        "disabled": true,
-        "settings": {
-          "dropdown_template": "{% render 'sparq-dropdown' %}",
-          "theme_css": "{{ shop.metafields.sparq.css }}",
-          "theme_js": "{{ shop.metafields.sparq.javascript }}"
-        }
-      },
       "5059203847231188605": {
         "type": "shopify:\/\/apps\/smart-product-filter-search\/blocks\/app-embed\/5cc1944c-3014-4a2a-af40-7d65abc0ef73",
         "disabled": false,
