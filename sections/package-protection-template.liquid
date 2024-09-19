@@ -156,19 +156,11 @@
         </div>
     </div>
 </section>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css"/>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-<script>
-   // $('.customer_review_slider').slick({
-   //   slidesToShow: 3,
-   //   slidesToScroll: 1,
-   //   arrows: false,
-   //   fade: true,
-   // });
-</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
+
 <style>
   .mob_view{
     display: none !important;
@@ -390,17 +382,80 @@
  color: #fff;   
 }
 
+.statisfid_customers .cstmr_row .col{
+              border-radius: 12px;
+              font-size: 16px;
+              line-height: 19px;
+              color: #fff;
+              padding-inline:10px;
+          }
+  .statisfid_customers .cstmr_row .col img{
+              margin-bottom: 16px;
+              display: block;
+            width:100%;
+          }
+.statisfid_customers .cstmr_row .slide-arrow{
+      padding: 0;
+      width: 30px;
+      height: 25px;
+      background: transparent;
+      box-shadow: none;
+      border: 0;
+      position: absolute;
+      top: 50%;
+      left: 30px;
+      transform: translate(0, -50%);
+      z-index: 1;
+  }
+    .statisfid_customers .cstmr_row .next-arrow {
+      right: 20px;
+      left: auto;
+  }
+    .statisfid_customers .cstmr_row .prev-arrow::after{
+      content: "";
+      position: absolute;
+      left: 0;
+      z-index: 11;
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-top: 3px solid #fff;
+      border-left: 3px solid #fff;
+      transform: rotate(-45deg);
+  }
+     .statisfid_customers .cstmr_row .next-arrow::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      z-index: 11;
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-top: 3px solid #fff;
+      border-left: 3px solid #fff;
+      transform: rotate(-225deg);
+  }
+  
 @media(max-width:1024px;){
   .statisfied_customer .customer_review_slider{
     margin-top:35px;
   }
+  .statisfid_customers .cstmr_row{
+                    gap:10px
+                }
+}
+
+@media(max-width:767px){
+  statisfid_customers .cstmr_row {
+                  display: unset;
+              }
+  .statisfid_customers .cstmr_row .col{
+                margin:0 10px;
+                padding-inline:0;
+              }
 }
 
 </style>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
 
 <script>
   $('.cstmr_row').slick({
