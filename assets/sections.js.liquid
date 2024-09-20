@@ -619,7 +619,12 @@ window.cart = {
 ==============================================================================*/
 window.selectCallback = function (variant, selector, $element) {
 
-  console.log(variant);
+  //console.log(variant);
+  if (variant.compare_at_price > variant.price) {
+    const savings = variant.compare_at_price - variant.price;
+    const percentage = Math.round((savings / variant.compare_at_price) * 100);
+    console.log(percentage);
+  }
    var variantTitle = variant.title;
   var productHandle = $(".product_form ").data('product-handle');
   /*if(productHandle == 'trapo-i-sight-t350-dashcam' || productHandle == 'trapo-i-sight-t550-dashcam'){
