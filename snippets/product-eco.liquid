@@ -391,10 +391,8 @@
                             | divided_by: product.selected_or_first_available_variant.compare_at_price
                             | round: 0
                           %}
-
-                          <p class="savings {{ product.selected_or_first_available_variant.compare_at_price }}">(Save {{ save_percentage }}%)</p>
-                          
                         {% endif %}
+                        <p class="savings {{ product.selected_or_first_available_variant.compare_at_price }}">(Save {{ save_percentage }}%)</p>
                       </div>
                     {% endif %}
                   {% endif %}
