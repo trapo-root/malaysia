@@ -384,15 +384,7 @@
                         {% comment %}Inject @pixelunion/shopify-price-ui/price-ui end{% endcomment %}
 
                         <form class="payment-terms-container" data-payment-terms-target style="display: none;"></form>
-                        {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
-                          {% assign save_amount = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price %}
-                          {% assign save_percentage = save_amount
-                            | times: 100.0
-                            | divided_by: product.selected_or_first_available_variant.compare_at_price
-                            | round: 0
-                          %}
-                          <p class="savings {{ product.selected_or_first_available_variant.compare_at_price }}">(Save {{ save_percentage }}%)</p>
-                        {% endif %}
+                        
                       </div>
                     {% endif %}
                   {% endif %}
