@@ -623,7 +623,9 @@ window.selectCallback = function (variant, selector, $element) {
   if (variant.compare_at_price > variant.price) {
     const savings = variant.compare_at_price - variant.price;
     const percentage = Math.round((savings / variant.compare_at_price) * 100);
+    var savingText = "(Saving "+ percentage +"%)";
     console.log(percentage);
+    $("span.savings").text(savingText);
   }
    var variantTitle = variant.title;
   var productHandle = $(".product_form ").data('product-handle');
