@@ -627,7 +627,7 @@ window.selectCallback = function (variant, selector, $element) {
     var savingText = "(Saving "+ percentage +"%)";
     var newElement = $('<span class="savings">`{savingText}`</p>');
     console.log(percentage);
-    $(".payment-terms-container").append(newElement);
+    $(".payment-terms-container").after(newElement);
     //$("span.savings").text(savingText);
   }
    var variantTitle = variant.title;
