@@ -20,7 +20,7 @@
         "price": {
           "type": "price",
           "settings": {
-            "display_savings": true
+            "display_savings": false
           }
         },
         "custom_liquid_ntjyYg": {
