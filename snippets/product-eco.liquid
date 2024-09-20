@@ -392,12 +392,8 @@
                             | round: 0
                           %}
 
-                          <p class="savings {{ product.selected_or_first_available_variant.compare_at_price }}">(Save {{ save_percentage }}%)</p>
-                          <span class="sale savings">
-                  {% if variant.price < variant.compare_at_price and variant.available %}
-                    {{ 'products.product.savings' | t }}  {{ variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price }}% (<span class="money">{{ variant.compare_at_price | minus: variant.price | money }}</span>)
-                  {% endif %}
-                </span>
+                          <p class="savings">(Save {{ variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price }}%)</p>
+                          
                         {% endif %}
                       </div>
                     {% endif %}
