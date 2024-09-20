@@ -621,9 +621,6 @@ window.selectCallback = function (variant, selector, $element) {
 
   //console.log(variant);
   if (variant.compare_at_price > variant.price) {
-    if ($('span').hasClass('savings')) {
-      $('span.savings').remove();
-    }
     const savings = variant.compare_at_price - variant.price;
     const percentage = Math.round((savings / variant.compare_at_price) * 100);
     
@@ -632,6 +629,8 @@ window.selectCallback = function (variant, selector, $element) {
     console.log(percentage);
     $(".payment-terms-container").after(newElement);
     //$("span.savings").text(savingText);
+  }else{
+    $('span.savings').remove();
   }
    var variantTitle = variant.title;
   var productHandle = $(".product_form ").data('product-handle');
