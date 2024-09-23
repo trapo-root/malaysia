@@ -50,6 +50,18 @@
           NEW
         </div>
       {% endif %}
+      {% if product.handle == 'star-wars-car-phone-holder-storm-trooper' %}
+        <div class="preorder-badge" style="background: #16406D;
+">
+          SAVE 63%
+        </div>
+      {% endif %}
+      {% if product.handle == 'star-wars-diatomite-car-coaster'  %}
+        <div class="preorder-badge" style="background: #16406D;
+">
+          SAVE 72%
+        </div>
+      {% endif %}
       {% unless product.available %}
             <span translatable class="spf-product__label spf-product__label-soldout">{{translation.product.sold_out | default: "Sold out"}}</span>
                   {% endunless %}
