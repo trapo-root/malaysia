@@ -503,6 +503,11 @@
   {% if template contains 'cart' %}
       {% include 'fatmedia-cart' %}
   {% endif %}
+  {% if product.handle == 'star-wars-car-phone-holder-storm-trooper-promotional' %}
+    <script>
+      window.location = '/';
+    </script>
+  {% endif %}
   
 </html>
 {% endcapture %}
