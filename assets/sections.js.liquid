@@ -624,7 +624,7 @@ window.selectCallback = function (variant, selector, $element) {
     const savings = variant.compare_at_price - variant.price;
     const percentage = Math.round((savings / variant.compare_at_price) * 100);
     
-    var savingText = "(Saving "+ percentage +"%)";
+    var savingText = "(SAVE "+ percentage +"%)";
     var newElement = $('<span class="savings">'+savingText+'</span>');
     console.log(percentage);
     $(".payment-terms-container").after(newElement);
