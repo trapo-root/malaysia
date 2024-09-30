@@ -39,13 +39,21 @@
           "type": "description",
           "settings": {
           }
+        },
+        "collapsible_tab_RFQfcR": {
+          "type": "collapsible-tab",
+          "settings": {
+            "collapsible_tab_heading": "FAQ",
+            "collapsible_tab_text": "{{ product.metafields.custom.accessories_faq | metafield_tag }}"
+          }
         }
       },
       "block_order": [
         "title",
         "price",
         "form",
-        "description"
+        "description",
+        "collapsible_tab_RFQfcR"
       ],
       "settings": {
         "product_breadcrumb": false,
