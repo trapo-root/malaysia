@@ -16,7 +16,7 @@
       }
     },
     "main": {
-      "type": "product-detailing-template",
+      "type": "product-template",
       "blocks": {
         "title": {
           "type": "title",
