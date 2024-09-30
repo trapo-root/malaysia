@@ -21,7 +21,16 @@ Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
 {% endfor %}
 
 <div class="swatch is-flex is-flex-wrap" data-option-index="{{ option_index }}">
-  <div class="option_title">{{ swatch }}</div>
+  {% if swatch == 'Size' %}
+   <div class="new-steps" style="margin-top:1rem">
+    <span class="new-step-2"
+      >Size
+    </span>
+  </div>
+  {% else %}
+    <div class="option_title">{{ swatch }}</div>
+  {% endif %}
+  
 
   {%- assign values = '' -%}
 
