@@ -268,10 +268,11 @@
     margin: 0 0 50px;
 }
 .key_feature_top{
-    display: flex;
+    display: grid;
     align-items: center;
-    gap:30px;
+    gap: 30px;
     margin-bottom: 55px;
+    grid-template-columns: 1fr 1fr;
 }
 .key_feature_item{
     display: flex;
@@ -562,7 +563,7 @@
         text-align: center
     }
     .key_feature_top{
-        flex-direction: column;
+                grid-template-columns: 1fr;
     }
     .key_feature_top .key_feature_item img{
         width: 100%;
