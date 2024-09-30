@@ -716,6 +716,10 @@
   <div class="sixteen columns">
     {% render 'xtreme-description' %}
   </div>
+{% elsif product.tags contains 'trapo-coating' %}
+  <div class="sixteen columns">
+    {% render 'coating-description' %}
+  </div>
 {% endif %}
 
 <div class="sixteen columns">
