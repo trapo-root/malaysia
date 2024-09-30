@@ -466,7 +466,42 @@
         gap:20px;
     }
 }
-
+@media(max-width:1024px){
+    .best_for_sec .container{
+        grid-template-columns: 1fr;
+    }
+    .best_for_sec .best_for_sec_left{
+        flex-direction: column;
+        gap:20px;
+    }
+    .best_for_sec .best_for_sec_left img{
+        max-width: 150px
+    }
+    .key_feature_top .key_feature_item{
+        flex-direction: column;
+        text-align: center;
+    }
+    .key_feature_bottom{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .warranty_coverage{
+        padding-block:25px;
+        margin-bottom: 40px
+    }
+    .free_cancel .free_cancel_list .free_cancel_item{
+        gap:10px;       
+        grid-template-columns: 30px 1fr;
+        margin: 0;
+    }
+    .free_cancel .free_cancel_list .detail strong{
+        font-size: 16px;
+        letter-spacing: 0.2px
+    }
+    .free_cancel .free_cancel_list .detail span{
+        letter-spacing: 0.2px;
+    }
+}
 
 
 
