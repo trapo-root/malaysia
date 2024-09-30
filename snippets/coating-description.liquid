@@ -503,6 +503,89 @@
     }
 }
 
+@media(max-width:767px){
+    .best_for_sec{
+        margin-inline:-20px
+    }
+    .best_for_sec_right .best_for_list .best_for_list_item{
+        flex-direction: column;
+        text-align: center
+    }
+    .key_feature_top{
+        flex-direction: column;
+    }
+    .key_feature_top .key_feature_item img{
+        width: 100%;
+    }
+    .sec_heading .sec_title{
+        font-size: 20px;
+    }
+    .key_feature_bottom{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .key_feature_bottom .key_feature_item{
+        flex: unset;
+    }
+    .key_feature_bottom .key_feature_item:first-child{
+        width: 100%;
+    }
+    .key_feature_bottom .key_feature_item:first-child .img_wrap{
+        display: none;
+    }
+    .key_feature_bottom .key_feature_item:nth-child(2){
+        width: 46%;
+    }
+    .key_feature_bottom .key_feature_item:nth-child(3){
+        width: 46%;
+    }
+    .key_feature_bottom .key_feature_item p{
+        margin: 0
+    }
+    .key_feature_bottom .key_feature_item:nth-child(4) .img_wrap{
+        display: none
+    }
+    .warranty_coverage_top{
+        grid-template-columns: 1fr;
+        gap:20px
+    }
+    .warranty_coverage_top .warranty_coverage_item{
+        display: grid;
+        grid-template-columns: 40% 1fr;
+        gap:16px;
+        text-align: left;
+    }
+    .warranty_coverage_top .warranty_coverage_item h5, .key_feature_top .key_feature_item h5{
+        font-size: 20px;
+        word-break: break-word;
+    }
+    .warranty_coverage_top .warranty_coverage_item img{
+        margin: 0;
+        height: 100%;
+        min-height: 150px;
+    }
+    .free_cancel{
+        border: 1px solid #D9D9D9;
+        padding: 20px 30px;
+        border-radius: 12px
+    }
+    .free_cancel .free_cancel_list{
+        flex-direction: column;
+        align-items: flex-start;
+        gap:20px;
+    }
+    .availabel_at-list{
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        gap:20px 10px;
+    }
+    .availabel_at-list .availabel_at_item{
+        width: 45%
+    }
+}
+
 
 
 
