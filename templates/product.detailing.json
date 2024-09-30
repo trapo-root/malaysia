@@ -43,8 +43,8 @@
         "collapsible_tab_Wwwc7N": {
           "type": "collapsible-tab",
           "settings": {
-            "collapsible_tab_heading": "Collapsible tab",
-            "collapsible_tab_text": "<p>Use this text to share information about your product.</p>"
+            "collapsible_tab_heading": "FAQ",
+            "collapsible_tab_text": "{{ product.metafields.custom.accessories_faq | metafield_tag }}"
           }
         }
       },
