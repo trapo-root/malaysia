@@ -235,6 +235,12 @@
             {% render 'product-mat-swatch', option: option, product: product %}
           {% endfor %}
         </div>
+      {% elsif product.tags contains 'detailing-product' %}
+         <div class="swatch_options swatch_mat">
+          {% for option in product.options %}
+            {% render 'product-detailing-swatch', option: option, product: product %}
+          {% endfor %}
+        </div>
       {% else %}
         <div class="swatch_options swatch_other">
           {% for option in product.options %}
