@@ -114,6 +114,13 @@
             <p>Shields from rust. Prevents surface damage</p>
           </div>
       </div>
+    <div class="warranty_coverage_item">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/133033566.png?v=1727710876"/>
+          <div class="detail">
+            <h5>Oxidation & Corrosion<br> Protection</h5>
+            <p>Shields from rust. Prevents surface damage</p>
+          </div>
+      </div>
       <div class="warranty_coverage_item">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Rectangle_429.png?v=1727710875"/>
           <div class="detail">
@@ -329,12 +336,18 @@
     margin: 0
 }
 .warranty_coverage_top{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 730px;
+    width: 100%; 
+    margin: 0 auto;
+    gap:70px 25px
+}
+  .warranty_coverage_top{
     display: flex;
     flex-wrap: wrap;
     max-width: unset;
     justify-content: center;
-    margin: 0 auto;
-    gap:70px 25px
 }
 .warranty_coverage_top .warranty_coverage_item{
     width: 30%;
@@ -464,9 +477,11 @@
     }
     .warranty_coverage_top .warranty_coverage_item h5,
     .key_feature_top .key_feature_item h5{
-        font-size: 20px;
-        line-height: 1.2;
-        margin-bottom: 10px;
+         font-size: 20px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      width: fit-content;
+      margin-inline: auto;
     }
     .warranty_coverage_top{
         gap:30px 15px;
@@ -566,13 +581,15 @@
     }
     .warranty_coverage_top{
         grid-template-columns: 1fr;
-        gap:20px
+        gap:20px;
+      display:grid
     }
     .warranty_coverage_top .warranty_coverage_item{
         display: grid;
         grid-template-columns: 40% 1fr;
         gap:16px;
         text-align: left;
+      width:100%;
     }
     .warranty_coverage_top .warranty_coverage_item h5, .key_feature_top .key_feature_item h5{
         font-size: 20px;
@@ -607,4 +624,24 @@
     padding:25px 0
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
+
+
+
+
