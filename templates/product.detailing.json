@@ -16,7 +16,7 @@
       }
     },
     "main": {
-      "type": "product-detailing-template",
+      "type": "product-template",
       "blocks": {
         "title": {
           "type": "title",
@@ -39,21 +39,13 @@
           "type": "description",
           "settings": {
           }
-        },
-        "collapsible_tab_Wwwc7N": {
-          "type": "collapsible-tab",
-          "settings": {
-            "collapsible_tab_heading": "FAQ",
-            "collapsible_tab_text": "{{ product.metafields.custom.accessories_faq | metafield_tag }}"
-          }
         }
       },
       "block_order": [
         "title",
         "price",
         "form",
-        "description",
-        "collapsible_tab_Wwwc7N"
+        "description"
       ],
       "settings": {
         "product_breadcrumb": false,
