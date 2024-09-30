@@ -720,6 +720,14 @@
   <div class="sixteen columns">
     {% render 'coating-description' %}
   </div>
+{% elsif product.tags contains 'trapo-tint' %}
+  <div class="sixteen columns">
+    {% render 'tint-description' %}
+  </div>
+{% elsif product.tags contains 'trapo-ppf' %}
+  <div class="sixteen columns">
+    {% render 'ppf-description' %}
+  </div>
 {% endif %}
 
 <div class="sixteen columns">
