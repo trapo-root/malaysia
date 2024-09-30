@@ -329,12 +329,15 @@
     margin: 0
 }
 .warranty_coverage_top{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 730px;
-    width: 100%; 
+    display: flex;
+    flex-wrap: wrap;
+    max-width: unset;
+    justify-content: center;
     margin: 0 auto;
     gap:70px 25px
+}
+.warranty_coverage_top .warranty_coverage_item{
+    width: 30%;
 }
 .warranty_coverage_top .warranty_coverage_item{
     display: flex;
