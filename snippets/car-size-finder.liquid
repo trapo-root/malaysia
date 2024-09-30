@@ -1,0 +1,172 @@
+<a id="open-car-size-finder">Find Your Car Size</a>
+
+<div id="car-size-finder-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Find Your Car Size</h2>
+    <select id="brand-select">
+      <option value="">Select Brand</option>
+    </select>
+    <select id="model-select" disabled>
+      <option value="">Select Model</option>
+    </select>
+    <select id="year-select" disabled>
+      <option value="">Select Year</option>
+    </select>
+    <div id="size-result"></div>
+  </div>
+</div>
+
+<style>
+  #open-car-size-finder{
+    background: #e82276;
+    color: #fff;
+    padding: 6px 10px;
+    margin: 0 0px;
+    display: block;
+    width: max-content;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  margin: 0;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#car-size-finder-modal select {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+#size-result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+  @media (max-width: 767px) {
+  .modal-content{
+        margin: 75% auto;
+  }
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  let carData = null;
+  const modal = document.getElementById('car-size-finder-modal');
+  const btn = document.getElementById('open-car-size-finder');
+  const span = document.getElementsByClassName('close')[0];
+
+  btn.onclick = function() {
+    modal.style.display = 'block';
+  }
+
+  span.onclick = function() {
+    modal.style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  }
+
+  function populateSelect(selectId, options) {
+    const select = document.getElementById(selectId);
+    select.innerHTML = `<option value="">Select ${selectId.split('-')[0]}</option>`;
+    options.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+    options.forEach(option => {
+      const optionElement = document.createElement('option');
+      optionElement.value = option;
+      optionElement.textContent = option;
+      select.appendChild(optionElement);
+    });
+    select.disabled = false;
+  }
+
+  function updateSizeResult(size) {
+    const sizeResult = document.getElementById('size-result');
+    sizeResult.textContent = size ? `Your car size is: ${size}` : '';
+  }
+
+  fetch('https://trapo.com/search-size/car_tags.json')
+    .then(response => response.json())
+    .then(data => {
+      carData = data.brands;
+      populateSelect('brand-select', Object.keys(carData));
+    })
+    .catch(error => console.error('Error loading car data:', error));
+
+  document.getElementById('brand-select').addEventListener('change', function() {
+    const brand = this.value;
+    if (brand && carData[brand]) {
+      populateSelect('model-select', Object.keys(carData[brand].models));
+      document.getElementById('year-select').disabled = true;
+      updateSizeResult('');
+    } else {
+      document.getElementById('model-select').disabled = true;
+      document.getElementById('year-select').disabled = true;
+      updateSizeResult('');
+    }
+  });
+
+  document.getElementById('model-select').addEventListener('change', function() {
+    const brand = document.getElementById('brand-select').value;
+    const model = this.value;
+    if (brand && model && carData[brand].models[model]) {
+      populateSelect('year-select', Object.keys(carData[brand].models[model].years));
+      updateSizeResult('');
+    } else {
+      document.getElementById('year-select').disabled = true;
+      updateSizeResult('');
+    }
+  });
+
+  document.getElementById('year-select').addEventListener('change', function() {
+    const brand = document.getElementById('brand-select').value;
+    const model = document.getElementById('model-select').value;
+    const year = this.value;
+    if (brand && model && year && carData[brand].models[model].years[year]) {
+      const size = carData[brand].models[model].years[year];
+      updateSizeResult(size);
+    } else {
+      updateSizeResult('');
+    }
+  });
+});
+</script>
