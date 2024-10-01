@@ -953,14 +953,14 @@
                             <li> <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-quik-shield-car-coating" data-product="coat">Buy Now</a></li>
                         </ul>
                     </div>
-                    
-                    <a
-                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/trapo-ppf"
-                      class="sub_menu_2_title no-dropdown"
-                      data-product="ppf"
-                      >Trapo PPF<span class="most_label" style="background:#ee2a7b">NEW</span></a
-                    >
-            
+                    <div class="has_dropdown_2"> <a href="javascript:void(0);" class="sub_menu_2_title " data-product="ppf">Trapo PPF
+                    <span class="most_label" style="background:#ee2a7b">NEW</span></a>
+                        <ul class="sub_menu_2  grid_sub_menu grid_menu" style="display: none;">
+                            <li> <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/trapo-ppf" data-product="ppf">Learn More</a></li>
+                            <li> <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-ppf-paint-protection-film" data-product="ppf">Buy Now</a></li>
+                        </ul>
+                    </div>
+                   
                     <!--
                       <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/book-an-appointment-nanovac-interior-deep-cleaning" class="sub_menu_2_title no-dropdown" data-product="nanovac">NanoVAC Interior</a>
                     -->
@@ -1014,13 +1014,28 @@
                         </li>
                       </ul>
                     </div>
+                    <div class="has_dropdown_2">
+                      <a href="javascript:void(0);" class="sub_menu_2_title nav__link"> Trapo PPF
+                        <span class="most_label" style="background:#ee2a7b">NEW</span> </a>
+                      <ul class="sub_menu_2 grid_sub_menu grid_menu" style="display: none !important;">
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/trapo-ppf"
+                            >Learn More</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-ppf-paint-protection-film"
+                            >Buy Now</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
                     
-                    <a
-                      href="{% if shop.locale == 'ms' %}/ms{% endif %}/pages/trapo-ppf"
-                      class="sub_menu_2_title nav__link no-dropdown"
-                      data-product="tint"
-                      >Trapo PPF<span class="most_label" style="background:#ee2a7b">NEW</span></a
-                    >
+                  
                     <!--
                       <a href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/book-an-appointment-nanovac-interior-deep-cleaning" class="sub_menu_2_title nav__link no-dropdown">NanoVAC Interior</a>
                     -->
