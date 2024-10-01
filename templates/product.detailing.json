@@ -29,12 +29,6 @@
             "display_savings": true
           }
         },
-        "custom_liquid_6HmFTf": {
-          "type": "custom-liquid",
-          "settings": {
-            "custom_liquid": "{%- render 'offer-block' -%}"
-          }
-        },
         "form": {
           "type": "form",
           "settings": {
@@ -57,7 +51,6 @@
       "block_order": [
         "title",
         "price",
-        "custom_liquid_6HmFTf",
         "form",
         "description",
         "collapsible_tab_RFQfcR"
