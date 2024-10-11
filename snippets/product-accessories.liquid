@@ -402,9 +402,16 @@
               {% endif %}
             {% when 'text' %}
               {% if product.tags contains 'pre-order' %}
-                <div class="product-text">
+                {% if product.handle == 'trapo-streakoff-glass' %}
+                  <div class="product-text">
+                  <p>(Ships out in 5 working days)</p>
+                </div>
+                {% else %}
+                  <div class="product-text">
                   <p>(Ships out in 20 working days)</p>
                 </div>
+                {% endif %}
+                
               {% else %}
                 <div class="product-text">
                   {{ block.settings.text }}
