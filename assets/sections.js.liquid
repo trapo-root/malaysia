@@ -702,6 +702,20 @@ window.selectCallback = function (variant, selector, $element) {
   }
   }
 
+  var productType = $(".product_form ").data('product-type');
+  var wiperVar = 'Rear';
+  if(productType == 'WIPER'){
+    if(variantTitle.indexOf(wiperVar) != -1){
+    $('.product-text p').text('(Ships out in 9 working days)');
+    setTimeout( function(){ 
+    $('.add_to_cart .text').text('Pre-Order');
+    }  , 1000 );
+  }else{
+    $('.product-text p').text('(Ship out next working day)');
+    $('.add_to_cart .text').text('Add to Cart');
+  }
+  }
+
 
   var selectedVarPrice = variant.price;
   var finalVarPrice = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
