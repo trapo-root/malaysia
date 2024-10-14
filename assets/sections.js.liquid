@@ -704,7 +704,7 @@ window.selectCallback = function (variant, selector, $element) {
 
   var productType = $(".product_form ").data('product-type');
   var wiperVar = 'Rear';
-  if(productType == 'WIPER'){
+  if(productType == 'WIPER' && productHandle != 'trapo-hydrophobic-wiper-blade-rear'){
     if(variantTitle.indexOf(wiperVar) != -1){
     $('.product-text p').text('(Ships out in 9 working days)');
     setTimeout( function(){ 
