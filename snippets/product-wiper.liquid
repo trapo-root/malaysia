@@ -401,9 +401,15 @@
               {% endif %}
             {% when 'text' %}
               {% if product.tags contains 'pre-order' %}
+                {% if product.handle == 'trapo-hydrophobic-wiper-blade-rear' %}
+                  <div class="product-text">
+                  <p>(Ships out in 9 working days)</p>
+                </div>
+                {% else %}
                 <div class="product-text">
                   <p>(Ships out in 3 working days)</p>
                 </div>
+                {% endif %}
               {% else %}
                 <div class="product-text">
                   {{ block.settings.text }}
