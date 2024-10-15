@@ -189,12 +189,7 @@
                   <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
                 {% else %}
                   <!-- Start Campaign Logic -->
-                  {% liquid
-                    assign campaign_enabled = settings.enable_campaign
-                    assign tag_enabled = settings.enable_tag
-                    assign type_enabled = settings.enable_type
-                    assign campaing_discount = settings.campaing_discount
-                  %}
+
                   {% if product.tags contains 'model:M6' %}
                     {% liquid
                       assign campaign_enabled = true
