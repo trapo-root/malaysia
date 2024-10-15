@@ -195,9 +195,27 @@
                     assign type_enabled = settings.enable_type
                     assign campaing_discount = settings.campaing_discount
                   %}
-                  {% if type_enabled or tag_enabled %}
+                  {% if product.tags contains 'model:M6' %}
+                    {% liquid
+                      assign campaign_enabled = true
+                      assign tag_enabled = true
+                      assign type_enabled = settings.enable_type
+                      assign campaing_discount = 15
+                    %}
+                    {% assign product_type = 'TRAPO CLASSIC,TRAPO ECO,TRAPO HEX, TRAPO HEX ULTIMATE WIPER' %}
+                    {% assign product_tags = settings.product_tag %}
+                  {% else %}
+                    {% liquid
+                      assign campaign_enabled = settings.enable_campaign
+                      assign tag_enabled = settings.enable_tag
+                      assign type_enabled = settings.enable_type
+                      assign campaing_discount = settings.campaing_discount
+                    %}
                     {% assign product_type = settings.product_type %}
                     {% assign product_tags = settings.product_tag %}
+                  {% endif %}
+
+                  {% if type_enabled or tag_enabled %}
                     {% if product_type contains product.type and campaign_enabled %}
                       <div
                         class="modal_price campaign-true"
@@ -287,7 +305,6 @@
                             unit_pricing: false
                           -%}
                         </div>
-                       
                       </div>
                     {% else %}
                       <div
@@ -380,7 +397,6 @@
                         {% comment %}Inject @pixelunion/shopify-price-ui/price-ui end{% endcomment %}
 
                         <form class="payment-terms-container" data-payment-terms-target style="display: none;"></form>
-                        
                       </div>
                     {% endif %}
                   {% endif %}
