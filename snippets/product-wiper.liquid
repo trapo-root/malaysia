@@ -188,93 +188,214 @@
                 {% if collection_handles contains 'coming-soon' %}
                   <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
                 {% else %}
-                  <div class="modal_price" data-display-savings="{{ block.settings.display_savings }}">
-                    {% comment %}Inject @pixelunion/shopify-price-ui/price-ui begin{% endcomment %}
-                    <div class="price-ui price-ui--loading" data-price-ui>
-                      <noscript>
-                        <style>
-                          .price-ui--loading {
-                            display: block !important;
-                            opacity: 1 !important;
-                          }
-                        </style>
-                      </noscript>
-                      {% assign compare_at_price = false %}
+                  <!-- Start Campaign Logic -->
 
-                      {% if product.compare_at_price and product.compare_at_price != product.price %}
-                        {% if product.compare_at_price_varies %}
-                          {%- capture price_min -%}
-                            {%-
-                              render 'price-ui-templates',
-                              template: 'price-min',
-                              value: product.compare_at_price_min,
+                  {% if product.tags contains 'model:M6' %}
+                     Hi
+                    {% liquid
+                      assign campaign_enabled = true
+                      assign tag_enabled = true
+                      assign type_enabled = settings.enable_type
+                      assign campaing_discount = 15
+                    %}
+                    {% assign product_type = 'TRAPO CLASSIC,TRAPO ECO,TRAPO HEX,TRAPO HEX ULTIMATE,WIPER' %}
+                    {% assign product_tags = settings.product_tag %}
+                  {% else %}
+                    {% liquid
+                      assign campaign_enabled = settings.enable_campaign
+                      assign tag_enabled = settings.enable_tag
+                      assign type_enabled = settings.enable_type
+                      assign campaing_discount = settings.campaing_discount
+                    %}
+                    {% assign product_type = settings.product_type %}
+                    {% assign product_tags = settings.product_tag %}
+                  {% endif %}
+
+                  {% if type_enabled or tag_enabled %}
+                    {% if product_type contains product.type and campaign_enabled %}
+                      <div
+                        class="modal_price campaign-true"
+                        data-display-savings="{{ block.settings.display_savings }}"
+                        data-display-campaign="true"
+                        data-campaign-discount="{{ campaing_discount }}"
+                      >
+                        <div class="price-ui price-ui--loading" data-price-ui>
+                          <noscript>
+                            <style>
+                               .price-ui--loading {
+                              display: block !important;
+                              opacity: 1 !important;
+                               }
+                            </style>
+                          </noscript>
+                          {%- assign variant = product.selected_or_first_available_variant -%}
+                          {% assign discounted_per1 = 100 | minus: campaing_discount %}
+                          {% assign discounted_per2 = discounted_per1 | divided_by: 100.00 | round: 2 %}
+                          {% assign discounted_price = variant.price | times: discounted_per2 %}
+
+                          {%- capture mainprice -%}
+							  {%-
+								render 'price-ui-templates',
+								template: 'price',
+								value: variant.price,
+							  -%}
+							{%- endcapture -%}
+
+                          {%- capture disprice -%}
+							  {%-
+								render 'price-ui-templates',
+								template: 'price',
+								value: discounted_price,
+							  -%}
+							{%- endcapture -%}
+
+                          {%- render 'price-ui-templates',
+                            template: 'price-campaign',
+                            compare_at_price: mainprice,
+                            price: disprice,
+                            unit_pricing: false
+                          -%}
+                        </div>
+                      </div>
+                    {% elsif product.tags contains product_tags and campaign_enabled %}
+                      <div
+                        class="modal_price campaign-true"
+                        data-display-savings="{{ block.settings.display_savings }}"
+                        data-display-campaign="true"
+                        data-campaign-discount="15"
+                      >
+                        <div class="price-ui price-ui--loading" data-price-ui>
+                          <noscript>
+                            <style>
+                               .price-ui--loading {
+                              display: block !important;
+                              opacity: 1 !important;
+                               }
+                            </style>
+                          </noscript>
+                          {%- assign variant = product.selected_or_first_available_variant -%}
+                          {% assign discounted_per1 = 100 | minus: campaing_discount %}
+                          {% assign discounted_per2 = discounted_per1 | divided_by: 100.00 | round: 2 %}
+                          {% assign discounted_price = variant.price | times: discounted_per2 %}
+
+                          {%- capture mainprice -%}
+							  {%-
+								render 'price-ui-templates',
+								template: 'price',
+								value: variant.price,
+							  -%}
+							{%- endcapture -%}
+
+                          {%- capture disprice -%}
+							  {%-
+								render 'price-ui-templates',
+								template: 'price',
+								value: discounted_price,
+							  -%}
+							{%- endcapture -%}
+
+                          {%- render 'price-ui-templates',
+                            template: 'price-campaign',
+                            compare_at_price: mainprice,
+                            price: disprice,
+                            unit_pricing: false
+                          -%}
+                        </div>
+                      </div>
+                    {% else %}
+                      <div
+                        class="modal_price"
+                        data-display-savings="{{ block.settings.display_savings }}"
+                        data-display-campaign="false"
+                      >
+                        {% comment %}Inject @pixelunion/shopify-price-ui/price-ui begin{% endcomment %}
+                        <div class="price-ui price-ui--loading" data-price-ui>
+                          <noscript>
+                            <style>
+                               .price-ui--loading {
+                              display: block !important;
+                              opacity: 1 !important;
+                               }
+                            </style>
+                          </noscript>
+                          {% assign compare_at_price = false %}
+
+                          {% if product.compare_at_price and product.compare_at_price != product.price %}
+                            {% if product.compare_at_price_varies %}
+                              {%- capture price_min -%}
+								{%-
+								  render 'price-ui-templates',
+								  template: 'price-min',
+								  value: product.compare_at_price_min,
+								-%}
+							  {%- endcapture -%}
+
+                              {%- capture price_max -%}
+								{%-
+								  render 'price-ui-templates',
+								  template: 'price-max',
+								  value: product.compare_at_price_max,
+								-%}
+							  {%- endcapture -%}
+
+                              {%- assign compare_at_price = 'product.price.range_html'
+                                | t: price_min: price_min, price_max: price_max
+                              -%}
+                            {% else %}
+                              {%- capture compare_at_price -%}
+								{%-
+								  render 'price-ui-templates',
+								  template: 'price',
+								  value: product.compare_at_price,
+								-%}
+							  {%- endcapture -%}
+                            {% endif %}
+                          {% endif %}
+
+                          {% if product.price_varies %}
+                            {%- capture price_min -%}
+							  {%-
+								render 'price-ui-templates',
+								template: 'price-min',
+								value: product.price_min,
+							  -%}
+							{%- endcapture -%}
+
+                            {%- capture price_max -%}
+							  {%-
+								render 'price-ui-templates',
+								template: 'price-max',
+								value: product.price_max,
+							  -%}
+							{%- endcapture -%}
+
+                            {%- assign price = 'product.price.range_html'
+                              | t: price_min: price_min, price_max: price_max
                             -%}
-                          {%- endcapture -%}
+                          {% else %}
+                            {%- capture price -%}
+							  {%-
+								render 'price-ui-templates',
+								template: 'price',
+								value: product.price,
+							  -%}
+							{%- endcapture -%}
+                          {% endif %}
 
-                          {%- capture price_max -%}
-                            {%-
-                              render 'price-ui-templates',
-                              template: 'price-max',
-                              value: product.compare_at_price_max,
-                            -%}
-                          {%- endcapture -%}
-
-                          {%- assign compare_at_price = 'product.price.range_html'
-                            | t: price_min: price_min, price_max: price_max
+                          {%- render 'price-ui-templates',
+                            template: 'price-ui',
+                            compare_at_price: compare_at_price,
+                            price: price,
+                            unit_pricing: false
                           -%}
-                        {% else %}
-                          {%- capture compare_at_price -%}
-                            {%-
-                              render 'price-ui-templates',
-                              template: 'price',
-                              value: product.compare_at_price,
-                            -%}
-                          {%- endcapture -%}
-                        {% endif %}
-                      {% endif %}
+                        </div>
 
-                      {% if product.price_varies %}
-                        {%- capture price_min -%}
-                          {%-
-                            render 'price-ui-templates',
-                            template: 'price-min',
-                            value: product.price_min,
-                          -%}
-                        {%- endcapture -%}
+                        {% comment %}Inject @pixelunion/shopify-price-ui/price-ui end{% endcomment %}
 
-                        {%- capture price_max -%}
-                          {%-
-                            render 'price-ui-templates',
-                            template: 'price-max',
-                            value: product.price_max,
-                          -%}
-                        {%- endcapture -%}
-
-                        {%- assign price = 'product.price.range_html'
-                          | t: price_min: price_min, price_max: price_max
-                        -%}
-                      {% else %}
-                        {%- capture price -%}
-                          {%-
-                            render 'price-ui-templates',
-                            template: 'price',
-                            value: product.price,
-                          -%}
-                        {%- endcapture -%}
-                      {% endif %}
-
-                      {%- render 'price-ui-templates',
-                        template: 'price-ui',
-                        compare_at_price: compare_at_price,
-                        price: price,
-                        unit_pricing: false
-                      -%}
-                    </div>
-                    {% comment %}Inject @pixelunion/shopify-price-ui/price-ui end{% endcomment %}
-
-                    <form class="payment-terms-container" data-payment-terms-target style="display: none;"></form>
-            
-                  </div>
+                        <form class="payment-terms-container" data-payment-terms-target style="display: none;"></form>
+                      </div>
+                    {% endif %}
+                  {% endif %}
                 {% endif %}
               {% endif %}
             {% when 'custom-liquid' %}
