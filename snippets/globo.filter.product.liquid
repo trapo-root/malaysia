@@ -22,7 +22,7 @@
   {% assign second_image_index        = 2 %}
   {% assign selected_or_first_available_variant = product.selected_or_first_available_variant %}
   {% assign variant_url = '' %}
-    {% if show_selected_variant_info %}
+    {% if show_selected_variant_info and product.selected_variant %}
     {% assign selected_or_first_available_variant = product.selected_variant %}
     {% assign product_price             = selected_or_first_available_variant.price %}
     {% assign product_compare_at_price  = selected_or_first_available_variant.compare_at_price %}
