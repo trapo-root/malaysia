@@ -88,6 +88,7 @@
   </div>
 </section>
 
+
 <section class="warranty_coverage">
   <div class="sec_heading">
       <h2 class="sec_title">warranty coverage</h2>
@@ -121,6 +122,71 @@
             <p>Re-coat after accidents. Restores damaged areas</p>
           </div>
       </div>
+  </div>
+</section>
+
+<section class="paint_currection ">
+  <div class="container">
+    <div class="des_view">
+      <div class="sec_header">
+          <h2>differences between 1 step & 2 step PAINT correction</h2>
+      </div>
+      <div class="paint_currection_wrap">
+          <div class="top">
+              <div class="img_wrap">
+                <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_2_3221d264-c642-4894-b4e6-b089b75166d6.png?v=1729096075" />
+                <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1_acc27cb0-4e81-4d56-8699-80b29d721b16.png?v=1729096075" />
+              </div>
+          </div>
+        <div class="middle">
+            <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_6_a6be275f-5388-4d8a-8c18-0079de12f144.png?v=1729096074" />
+        </div>
+        <div class="bottom">
+            <ul class="item">
+              <li>Single-stage polishing</li>
+              <li>Effectively removes light scratches, swirl marks, and oxidation</li>
+              <li>A faster, less intensive process</li>
+              <li>Corrects minor imperfections, delivering moderate results</li>
+            </ul>
+            <ul class="item">
+              <li>Two-stage polishing</li>
+              <li>Eliminates deeper scratches and defects</li>
+              <li>Advanced polishing that enhances gloss to a superior level</li>
+              <li>A longer, more detailed process</li>
+              <li>Provides thorough correction for a flawless finish</li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mobile_view">
+      <div class="sec_header">
+          <h2>differences between 1 step & 2 step PAINT correction</h2>
+      </div>
+      <div class="paint_currection_wrap">
+        <div class="img_wrap">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_4.png?v=1729096074" />
+        </div>
+        <ul class="item">
+          <div class="img_wrap">
+              <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_5_5f459ebd-38ef-40b1-a876-a1a2d4bdf5f9.png?v=1729096074" />
+          </div>
+          <li>Single-stage polishing</li>
+          <li>Effectively removes light scratches, swirl marks, and oxidation</li>
+          <li>A faster, less intensive process</li>
+          <li>Corrects minor imperfections, delivering moderate results</li>
+        </ul>
+        <ul class="item">
+          <div class="img_wrap">
+              <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_7_77b431d4-0704-4d0d-9df2-169af9c539f7.png?v=1729096074" />
+          </div>
+          <li>Two-stage polishing</li>
+          <li>Eliminates deeper scratches and defects</li>
+          <li>Advanced polishing that enhances gloss to a superior level</li>
+          <li>A longer, more detailed process</li>
+          <li>Provides thorough correction for a flawless finish</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -186,7 +252,41 @@
   </ul>
 </section>
 <style>
-
+.paint_currection{
+    box-shadow: 3px 4px 6px 0px #00000040;
+    background: linear-gradient(180deg, #DEDEDE 0%, rgba(120, 120, 120, 0.1) 100%);
+    padding: 40px;
+    margin-bottom: 70px;
+    border-radius: 12px;
+}
+  .paint_currection .sec_header h2{
+    margin: 0 0 30px;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 5px;
+    line-height: 28px;
+    font-weight: 700;
+    text-transform: uppercase
+}
+.paint_currection_wrap .top{
+    margin-bottom: 10px;
+}
+.paint_currection_wrap :is(.top .img_wrap, .bottom){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:64px
+}
+.paint_currection_wrap img{
+    display: block;
+    width: 100%;
+}
+.paint_currection_wrap ul{
+    padding: 0
+}
+.paint_currection_wrap .bottom{
+    padding-left: 5%;
+    margin-top: 10px
+}
   .best_for_sec{
     background-color: #F8F8F8;
     padding:20px;
@@ -519,6 +619,9 @@
 }
 
 @media(max-width:767px){
+  .des_view{
+    display:none
+  }
   .warranty_coverage p{
     width: 100%;
         font-size: 12px;
@@ -616,21 +719,22 @@
     margin-inline: -20px;
     padding:25px 0
   }
+  .paint_currection{
+    padding: 20px;
+}
+.paint_currection .item .img_wrap{
+    margin-inline:-20px;
+    margin-bottom: 20px;
+}
+.paint_currection .item li{
+    margin: 0 0 3px 20px;
+}
+.paint_currection .sec_header h2{
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 20px
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 </style>
