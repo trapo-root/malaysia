@@ -471,7 +471,7 @@
               {% endif %}
             {% when 'text' %}
               <div class="product-text">
-                {% if product.tags contains 'model:M6' and product.tags contains 'pre-order' %}
+                {% if product.tags contains 'model:M6' or product.tags contains 'model:G6' %}
                   <p>(Ships out in 3 working days)</p>
                 {% else %}
                   {{ block.settings.text }}
