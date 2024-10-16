@@ -114,7 +114,7 @@
                   {% if product.type == 'TRAPO ECO' %}
                     <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
                     <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.75 | money }}</span>
-                  {% elsif product.tags contains 'model:M6' %}
+                  {% elsif product.tags contains 'model:M6' or product.tags contains 'model:G6' %}
                     <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
                     <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.85 | money }}</span>
                   {% elsif product.tags contains 'bundle-15' %}
