@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "enable_campaign": true,
@@ -22,7 +22,7 @@
     "headline_color": "#1b3d6d",
     "headline_footer_text_color": "#ffffff",
     "sub_footer_text_color": "#ffffff",
-    "sale_color": "#e82276",
+    "sale_color": "#ee2a7b",
     "was_price_color": "#8c8b8b",
     "promo_text_color": "#ffffff",
     "shop_home_page_content_text_color": "#363636",
@@ -33,14 +33,14 @@
     "nav_color": "#d9d9d9",
     "nav_color_home": "#d9d9d9",
     "nav_color_hover": "#ffffff",
-    "link_color": "#e82276",
+    "link_color": "#ee2a7b",
     "link_hover_color": "#1b3d6d",
     "sidebar_nav_color": "#363636",
     "sidebar_nav_color_hover": "#03a196",
     "sub_footer_link_color": "#ffffff",
     "sub_footer_link_color_hover": "#ffffff",
-    "btn_color": "#e82276",
-    "btn_hover_color": "#e82276",
+    "btn_color": "#ee2a7b",
+    "btn_hover_color": "#ee2a7b",
     "btn_text_color": "#ffffff",
     "button_style": "rounded",
     "read_more_style": "button",
@@ -150,7 +150,7 @@
     "newsletter_bg": "",
     "newsletter_popup_image_align": "left",
     "newsletter_popup_title": "Sign up today",
-    "newsletter_popup_text": "<p><\/p>",
+    "newsletter_popup_text": "<p></p>",
     "newsletter_popup_text_align": "center",
     "newsletter_popup_seconds": 0,
     "newsletter_popup_days": "14",
@@ -178,7 +178,7 @@
     "vimeo_link": "",
     "whatsapp_link": "",
     "youtube_link": "",
-    "favicon": "shopify:\/\/shop_images\/favicon.png",
+    "favicon": "shopify://shop_images/favicon.png",
     "disqus_enabled": false,
     "disqus_shortname": "",
     "enable_shopify_review_comments": false,
@@ -193,7 +193,7 @@
           "display_first_name": false,
           "display_last_name": false,
           "newsletter_title": "Subscribe",
-          "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …<\/p>",
+          "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …</p>",
           "newsletter_section_text_align": "center",
           "css_class": "",
           "custom_css": ""
@@ -205,50 +205,50 @@
     ],
     "blocks": {
       "10112818894266855621": {
-        "type": "shopify:\/\/apps\/ufe-cross-sell-upsell-bundle\/blocks\/app-embed\/588d2ac5-62f3-4ccd-8638-da98ec61fa90",
+        "type": "shopify://apps/ufe-cross-sell-upsell-bundle/blocks/app-embed/588d2ac5-62f3-4ccd-8638-da98ec61fa90",
         "disabled": false,
         "settings": {
         }
       },
       "6707720970142525307": {
-        "type": "shopify:\/\/apps\/wowcart-slide-cart-drawer\/blocks\/app-embed\/4937864d-0d20-45b2-9969-e04d09531787",
+        "type": "shopify://apps/wowcart-slide-cart-drawer/blocks/app-embed/4937864d-0d20-45b2-9969-e04d09531787",
         "disabled": false,
         "settings": {
         }
       },
       "9670189827046205946": {
-        "type": "shopify:\/\/apps\/hextom-translate-and-currency\/blocks\/app-block\/b927a799-be04-4b97-9efb-5c8f0290a68e",
+        "type": "shopify://apps/hextom-translate-and-currency/blocks/app-block/b927a799-be04-4b97-9efb-5c8f0290a68e",
         "disabled": false,
         "settings": {
         }
       },
       "4918592460924562117": {
-        "type": "shopify:\/\/apps\/optimonk-popup-cro-a-b-test\/blocks\/app-embed\/0b488be1-fc0a-4fe6-8793-f2bef383dba8",
+        "type": "shopify://apps/optimonk-popup-cro-a-b-test/blocks/app-embed/0b488be1-fc0a-4fe6-8793-f2bef383dba8",
         "disabled": false,
         "settings": {
         }
       },
       "6544724514127332554": {
-        "type": "shopify:\/\/apps\/go-gift-cards\/blocks\/app-embed\/3676fc08-8fa0-4857-baf6-8c6e28f899dc",
+        "type": "shopify://apps/go-gift-cards/blocks/app-embed/3676fc08-8fa0-4857-baf6-8c6e28f899dc",
         "disabled": false,
         "settings": {
         }
       },
       "733389323033596483": {
-        "type": "shopify:\/\/apps\/okendo\/blocks\/theme-settings\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+        "type": "shopify://apps/okendo/blocks/theme-settings/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
         "disabled": false,
         "settings": {
           "show_preview_data": true
         }
       },
       "319724205969189013": {
-        "type": "shopify:\/\/apps\/hulk-form-builder\/blocks\/app-embed\/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+        "type": "shopify://apps/hulk-form-builder/blocks/app-embed/b6b8dd14-356b-4725-a4ed-77232212b3c3",
         "disabled": false,
         "settings": {
         }
       },
       "6412501105843178657": {
-        "type": "shopify:\/\/apps\/loyalty-rewards-and-referrals\/blocks\/embed-main\/6f172e67-4106-4ac0-89c5-b32a069b3101",
+        "type": "shopify://apps/loyalty-rewards-and-referrals/blocks/embed-main/6f172e67-4106-4ac0-89c5-b32a069b3101",
         "disabled": false,
         "settings": {
           "primary_color": "#4d384b",
@@ -263,7 +263,7 @@
         }
       },
       "4291333794791649201": {
-        "type": "shopify:\/\/apps\/loyalty-rewards-and-referrals\/blocks\/embed-sdk\/6f172e67-4106-4ac0-89c5-b32a069b3101",
+        "type": "shopify://apps/loyalty-rewards-and-referrals/blocks/embed-sdk/6f172e67-4106-4ac0-89c5-b32a069b3101",
         "disabled": false,
         "settings": {
           "disableBundledCSS": false,
@@ -272,25 +272,25 @@
         }
       },
       "14327677521557774844": {
-        "type": "shopify:\/\/apps\/simprosys-google-shopping-feed\/blocks\/core_settings_block\/1f0b859e-9fa6-4007-97e8-4513aff5ff3b",
+        "type": "shopify://apps/simprosys-google-shopping-feed/blocks/core_settings_block/1f0b859e-9fa6-4007-97e8-4513aff5ff3b",
         "disabled": false,
         "settings": {
         }
       },
       "5059203847231188605": {
-        "type": "shopify:\/\/apps\/smart-product-filter-search\/blocks\/app-embed\/5cc1944c-3014-4a2a-af40-7d65abc0ef73",
+        "type": "shopify://apps/smart-product-filter-search/blocks/app-embed/5cc1944c-3014-4a2a-af40-7d65abc0ef73",
         "disabled": false,
         "settings": {
           "productGridSelector": "",
           "useCustomQuickviewTemplate": false,
           "customJs": "window.mobile_break_point = 10;\nwindow.mobileSearchNormalLayout;",
           "customCss": "",
-          "customProductTemplateLoader": "{%- capture productTemplate -%}{% render 'globo.filter.product', themeTranslation: shop.metafields.globoFilter.themeTranslation.value[request.locale.iso_code] %}{%- endcapture -%}{%- unless productTemplate contains 'Liquid error' -%}<script id=\"gspfProduct\" type=\"template\/html\">{{- productTemplate | replace: \"script>\", \"scripttag>\" -}}<\/script>{%- endunless -%}",
-          "customTreeTemplateLoader": "{%- capture treeTemplate -%}{% render 'globo.filter.tree' %}{%- endcapture -%}{%- unless treeTemplate contains 'Liquid error' -%}<script id=\"gspfFilterTree\" type=\"template\/html\">{{- treeTemplate | replace: \"script>\", \"scripttag>\" -}}<\/script>{%- endunless -%}",
-          "customSortTemplateLoader": "{%- capture sortTemplate -%}{% render 'globo.filter.sort' %}{%- endcapture -%}{%- unless sortTemplate contains 'Liquid error' -%}<script id=\"gspfFilterSort\" type=\"template\/html\">{{- sortTemplate | replace: \"script>\", \"scripttag>\" -}}<\/script>{%- endunless -%}",
-          "customSearchTemplateLoader": "{%- capture searchTemplate -%}{% render 'globo.filter.search' %}{%- endcapture -%}{%- unless searchTemplate contains 'Liquid error' -%}<script id=\"gspfSearchResult\" type=\"template\/html\">{{- searchTemplate | replace: \"script>\", \"scripttag>\" -}}<\/script>{%- endunless -%}",
-          "customPaginationTemplateLoader": "{%- capture paginationTemplate -%}{% render 'globo.filter.pagination' %}{%- endcapture -%}{%- unless paginationTemplate contains 'Liquid error' -%}<script id=\"gspfPagination\" type=\"template\/html\">{{- paginationTemplate | replace: \"script>\", \"scripttag>\" -}}<\/script>{%- endunless -%}",
-          "customYMMTemplateLoader": "{%- capture YMMTemplate -%}{% render 'globo.filter.form' %}{%- endcapture -%}{%- unless YMMTemplate contains 'Liquid error' -%}<script id=\"gspfForm\" type=\"template\/html\">{{- YMMTemplate | replace: \"script>\", \"scripttag>\" -}}<\/script>{%- endunless -%}"
+          "customProductTemplateLoader": "{%- capture productTemplate -%}{% render 'globo.filter.product', themeTranslation: shop.metafields.globoFilter.themeTranslation.value[request.locale.iso_code] %}{%- endcapture -%}{%- unless productTemplate contains 'Liquid error' -%}<script id=\"gspfProduct\" type=\"template/html\">{{- productTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
+          "customTreeTemplateLoader": "{%- capture treeTemplate -%}{% render 'globo.filter.tree' %}{%- endcapture -%}{%- unless treeTemplate contains 'Liquid error' -%}<script id=\"gspfFilterTree\" type=\"template/html\">{{- treeTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
+          "customSortTemplateLoader": "{%- capture sortTemplate -%}{% render 'globo.filter.sort' %}{%- endcapture -%}{%- unless sortTemplate contains 'Liquid error' -%}<script id=\"gspfFilterSort\" type=\"template/html\">{{- sortTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
+          "customSearchTemplateLoader": "{%- capture searchTemplate -%}{% render 'globo.filter.search' %}{%- endcapture -%}{%- unless searchTemplate contains 'Liquid error' -%}<script id=\"gspfSearchResult\" type=\"template/html\">{{- searchTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
+          "customPaginationTemplateLoader": "{%- capture paginationTemplate -%}{% render 'globo.filter.pagination' %}{%- endcapture -%}{%- unless paginationTemplate contains 'Liquid error' -%}<script id=\"gspfPagination\" type=\"template/html\">{{- paginationTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
+          "customYMMTemplateLoader": "{%- capture YMMTemplate -%}{% render 'globo.filter.form' %}{%- endcapture -%}{%- unless YMMTemplate contains 'Liquid error' -%}<script id=\"gspfForm\" type=\"template/html\">{{- YMMTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}"
         }
       }
     }
