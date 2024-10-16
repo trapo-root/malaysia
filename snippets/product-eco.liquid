@@ -476,7 +476,11 @@
               {% endif %}
             {% when 'text' %}
               <div class="product-text">
-                {{ block.settings.text }}
+                {% if product.tags contains 'model:M6' or product.tags contains 'model:G6' %}
+                  <p>(Ships out in 3 working days)</p>
+                {% else %}
+                  {{ block.settings.text }}
+                {% endif %}
               </div>
             {% when 'product-links' %}
               {% if block.settings.show_collections or block.settings.show_types or block.settings.show_tags %}
