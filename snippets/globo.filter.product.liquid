@@ -124,11 +124,11 @@
                     <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
                     <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.80 | money }}</span>
                   {% else %}
-                    {% if product_compare_at_price > product_price %}
-                    <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_compare_at_price | money }}</span>
-                    <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
+                    {% if selected_or_first_available_variant.compare_at_price > selected_or_first_available_variant.price %}
+                    <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ selected_or_first_available_variant.compare_at_price | money }}</span>
+                    <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ selected_or_first_available_variant.price | money }}</span>
                     {% else %}
-                    <span class="spf-product-card__price{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
+                    <span class="spf-product-card__price{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ selected_or_first_available_variant.price | money }}</span>
                     {% endif %}
                   {% endif %}
                   
