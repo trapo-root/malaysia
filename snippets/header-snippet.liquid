@@ -1988,11 +1988,15 @@
          }
        }
        .fixed:not(.ly-switcher-wrapper) {
-       position: fixed;
-       top:0; left:0;
-       width: 100%;
-       z-index:9999;
-       }
+            position: fixed;
+            width: 100%;
+            z-index: 9999;
+            animation: slide-down .5s linear;
+        }
+        @-webkit-keyframes slide-down {
+              0% { opacity: 0; -webkit-transform: translateY(-100%); }   
+            100% { opacity: 1; -webkit-transform: translateY(0); }
+        }
       .ly-switcher-wrapper.fixed.top_left, .ly-switcher-wrapper.absolute.top_left{
         top: unset !important;
         left: unset !important;
