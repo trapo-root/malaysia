@@ -104,6 +104,8 @@
 
     <div class="spf-product__info">      <div class="h4 spf-product-card__title">
         <a translatable href="{{root_url}}{{ product.url }}{{variant_url}}">{{product.title}}</a>
+              </div>
+
       {% if product.tags contains 'online-detailing' %}
         <a href="/pages/
           {% if product.handle == 'trapo-crystal-window-tint' %}
@@ -115,7 +117,6 @@
           {% endif %}
           ">Learn More</a>
       {% endif %}
-              </div>
 
 {% comment %}<div class="ruk_rating_snippet" data-sku="{{ product.variants | map: 'sku' | join: ';' }}"></div>{% endcomment %}
       
