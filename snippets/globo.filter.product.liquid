@@ -104,6 +104,17 @@
 
     <div class="spf-product__info">      <div class="h4 spf-product-card__title">
         <a translatable href="{{root_url}}{{ product.url }}{{variant_url}}">{{product.title}}</a>
+      {% if product.tags contains 'online-detailing' %}
+        <a href="/pages/
+          {% if product.handle == 'trapo-crystal-window-tint' %}
+            trapo-car-tint
+          {% elsif product.handle == 'trapo-ppf-paint-protection-film' %}
+            trapo-ppf
+          {% elsif product.handle == 'trapo-quik-shield-car-coating' %}
+            trapo-car-coating
+          {% endif %}
+          ">Learn More</a>
+      {% endif %}
               </div>
 
 {% comment %}<div class="ruk_rating_snippet" data-sku="{{ product.variants | map: 'sku' | join: ';' }}"></div>{% endcomment %}
