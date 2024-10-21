@@ -107,15 +107,13 @@
               </div>
 
       {% if product.tags contains 'online-detailing' %}
-        <a href="/pages/
           {% if product.handle == 'trapo-crystal-window-tint' %}
-            trapo-car-tint
+             <a href="/pages/trapo-car-tint">Learn More</a>
           {% elsif product.handle == 'trapo-ppf-paint-protection-film' %}
-            trapo-ppf
+            <a href="/pages/trapo-ppf">Learn More</a>
           {% elsif product.handle == 'trapo-quik-shield-car-coating' %}
-            trapo-car-coating
+            <a href="/pages/trapo-car-coating">Learn More</a>
           {% endif %}
-          ">Learn More</a>
       {% endif %}
 
 {% comment %}<div class="ruk_rating_snippet" data-sku="{{ product.variants | map: 'sku' | join: ';' }}"></div>{% endcomment %}
