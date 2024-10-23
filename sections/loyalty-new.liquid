@@ -5,10 +5,12 @@
     <div class="text-center">
       <img data-src="https://cdn.shopify.com/s/files/1/0332/5801/2811/files/Trapo_Loyalty_Logo_1.png" class="lazyload img-size" width="500">    
     </div>
+     {% unless customer %}
     <div class="call-to-action">    
         <a href="/account/register" class="lion-action-button lion-action-button--primary lp-button">Sign up</a>
         <a href="/account/login" class="lion-action-button lion-action-button--neutral lp-button">Log in</a>
     </div>
+      {% endunless %}
   </div>
 </section>
 <section class="why-should-i-join">
