@@ -190,7 +190,7 @@
                 {% else %}
                   <!-- Start Campaign Logic -->
 
-                  {% if product.tags contains 'model:M6' %}
+                  {% if product.tags contains 'model:M6' or product.tags contains 'model:G6' %}
                      
                     {% liquid
                       assign campaign_enabled = true
@@ -753,6 +753,19 @@
     {{ product_tabs }}
   </div>
 {% endif %}
+
+{% if product.type == 'WIPER' %}
+  <div class="sixteen columns">
+    {% render 'wiper-description' %}
+  </div>
+{% endif %}
+
+
+<div class="sixteen columns">
+  <div class="shopify-reviews reviewsVisibility--{{settings.enable_shopify_review_comments}}">
+    <div data-oke-reviews-widget data-oke-reviews-product-id="shopify-{{ product.id }}"></div>
+  </div>
+</div>
 
 {% if set_product_height %}
   {% style %}
