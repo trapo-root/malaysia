@@ -716,6 +716,10 @@
   <div class="sixteen columns">
     {% render 'ppf-description' %}
   </div>
+{% elsif product.tags contains 'trapo-watermark-removal' %}
+  <div class="sixteen columns">
+    {% render 'watermark-removal-description' %}
+  </div>
 {% endif %}
 
 <div class="sixteen columns">
