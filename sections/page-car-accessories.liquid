@@ -1,6 +1,111 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+<div class="page-car-accessories container">
+  <h1>Car Accessories</h1>
+   <div class="grid-container">
+        <div class="grid-item">
+            <a href="/products/car-hydrophobic-wiper-blade-refill">
+            <img class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/1-wiper-refill.png?v=1729681435" alt="Wiper Refill">
+            <p>Wiper Refill</p>
+            </a>
+        </div>
+        <div class="grid-item">
+          <a href="/collections/car-charger">
+            <img class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/2-car-charger.png?v=1729681435" alt="Car Chargers & Cables">
+            <p>Car Chargers & Cables</p>
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="/products/trapo-premium-motion-sensor-car-air-purifier">
+            <img class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/3-air-purifier.png?v=1729681435" alt="Air Purifiers">
+            <p>Air Purifiers</p>
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="/collections/car-phone-holders">
+            <img class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/4-phoneholders.png?v=1729681439" alt="Phone Holders">
+            <p>Phone Holders</p>
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="/collections/car-wipers">
+            <img class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/5-wipers.png?v=1729681435" alt="Wipers">
+            <p>Wipers</p>
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="/collections/car-mats">
+            <img class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/6-carmats.png?v=1729681436" alt="Car Mats">
+            <p>Car Mats</p>
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="/collections/car-dash-cams">
+            <img class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/7-dashcams.png?v=1729681435" alt="Dashcams">
+            <p>Dashcams</p>
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="/collections/car-accessories">
+            <img class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/8-others.png?v=1729681436" alt="Others">
+            <p>Others</p>
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="/collections/bundle">
+            <img class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/9-cleaning-kits.png?v=1729681435" alt="Cleaning Kits">
+            <p>Cleaning Kits</p>
+          </a>
+        </div>
+    </div>
+</div>
+<style>
+  .page-car-accessories.container{
+    width: 100%;
+    margin: 0 auto;
+    display: block;
   }
-{% endschema %}
+  .page-car-accessories h1{
+    color:#1B3D6D;
+    color: #1B3D6D;
+    text-align: center;
+    font-size: 30px;
+    line-height: 35px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+        margin-top: 20px;
+    margin-bottom: 25px;
+  }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .grid-item {
+            text-align: center;
+        }
+        .grid-item img {
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .grid-item p {
+            font-weight: 400;
+    background: #DEDEDE;
+    margin: 0;
+    padding: 15px 0;
+    line-height: normal;
+    color: #222222;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+        }
+        
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+          .grid-item p{
+                padding: 10px 0;
+            font-size: 15px;
+          }
+        }
+</style>
