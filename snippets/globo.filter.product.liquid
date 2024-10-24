@@ -84,7 +84,22 @@
           {% endfor %}
         </select>
                       </form>
-      
+     {% comment %} {% if product.handle == 'trapo-premium-microfiber' %}
+      <div class="offer-sec">
+        <p class="offer-title">BUY 2, GET 1 FREE!</p>
+        <!--<div class="get_off_img"> <strong class="">Use Code</strong> <div> <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/offer_icon_938fdd41-2f8e-45c8-9e87-07d1f063cb34.png?v=1720708542" alt=""> <span>FREECLOTH</span></div></div>-->
+      </div>
+      {% endif %}
+      {% if product.handle == 'star-wars-car-phone-holder-storm-trooper' or product.handle == 'starwars-car-phone-holder-darth-vader' %}
+        <div class="offer-sec">
+        <p class="offer-title">SAVE 63%</p>
+      </div>
+      {% endif %}
+      {% if product.handle == 'star-wars-diatomite-car-coaster'  %}
+       <div class="offer-sec">
+        <p class="offer-title">SAVE 72%</p>
+      </div>
+      {% endif %}{% endcomment %}
     </div>
 
     <div class="spf-product__info">      <div class="h4 spf-product-card__title">
