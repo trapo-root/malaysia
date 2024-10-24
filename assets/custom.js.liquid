@@ -284,6 +284,7 @@ $(document).ready(function(){
 	function onload() {
 		
 		if ($(".modal_price").data('display-campaign')) {
+            $('span.savings').remove();
 		    var timeonload = setInterval(function() {
 				//console.log("onload function calling .....");
 				var salePer = $(".modal_price").data('campaign-discount');
@@ -301,12 +302,16 @@ $(document).ready(function(){
 				$(".modal_price").find(".price .money").html(final);
 				$(".footer-p-price").find(".money").html(final);
 				//console.log(final);
+                var savingText = "(SAVE "+ salePer +"%)";
+                var newElement = $('<span class="savings">'+savingText+'</span>');
+                $(".price-ui").after(newElement);
 			}, 1000);
 		}
 	}
 	
 	// Change price on varient selection - Start 
 	if ($(".modal_price").data('display-campaign')) {
+        $('span.savings').remove();
 		$(document).on("click", ".swatch-element", function() {
 			setTimeout(function() {
 				//onload();
@@ -323,6 +328,9 @@ $(document).ready(function(){
 					$(".modal_price").find(".price .money").html(final);
 					$(".footer-p-price").find(".money").html(final);
 					//console.log(final);
+                    var savingText = "(SAVE "+ salePer +"%)";
+                    var newElement = $('<span class="savings">'+savingText+'</span>');
+                    $(".price-ui").after(newElement);
 			}, 200);
 		});
 	}
