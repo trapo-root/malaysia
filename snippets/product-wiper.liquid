@@ -754,7 +754,11 @@
   </div>
 {% endif %}
 
-{% if product.type == 'WIPER' %}
+{% if product.type == 'WIPER' and product.tags contains 'wiper-rear' %}
+  <div class="sixteen columns">
+    {% render 'rear-description' %}
+  </div>
+{% else %}
   <div class="sixteen columns">
     {% render 'wiper-description' %}
   </div>
