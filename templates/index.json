@@ -12,6 +12,25 @@
     "e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8": {
       "type": "slideshow",
       "blocks": {
+        "image_CJzXfp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Car_Detailing_Banner_-_Desktop.jpg",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "shopify://collections/detailing-online",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original",
+            "mobile_image": "shopify://shop_images/Car-detailing-banner-mobile.jpg"
+          }
+        },
         "image_PyPQbh": {
           "type": "image",
           "settings": {
@@ -166,28 +185,10 @@
             "caption_content_background": "original",
             "mobile_image": "shopify://shop_images/loyalty_extendWarranty_mobile_1080x1080_136af7b5-faff-491f-82ab-676ada810ace.jpg"
           }
-        },
-        "image_CJzXfp": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Car_Detailing_Banner_-_Desktop.jpg",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://collections/detailing-online",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/Car-detailing-banner-mobile.jpg"
-          }
         }
       },
       "block_order": [
+        "image_CJzXfp",
         "image_PyPQbh",
         "image_DXyUMG",
         "image_NYgbG4",
@@ -195,8 +196,7 @@
         "image_yDRQaC",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2",
         "image_MandM9",
-        "image_KptQ6p",
-        "image_CJzXfp"
+        "image_KptQ6p"
       ],
       "settings": {
         "wide_display": true,
