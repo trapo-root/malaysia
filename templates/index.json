@@ -31,25 +31,6 @@
             "mobile_image": "shopify://shop_images/1080x1080_8b9511af-3bd9-4df3-a847-998b3d81da6e.jpg"
           }
         },
-        "image_b8rfFH": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Slider-Web_ad7a5cab-6828-49c6-80e5-f65dfc3ad6b7.jpg",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://collections/byd-m6-7-seater-2024-present",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/Slider-Mobile_5c3c72d3-1868-492d-b746-46e1516fe91e.jpg"
-          }
-        },
         "image_DXyUMG": {
           "type": "image",
           "settings": {
@@ -86,25 +67,6 @@
             "text_align": "center",
             "caption_content_background": "original",
             "mobile_image": "shopify://shop_images/Heat_Wiper-Mob.jpg"
-          }
-        },
-        "image_mgiWca": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2000x760_963de926-2c37-4a0b-a3d8-53b2e66fb82b.jpg",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://pages/car-mats",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/1080x1080_81581a14-a6d3-4cf3-a981-2146d9faa77d.jpg"
           }
         },
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-1": {
@@ -204,19 +166,37 @@
             "caption_content_background": "original",
             "mobile_image": "shopify://shop_images/loyalty_extendWarranty_mobile_1080x1080_136af7b5-faff-491f-82ab-676ada810ace.jpg"
           }
+        },
+        "image_CJzXfp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Car_Detailing_Banner_-_Desktop.jpg",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "shopify://collections/detailing-online",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original",
+            "mobile_image": "shopify://shop_images/Car-detailing-banner-mobile.jpg"
+          }
         }
       },
       "block_order": [
         "image_PyPQbh",
-        "image_b8rfFH",
         "image_DXyUMG",
         "image_NYgbG4",
-        "image_mgiWca",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-1",
         "image_yDRQaC",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2",
         "image_MandM9",
-        "image_KptQ6p"
+        "image_KptQ6p",
+        "image_CJzXfp"
       ],
       "settings": {
         "wide_display": true,
