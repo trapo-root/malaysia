@@ -253,11 +253,7 @@
                             unit_pricing: false
                           -%}
                         </div>
-                        {% assign compareprice = variant.price | divided_by: 100 %}
-                        {% assign actualprice = discounted_price %}
-                        {% assign save_amount = variant.price | minus: actualprice | divided_by: 100 %}
-                        {% assign save_percentage = save_amount | times: 100 | divided_by: compareprice | round: 0 %}
-                        <p class="savings">(Save {{ save_percentage }}%)</p>
+                        
                       </div>
 
                     {% else %}
@@ -354,16 +350,7 @@
                         {% comment %}Inject @pixelunion/shopify-price-ui/price-ui end{% endcomment %}
 
                         <form class="payment-terms-container" data-payment-terms-target style="display: none;"></form>
-                        {% if product.compare_at_price > product.price %}
-                          {% assign save_amount = product.compare_at_price | minus: product.price %}
-                          {% assign save_percentage = save_amount
-                            | times: 100.0
-                            | divided_by: product.compare_at_price
-                            | round: 0
-                          %}
-
-                          <p class="savings">(Save {{ save_percentage }}%)</p>
-                        {% endif %}
+                        
                       </div>
                     {% endif %}
                   {% endif %}
