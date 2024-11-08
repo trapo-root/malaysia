@@ -202,7 +202,7 @@
         "wide_display": true,
         "slideshow_text_animation": "fadeInDown",
         "slideshow_animation": "slide",
-        "slideshow_speed": 1,
+        "slideshow_speed": 5,
         "activate_adaptiveHeight": true,
         "mobile_text_below_image": false,
         "mobile_text_color": "",
