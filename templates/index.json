@@ -202,7 +202,7 @@
         "wide_display": true,
         "slideshow_text_animation": "fadeInDown",
         "slideshow_animation": "slide",
-        "slideshow_speed": 0,
+        "slideshow_speed": 1,
         "activate_adaptiveHeight": true,
         "mobile_text_below_image": false,
         "mobile_text_color": "",
@@ -212,8 +212,7 @@
     },
     "50451f34-5d6e-4881-bcce-4f9b847533b6": {
       "type": "homepage-main",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
