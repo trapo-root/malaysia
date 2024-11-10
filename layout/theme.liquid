@@ -510,7 +510,7 @@
   {% if template contains 'cart' %}
       {% include 'fatmedia-cart' %}
   {% endif %}
-  {% if product.type == 'Promotional' or page.handle == 'cart' %}
+  {% if product.type == 'Promotional' or template  == 'cart' %}
     <script>
       window.location = '/';
     </script>
