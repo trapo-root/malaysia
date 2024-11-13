@@ -92,7 +92,9 @@
     <div class="item">
       <h2>OUR WARRANTY</h2>
       <p>
-        Our Car PPF Films come with 7-Year comprehensive warranty coverage. This warranty covers yellowing, cracking, reduced glossiness, and glue residue upon removal. To ensure your PPF film performs optimally and maintains its protective qualities, regular maintenance is essential.
+        Our Car PPF Films come with 7-Year comprehensive warranty coverage. This warranty covers yellowing, cracking,
+        reduced glossiness, and glue residue upon removal. To ensure your PPF film performs optimally and maintains its
+        protective qualities, regular maintenance is essential.
       </p>
     </div>
     <div class="item">
@@ -208,8 +210,12 @@
     <div class="top">
       <h3>Starting from</h3>
       <h1>RM 2900 ONLY!*</h1>
-      <!--<p>Get full info of our Trapo PPF price and spec list here:</p>-->
-      <p>Explore ala carte prices from <a href="/products/trapo-ppf-paint-protection-film"><strong>ONLY RM90</strong> <span>here</span></a>.Interested to know more? Get our comprehensive brochure for more information today.</p>
+      <!-- <p>Get full info of our Trapo PPF price and spec list here:</p> -->
+      <p>
+        Explore ala carte prices from
+        <a href="/products/trapo-ppf-paint-protection-film"><strong>ONLY RM90</strong> <span>here</span></a
+        >.Interested to know more? Get our comprehensive brochure for more information today.
+      </p>
       <script
         src="//latest.trapo.asia/resources/sharing/embed.js?sharing=lp-embed&domain=latest.trapo.asia&id=5FL1-BPY%2Fppfmagnet%22&description="
       ></script>
@@ -270,7 +276,7 @@
   </div>
 </section>
 
-<section class="blog_post_container tint_service_blk">
+<section class="blog_post_container tint_service_blk" id="warranty-section">
   <div class="tint_service_tab">
     <ul id="tabs-nav">
       <li><a class="active" href="#tab1">FAQ</a></li>
@@ -1262,4 +1268,27 @@
             $(activeTab).fadeIn();
             return false;
         });
+
+  $(window).on('load', function () {
+      // Get the section ID from URL parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const sectionId = urlParams.get('section');
+  //console.log(sectionId);
+      if (sectionId) {
+        // Find the section element
+        const $section = $('#' + sectionId);
+
+        $('#tabs-nav li').removeClass('active');
+        $('#tabs-nav li:nth-child(2)').addClass('active');
+        $('.tab-content').hide();
+        $('#tab2').fadeIn();
+
+        if ($section.length) {
+          // Smooth scroll to the section
+          $('html, body').animate({
+            scrollTop: $section.offset().top + 100
+          }, 2000); // 1000ms = 1 second duration
+        }
+      }
+    });
 </script>
