@@ -1400,60 +1400,78 @@
 </script>
 
 <script>
-  $('.cstmr_row').slick({
-          dots: false,
-          infinite: true,
-    autoplay: true,
-    autoplaySpeed: 1000,
-          speed: 300,
-          slidesToShow: 5,
-          slidesToScroll: 1,
-          prevArrow: '<button class="slide-arrow prev-arrow"></button>',
-          nextArrow: '<button class="slide-arrow next-arrow"></button>',
-          responsive: [
-              {
-              breakpoint: 1024,
-              settings: {
-                  slidesToShow: 3
-              }
-              },
-              {
-              breakpoint: 600,
-              settings: {
-                  slidesToShow: 2
-              }
-              }
-          ]
-      });
-  $('.modal-toggle1').on('click', function(e) {
-    e.preventDefault();
-    $('.model-1').toggleClass('is-visible');
-  });
-  $('.modal-toggle2').on('click', function(e) {
-    e.preventDefault();
-    $('.model-2').toggleClass('is-visible');
-  });
-  $('.modal-toggle3').on('click', function(e) {
-    e.preventDefault();
-    $('.model-3').toggleClass('is-visible');
-  });
-  $('.modal-toggle4').on('click', function(e) {
-    e.preventDefault();
-    $('.model-4').toggleClass('is-visible');
-  });
-  $('.modal-toggle5').on('click', function(e) {
-    e.preventDefault();
-    $('.model-5').toggleClass('is-visible');
-  });
-  $('#tabs-nav li:first-child').addClass('active');
-        $('.tab-content').hide();
-        $('.tab-content:first').show();
-        $('#tabs-nav li').click(function(){
-            $('#tabs-nav li').removeClass('active');
-            $(this).addClass('active');
-            $('.tab-content').hide();
-            var activeTab = $(this).find('a').attr('href');
-            $(activeTab).fadeIn();
-            return false;
+    $('.cstmr_row').slick({
+            dots: false,
+            infinite: true,
+      autoplay: true,
+      autoplaySpeed: 1000,
+            speed: 300,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            prevArrow: '<button class="slide-arrow prev-arrow"></button>',
+            nextArrow: '<button class="slide-arrow next-arrow"></button>',
+            responsive: [
+                {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3
+                }
+                },
+                {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2
+                }
+                }
+            ]
         });
+    $('.modal-toggle1').on('click', function(e) {
+      e.preventDefault();
+      $('.model-1').toggleClass('is-visible');
+    });
+    $('.modal-toggle2').on('click', function(e) {
+      e.preventDefault();
+      $('.model-2').toggleClass('is-visible');
+    });
+    $('.modal-toggle3').on('click', function(e) {
+      e.preventDefault();
+      $('.model-3').toggleClass('is-visible');
+    });
+    $('.modal-toggle4').on('click', function(e) {
+      e.preventDefault();
+      $('.model-4').toggleClass('is-visible');
+    });
+    $('.modal-toggle5').on('click', function(e) {
+      e.preventDefault();
+      $('.model-5').toggleClass('is-visible');
+    });
+    $('#tabs-nav li:first-child').addClass('active');
+          $('.tab-content').hide();
+          $('.tab-content:first').show();
+          $('#tabs-nav li').click(function(){
+              $('#tabs-nav li').removeClass('active');
+              $(this).addClass('active');
+              $('.tab-content').hide();
+              var activeTab = $(this).find('a').attr('href');
+              $(activeTab).fadeIn();
+              return false;
+          });
+
+    $(document).ready(function() {
+    // Get the section ID from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const sectionId = urlParams.get('faq-section');
+
+    if (sectionId) {
+      // Find the section element
+      const $section = $('#' + sectionId);
+
+      if ($section.length) {
+        // Smooth scroll to the section
+        $('html, body').animate({
+          scrollTop: $section.offset().top
+        }, 1000); // 1000ms = 1 second duration
+      }
+    }
+  });
 </script>
