@@ -1457,7 +1457,7 @@
                 return false;
             });
 
-      $(document).ready(function() {
+      $(window).on('load', function () {
       // Get the section ID from URL parameter
       const urlParams = new URLSearchParams(window.location.search);
       const sectionId = urlParams.get('section');
