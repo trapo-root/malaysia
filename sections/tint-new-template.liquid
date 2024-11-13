@@ -1466,6 +1466,11 @@
         // Find the section element
         const $section = $('#' + sectionId);
 
+        $('#tabs-nav li').removeClass('active');
+        $('#tabs-nav li:nth-child(2)').addClass('active');
+        $('.tab-content').hide();
+        $('#tab2').fadeIn();
+
         if ($section.length) {
           // Smooth scroll to the section
           $('html, body').animate({
