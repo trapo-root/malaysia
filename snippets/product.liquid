@@ -190,7 +190,7 @@
                 {% else %}
                   <!-- Start Campaign Logic -->
 
-                {% comment %}  {% if product.tags contains 'model:M6' or product.tags contains 'model:G6' %}
+                  {% if product.tags contains 'model:Sealion' %}
                     {% liquid
                       assign campaign_enabled = true
                       assign tag_enabled = true
@@ -208,16 +208,7 @@
                     %}
                     {% assign product_type = settings.product_type %}
                     {% assign product_tags = settings.product_tag %}
-                  {% endif %}{% endcomment %}
-
-                  {% liquid
-                    assign campaign_enabled = settings.enable_campaign
-                    assign tag_enabled = settings.enable_tag
-                    assign type_enabled = settings.enable_type
-                    assign campaing_discount = settings.campaing_discount
-                  %}
-                  {% assign product_type = settings.product_type %}
-                  {% assign product_tags = settings.product_tag %}
+                  {% endif %}
 
                   {% if type_enabled or tag_enabled %}
                     {% if product_type contains product.type and campaign_enabled %}
