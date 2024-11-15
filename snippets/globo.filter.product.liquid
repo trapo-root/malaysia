@@ -100,6 +100,11 @@
         <p class="offer-title">SAVE 72%</p>
       </div>
       {% endif %}{% endcomment %}
+      {% if product.tags contains 'model:Sealion' %}
+        <div class="offer-sec">
+        <p class="offer-title">SAVE 15%</p>
+      </div>
+      {% endif %}
     </div>
 
     <div class="spf-product__info">      <div class="h4 spf-product-card__title">
@@ -124,7 +129,9 @@
                   {% if product.type == 'TRAPO ECO' %}
                     <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
                     <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.75 | money }}</span>
-                  
+                  {% elsif product.tags contains 'model:Sealion' %}
+                    <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
+                    <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.85 | money }}</span>
                   {% elsif product.tags contains 'bundle-15' %}
                     <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
                     <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.85 | money }}</span>
