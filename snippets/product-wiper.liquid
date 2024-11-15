@@ -190,6 +190,16 @@
                 {% else %}
                   <!-- Start Campaign Logic -->
 
+                  {% if product.tags contains 'model:Sealion' %}
+                    {% liquid
+                      assign campaign_enabled = true
+                      assign tag_enabled = true
+                      assign type_enabled = settings.enable_type
+                      assign campaing_discount = 15
+                    %}
+                    {% assign product_type = 'WIPER' %}
+                    {% assign product_tags = settings.product_tag %}
+                  {% else %}
                     {% liquid
                       assign campaign_enabled = settings.enable_campaign
                       assign tag_enabled = settings.enable_tag
@@ -198,7 +208,8 @@
                     %}
                     {% assign product_type = settings.product_type %}
                     {% assign product_tags = settings.product_tag %}
-                  
+                  {% endif %}
+
                   {% if type_enabled or tag_enabled %}
                     {% if product_type contains product.type and campaign_enabled %}
                       <div
@@ -503,12 +514,12 @@
               {% if product.tags contains 'pre-order' %}
                 {% if product.handle == 'trapo-hydrophobic-wiper-blade-rear' %}
                   <div class="product-text">
-                  <p>(Ships out in 9 working days)</p>
-                </div>
+                    <p>(Ships out in 9 working days)</p>
+                  </div>
                 {% else %}
-                <div class="product-text">
-                  <p>(Ships out in 3 working days)</p>
-                </div>
+                  <div class="product-text">
+                    <p>(Ships out in 3 working days)</p>
+                  </div>
                 {% endif %}
               {% else %}
                 <div class="product-text">
@@ -751,7 +762,6 @@
     {% render 'wiper-description' %}
   </div>
 {% endif %}
-
 
 <div class="sixteen columns">
   <div class="shopify-reviews reviewsVisibility--{{settings.enable_shopify_review_comments}}">
