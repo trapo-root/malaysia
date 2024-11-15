@@ -12,6 +12,25 @@
     "e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8": {
       "type": "slideshow",
       "blocks": {
+        "image_Ka3htz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BYD_Sealion_desktop_2000x760_da556446-4cce-4906-998c-d07e19e7fc04.jpg",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "shopify://collections/trending-car",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original",
+            "mobile_image": "shopify://shop_images/BYD_Sealion_mobile_1080x1080_d8342e87-6d14-4760-a226-dc05dc4c5e08.jpg"
+          }
+        },
         "image_CJzXfp": {
           "type": "image",
           "settings": {
@@ -188,6 +207,7 @@
         }
       },
       "block_order": [
+        "image_Ka3htz",
         "image_CJzXfp",
         "image_PyPQbh",
         "image_DXyUMG",
