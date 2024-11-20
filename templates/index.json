@@ -14,6 +14,7 @@
       "blocks": {
         "image_PgE3iC": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Members_Day_desktop_2000x760_c997d700-f087-4cfd-8b4b-ee4812ed86dc.jpg",
             "pretext": "",
