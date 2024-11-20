@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "slideshow_LUGTUE": {
@@ -15,12 +15,12 @@
         "image_jmDVDG": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Dekstop-StripBanner-1940x180_b4ac3142-17e0-4c63-b9e0-6510bd272b73.png",
+            "image": "shopify://shop_images/Members_Day_1940x180_07669f43-ff99-499d-a095-a97b21f17f31.jpg",
             "pretext": "",
             "title": "",
             "subtitle": "",
             "button1": "",
-            "button1_link": "shopify:\/\/pages\/byd-giveaway",
+            "button1_link": "shopify://pages/byd-giveaway",
             "button1_style": "global-button--banner",
             "button2": "",
             "button2_link": "",
@@ -28,7 +28,7 @@
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify:\/\/shop_images\/Mobile-StripBanner-600x150_10e377e6-27be-4997-8838-3df97f408131.png"
+            "mobile_image": "shopify://shop_images/Mobile-StripBanner-600x150_10e377e6-27be-4997-8838-3df97f408131.png"
           }
         }
       },
