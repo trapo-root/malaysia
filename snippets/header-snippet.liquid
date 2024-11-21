@@ -1959,7 +1959,13 @@
        .main_menu .main_menu_list .nav__sub .sub__close { padding-block: 20px 10px; font-size: 16px; color: #A0A0A0; }
        .mega_menu_dropdown>.down_arrow:after { background-image: url({{ 'down_arrow.svg' | asset_url }}); }
        .mobile_btn.active .fa-close:before { height: 30px; background-image: url({{ 'Close_icon.svg' | asset_url }}); background-repeat: no-repeat; width: 18px; height: 18px; background-size: 18px; /* background-color: #fff; */ font-size: 0; position: absolute; bottom: -1px; }
-       .main_menu .main_menu_list li .sub_menu_2.grid_sub_menu { display: grid ; padding-top: 10px;margin-bottom:15px; }
+       .mobile_btn .fa-bars:before{
+         height: 30px; background-image: url('https://cdn.shopify.com/s/files/1/0234/7089/9277/files/menu-bar.svg?v=1732151414'); background-repeat: no-repeat; width: 18px; height: 18px; background-size: 18px;background-size: 18px;
+        font-size: 38px;
+        position: relative;
+        top: 15px;
+       }
+         .main_menu .main_menu_list li .sub_menu_2.grid_sub_menu { display: grid ; padding-top: 10px;margin-bottom:15px; }
        .main_menu .main_menu_list .nav__sub .sub__close:before { content: ''; position: absolute; background-image: url({{ 'long_arrow.svg' | asset_url }}); width: 30px; height: 13px; background-repeat: no-repeat; left: 20px; margin-top: 4px; background-size: contain; }
        .searchbar form input{
          width: 100%;
