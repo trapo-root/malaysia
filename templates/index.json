@@ -92,12 +92,12 @@
         "image_PyPQbh": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/2000x760_0fbd5438-1840-40e7-a3cc-2925857ad36b.jpg",
+            "image": "shopify://shop_images/Web-Slider-Tinting.jpg",
             "pretext": "",
             "title": "",
             "subtitle": "",
             "button1": "",
-            "button1_link": "shopify://products/trapo-quik-shield-car-coating",
+            "button1_link": "shopify://products/trapo-crystal-window-tint",
             "button1_style": "global-button--banner",
             "button2": "",
             "button2_link": "",
@@ -105,7 +105,7 @@
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/1080x1080_8b9511af-3bd9-4df3-a847-998b3d81da6e.jpg"
+            "mobile_image": "shopify://shop_images/Web-Slider-Tinting-Mobile.jpg"
           }
         },
         "image_DXyUMG": {
