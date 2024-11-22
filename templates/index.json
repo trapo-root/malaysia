@@ -51,6 +51,25 @@
             "mobile_image": "shopify://shop_images/BYD_Sealion_mobile_1080x1080_d8342e87-6d14-4760-a226-dc05dc4c5e08.jpg"
           }
         },
+        "image_PyPQbh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Web-Slider-Tinting.jpg",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "shopify://products/trapo-crystal-window-tint",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original",
+            "mobile_image": "shopify://shop_images/Web-Slider-Tinting-Mobile.jpg"
+          }
+        },
         "image_NYgbG4": {
           "type": "image",
           "settings": {
@@ -87,25 +106,6 @@
             "text_align": "center",
             "caption_content_background": "original",
             "mobile_image": "shopify://shop_images/Car-detailing-banner-mobile.jpg"
-          }
-        },
-        "image_PyPQbh": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Web-Slider-Tinting.jpg",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://products/trapo-crystal-window-tint",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/Web-Slider-Tinting-Mobile.jpg"
           }
         },
         "image_DXyUMG": {
@@ -230,9 +230,9 @@
       "block_order": [
         "image_PgE3iC",
         "image_Ka3htz",
+        "image_PyPQbh",
         "image_NYgbG4",
         "image_CJzXfp",
-        "image_PyPQbh",
         "image_DXyUMG",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-1",
