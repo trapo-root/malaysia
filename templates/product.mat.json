@@ -1,1 +1,114 @@
-{"sections":{"main":{"type":"product-classic-template","blocks":{"title":{"type":"title","settings":{}},"price":{"type":"price","settings":{"display_savings":false}},"custom_liquid_NiLapf":{"type":"custom-liquid","settings":{"custom_liquid":"{% render 'offer-block' %}"}},"27ad9f4b-f346-4654-9a27-03390213bd75":{"type":"text","settings":{"text":"<p>(Ships out in 2 working days)<\/p>"}},"form":{"type":"form","settings":{"show_gift_card_recipient_form":false}},"description":{"type":"description","settings":{}},"279aaf5d-4f01-4015-9542-49ecb7a4e298":{"type":"collapsible-tab","settings":{"collapsible_tab_heading":"Other Great Features","collapsible_tab_text":"<ul><li>3 Year Warranty<\/li><li>Infused with performance polymers for superior Anti-Slip performance<\/li><li>Zero damage to floorboards<\/li><li>No smell<\/li><li>Made with 40% recyclable materials<\/li><li>Easy to install<\/li><li>Easy to clean<\/li><\/ul>"}},"7d7d2cf1-1157-45ae-b4b7-2a58000ce776":{"type":"collapsible-tab","settings":{"collapsible_tab_heading":"FAQ","collapsible_tab_text":"<p><strong>1. What are the key upgrades in Trapo Classic Mark IV compared to Trapo Classic Mark III?<\/strong><\/p><p>- Trapo Classic Mark IV features the latest advancements in car mat technology, including the introduction of Realgrip Anti-Slip Technology powered by performance polymers from ExxonMobil. This technology enhances grip and stability, providing an even safer and more secure driving experience compared to Trapo Classic Mark III.<\/p><p><strong>2. How does Realgrip Anti-Slip Technology improve the performance of Trapo Classic Mark IV?<\/strong><\/p><p>- Realgrip Anti-Slip Technology, powered by performance polymers from ExxonMobil, enhances the grip and stability of Trapo Classic Mark IV mats. This technology ensures that the mats stay firmly in place, even during the most challenging driving conditions, providing added safety and peace of mind for drivers.<\/p><p><strong>3. Are Trapo Classic Mark IV mats compatible with all vehicles?<\/strong><\/p><p>- Yes, Trapo Classic Mark IV mats are designed to be compatible with a wide range of vehicle makes and models, just like Trapo Classic Mark III mats. They are customizable to fit different car footwell sizes, ensuring a perfect fit for your vehicle.<\/p><p><strong>4. How do I install Trapo Classic Mark IV mats in my vehicle?<\/strong><\/p><p>- Installing Trapo Classic Mark IV mats is simple and straightforward. Just place them in your vehicle's footwell, ensuring they are properly aligned and fit securely. The Realgrip Anti-Slip Technology will keep the mats in place, providing added convenience and safety for drivers.<\/p><p><strong>5. Can I still expect the same durability and comfort from Trapo Classic Mark IV as I did from Trapo Classic Mark III?<\/strong><\/p><p>- Yes, Trapo Classic Mark IV maintains the same level of durability and comfort that Trapo Classic Mark III was known for. The upgraded materials and design enhancements ensure long-lasting performance and comfort, making Trapo Classic Mark IV an excellent choice for car owners seeking quality and reliability in their car mats.<\/p>"}}},"block_order":["title","price","custom_liquid_NiLapf","27ad9f4b-f346-4654-9a27-03390213bd75","form","description","279aaf5d-4f01-4015-9542-49ecb7a4e298","7d7d2cf1-1157-45ae-b4b7-2a58000ce776"],"settings":{"product_breadcrumb":true,"media_position":"is-flex-row","set_product_height":false,"product_height":500,"video_looping":false,"product_thumbs":false,"gallery_arrows":true,"enable_product_lightbox":true,"activate_zoom":true,"slideshow_speed":0,"slideshow_animation":"slide","thumbnail_position":"bottom","enable_thumbnail_slider":true}},"recommendations":{"type":"product-recommendations","disabled":true,"settings":{"show_product_recommendations":true,"wide_display":false,"product_recommendations_style":"grid","product_recommendations_heading":"You may also like","products_per_row":3,"recommended_products_limit":4}}},"order":["main","recommendations"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-classic-template",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "display_savings": false
+          }
+        },
+        "custom_liquid_NiLapf": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{% render 'offer-block' %}"
+          }
+        },
+        "27ad9f4b-f346-4654-9a27-03390213bd75": {
+          "type": "text",
+          "settings": {
+            "text": "<p>(Ships out in 2 working days)</p>"
+          }
+        },
+        "form": {
+          "type": "form",
+          "settings": {
+            "show_gift_card_recipient_form": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "279aaf5d-4f01-4015-9542-49ecb7a4e298": {
+          "type": "collapsible-tab",
+          "settings": {
+            "collapsible_tab_heading": "Other Great Features",
+            "collapsible_tab_text": "<ul><li>3 Year Warranty</li><li>Infused with performance polymers for superior Anti-Slip performance</li><li>Zero damage to floorboards</li><li>No smell</li><li>Made with 40% recyclable materials</li><li>Easy to install</li><li>Easy to clean</li></ul>"
+          }
+        },
+        "7d7d2cf1-1157-45ae-b4b7-2a58000ce776": {
+          "type": "collapsible-tab",
+          "settings": {
+            "collapsible_tab_heading": "FAQ",
+            "collapsible_tab_text": "<p><strong>1. What are the key upgrades in Trapo Classic Mark IV compared to Trapo Classic Mark III?</strong></p><p>- Trapo Classic Mark IV features the latest advancements in car mat technology, including the introduction of Realgrip Anti-Slip Technology powered by performance polymers from ExxonMobil. This technology enhances grip and stability, providing an even safer and more secure driving experience compared to Trapo Classic Mark III.</p><p><strong>2. How does Realgrip Anti-Slip Technology improve the performance of Trapo Classic Mark IV?</strong></p><p>- Realgrip Anti-Slip Technology, powered by performance polymers from ExxonMobil, enhances the grip and stability of Trapo Classic Mark IV mats. This technology ensures that the mats stay firmly in place, even during the most challenging driving conditions, providing added safety and peace of mind for drivers.</p><p><strong>3. Are Trapo Classic Mark IV mats compatible with all vehicles?</strong></p><p>- Yes, Trapo Classic Mark IV mats are designed to be compatible with a wide range of vehicle makes and models, just like Trapo Classic Mark III mats. They are customizable to fit different car footwell sizes, ensuring a perfect fit for your vehicle.</p><p><strong>4. How do I install Trapo Classic Mark IV mats in my vehicle?</strong></p><p>- Installing Trapo Classic Mark IV mats is simple and straightforward. Just place them in your vehicle's footwell, ensuring they are properly aligned and fit securely. The Realgrip Anti-Slip Technology will keep the mats in place, providing added convenience and safety for drivers.</p><p><strong>5. Can I still expect the same durability and comfort from Trapo Classic Mark IV as I did from Trapo Classic Mark III?</strong></p><p>- Yes, Trapo Classic Mark IV maintains the same level of durability and comfort that Trapo Classic Mark III was known for. The upgraded materials and design enhancements ensure long-lasting performance and comfort, making Trapo Classic Mark IV an excellent choice for car owners seeking quality and reliability in their car mats.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "custom_liquid_NiLapf",
+        "27ad9f4b-f346-4654-9a27-03390213bd75",
+        "form",
+        "description",
+        "279aaf5d-4f01-4015-9542-49ecb7a4e298",
+        "7d7d2cf1-1157-45ae-b4b7-2a58000ce776"
+      ],
+      "settings": {
+        "product_breadcrumb": true,
+        "media_position": "is-flex-row",
+        "set_product_height": false,
+        "product_height": 500,
+        "video_looping": false,
+        "product_thumbs": false,
+        "gallery_arrows": true,
+        "enable_product_lightbox": true,
+        "activate_zoom": true,
+        "slideshow_speed": 0,
+        "slideshow_animation": "slide",
+        "thumbnail_position": "bottom",
+        "enable_thumbnail_slider": true
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "show_product_recommendations": true,
+        "wide_display": false,
+        "product_recommendations_style": "grid",
+        "product_recommendations_heading": "You may also like",
+        "products_per_row": 3,
+        "recommended_products_limit": 4
+      }
+    },
+    "custom_liquid_jecfxQ": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render 'testimonial-product-page' %}\n\n<div class=\"sixteen columns\">\n  <div class=\"shopify-reviews reviewsVisibility--{{settings.enable_shopify_review_comments}}\">\n    <div data-oke-reviews-widget data-oke-reviews-product-id=\"shopify-{{ product.id }}\"></div>\n  </div>\n</div>",
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "recommendations",
+    "custom_liquid_jecfxQ"
+  ]
+}
