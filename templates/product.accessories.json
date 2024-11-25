@@ -162,7 +162,7 @@
     "03d27038-e514-46e3-bb8f-318975a5cf00": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "{% render 'testimonial-product-page' %}\n<div class=\"sixteen columns\">\n  <div class=\"shopify-reviews reviewsVisibility--{{settings.enable_shopify_review_comments}}\">\n    {% render 'okendo-reviews-widget' %}\n  </div>\n</div>",
+        "custom_liquid": "{% render 'testimonial-product-page' %}\n\n<div class=\"sixteen columns\">\n  <div class=\"shopify-reviews reviewsVisibility--{{settings.enable_shopify_review_comments}}\">\n    <div data-oke-reviews-widget data-oke-reviews-product-id=\"shopify-{{ product.id }}\"></div>\n  </div>\n</div>",
         "css_class": "",
         "custom_css": ""
       }
