@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "enable_campaign": false,
+    "enable_campaign": true,
     "campaing_discount": 0,
     "enable_tag": false,
     "enable_type": false,
