@@ -9,10 +9,10 @@
  */
 {
   "current": {
-    "enable_campaign": true,
+    "enable_campaign": false,
     "campaing_discount": 0,
     "enable_tag": false,
-    "enable_type": true,
+    "enable_type": false,
     "product_tag": "",
     "product_type": "",
     "performance": "ludicrous",
@@ -200,39 +200,32 @@
         }
       }
     },
-    "content_for_index": [
-
-    ],
+    "content_for_index": [],
     "blocks": {
       "10112818894266855621": {
         "type": "shopify://apps/ufe-cross-sell-upsell-bundle/blocks/app-embed/588d2ac5-62f3-4ccd-8638-da98ec61fa90",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "6707720970142525307": {
         "type": "shopify://apps/wowcart-slide-cart-drawer/blocks/app-embed/4937864d-0d20-45b2-9969-e04d09531787",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "9670189827046205946": {
         "type": "shopify://apps/hextom-translate-and-currency/blocks/app-block/b927a799-be04-4b97-9efb-5c8f0290a68e",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "4918592460924562117": {
         "type": "shopify://apps/optimonk-popup-cro-a-b-test/blocks/app-embed/0b488be1-fc0a-4fe6-8793-f2bef383dba8",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "6544724514127332554": {
         "type": "shopify://apps/go-gift-cards/blocks/app-embed/3676fc08-8fa0-4857-baf6-8c6e28f899dc",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "733389323033596483": {
         "type": "shopify://apps/okendo/blocks/theme-settings/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
@@ -244,8 +237,7 @@
       "319724205969189013": {
         "type": "shopify://apps/hulk-form-builder/blocks/app-embed/b6b8dd14-356b-4725-a4ed-77232212b3c3",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "6412501105843178657": {
         "type": "shopify://apps/loyalty-rewards-and-referrals/blocks/embed-main/6f172e67-4106-4ac0-89c5-b32a069b3101",
@@ -274,8 +266,7 @@
       "14327677521557774844": {
         "type": "shopify://apps/simprosys-google-shopping-feed/blocks/core_settings_block/1f0b859e-9fa6-4007-97e8-4513aff5ff3b",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "5059203847231188605": {
         "type": "shopify://apps/smart-product-filter-search/blocks/app-embed/5cc1944c-3014-4a2a-af40-7d65abc0ef73",
