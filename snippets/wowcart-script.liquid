@@ -125,7 +125,7 @@ const giftCardSKUs = [
 ];
 
     const foundGiftCards = cartObject.items.filter(item => giftCardSKUs.includes(item.sku));
-      console.log(foundSKUs);
+      console.log(foundGiftCards);
     if (foundGiftCards.length > 0) {
       if (typeof itemFree === 'undefined' || itemFree === null){
       $.ajax({
