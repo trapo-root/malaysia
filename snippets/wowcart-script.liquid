@@ -124,8 +124,9 @@ const giftCardSKUs = [
     'CH-GIFT-005-100'
 ];
 
-    foundSKUs = cart.items.filter(item => skuArray.includes(item.sku)
-  //console.log(itemFree);
+    const foundSKUs = cart.items.filter(item => skuArray.includes(item.sku)
+      console.log(foundSKUs)  ;
+    //console.log(itemFree);
   //   if(cartSubtotal >= 180 ){
   //     //console.log("Greater than 150");
   //     if (typeof itemFree === 'undefined' || itemFree === null){
