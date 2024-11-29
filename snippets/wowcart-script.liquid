@@ -104,39 +104,40 @@
       //cart object
   		const cartObject = items.detail || {};
 
+    console.log(cartObject);
     var cartSubtotal = cartObject.items_subtotal_price / 100;
     //console.log(cartSubtotal);
    const itemFree = cartObject.items.find(item => item.product_id == '7562133438603');
   //console.log(itemFree);
-    if(cartSubtotal >= 180 ){
-      //console.log("Greater than 150");
-      if (typeof itemFree === 'undefined' || itemFree === null){
-      $.ajax({
-                type: "POST",
-                dataType: 'json',
-                url: '/cart/add.js',
-                data: {
-                    quantity: 1,
-                    id: 42807158276235
-                },
-                async: false
-            });
-    }
-    }else{
-      //console.log("Less than 150");
-    if(itemFree){
-      $.ajax({
-            method: 'POST',
-            dataType: 'json',
-            url: '/cart/change.js',
-            data: {
-                id: 42807158276235,
-                quantity: 0
-            },
-           async: false
-        });
-    }
-    }
+  //   if(cartSubtotal >= 180 ){
+  //     //console.log("Greater than 150");
+  //     if (typeof itemFree === 'undefined' || itemFree === null){
+  //     $.ajax({
+  //               type: "POST",
+  //               dataType: 'json',
+  //               url: '/cart/add.js',
+  //               data: {
+  //                   quantity: 1,
+  //                   id: 42807158276235
+  //               },
+  //               async: false
+  //           });
+  //   }
+  //   }else{
+  //     //console.log("Less than 150");
+  //   if(itemFree){
+  //     $.ajax({
+  //           method: 'POST',
+  //           dataType: 'json',
+  //           url: '/cart/change.js',
+  //           data: {
+  //               id: 42807158276235,
+  //               quantity: 0
+  //           },
+  //          async: false
+  //       });
+  //   }
+  //   }
     
     if(document.querySelector('.pickup-in-store-1')){
         if (!$('.pickup-in-store-1').hasClass("addedNote")) {
