@@ -132,12 +132,12 @@ const totalQuantity = foundGiftCards.reduce((sum, item) => sum + item.quantity, 
           $.ajax({
                 type: "POST",
                 dataType: 'json',
-                url: '/cart/add.js',
-                data: {
-                    quantity: totalQuantity,
-                    id: 41444663787597
-                },
-                async: false
+                url: '/cart/change.js',
+            data: {
+                id: 41444663787597,
+                quantity: totalQuantity
+            },
+           async: false
             });
     }
     // if (foundGiftCards.length > 0) {
