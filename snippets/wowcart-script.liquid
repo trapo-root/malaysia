@@ -180,8 +180,9 @@
   });
 document.addEventListener('WOWCART_PRODUCT_DELETED', function(items) {
 
-   console.log('Hii',cartObject);
+   
 const cartObject = items.detail || {};
+  console.log('Hii',cartObject);
    if(cartObject.item_count > 0){
       
       let addonProducts = ((wowcart.cartItems || {}).items || []).filter(item=>item.product_type == 'Add-On' || item.product_type == 'Promotional' || item.product_type == 'Reward')
