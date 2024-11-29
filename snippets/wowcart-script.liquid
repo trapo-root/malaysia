@@ -126,22 +126,7 @@ const giftCardSKUs = [
 
     const foundGiftCards = cartObject.items.filter(item => giftCardSKUs.includes(item.sku));
       console.log(foundGiftCards);
-      if (foundGiftCards.length > 0) {
-        let i = 0;
-        while (i < foundGiftCards.length) {
-          $.ajax({
-                type: "POST",
-                dataType: 'json',
-                url: '/cart/add.js',
-                data: {
-                    quantity: 1,
-                    id: 41444663787597
-                },
-                async: false
-            });
-          i++;
-          }
-        }
+     
 
     // if (foundGiftCards.length > 0) {
     //   if (typeof itemFree === 'undefined' || itemFree === null){
