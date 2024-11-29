@@ -104,7 +104,6 @@
       //cart object
   		const cartObject = items.detail || {};
 
-    console.log('Hii',cartObject);
     //console.log(cartSubtotal);
       // const itemFree = cartObject.items.find(item => item.product_id == '7380875968589');
       // const giftCardSKUs = [
@@ -180,7 +179,8 @@
     removeQuantitySelector();
   });
 document.addEventListener('WOWCART_PRODUCT_DELETED', function(items) {
- 
+
+   console.log('Hii',cartObject);
 const cartObject = items.detail || {};
    if(cartObject.item_count > 0){
       
