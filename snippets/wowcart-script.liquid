@@ -126,9 +126,9 @@ const giftCardSKUs = [
 
     const foundGiftCards = cartObject.items.filter(item => giftCardSKUs.includes(item.sku));
       console.log(foundGiftCards);
-    if (foundGiftCards.length > 0) {
-      if (typeof itemFree === 'undefined' || itemFree === null){
-      $.ajax({
+      if (foundGiftCards.length > 0) {
+        while (i < foundGiftCards.length) {
+          $.ajax({
                 type: "POST",
                 dataType: 'json',
                 url: '/cart/add.js',
@@ -138,22 +138,37 @@ const giftCardSKUs = [
                 },
                 async: false
             });
-    }
-    }else{
-      //console.log("Less than 150");
-    if(itemFree){
-      $.ajax({
-            method: 'POST',
-            dataType: 'json',
-            url: '/cart/change.js',
-            data: {
-                id: 41444663787597,
-                quantity: 0
-            },
-           async: false
-        });
-    }
-    }
+          }
+        }
+      }
+    // if (foundGiftCards.length > 0) {
+    //   if (typeof itemFree === 'undefined' || itemFree === null){
+    //   $.ajax({
+    //             type: "POST",
+    //             dataType: 'json',
+    //             url: '/cart/add.js',
+    //             data: {
+    //                 quantity: 1,
+    //                 id: 41444663787597
+    //             },
+    //             async: false
+    //         });
+    // }
+    // }else{
+    //   //console.log("Less than 150");
+    // if(itemFree){
+    //   $.ajax({
+    //         method: 'POST',
+    //         dataType: 'json',
+    //         url: '/cart/change.js',
+    //         data: {
+    //             id: 41444663787597,
+    //             quantity: 0
+    //         },
+    //        async: false
+    //     });
+    // }
+    // }
     
     
     if(document.querySelector('.pickup-in-store-1')){
