@@ -129,7 +129,16 @@ const giftCardSKUs = [
 const totalQuantity = foundGiftCards.reduce((sum, item) => sum + item.quantity, 0);
     console.log(totalQuantity);
     if (foundGiftCards.length > 0) {
-
+          $.ajax({
+                type: "POST",
+                dataType: 'json',
+                url: '/cart/add.js',
+                data: {
+                    quantity: totalQuantity,
+                    id: 41444663787597
+                },
+                async: false
+            });
     }
     // if (foundGiftCards.length > 0) {
     //   if (typeof itemFree === 'undefined' || itemFree === null){
