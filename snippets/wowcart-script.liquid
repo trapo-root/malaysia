@@ -108,6 +108,23 @@
     var cartSubtotal = cartObject.items_subtotal_price / 100;
     //console.log(cartSubtotal);
    const itemFree = cartObject.items.find(item => item.product_id == '7380875968589');
+const giftCardSKUs = [
+    'CH-GIFT-001-50',
+    'CH-GIFT-002-50',
+    'CH-GIFT-003-50',
+    'CH-GIFT-004-50',
+    'CH-GIFT-001-100',
+    'CH-GIFT-002-100',
+    'CH-GIFT-003-100',
+    'CH-GIFT-004-100',
+    'CH-GIFT-001-150',
+    'CH-GIFT-002-150',
+    'CH-GIFT-003-150',
+    'CH-GIFT-004-150',
+    'CH-GIFT-005-100'
+];
+
+    foundSKUs = cart.items.filter(item => skuArray.includes(item.sku)
   //console.log(itemFree);
   //   if(cartSubtotal >= 180 ){
   //     //console.log("Greater than 150");
