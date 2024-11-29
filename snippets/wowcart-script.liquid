@@ -130,6 +130,16 @@ const giftCardSKUs = [
     if (foundGiftCards.length > 0) {
 foundGiftCards.forEach(item => {
       console.log(item.quantity);
+      $.ajax({
+                type: "POST",
+                dataType: 'json',
+                url: '/cart/add.js',
+                data: {
+                    quantity: item.quantity,
+                    id: 41444663787597
+                },
+                async: false
+            });
     });
     }
     // if (foundGiftCards.length > 0) {
