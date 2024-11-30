@@ -707,23 +707,23 @@
 
 {% if product.type == 'TRAPO CLASSIC' or product.type == 'TRAPO CLASSIC REAR' or product.type == 'TRAPO TEST' %}
   <div class="sixteen columns">
-    {% render 'classic-description' %}
+    {% render 'classic-description-new' %}
   </div>
 {% elsif product.type == 'TRAPO HEX' or product.type == 'TRAPO HEX REAR' %}
   <div class="sixteen columns">
-    {% render 'hex-description' %}
+    {% render 'hex-description-new' %}
   </div>
 {% elsif product.type == 'TRAPO ECO' or product.type == 'TRAPO ECO REAR' %}
   <div class="sixteen columns">
-    {% render 'eco-description' %}
+    {% render 'eco-description-new' %}
   </div>
 {% elsif product.type == 'TRAPO HEX ULTIMATE' or product.type == 'TRAPO HEX ULTIMATE REAR' %}
   <div class="sixteen columns">
-    {% render 'ultimate-description' %}
+    {% render 'ultimate-description-new' %}
   </div>
 {% elsif product.type == 'TRAPO XTREME' or product.type == 'TRAPO XTREME REAR' %}
   <div class="sixteen columns">
-    {% render 'xtreme-description' %}
+    {% render 'xtreme-description-new' %}
   </div>
 {% elsif product.tags contains 'trapo-coating' %}
   <div class="sixteen columns">
