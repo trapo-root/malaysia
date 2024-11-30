@@ -127,6 +127,7 @@
      const totalQuantity = foundGiftCards.reduce((sum, item) => sum + item.quantity, 0);
       if (foundGiftCards.length > 0) {
         if (typeof itemFree === 'undefined' || itemFree === null) {
+          console.log('Free Item Added');
               $.ajax({
                   type: "POST",
                   dataType: 'json',
