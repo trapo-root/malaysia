@@ -92,6 +92,21 @@
         {% capture i %}{% cycle "1", "2" %}{% endcapture %}
         {{ 'product-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
       {% else %}
+        {% if product.type == 'Gift Card' %}
+          {% render 'product-images-new',
+          product: product,
+          gallery_thumbnails: gallery_thumbnails,
+          gallery_thumbnail_slider: gallery_thumbnail_slider,
+          gallery_click_to_zoom: gallery_click_to_zoom,
+          gallery_hover_zoom: gallery_hover_zoom,
+          gallery_arrows: gallery_arrows,
+          set_product_height: set_product_height,
+          gallery_slideshow_transition: gallery_slideshow_transition,
+          gallery_slideshow_speed: gallery_slideshow_speed,
+          gallery_thumbnail_position: gallery_thumbnail_position,
+          video_looping: video_looping
+        %}
+        {% else %}
         {% render 'product-images',
           product: product,
           gallery_thumbnails: gallery_thumbnails,
@@ -105,6 +120,7 @@
           gallery_thumbnail_position: gallery_thumbnail_position,
           video_looping: video_looping
         %}
+        {% endif %}
       {% endif %}
     </div>
 
