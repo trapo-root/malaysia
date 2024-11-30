@@ -33,7 +33,6 @@
         },
         "image_Ycb7Pp": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/WebSlider_desktop_2000x760_copy.webp",
             "pretext": "",
