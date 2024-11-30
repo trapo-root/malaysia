@@ -105,6 +105,7 @@
   		const cartObject = items.detail || {};
 
     console.log('Hi',cartObject);
+      const itemFree = cartObject.items.find(item => item.product_id == '7380875968589');
       const giftCardSKUs = [
           'CH-GIFT-001-50',
           'CH-GIFT-002-50',
@@ -121,7 +122,7 @@
           'CH-GIFT-005-100'
       ];
       
-      const foundGiftCards = cartObject.items.filter(item => giftCardSKUs.includes(item.sku));
+      // const foundGiftCards = cartObject.items.filter(item => giftCardSKUs.includes(item.sku));
       // console.log(foundGiftCards);
       // const totalQuantity = foundGiftCards.reduce((sum, item) => sum + item.quantity, 0);
       // console.log(totalQuantity);
