@@ -153,6 +153,9 @@
                       async: false
                   });
         }
+        var qtyStr = '<p class="free-qty"><span>Qty:</span>'+totalQuantity+'</p>';
+          $('.slide-cart-product-item__title').append(qtyStr);
+        
       }
       // console.log(foundGiftCards);
       // const totalQuantity = foundGiftCards.reduce((sum, item) => sum + item.quantity, 0);
