@@ -21,7 +21,7 @@
       
           (product_types || []).forEach(type => {
           Array.from(document.querySelectorAll(`#wow-cart-drawer-app .slide-cart-product-item[data-product_type="${type}"] .slide-cart-quantity-box`) || []).forEach(ele => {
-            ele.remove();
+            //ele.remove();
           });
         });
   }
