@@ -141,7 +141,18 @@
                   async: false
               });
           }
-        
+        if(totalQuantity != itemFree.quantity ){
+          $.ajax({
+                      method: 'POST',
+                      dataType: 'json',
+                      url: '/cart/change.js',
+                      data: {
+                          id: 41444663787597,
+                          quantity: totalQuantity
+                      },
+                      async: false
+                  });
+        }
       }
       // console.log(foundGiftCards);
       // const totalQuantity = foundGiftCards.reduce((sum, item) => sum + item.quantity, 0);
