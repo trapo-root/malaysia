@@ -124,6 +124,7 @@
       
       const foundGiftCards = cartObject.items.filter(item => giftCardSKUs.includes(item.sku));
     console.log(foundGiftCards);
+     console.log(itemFree);
      const totalQuantity = foundGiftCards.reduce((sum, item) => sum + item.quantity, 0);
       if (foundGiftCards.length > 0) {
         if (typeof itemFree === 'undefined' || itemFree === null) {
@@ -139,6 +140,9 @@
                   async: false
               });
           }
+        if(){
+          
+        }
       }
       // console.log(foundGiftCards);
       // const totalQuantity = foundGiftCards.reduce((sum, item) => sum + item.quantity, 0);
