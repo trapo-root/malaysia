@@ -154,7 +154,10 @@
                   });
         }
         var qtyStr = '<p class="free-qty"><span>Qty:</span>'+totalQuantity+'</p>';
+        var elementsWithClass = $('.free-qty').length;
+        if(elementsWithClass == 0){
           $('.slide-cart-product-item[data-handle="christmas-tote-bag"] .slide-cart-product-item__title').append(qtyStr);
+        }
         
       }
       // console.log(foundGiftCards);
