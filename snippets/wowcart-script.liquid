@@ -126,6 +126,7 @@
     console.log(foundGiftCards);
      console.log(itemFree);
      const totalQuantity = foundGiftCards.reduce((sum, item) => sum + item.quantity, 0);
+    console.log(totalQuantity);
       if (foundGiftCards.length > 0) {
         if (typeof itemFree === 'undefined' || itemFree === null) {
           console.log('Free Item Added');
@@ -140,7 +141,9 @@
                   async: false
               });
           }
-        
+        if(){
+          
+        }
       }
       // console.log(foundGiftCards);
       // const totalQuantity = foundGiftCards.reduce((sum, item) => sum + item.quantity, 0);
