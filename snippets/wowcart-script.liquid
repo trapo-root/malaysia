@@ -158,8 +158,7 @@
         $('.free-qty').remove();
           $('.slide-cart-product-item[data-handle="christmas-tote-bag"] .slide-cart-product-item__title').append(qtyStr);
         
-      }
-    if (foundGiftCards.length == 0) {
+      }else{
       $.ajax({
                       method: 'POST',
                       dataType: 'json',
