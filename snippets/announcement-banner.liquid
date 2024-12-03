@@ -61,7 +61,47 @@
             loading="lazy"
           >
         </a> -->
+        {% if product.tags contains 'gift-set' %}
+          <a href="/collections/christmas-gift-sets">
+          <img
+            class="lazyload header-announcement-banner"
+            data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Mini_Banner-01.jpg?v=1733210649"
+            alt="Christmas Sale"
+            width="100%"
+            loading="lazy"
+          >
+        </a>
         <a href="/collections/christmas-gift-sets">
+          <img
+            class="lazyload header-announcement-banner-m"
+            data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Mini_Banner-01.jpg?v=1733210649"
+            alt="Christmas Sale"
+            width="100%"
+            loading="lazy"
+          >
+        </a>
+        {% elsif product.tags contains 'gift-card' %}
+          
+          <a href="/products/gift-card">
+          <img
+            class="lazyload header-announcement-banner"
+            data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Mini_Banner-05.jpg?v=1733210650"
+            alt="Christmas Sale"
+            width="100%"
+            loading="lazy"
+          >
+        </a>
+        <a href="/products/gift-card">
+          <img
+            class="lazyload header-announcement-banner-m"
+            data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Mini_Banner-05.jpg?v=1733210650"
+            alt="Christmas Sale"
+            width="100%"
+            loading="lazy"
+          >
+        </a>
+        {% else %}
+          <a href="/collections/christmas-gift-sets">
           <img
             class="lazyload header-announcement-banner"
             data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Web_Banner_Dekstop-StripBanner-1940x180.png?v=1732856378"
@@ -79,6 +119,8 @@
             loading="lazy"
           >
         </a>
+        {% endif %}
+        
       {% endif %}
     </div>
   </div>
