@@ -27,11 +27,38 @@
 </div>
 
 <script>
-$(document).ready(function(){
-  $(".accordion-titel").click(function(){
-    $(this).parent(".accordion-item").find(".accordion-contant").slideToggle();
-    $(this).parent(".accordion-item").prevAll(".accordion-item").find(".accordion-contant").slideUp();
-    $(this).parent(".accordion-item").nextAll(".accordion-item").find(".accordion-contant").slideUp();
+document.addEventListener("DOMContentLoaded", function () {
+  const accordionTitles = document.querySelectorAll(".accordion-titel");
+
+  accordionTitles.forEach((title) => {
+    title.addEventListener("click", function () {
+      const currentItem = this.closest(".accordion-item");
+      const currentContent = currentItem.querySelector(".accordion-contant");
+
+      // Toggle the clicked item's content
+      if (currentContent.style.display === "block") {
+        currentContent.style.display = "none";
+      } else {
+        currentContent.style.display = "block";
+      }
+
+      // Close all previous items
+      let previousSibling = currentItem.previousElementSibling;
+      while (previousSibling) {
+        const content = previousSibling.querySelector(".accordion-contant");
+        if (content) content.style.display = "none";
+        previousSibling = previousSibling.previousElementSibling;
+      }
+
+      // Close all next items
+      let nextSibling = currentItem.nextElementSibling;
+      while (nextSibling) {
+        const content = nextSibling.querySelector(".accordion-contant");
+        if (content) content.style.display = "none";
+        nextSibling = nextSibling.nextElementSibling;
+      }
+    });
   });
 });
+
 </script>
