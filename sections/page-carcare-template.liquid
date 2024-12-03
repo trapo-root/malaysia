@@ -1,1 +1,37 @@
-Hi
+<div class="how_to_use">
+ <div class="how_to_use_row">
+  <div class="how_to_use_header">
+    <div class="item">
+      <span> Bundle </span>
+    </div>
+    <div class="item">
+      <span>Time to complete</span>
+    </div>
+    <div class="item">
+      <span>Application Ease</span>
+    </div>
+    <div class="item">
+      <span>Tutorial Video</span>
+    </div>
+  </div>
+
+   <div class="accordion-item">
+      <div class="accordion-titel">
+        Basic Maintenance & Cleaning
+      </div>
+     <div class="accordion-contant">
+        <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1_ec7adc78-e4af-4031-a83b-edb26b2b6581.png?v=1733245041" />
+     </div>
+   </div>
+ </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $(".accordion-titel").click(function(){
+    $(this).parent(".accordion-item").find(".accordion-contant").slideToggle();
+    $(this).parent(".accordion-item").prevAll(".accordion-item").find(".accordion-contant").slideUp();
+    $(this).parent(".accordion-item").nextAll(".accordion-item").find(".accordion-contant").slideUp();
+  });
+});
+</script>
