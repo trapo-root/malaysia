@@ -64,6 +64,70 @@
  </div>
 </div>
 <style>
+  .how_to_use{
+    max-width: 355px;
+    margin: 0 auto;
+}
+.how_to_use_header{
+    display: grid;
+    grid-template-columns: 120px auto auto auto;
+    align-items: center;
+    background-color: #1B3D6D;
+    color: #fff;
+}
+.how_to_use .item{
+    padding:10px 5px;
+    line-height: 20px;
+}
+.how_to_use_header .item + .item{
+    text-align: center;
+    border-left: 1px solid #fff;
+}
+.how_to_use_content_row{
+    display: grid;
+    grid-template-columns: 120px auto auto auto;
+    align-items: center;
+    background-color: #FFFFFF
+}
+.how_to_use_content_row:first-child{
+    background-color: #F8F8F8
+}
+.how_to_use_content_row .item + .item{
+    text-align: center;
+    border-left: 1px solid #DEDEDE;
+}
+.accordion-item{
+    background-color: #4274AF;
+    color: #fff;
+    padding: 6px;
+}
+.accordion-titel span{
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+.accordion-titel.active span img{
+    display: none
+}
+.accordion-titel.active span{
+    justify-content: center
+}
+.accordion-contant > img{
+    width: 100%;
+    max-width: 255px;
+    margin: 20px auto 10px;
+    display: block
+}
+.accordion-contant span{
+    display: block;
+    width: 100%;
+    padding:15px 10px;
+}
+.accordion-contant span img{
+    margin: 0 auto;
+    display: block;
+    transform: rotate(180deg);
+}
   .accordion-contant{
     display:none
   }
