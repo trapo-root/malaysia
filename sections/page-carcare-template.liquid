@@ -72,27 +72,34 @@ document.addEventListener("DOMContentLoaded", function () {
       // Toggle the clicked item's content
       if (currentContent.style.display === "block") {
         currentContent.style.display = "none";
+        this.classList.remove("active");
       } else {
         currentContent.style.display = "block";
+        this.classList.add("active");
       }
 
-      // Close all previous items
+      // Close all previous items and remove active class
       let previousSibling = currentItem.previousElementSibling;
       while (previousSibling) {
         const content = previousSibling.querySelector(".accordion-contant");
         if (content) content.style.display = "none";
+        const title = previousSibling.querySelector(".accordion-titel");
+        if (title) title.classList.remove("active");
         previousSibling = previousSibling.previousElementSibling;
       }
 
-      // Close all next items
+      // Close all next items and remove active class
       let nextSibling = currentItem.nextElementSibling;
       while (nextSibling) {
         const content = nextSibling.querySelector(".accordion-contant");
         if (content) content.style.display = "none";
+        const title = nextSibling.querySelector(".accordion-titel");
+        if (title) title.classList.remove("active");
         nextSibling = nextSibling.nextElementSibling;
       }
     });
   });
 });
+
 
 </script>
