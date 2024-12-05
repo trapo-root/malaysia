@@ -12,7 +12,7 @@
     "enable_campaign": true,
     "campaing_discount": 0,
     "enable_tag": false,
-    "enable_type": false,
+    "enable_type": true,
     "product_tag": "",
     "product_type": "",
     "performance": "ludicrous",
@@ -283,6 +283,11 @@
           "customPaginationTemplateLoader": "{%- capture paginationTemplate -%}{% render 'globo.filter.pagination' %}{%- endcapture -%}{%- unless paginationTemplate contains 'Liquid error' -%}<script id=\"gspfPagination\" type=\"template/html\">{{- paginationTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
           "customYMMTemplateLoader": "{%- capture YMMTemplate -%}{% render 'globo.filter.form' %}{%- endcapture -%}{%- unless YMMTemplate contains 'Liquid error' -%}<script id=\"gspfForm\" type=\"template/html\">{{- YMMTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}"
         }
+      },
+      "16625563505203379481": {
+        "type": "shopify://apps/extendons-otp-login-with-phone/blocks/scripts_embedded_block/c7f2efe3-e781-470b-96ef-267ca74ad469",
+        "disabled": false,
+        "settings": {}
       }
     }
   }
