@@ -306,7 +306,8 @@
     color: #fff;
 }
 .what_we_are_row.glass .row_header{
-    position: relative
+    position: relative;
+  z-index:9
 }
 .what_we_are_row.glass .row_header img{
     display: block;
@@ -342,6 +343,20 @@
 .row_content .item > span strong{
     font-size: 20px;
 }
+
+.car_bodypint .row_content > div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.car_bodypint .row_content .left{
+    border-right: 2px solid #fff
+}
+.car_bodypint .row_content .item + .item{
+    border-left: 2px solid #fff
+}
+
+
+
 
 
 
