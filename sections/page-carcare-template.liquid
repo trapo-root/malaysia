@@ -521,7 +521,11 @@
 }
   .accordion-contant{
     display:none
-  }@media(min-width:767px){
+  }
+@media(min-width:768px){
+  .mobile_view{
+    display:none !important
+  }
   .how_to_use{
       max-width: 1037px;
       font-size: 18px;
@@ -549,6 +553,11 @@
   }
   .accordion-contant > img{
       margin-left: 0;
+  }
+}
+@media(max-width:767px){
+  .desc_view{
+    display:none !important
   }
 }
 </style>
