@@ -413,7 +413,65 @@
 .car_bodypint .row_content .item + .item{
     border-left: 2px solid #fff
 }
-
+.carcare_banner{
+    margin-bottom: 30px
+}
+.car_interior .row_content{
+    grid-template-columns: 1fr 2fr 1fr;
+}
+.car_interior .row_content > div{
+    float: unset;
+}
+.car_interior .row_content .middle .inside_content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-inline:1px solid #fff
+}
+.car_interior .row_content .row_header{
+    height: 53px;
+}
+.car_interior .row_content .row_header img{
+    height: 100%;
+    object-fit: containe;
+}
+.car_interior .row_content .inside_content{
+    margin-top: -10px;
+}
+.sec_heading h3{
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+@media(min-width:767px){
+  .how_to_use{
+      max-width: 1037px;
+      font-size: 18px;
+  }
+  .how_to_use_content_row,
+  .how_to_use_header{
+      grid-template-columns: 2fr 1fr 1fr 1fr
+  }
+  .how_to_use_header .item span br{
+      display: none
+  }
+  .accordion-item,
+  .how_to_use_content_row .item{
+      padding: 25px 30px
+  }
+  .how_to_use_header .item{
+      padding: 10px 20px
+  }
+  .accordion-contant {
+      display: block;
+  }
+  .accordion-titel span img,
+  .accordion-contant .accordion-titel{
+      display: none
+  }
+  .accordion-contant > img{
+      margin-left: 0;
+  }
+}
 
 
 
