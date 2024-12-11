@@ -527,6 +527,46 @@
   .accordion-contant{
     display:none
   }
+@media(max-width:991px){
+  .row_content .item {
+      flex-direction: column;
+      padding-top: 20px;
+      height: 100%;
+      justify-content: space-between
+  }
+  .row_content .item img{
+      width: 100%;
+      object-fit: contain
+  }
+  .row_content .item > span{
+      text-align: center;
+  }
+  .row_content .item > span strong{
+      font-size: 16px;
+  }
+  .row_content .item > span span{
+      font-size: 13px;
+      line-height: 1.2
+  }
+  .car_interior .row_content .row_header{
+      height: 31px
+  }
+  .what_we_are_row.glass:not(.car_bodypint, .car_interior) .item img{
+      width: 100px
+  }
+  .what_we_are_row.glass .row_header span{
+      font-size: 14px;
+      line-height: 1;
+      top: 7px
+  }
+  .what_we_are_row.glass .row_header img,
+  .what_we_are_row.car_bodypint .row_header img{
+      height: 30px;
+  }
+  .clean_coat_row span{
+      padding:5px 10px
+  }
+}
 @media(min-width:768px){
   .mobile_view{
     display:none !important
