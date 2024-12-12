@@ -7,15 +7,24 @@
 <section class="section">
   <div class="container content">
     <div class="one-whole column collection_nav registerHead">
-      <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/loyalty.png" class="lazyload" width="500px" height="auto" alt="Trapo Loyalty Program"/>
+      <img
+        src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/loyalty.png"
+        class="lazyload"
+        width="500px"
+        height="auto"
+        alt="Trapo Loyalty Program"
+      >
       <h1 class="page-title">Benefits Awaiting You</h1>
-      <p class="page-sub-title">Join and become a Trapo Loyalty Member for free! <br>Enjoy cash rebates, discounts, and more! </p>
+      <p class="page-sub-title">
+        Join and become a Trapo Loyalty Member for free! <br>
+        Enjoy cash rebates, discounts, and more!
+      </p>
     </div>
 
     <div class="three-eighths columns medium-down--one-whole offset-by-five is-hidden-offset-mobile-only">
       <br>
 
-      <div id="customer">
+      <div id="customer" style="margin-top=-50px;">
         <div id="create-customer">
           {% form 'create_customer' %}
             {{ form.errors | default_errors }}
@@ -64,7 +73,9 @@
             </div>
           {% endform %}
         </div>
-        <p style="padding: 10px 15px;box-sizing: border-box;color: #1b3d6d;text-align: center;">Already have an account? <a href="/account/login" style="text-decoration: underline;">Login here</a></p>
+        <p style="padding: 10px 15px;box-sizing: border-box;color: #1b3d6d;text-align: center;">
+          Already have an account? <a href="/account/login" style="text-decoration: underline;">Login here</a>
+        </p>
       </div>
     </div>
   </div>
