@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     sizeResult.textContent = size ? `Your car size is: ${size}` : '';
   }
 
-  fetch('https://trapo.com/search-size/car_tags.json')
+  fetch('https://cdn.shopify.com/s/files/1/0234/7089/9277/files/car_tags.json')
     .then(response => response.json())
     .then(data => {
       carData = data.brands;
