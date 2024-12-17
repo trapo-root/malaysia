@@ -226,6 +226,18 @@
       (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
     }
     removeQuantitySelector();
+    
+    // Reinitialize the store pickup div
+    if (typeof initStorePickupDiv === 'function') {
+        console.log('Reinitializing Store Pickup Div');
+        if ($('.genie-app .locationContainer').length == 0) {
+          initStorePickupDiv();  
+        } else {
+          getGenieLocations();
+        }
+    } else {
+        console.warn('initStorePickupDiv is not defined');
+    }
   });
 document.addEventListener('WOWCART_PRODUCT_DELETED', function(items) {
 
@@ -233,12 +245,21 @@ document.addEventListener('WOWCART_PRODUCT_DELETED', function(items) {
 const cartObject = items.detail || {};
   console.log('Hii',cartObject);
    if(cartObject.item_count > 0){
-      
       let addonProducts = ((wowcart.cartItems || {}).items || []).filter(item=>item.product_type == 'Add-On' || item.product_type == 'Promotional' || item.product_type == 'Reward')
         if((addonProducts||{}).length == (wowcart.cartItems || {}).item_count){
           (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
-        }
-      
+        }  
     }
-   });
+  // Reinitialize the store pickup div
+    if (typeof initStorePickupDiv === 'function') {
+        console.log('Reinitializing Store Pickup Div');
+        if ($('.genie-app .locationContainer').length == 0) {
+          initStorePickupDiv();  
+        } else {
+          getGenieLocations();
+        }
+    } else {
+        console.warn('initStorePickupDiv is not defined');
+    }
+});
 </script>
