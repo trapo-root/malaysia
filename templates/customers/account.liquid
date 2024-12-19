@@ -73,7 +73,7 @@
                   <td>{{ order.created_at | date: "%d-%m-%Y" }}</td>
                   <td>{{ order.financial_status_label }}</td>
                   <td>
-                    <a href="{{ "/apps/order-tracking/" | append: order.name }}" target="_blank">Track</a>
+                    <a href="{{ "/apps/order-tracking/" }}" target="_blank">Track</a>
                   </td>
                   <td>
                     <span class="money" style="font-size: 12px">{{ order.total_price | money }}</span>
