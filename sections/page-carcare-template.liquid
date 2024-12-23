@@ -183,10 +183,28 @@
         <div class="item">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/difficulty_-_low.svg?v=1733245453" />
         </div>
-        <div class="item">
+        <div class="item" onclick="show('popup')">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group.svg?v=1733245453" />
         </div>
      </div>
+     <div class="popup" id="popup">
+      <p>This is a popup!</p>
+      <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
+      <p>Website will still remain visible behind this popup.</p>
+      <a href="#" onclick="hide('popup')">Close</a>
+    </div>
+     <script>
+        $ = function(id) {
+          return document.getElementById(id);
+        }
+        
+        var show = function(id) {
+        	$(id).style.display ='block';
+        }
+        var hide = function(id) {
+        	$(id).style.display ='none';
+        }
+     </script>
      <div class="how_to_use_content_row">
         <div class="item">
           On-The-Go Car Protectant Kit
@@ -686,6 +704,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
-
 </script>
+
+
+
+
