@@ -219,115 +219,23 @@
         </div>
      </div>
    </div>
-
-    <div id="modal1" class="modal-overlay">
+   <div id="modal1" class="modal-overlay">
       <div class="modal-content">
         <span class="close-modal">&times;</span>
-        <h3>Pro Wash and Shine Kit</h3>
         <div class="content-container">
-          <!-- Content for first modal -->
-          Your specific content here
+          Your specific content here 1
         </div>
       </div>
     </div>
     
-    <!-- Modal for Heavy Duty Paint Care Kit -->
     <div id="modal2" class="modal-overlay">
       <div class="modal-content">
         <span class="close-modal">&times;</span>
-        <h3>Heavy Duty Paint Care Kit</h3>
         <div class="content-container">
-          <!-- Content for second modal -->
-          Your specific content here
+          Your specific content here 2
         </div>
       </div>
     </div>
-
-   <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Get all video modal triggers
-  const videoModals = document.querySelectorAll('.video_modal');
-  
-  // Get all close buttons
-  const closeButtons = document.querySelectorAll('.close-modal');
-  
-  // Add click event to all video modal triggers
-  videoModals.forEach(trigger => {
-    trigger.addEventListener('click', function(e) {
-      const modalId = this.dataset.modalTarget;
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.classList.add('active');
-      }
-    });
-  });
-
-  // Add click event to all close buttons
-  closeButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const modal = this.closest('.modal-overlay');
-      modal.classList.remove('active');
-    });
-  });
-
-  // Close modal when clicking outside content
-  document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('modal-overlay')) {
-      e.target.classList.remove('active');
-    }
-  });
-
-  // Optional: Close modal with ESC key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      const activeModal = document.querySelector('.modal-overlay.active');
-      if (activeModal) {
-        activeModal.classList.remove('active');
-      }
-    }
-  });
-});
-   </script>
-   <style>
-.modal-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1000;
-}
-
-.modal-content {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  max-width: 800px;
-  width: 90%;
-}
-
-.close-modal {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.content-container {
-  margin-top: 15px;
-}
-
-/* Add this class for active modal */
-.modal-overlay.active {
-  display: block;
-}
-     </style>
    
    <div>
       <div class="how_to_use_content_row">
@@ -340,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="item">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/difficulty_-_mid.svg?v=1733324982" />
         </div>
-        <div class="item video_modal">
+        <div class="item video_modal" data-modal-target="modal3">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group.svg?v=1733245453" />
         </div>
      </div>
@@ -354,12 +262,28 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="item">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/difficulty_-_high.svg?v=1733324982" />
         </div>
-        <div class="item video_modal">
+        <div class="item video_modal" data-modal-target="modal4">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group.svg?v=1733245453" />
         </div>
      </div>
    </div>
-   
+    <div id="modal3" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="content-container">
+          Your specific content here 3
+        </div>
+      </div>
+    </div>
+    
+    <div id="modal4" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="content-container">
+          Your specific content here 4
+        </div>
+      </div>
+    </div>
   
    <div class="accordion-item">
       <div class="accordion-titel">
@@ -391,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="item">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/difficulty_-_low_8e927a9b-c4b5-48e3-a559-7efe52866906.svg?v=1733325154" />
         </div>
-        <div class="item">
+        <div class="item video_modal" data-modal-target="modal5">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group.svg?v=1733245453" />
         </div>
      </div>
@@ -405,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="item">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/difficulty_-_low_8e927a9b-c4b5-48e3-a559-7efe52866906.svg?v=1733325154" />
         </div>
-        <div class="item">
+        <div class="item video_modal" data-modal-target="modal6">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group.svg?v=1733245453" />
         </div>
      </div>
@@ -419,11 +343,36 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="item">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/difficulty_-_high.svg?v=1733324982" />
         </div>
-        <div class="item">
+        <div class="item video_modal" data-modal-target="modal7">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group.svg?v=1733245453" />
         </div>
      </div>
    </div>
+    <div id="modal5" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="content-container">
+          Your specific content here 5
+        </div>
+      </div>
+    </div>
+    
+    <div id="modal6" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="content-container">
+          Your specific content here 6
+        </div>
+      </div>
+    </div>
+   <div id="modal7" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="content-container">
+          Your specific content here 7
+        </div>
+      </div>
+    </div>
    <div class="accordion-item">
       <div class="accordion-titel">
         <span>
@@ -452,11 +401,19 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="item">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/difficulty_-_low_8e927a9b-c4b5-48e3-a559-7efe52866906.svg?v=1733325154" />
         </div>
-        <div class="item">
+        <div class="item  video_modal" data-modal-target="modal8">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group.svg?v=1733245453" />
         </div>
      </div>
    </div>
+      <div id="modal8" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="content-container">
+          Your specific content here 8
+        </div>
+      </div>
+    </div>
  </div>
 </div>
 <style>
@@ -803,3 +760,88 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Get all video modal triggers
+        const videoModals = document.querySelectorAll('.video_modal');
+        
+        // Get all close buttons
+        const closeButtons = document.querySelectorAll('.close-modal');
+        
+        // Add click event to all video modal triggers
+        videoModals.forEach(trigger => {
+          trigger.addEventListener('click', function(e) {
+            const modalId = this.dataset.modalTarget;
+            const modal = document.getElementById(modalId);
+            if (modal) {
+              modal.classList.add('active');
+            }
+          });
+        });
+      
+        // Add click event to all close buttons
+        closeButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const modal = this.closest('.modal-overlay');
+            modal.classList.remove('active');
+          });
+        });
+      
+        // Close modal when clicking outside content
+        document.addEventListener('click', function(e) {
+          if (e.target.classList.contains('modal-overlay')) {
+            e.target.classList.remove('active');
+          }
+        });
+      
+        // Optional: Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            const activeModal = document.querySelector('.modal-overlay.active');
+            if (activeModal) {
+              activeModal.classList.remove('active');
+            }
+          }
+        });
+      });
+   </script>
+   <style>
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+    }
+    
+    .modal-content {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      max-width: 800px;
+      width: 90%;
+    }
+    
+    .close-modal {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    .content-container {
+      margin-top: 15px;
+    }
+    
+    /* Add this class for active modal */
+    .modal-overlay.active {
+      display: block;
+    }
+ </style>
