@@ -183,112 +183,10 @@
         <div class="item">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/difficulty_-_low.svg?v=1733245453" />
         </div>
-        <div class="item" onclick="show('popup')">
+        <div class="item video_modal" data-modal-target="modal1">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group.svg?v=1733245453" />
         </div>
      </div>
-     <div class="popup" id="popup">
-      <p>This is a popup!</p>
-      <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
-      <p>Website will still remain visible behind this popup.</p>
-      <a href="#" onclick="hide('popup')">Close</a>
-    </div>
-     <style>
-.popup {
-  display: none;
-  position: fixed;
-  padding: 10px;
-  width: 280px;
-  left: 50%;
-  margin-left: -150px;
-  height: 180px;
-  top: 50%;
-  margin-top: -100px;
-  background: #FFF;
-  border: 3px solid #F04A49;
-  z-index: 20;
-}
-
-#popup:after {
-  position: fixed;
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: -2;
-}
-
-#popup:before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: #FFF;
-  z-index: -1;
-}
-
-/* Styling buttons & webpage */
-
-body {
-  background: offwhite;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-button {
-    margin-top: 50px;
-    background-color: rgba(255,255,255,0.3);
-    border: 3px solid #F04A49;
-    color: #F04A49;
-    font-size: 25px;
-    padding: 10px 20px;
-    
-}
-
-button:hover {
-    background-color: #F04A49;
-    color: #FFF;
-    border: 3px solid #F04A49;
-    transition: all 0.3s ease 0s;
-}
-
-p {
-	margin: 1em 0;
-  font-size: 16px;
-}
-
-
-.popupk {
-  display: none;
-  position: fixed;
-  padding: 10px;
-  width: 280px;
-  left: 50%;
-  margin-left: -150px;
-  height: 180px;
-  top: 50%;
-  margin-top: -100px;
-  background: #FFF;
-  border: 3px solid #F04A49;
-  z-index: 20;
-}
-       </style>
-     <script>
-        $ = function(id) {
-          return document.getElementById(id);
-        }
-        
-        var show = function(id) {
-        	$(id).style.display ='block';
-        }
-        var hide = function(id) {
-        	$(id).style.display ='none';
-        }
-     </script>
      <div class="how_to_use_content_row">
         <div class="item">
           On-The-Go Car Protectant Kit
@@ -299,7 +197,7 @@ p {
         <div class="item">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/difficulty_-_low.svg?v=1733245453" />
         </div>
-        <div class="item">
+        <div class="item video_modal" data-modal-target="modal2">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group.svg?v=1733245453" />
         </div>
      </div>
@@ -321,6 +219,116 @@ p {
         </div>
      </div>
    </div>
+
+    <div id="modal1" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3>Pro Wash and Shine Kit</h3>
+        <div class="content-container">
+          <!-- Content for first modal -->
+          Your specific content here
+        </div>
+      </div>
+    </div>
+    
+    <!-- Modal for Heavy Duty Paint Care Kit -->
+    <div id="modal2" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3>Heavy Duty Paint Care Kit</h3>
+        <div class="content-container">
+          <!-- Content for second modal -->
+          Your specific content here
+        </div>
+      </div>
+    </div>
+
+   <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all video modal triggers
+  const videoModals = document.querySelectorAll('.video_modal');
+  
+  // Get all close buttons
+  const closeButtons = document.querySelectorAll('.close-modal');
+  
+  // Add click event to all video modal triggers
+  videoModals.forEach(trigger => {
+    trigger.addEventListener('click', function(e) {
+      const modalId = this.dataset.modalTarget;
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.add('active');
+      }
+    });
+  });
+
+  // Add click event to all close buttons
+  closeButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const modal = this.closest('.modal-overlay');
+      modal.classList.remove('active');
+    });
+  });
+
+  // Close modal when clicking outside content
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('modal-overlay')) {
+      e.target.classList.remove('active');
+    }
+  });
+
+  // Optional: Close modal with ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      const activeModal = document.querySelector('.modal-overlay.active');
+      if (activeModal) {
+        activeModal.classList.remove('active');
+      }
+    }
+  });
+});
+   </script>
+   <style>
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  max-width: 800px;
+  width: 90%;
+}
+
+.close-modal {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.content-container {
+  margin-top: 15px;
+}
+
+/* Add this class for active modal */
+.modal-overlay.active {
+  display: block;
+}
+     </style>
+   
    <div>
       <div class="how_to_use_content_row">
         <div class="item">
@@ -332,7 +340,7 @@ p {
         <div class="item">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/difficulty_-_mid.svg?v=1733324982" />
         </div>
-        <div class="item">
+        <div class="item video_modal">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group.svg?v=1733245453" />
         </div>
      </div>
@@ -346,11 +354,13 @@ p {
         <div class="item">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/difficulty_-_high.svg?v=1733324982" />
         </div>
-        <div class="item">
+        <div class="item video_modal">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group.svg?v=1733245453" />
         </div>
      </div>
    </div>
+   
+  
    <div class="accordion-item">
       <div class="accordion-titel">
         <span>
