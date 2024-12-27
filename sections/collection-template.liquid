@@ -126,6 +126,10 @@
         </div>
       {% endif %}
 
+      {% if collection.handle == 'bundle' %}
+        <p>Not sure where to start? Our Car Care Cheat Sheet Guide explains it all—<a href="/pages/car-care">click here!</a></p>
+      {% endif %}
+
       {% if collection.handle contains 'car-mats'
         or collection.handle contains 'car-wipers'
         or collection.handle contains 'trapo-xtreme-car-mats'
