@@ -69,6 +69,25 @@
             "mobile_image": "shopify://shop_images/Untitled-1b.jpg"
           }
         },
+        "image_HpKJyx": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/WebSlider_desktop_2000x760_0664fbd3-eae5-4926-83ee-9232f213d590.jpg",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "shopify://collections/detailing-online",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original",
+            "mobile_image": "shopify://shop_images/WebSlider-02_8eff4a11-e205-447c-8a16-6d0c4201c566.jpg"
+          }
+        },
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2": {
           "type": "image",
           "settings": {
@@ -193,6 +212,7 @@
         "image_PyPQbh",
         "image_NYgbG4",
         "image_CJzXfp",
+        "image_HpKJyx",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2",
         "image_DXyUMG",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-1",
