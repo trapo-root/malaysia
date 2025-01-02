@@ -12,106 +12,6 @@
     "e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8": {
       "type": "slideshow",
       "blocks": {
-        "image_fCC8m3": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/WebSlider_desktop_2000x760-new.jpg",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://collections/christmas-gift-sets",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/WebSlider-02-new.jpg"
-          }
-        },
-        "image_Ycb7Pp": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/WebSlider_desktop_2000x760_copy.webp",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://products/gift-card",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/WebSlider-04.webp"
-          }
-        },
-        "image_tDVJmL": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/WebSlider_desktop_2000x760_copy_2.webp",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://collections/christmas-gift-sets",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/WebSlider-06.webp"
-          }
-        },
-        "image_PgE3iC": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Members_Day_desktop_2000x760_c997d700-f087-4cfd-8b4b-ee4812ed86dc.jpg",
-            "pretext": "",
-            "title": "Your headline",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://pages/membersday",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/Members_Day_Mobile-Slider.jpg"
-          }
-        },
-        "image_Ka3htz": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/BYD_Sealion_desktop_2000x760_0ea44eb7-766e-480e-b488-b8a26d397cf4.jpg",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://collections/trending-car",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/BYD_Sealion_mobile_1080x1080_d8342e87-6d14-4760-a226-dc05dc4c5e08.jpg"
-          }
-        },
         "image_PyPQbh": {
           "type": "image",
           "settings": {
@@ -169,25 +69,6 @@
             "mobile_image": "shopify://shop_images/Untitled-1b.jpg"
           }
         },
-        "image_DXyUMG": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2000x760_ad1fd9eb-8f06-4b93-92b7-8249c7d5341a.jpg",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://pages/byd-giveaway",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/1080x1080_2052b528-c674-4011-a963-ee823ee1e5c6.jpg"
-          }
-        },
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2": {
           "type": "image",
           "settings": {
@@ -205,6 +86,26 @@
             "text_align": "center",
             "caption_content_background": "original",
             "mobile_image": "shopify://shop_images/loyalty_getreward_mobile_1080x1080_55856f47-83f9-472f-8505-b9509e390d5f.jpg"
+          }
+        },
+        "image_DXyUMG": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/2000x760_ad1fd9eb-8f06-4b93-92b7-8249c7d5341a.jpg",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "shopify://pages/byd-giveaway",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original",
+            "mobile_image": "shopify://shop_images/1080x1080_2052b528-c674-4011-a963-ee823ee1e5c6.jpg"
           }
         },
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-1": {
@@ -289,16 +190,11 @@
         }
       },
       "block_order": [
-        "image_fCC8m3",
-        "image_Ycb7Pp",
-        "image_tDVJmL",
-        "image_PgE3iC",
-        "image_Ka3htz",
         "image_PyPQbh",
         "image_NYgbG4",
         "image_CJzXfp",
-        "image_DXyUMG",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2",
+        "image_DXyUMG",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-1",
         "image_yDRQaC",
         "image_MandM9",
