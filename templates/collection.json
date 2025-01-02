@@ -15,12 +15,12 @@
         "image_jmDVDG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Dekstop-StripBanner-1940x180_b4ac3142-17e0-4c63-b9e0-6510bd272b73.png",
+            "image": "shopify://shop_images/lALPGR5prxLMEt7MtM0HlA_1940_180.png",
             "pretext": "",
             "title": "",
             "subtitle": "",
             "button1": "",
-            "button1_link": "shopify://pages/byd-giveaway",
+            "button1_link": "shopify://pages/loyalty-program",
             "button1_style": "global-button--banner",
             "button2": "",
             "button2_link": "",
@@ -28,14 +28,13 @@
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/Mobile-StripBanner-600x150_4e348ac7-13a7-410a-91a0-2539c37f9f94.png"
+            "mobile_image": "shopify://shop_images/lALPGR5prxLMEt7MtM0HlA_1940_180.webp"
           }
         }
       },
       "block_order": [
         "image_jmDVDG"
       ],
-      "disabled": true,
       "settings": {
         "wide_display": true,
         "slideshow_text_animation": "fadeInDown",
