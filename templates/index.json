@@ -71,6 +71,7 @@
         },
         "image_HpKJyx": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/WebSlider_desktop_2000x760_0664fbd3-eae5-4926-83ee-9232f213d590.jpg",
             "pretext": "",
