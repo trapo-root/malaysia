@@ -105,6 +105,33 @@
         <p class="offer-title">SAVE 15%</p>
       </div>
       {% endif %}{% endcomment %}
+      {% if product.tags contains 'bundle' %}
+        <div class="free_instalation_bdga">
+          <span>OFFICIAL SITE & STORE ONLY</span>
+          <div></div>
+        </div>
+      {% endif %}
+
+      {% if product.tags contains 'online-detailing' %}
+        <div class="free_instalation_bdga">
+          <span>OFFICIAL SITE & STORE ONLY</span>
+          <div></div>
+        </div>
+      {% endif %}
+
+      {% if product.type == 'TRAPO ACCESSORIES' %}
+         <div class="free_instalation_bdga">
+          <div></div>
+          <span>SHIPS OUT IN 2 <br> WORKING DAYS<img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1_9cfc8630-55cb-4139-9551-ad7a3dc55b6d.svg?v=1734457811"/></span>
+        </div>
+      {% endif %}
+
+      {% if product.type == 'TRAPO DASHCAM' %}
+        <div class="free_instalation_bdga">
+          <span>FREE INSTALLATION</span>
+          <span>SHIPS OUT IN 2 <br> WORKING DAYS<img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1_9cfc8630-55cb-4139-9551-ad7a3dc55b6d.svg?v=1734457811"/></span>
+        </div>
+      {% endif %}
     </div>
 
     <div class="spf-product__info">      <div class="h4 spf-product-card__title">
