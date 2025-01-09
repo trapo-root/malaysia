@@ -49,12 +49,32 @@
       const div = document.createElement('div');
       div.id = 'genie-store-pickup-front-holder-drawer';
       div.dataset.storeDomain = "{{ shop.permanent_domain }}";
-
+      console.log("div : ", div)
       const targetElement = document.querySelector('.slider-cart__bottom-section');
       if (targetElement) {
         targetElement.appendChild(div);
         setTimeout(loadStorePickup, 0); // Assuming loadStorePickup is defined elsewhere
+        console.log("initStorePickupDiv created for calling : ", targetElement)
       }
+    }
+  }
+
+  // Initialize store pickup div if not present
+  function initOrGetLocsStorePickup() {
+    // Reinitialize the store pickup div
+    if (typeof initStorePickupDiv === 'function') {
+        console.log('Reinitializing Store Pickup Div');
+         // var getclasscheckoutMethodName= document.getElementsByClassName("checkoutMethodName")
+    // if (!getclasscheckoutMethodName || getclasscheckoutMethodName.length == 0) { 
+        if ($('.genie-app .checkoutMethodName').length == 0) {
+          console.log("in init genie");
+          initStorePickupDiv();  
+        } else if ($('.genie-app .checkoutMethodName').length > 0 && $('.genie-app .checkoutMethod.active').text() == 'Store Pickup') {
+          console.log("in get loc genie");
+          getGenieLocations();
+        }
+    } else {
+        console.warn('initStorePickupDiv is not defined');
     }
   }
 
@@ -278,18 +298,7 @@
       (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
     }
     removeQuantitySelector();
-    
-    // Reinitialize the store pickup div
-    if (typeof initStorePickupDiv === 'function') {
-        console.log('Reinitializing Store Pickup Div');
-        if ($('.genie-app .locationContainer').length == 0) {
-          initStorePickupDiv();  
-        } else {
-          getGenieLocations();
-        }
-    } else {
-        console.warn('initStorePickupDiv is not defined');
-    }
+    initOrGetLocsStorePickup();
   });
 document.addEventListener('WOWCART_PRODUCT_DELETED', function(items) {
 
@@ -302,16 +311,6 @@ const cartObject = items.detail || {};
           (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
         }  
     }
-  // Reinitialize the store pickup div
-    if (typeof initStorePickupDiv === 'function') {
-        console.log('Reinitializing Store Pickup Div');
-        if ($('.genie-app .locationContainer').length == 0) {
-          initStorePickupDiv();  
-        } else {
-          getGenieLocations();
-        }
-    } else {
-        console.warn('initStorePickupDiv is not defined');
-    }
+  initOrGetLocsStorePickup();
 });
 </script>
