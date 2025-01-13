@@ -115,10 +115,11 @@
 
     <!-- Critical CSS & JS Assets -->
       {{ 'jquery.min.js' | asset_url | preload_tag: as: 'script' }}
-      {{ 'font-awesome.min.css' | asset_url | preload_tag: as: 'style' }}
+      {{ 'font-awesome.min.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
 
     <!-- Non Critical CSS and JS -->
     {{ 'globo.filter.custom.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
+    {{ 'font-awesome.min.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
     {{ 'lazyload-yt.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
     {{ 'social_login.js' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
     
