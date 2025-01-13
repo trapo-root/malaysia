@@ -111,7 +111,7 @@
 
 
     <!-- Stylesheets for Turbo -->
-    {{ 'styles.css' | asset_url | stylesheet_tag }}
+    <link rel="preload" href="{{ 'styles.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
     <!-- Preload Assets -->
       {{ 'jquery.min.js' | asset_url | preload_tag: as: 'script' }}
