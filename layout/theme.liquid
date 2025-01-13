@@ -129,12 +129,12 @@
      
 
     <!-- Stylesheet for Fancybox library -->
-    {{ 'fancybox.css' | asset_url | stylesheet_tag }}
+    {{ 'fancybox.css' | asset_url | preload_tag: as: 'style' }}
 
     <!-- Stylesheets for Turbo -->
     {{ 'styles.css' | asset_url | stylesheet_tag }}
     
-    {{ 'font-awesome.min.css' | asset_url | stylesheet_tag }}
+    {{ 'font-awesome.min.css' | asset_url | preload_tag: as: 'style' }}
 	
 	<!-- Bootstrap -->
 	{%- render 'include-bootstrap'-%}
