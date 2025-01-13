@@ -117,7 +117,7 @@
     {{ 'globo.filter.custom.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
     {{ 'font-awesome.min.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
     {{ 'lazyload-yt.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
-    {{ 'social_login.js' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
+    {{ 'social_login.js' | asset_url | stylesheet_tag }}
     
     {% if template contains 'bundle' %}
       {{ 'bundle.js' | asset_url | preload_tag: as: 'script' }}
