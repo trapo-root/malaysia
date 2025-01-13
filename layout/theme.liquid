@@ -120,18 +120,7 @@
       {{ 'utilities.js' | asset_url | preload_tag: as: 'script' }}
       {{ 'app.js' | asset_url | preload_tag: as: 'script' }}
       {{ 'custom.js' | asset_url | preload_tag: as: 'script' }}
-      
-
-    <script src="{{ 'vendors.js' | asset_url }}" defer></script>
-    <script src="{{ 'sections.js' | asset_url }}" defer></script>
-    <script src="{{ 'utilities.js' | asset_url }}" defer></script>
-    <script src="{{ 'app.js' | asset_url }}" defer></script>
-  
-	<script src="{{ 'custom.js' | asset_url }}" defer></script>
-    {{ 'font-awesome.min.css' | asset_url | preload_tag: as: 'style' }}
-    
-    <script src="{{ 'lazyload-yt.js' | asset_url }}" defer></script>
-    <script src="https://kit.fontawesome.com/145824be6c.js" ></script>
+      {{ 'font-awesome.min.css' | asset_url | preload_tag: as: 'style' }}
 
     <!-- Non Critical CSS and JS -->
     {{ 'globo.filter.custom.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
@@ -231,7 +220,15 @@
       {% render 'js-variables' %}
     </script>
 
-    
+    <script src="{{ 'vendors.js' | asset_url }}" defer></script>
+    <script src="{{ 'sections.js' | asset_url }}" defer></script>
+    <script src="{{ 'utilities.js' | asset_url }}" defer></script>
+    <script src="{{ 'app.js' | asset_url }}" defer></script>
+    <script src="{{ 'social_login.js' | asset_url }}" defer></script>
+	<script src="{{ 'custom.js' | asset_url }}" defer></script>
+     
+    <script src="{{ 'lazyload-yt.js' | asset_url }}" defer></script>
+    <script src="https://kit.fontawesome.com/145824be6c.js" ></script>
 
     {% if settings.disqus_enabled %}
       {% if template contains "blog" or template contains "article" or template contains "index" %}
