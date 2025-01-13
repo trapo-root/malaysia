@@ -115,11 +115,6 @@
 
     <!-- Critical CSS & JS Assets -->
       {{ 'jquery.min.js' | asset_url | preload_tag: as: 'script' }}
-      {{ 'vendors.js' | asset_url | preload_tag: as: 'script' }}
-      {{ 'sections.js' | asset_url | preload_tag: as: 'script' }}
-      {{ 'utilities.js' | asset_url | preload_tag: as: 'script' }}
-      {{ 'app.js' | asset_url | preload_tag: as: 'script' }}
-      {{ 'custom.js' | asset_url | preload_tag: as: 'script' }}
       {{ 'font-awesome.min.css' | asset_url | preload_tag: as: 'style' }}
 
     <!-- Non Critical CSS and JS -->
@@ -228,7 +223,7 @@
 	<script src="{{ 'custom.js' | asset_url }}" defer></script>
      
     <script src="{{ 'lazyload-yt.js' | asset_url }}" defer></script>
-    <script src="https://kit.fontawesome.com/145824be6c.js" ></script>
+    
 
     {% if settings.disqus_enabled %}
       {% if template contains "blog" or template contains "article" or template contains "index" %}
