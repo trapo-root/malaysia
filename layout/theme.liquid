@@ -123,7 +123,7 @@
 
     
     {% if template contains 'bundle' %}
-      <link rel="preload" href="{{ 'bundle.js' | asset_url }}" as="script">
+      {{ 'bundle.js' | asset_url | preload_tag: as: 'script' }}
     {% endif %}
      
 
