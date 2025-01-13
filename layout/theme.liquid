@@ -111,17 +111,17 @@
 
     <!-- Preload Assets -->
       {{ 'fancybox.css' | asset_url | preload_tag: as: 'style' }}
-  {{ 'styles.css' | asset_url | preload_tag: as: 'style' }}
-  {{ 'globo.filter.custom.css' | asset_url | preload_tag: as: 'style' }}
-  {{ 'jquery.min.js' | asset_url | preload_tag: as: 'script' }}
-  {{ 'vendors.js' | asset_url | preload_tag: as: 'script' }}
-  {{ 'sections.js' | asset_url | preload_tag: as: 'script' }}
-  {{ 'utilities.js' | asset_url | preload_tag: as: 'script' }}
-  {{ 'app.js' | asset_url | preload_tag: as: 'script' }}
-  {{ 'social_login.js' | asset_url | preload_tag: as: 'script' }}
-  {{ 'custom.js' | asset_url | preload_tag: as: 'script' }}
-  {{ 'globo.filter.custom.css' | asset_url | preload_tag: as: 'style' }}
-  {{ 'lazyload-yt.css' | asset_url | preload_tag: as: 'style' }}
+      {{ 'styles.css' | asset_url | preload_tag: as: 'style' }}
+      {{ 'globo.filter.custom.css' | asset_url | preload_tag: as: 'style' }}
+      {{ 'jquery.min.js' | asset_url | preload_tag: as: 'script' }}
+      {{ 'vendors.js' | asset_url | preload_tag: as: 'script' }}
+      {{ 'sections.js' | asset_url | preload_tag: as: 'script' }}
+      {{ 'utilities.js' | asset_url | preload_tag: as: 'script' }}
+      {{ 'app.js' | asset_url | preload_tag: as: 'script' }}
+      {{ 'social_login.js' | asset_url | preload_tag: as: 'script' }}
+      {{ 'custom.js' | asset_url | preload_tag: as: 'script' }}
+      {{ 'globo.filter.custom.css' | asset_url | preload_tag: as: 'style' }}
+      {{ 'lazyload-yt.css' | asset_url | preload_tag: as: 'style' }}
     
     {% if template contains 'bundle' %}
       {{ 'bundle.js' | asset_url | preload_tag: as: 'script' }}
