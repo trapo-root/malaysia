@@ -114,12 +114,19 @@
     <link rel="preload" href="{{ 'styles.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
     <!-- Critical CSS & JS Assets -->
+      {{ 'jquery.min.js' | asset_url | preload_tag: as: 'script' }}
+      {{ 'vendors.js' | asset_url | preload_tag: as: 'script' }}
+      {{ 'sections.js' | asset_url | preload_tag: as: 'script' }}
+      {{ 'utilities.js' | asset_url | preload_tag: as: 'script' }}
+      {{ 'app.js' | asset_url | preload_tag: as: 'script' }}
+      {{ 'custom.js' | asset_url | preload_tag: as: 'script' }}
       
-    {{ 'jquery.min.js' | asset_url | preload_tag: as: 'script' }}
+
     <script src="{{ 'vendors.js' | asset_url }}" defer></script>
     <script src="{{ 'sections.js' | asset_url }}" defer></script>
     <script src="{{ 'utilities.js' | asset_url }}" defer></script>
     <script src="{{ 'app.js' | asset_url }}" defer></script>
+  
 	<script src="{{ 'custom.js' | asset_url }}" defer></script>
     {{ 'font-awesome.min.css' | asset_url | preload_tag: as: 'style' }}
     
