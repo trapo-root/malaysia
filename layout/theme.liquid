@@ -115,7 +115,6 @@
 
     <!-- Critical CSS & JS Assets -->
       {{ 'jquery.min.js' | asset_url | preload_tag: as: 'script' }}
-      {{ 'font-awesome.min.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
 
     <!-- Non Critical CSS and JS -->
     {{ 'globo.filter.custom.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
