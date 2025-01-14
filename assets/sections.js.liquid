@@ -716,10 +716,21 @@ window.selectCallback = function (variant, selector, $element) {
   }
   }
 
+  var selectedVarCmp = variant.compare_at_price;
+  var finalVarCmp = window.Shopify.formatMoney(selectedVarCmp, $('body').data('money-format'));
 
+
+  
+  if (selectedVarCmp !== null){
+    var finalVarCmp = window.Shopify.formatMoney(selectedVarCmp, $('body').data('money-format'));
+    $(".footer-p-price").find(".was-price").html(finalVarCmp);
+  }else{
+   $(".footer-p-price").find(".was-price").empty();
+  }
+  
   var selectedVarPrice = variant.price;
   var finalVarPrice = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
-  $(".footer-p-price").find(".was-price").empty();
+
   $(".footer-p-price").find(".money").html(finalVarPrice);
   
   const evt = document.createEvent('HTMLEvents');
