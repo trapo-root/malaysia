@@ -717,9 +717,6 @@ window.selectCallback = function (variant, selector, $element) {
   }
 
   var selectedVarCmp = variant.compare_at_price;
-  var finalVarCmp = window.Shopify.formatMoney(selectedVarCmp, $('body').data('money-format'));
-
-
   
   if (selectedVarCmp !== null){
     var finalVarCmp = window.Shopify.formatMoney(selectedVarCmp, $('body').data('money-format'));
