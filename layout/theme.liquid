@@ -109,17 +109,32 @@
     <link rel="dns-prefetch" href="https://cdn.shopifycloud.com" />
     <link rel="dns-prefetch" href="https://monorail-edge.shopifysvc.com">
 
-    <!-- Critical CSS & JS Assets -->
+    <!-- Preload Assets -->
+    <link rel="preload" href="{{ 'fancybox.css' | asset_url }}" as="style">
+    <link rel="preload" href="{{ 'styles.css' | asset_url }}" as="style">
+    <link rel="preload" href="{{ 'globo.filter.custom.css' | asset_url }}" as="style">
+    <link rel="preload" href="{{ 'jquery.min.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'vendors.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'sections.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'utilities.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'app.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'social_login.js' | asset_url }}" as="script">
+	<link rel="preload" href="{{ 'custom.js' | asset_url }}" as="script">
     
-    <link rel="preload" href="{{ 'styles.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    
-    <!-- Non Critical CSS and JS -->
-    {{ 'globo.filter.custom.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
-    {{ 'font-awesome.min.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
-    {{ 'lazyload-yt.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
-    {{ 'fancybox.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
-    
-    
+    {% if template contains 'bundle' %}
+      <link rel="preload" href="{{ 'bundle.js' | asset_url }}" as="script">
+    {% endif %}
+     
+
+    <!-- Stylesheet for Fancybox library -->
+    {{ 'fancybox.css' | asset_url | stylesheet_tag }}
+
+    <!-- Stylesheets for Turbo -->
+    {{ 'styles.css' | asset_url | stylesheet_tag }}
+    {{ 'globo.filter.custom.css' | asset_url | stylesheet_tag }}
+    {{ 'lazyload-yt.css' | asset_url | stylesheet_tag }}
+    {{ 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' | stylesheet_tag }}
+	
 	<!-- Bootstrap -->
 	{%- render 'include-bootstrap'-%}
 
@@ -160,7 +175,7 @@
     <script src="{{ 'jquery.min.js' | asset_url }}" defer></script>
 
     {% if settings.show_multiple_currencies or settings.show_shipping_calculator %}
-      <script src="{{ 'currencies.js' | shopify_asset_url }}" defer></script>
+      <script type="text/javascript" src="/services/javascripts/currencies.js" data-no-instant></script>
     {% endif %}
 
     {% if settings.show_multiple_currencies or shop.enabled_currencies.size > 1 %}
@@ -212,8 +227,12 @@
     <script src="{{ 'social_login.js' | asset_url }}" defer></script>
 	<script src="{{ 'custom.js' | asset_url }}" defer></script>
      
+    {% if template contains 'bundle' %}
+      <script src="{{ 'bundle.js' | asset_url }}" defer></script>
+    {% endif %}
+     
     <script src="{{ 'lazyload-yt.js' | asset_url }}" defer></script>
-    
+    <script src="https://kit.fontawesome.com/145824be6c.js" ></script>
 
     {% if settings.disqus_enabled %}
       {% if template contains "blog" or template contains "article" or template contains "index" %}
@@ -482,12 +501,6 @@
 {% endunless %}
           {% endcomment %}
     {% include 'globo.filter.action' %}
-
-    <script src="{{ 'jquery.min.js' | asset_url }}" defer></script>
-    {% if template contains 'bundle' %}
-      <script src="{{ 'bundle.js' | asset_url }}" defer></script>
-    {% endif %}
-    <script src="{{ 'social_login.js' | asset_url }}" defer></script>
   
   </body>
 
