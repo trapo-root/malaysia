@@ -31,7 +31,7 @@
   or template contains 'homepage-new'
   or template contains 'bundle'
 -%}
-  {{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
+  {{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
 {% if handle contains 'blog-posts-by-trapo'
@@ -47,9 +47,9 @@
   or handle contains 'car-wiper-malaysia'
   or handle contains 'car-hydrophobic-wiper'
 %}
-  {{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
+  {{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag }}
 {% endif %}
 {% if template contains 'store-' or template contains 'daya-hub' %}
-  {{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag: media: 'print', onload: "this.media='all'" }}
+  {{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag }}
   {{ 'store-location.css' | asset_url | stylesheet_tag }}
 {% endif %}
