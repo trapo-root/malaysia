@@ -37,6 +37,12 @@
           <span class="price-ui-badge__sticker-text price-ui-badge__sticker-text--new">{{ 'collections.general.new' | t }}</span>
         </div>
       </div>
+    {% elsif product.tags contains 'new' %}
+      <div class="price-ui-badge price-ui-badge--new">
+        <div class="price-ui-badge__sticker price-ui-badge__sticker--new">
+          <span class="price-ui-badge__sticker-text price-ui-badge__sticker-text--new">{{ 'collections.general.new' | t }}</span>
+        </div>
+      </div>
     {% endif %}
 
     {% if product.tags contains 'pre-order' %}
