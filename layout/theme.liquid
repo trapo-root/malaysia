@@ -455,6 +455,9 @@
 
 
     {% sections 'header-group' %}
+    {% if template contains "product" %}
+      {%- include 'announcement-banner' -%}
+    {% endif %}
 
     <div style="--background-color: {{ settings.shop_bg_color }}">
       {%
