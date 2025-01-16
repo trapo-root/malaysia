@@ -85,6 +85,22 @@ document.addEventListener('DOMContentLoaded', function() {
 		  }).fail(function() {
 		   $('#ultimatehex-type').hide();
 		  });
+
+         var selectProductCrystalTint = currentProductHandle.replaceAll(lastItem, "crystal" );
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductCrystalTint + '.js', function(product) {
+			//console.log(product);
+           $('#crystal-type').css('visibility','visible');
+		  }).fail(function() {
+		   $('#crystal-type').hide();
+		  });
+
+         var selectProductDfendTint = currentProductHandle.replaceAll(lastItem, "dfend" );
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductDfendTint + '.js', function(product) {
+			//console.log(product);
+           $('#dfend-type').css('visibility','visible');
+		  }).fail(function() {
+		   $('#dfend-type').hide();
+		  });
    
   });
 
