@@ -279,18 +279,18 @@
               type="radio"
               class="product-type-radio"
               name="properties[Type]"
-              value="Quick"
-              {% if lastfourth contains 'quick' %}
+              value="Quik"
+              {% if lastfourth contains 'quik' %}
                 checked
               {% endif %}
             >
             <div
               data-value="Quick"
-              class="swatch-element-type {% if lastfourth contains 'quick' %}selected{% endif %}"
-              onclick="{% if lastfourth contains 'quick' %}changeImage(this){% else %}changeType(this){% endif %}"
+              class="swatch-element-type {% if lastfourth contains 'quik' %}selected{% endif %}"
+              onclick="{% if lastfourth contains 'quik' %}changeImage(this){% else %}changeType(this){% endif %}"
             >
               <lable>
-                <img src="{{ 'quick-coat.png' | asset_url }}" alt="Quick">
+                <img src="{{ 'quick-coat.png' | asset_url }}" alt="Quik">
               </lable>
             </div>
           </div>
