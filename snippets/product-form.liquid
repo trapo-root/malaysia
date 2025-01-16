@@ -214,6 +214,7 @@
       {% if product.tags contains 'trapo-tint' %}
         {% assign producthandle = product.handle | split: '-' %}
         {% assign last_third = producthandle | slice: -3 %}
+        {{ last_third }}
         <div class="new-steps">
           <span class="new-step-2">Variant</span>
         </div>
