@@ -705,11 +705,13 @@
     {% render 'xtreme-description' %}
   </div>
 {% elsif product.tags contains 'trapo-coating' %}
+  {{ product.handle }}
   {% if product.handle == 'trapo-quik-shield-car-coating' %}
     <div class="sixteen columns">
     {% render 'coating-description' %}
   </div>
   {% elsif product.handle == 'trapo-pro-shield-car-coating' %}
+     Hiii
   <div class="sixteen columns">
     {% render 'pro-coating-description' %}
   </div>
@@ -721,7 +723,6 @@
     {% render 'tint-description' %}
   </div>
   {% elsif product.handle == 'trapo-dfend-window-tint' %}
-    Hiii
   <div class="sixteen columns">
     {% render 'dfend-tint-description' %}
   </div>
