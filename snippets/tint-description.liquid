@@ -24,6 +24,19 @@
   </div>
 </section>
 
+<section class="tint_diff">
+    <img
+      src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/tint-header-desktop-new.webp?v=1724388694"
+      alt=""
+      class="desk_img"
+    >
+    <img
+      src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/tint_header_mobile.png?v=1719998165"
+      alt=""
+      class="mobile_img"
+    >
+</section>
+
 <section class="key_features">
   <div class="container">
     <div class="sec_heading">
@@ -552,8 +565,16 @@
         letter-spacing: 0.2px;
     }
 }
-
+@media(min-width:768px){
+                .mobile_img{
+                  display:none !important;
+                }
+              }
+  
 @media(max-width:767px){
+  .desk_img{
+                display:none !important;
+              }
    .warranty_coverage_top .warranty_coverage_item h5{
     margin-left: 0;
   }
