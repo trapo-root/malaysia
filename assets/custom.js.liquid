@@ -32,14 +32,18 @@ document.addEventListener('DOMContentLoaded', function() {
 		//console.log(currentProductHandle);
 		var xtremeHandle = "xtreme-3d-car-mat";
 		var ultimateHandle = "hex-ultimate";
+        var tintHandle = "window-tint";
 		if(currentProductHandle.indexOf(xtremeHandle) != -1){
 			var lastItem = currentProductHandle.split("-").slice(-4).join("-");
 		}else if(currentProductHandle.indexOf(ultimateHandle) != -1){
 			var lastItem = currentProductHandle.split("-").slice(-2).join("-");
+        }else if(currentProductHandle.indexOf(tintHandle) != -1){
+            var parts = currentProductHandle.split('-');
+            var lastItem = parts[parts.length - 3];
 		}else{
 		  var lastItem = currentProductHandle.split("-").pop();
 		}
-		//console.log(lastItem);
+		console.log(lastItem);
 
        var selectProductClassic = currentProductHandle.replaceAll(lastItem, "classic" );
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductClassic + '.js', function(product) {
