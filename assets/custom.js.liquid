@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		   $('#quik-type').hide();
 		  });
 
-         var selectProductProCoat = currentProductHandle.replaceAll(lastItem, "quick" );
+         var selectProductProCoat = currentProductHandle.replaceAll(lastItem, "pro" );
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductProCoat + '.js', function(product) {
 			//console.log(product);
            $('#pro-type').css('visibility','visible');
