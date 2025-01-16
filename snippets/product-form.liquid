@@ -227,14 +227,14 @@
               class="product-type-radio"
               name="properties[Type]"
               value="Crystal"
-              {% if lastthird == 'crystal' %}
+              {% if lastthird contains 'crystal' %}
                 checked
               {% endif %}
             >
             <div
               data-value="Crystal"
               class="swatch-element-type {% if lastthird contains 'crystal' %}selected{% endif %}"
-              onclick="{% if lastthird == 'crystal' %}changeImage(this){% else %}changeType(this){% endif %}"
+              onclick="{% if lastthird contains 'crystal' %}changeImage(this){% else %}changeType(this){% endif %}"
             >
               <lable>
                 <img src="{{ 'crystal.png' | asset_url }}" alt="Crystal">
@@ -247,13 +247,13 @@
               class="product-type-radio"
               name="properties[Type]"
               value="Dfend"
-              {% if lastthird == 'dfend' %}
+              {% if lastthird contains 'dfend' %}
                 checked
               {% endif %}
             >
             <div
               data-value="Dfend"
-              class="swatch-element-type {% if lastthird == 'dfend' %}selected{% endif %}"
+              class="swatch-element-type {% if lastthird contains 'dfend' %}selected{% endif %}"
               onclick="changeType(this)"
             >
               <lable>
