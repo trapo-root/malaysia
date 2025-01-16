@@ -264,6 +264,59 @@
         </div>
       {% endif %}
 
+      {% if product.tags contains 'trapo-coating' %}
+        {% assign producthandle = product.handle | split: '-' %}
+        {% assign lastfourth = producthandle | slice: -4 %}
+        
+        <div class="new-steps">
+          <span class="new-step-2">Variant</span>
+        </div>
+         <p class="txt-choose-cmb">Choose a variant</p>
+
+        <div class="product-type-list" style="margin-bottom:0">
+          <div class="type-outer" id="quick-type" style="visibility: hidden;">
+            <input
+              type="radio"
+              class="product-type-radio"
+              name="properties[Type]"
+              value="Quick"
+              {% if lastfourth contains 'quick' %}
+                checked
+              {% endif %}
+            >
+            <div
+              data-value="Quick"
+              class="swatch-element-type {% if lastfourth contains 'quick' %}selected{% endif %}"
+              onclick="{% if lastfourth contains 'quick' %}changeImage(this){% else %}changeType(this){% endif %}"
+            >
+              <lable>
+                <img src="{{ 'quick-coat.png' | asset_url }}" alt="Quick">
+              </lable>
+            </div>
+          </div>
+          <div class="type-outer" id="pro-type" style="visibility: hidden;">
+            <input
+              type="radio"
+              class="product-type-radio"
+              name="properties[Type]"
+              value="Pro"
+              {% if lastfourth contains 'pro' %}
+                checked
+              {% endif %}
+            >
+            <div
+              data-value="Pro"
+              class="swatch-element-type {% if lastfourth contains 'pro' %}selected{% endif %}"
+              onclick="changeType(this)"
+            >
+              <lable>
+                <img src="{{ 'pro-coat.png' | asset_url }}" alt="Pro">
+              </lable>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
       {% if product.type == 'TRAPO CLASSIC'
         or product.type == 'TRAPO HEX'
         or product.type == 'TRAPO ECO'
