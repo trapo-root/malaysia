@@ -683,28 +683,9 @@
     {% endif %}
   </div>
 </div>
+{{ product.tags }}
 
-{% if product.type == 'TRAPO CLASSIC' or product.type == 'TRAPO CLASSIC REAR' or product.type == 'TRAPO TEST' %}
-  <div class="sixteen columns">
-    {% render 'classic-description' %}
-  </div>
-{% elsif product.type == 'TRAPO HEX' or product.type == 'TRAPO HEX REAR' %}
-  <div class="sixteen columns">
-    {% render 'hex-description' %}
-  </div>
-{% elsif product.type == 'TRAPO ECO' or product.type == 'TRAPO ECO REAR' %}
-  <div class="sixteen columns">
-    {% render 'eco-description' %}
-  </div>
-{% elsif product.type == 'TRAPO HEX ULTIMATE' or product.type == 'TRAPO HEX ULTIMATE REAR' %}
-  <div class="sixteen columns">
-    {% render 'ultimate-description' %}
-  </div>
-{% elsif product.type == 'TRAPO XTREME' or product.type == 'TRAPO XTREME REAR' %}
-  <div class="sixteen columns">
-    {% render 'xtreme-description' %}
-  </div>
-{% elsif product.tags contains 'trapo-coating' %}
+{% if product.tags contains 'trapo-coating' %}
   {% if product.handle == 'trapo-quik-shield-car-coating' %}
     <div class="sixteen columns">
     {% render 'coating-description' %}
