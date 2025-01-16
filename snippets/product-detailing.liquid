@@ -709,9 +709,15 @@
     {% render 'coating-description' %}
   </div>
 {% elsif product.tags contains 'trapo-tint' %}
-  <div class="sixteen columns">
+  {% if product.handle == 'trapo-crystal-window-tint' %}
+    <div class="sixteen columns">
     {% render 'tint-description' %}
   </div>
+  {% elsif product.handle == 'trapo-dfend-window-tint' %}
+  <div class="sixteen columns">
+    {% render 'dfend-tint-description' %}
+  </div>
+  {% endif %}
 {% elsif product.tags contains 'trapo-ppf' %}
   <div class="sixteen columns">
     {% render 'ppf-description' %}
