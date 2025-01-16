@@ -106,12 +106,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		   $('#dfend-type').hide();
 		  });
 
-         var selectProductQuickCoat = currentProductHandle.replaceAll(lastItem, "quick" );
+         var selectProductQuickCoat = currentProductHandle.replaceAll(lastItem, "quik" );
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductQuickCoat + '.js', function(product) {
 			//console.log(product);
-           $('#quick-type').css('visibility','visible');
+           $('#quik-type').css('visibility','visible');
 		  }).fail(function() {
-		   $('#quick-type').hide();
+		   $('#quik-type').hide();
 		  });
 
          var selectProductProCoat = currentProductHandle.replaceAll(lastItem, "quick" );
@@ -238,8 +238,8 @@ var $product_img_cell = $(".variant_imgs_cell"),
     else if(typeValue == 'Dfend'){
       var selectProductType = currentProductHandle.replaceAll(lastItem, "dfend" );
     }
-    else if(typeValue == 'Quick'){
-      var selectProductType = currentProductHandle.replaceAll(lastItem, "quick" );
+    else if(typeValue == 'Quik'){
+      var selectProductType = currentProductHandle.replaceAll(lastItem, "quik" );
     }
     else if(typeValue == 'Pro'){
       var selectProductType = currentProductHandle.replaceAll(lastItem, "pro" );
