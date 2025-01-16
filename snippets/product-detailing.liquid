@@ -705,9 +705,16 @@
     {% render 'xtreme-description' %}
   </div>
 {% elsif product.tags contains 'trapo-coating' %}
-  <div class="sixteen columns">
+  {% if product.handle == 'trapo-quik-shield-car-coating' %}
+    <div class="sixteen columns">
     {% render 'coating-description' %}
   </div>
+  {% elsif product.handle == 'trapo-pro-shield-car-coating' %}
+  <div class="sixteen columns">
+    {% render 'pro-coating-description' %}
+  </div>
+  {% endif %}
+  
 {% elsif product.tags contains 'trapo-tint' %}
   {% if product.handle == 'trapo-crystal-window-tint' %}
     <div class="sixteen columns">
