@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		var xtremeHandle = "xtreme-3d-car-mat";
 		var ultimateHandle = "hex-ultimate";
         var tintHandle = "window-tint";
+        var coatHandle = "shield-car-coating";
 		if(currentProductHandle.indexOf(xtremeHandle) != -1){
 			var lastItem = currentProductHandle.split("-").slice(-4).join("-");
 		}else if(currentProductHandle.indexOf(ultimateHandle) != -1){
@@ -40,6 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }else if(currentProductHandle.indexOf(tintHandle) != -1){
             var parts = currentProductHandle.split('-');
             var lastItem = parts[parts.length - 3];
+        }else if(currentProductHandle.indexOf(coatHandle) != -1){
+            var parts = currentProductHandle.split('-');
+            var lastItem = parts[parts.length - 4];
 		}else{
 		  var lastItem = currentProductHandle.split("-").pop();
 		}
@@ -100,6 +104,22 @@ document.addEventListener('DOMContentLoaded', function() {
            $('#dfend-type').css('visibility','visible');
 		  }).fail(function() {
 		   $('#dfend-type').hide();
+		  });
+
+         var selectProductQuickCoat = currentProductHandle.replaceAll(lastItem, "quick" );
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductQuickCoat + '.js', function(product) {
+			//console.log(product);
+           $('#quick-type').css('visibility','visible');
+		  }).fail(function() {
+		   $('#quick-type').hide();
+		  });
+
+         var selectProductProCoat = currentProductHandle.replaceAll(lastItem, "quick" );
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductProCoat + '.js', function(product) {
+			//console.log(product);
+           $('#pro-type').css('visibility','visible');
+		  }).fail(function() {
+		   $('#pro-type').hide();
 		  });
    
   });
@@ -181,6 +201,7 @@ var $product_img_cell = $(".variant_imgs_cell"),
     var xtremeHandle = "xtreme-3d-car-mat";
 	var ultimateHandle = "hex-ultimate";
     var tintHandle = "window-tint";
+    var coatHandle = "shield-car-coating";
     if(currentProductHandle.indexOf(xtremeHandle) != -1){
         var lastItem = currentProductHandle.split("-").slice(-4).join("-");
     }else if(currentProductHandle.indexOf(ultimateHandle) != -1){
@@ -188,6 +209,9 @@ var $product_img_cell = $(".variant_imgs_cell"),
     }else if(currentProductHandle.indexOf(tintHandle) != -1){
             var parts = currentProductHandle.split('-');
             var lastItem = parts[parts.length - 3];
+    }else if(currentProductHandle.indexOf(coatHandle) != -1){
+            var parts = currentProductHandle.split('-');
+            var lastItem = parts[parts.length - 4];
 	}else{
       var lastItem = currentProductHandle.split("-").pop();
     }
@@ -211,8 +235,14 @@ var $product_img_cell = $(".variant_imgs_cell"),
     else if(typeValue == 'Crystal'){
       var selectProductType = currentProductHandle.replaceAll(lastItem, "crystal" );
     }
-    else if(typeValue == 'dfend'){
+    else if(typeValue == 'Dfend'){
       var selectProductType = currentProductHandle.replaceAll(lastItem, "dfend" );
+    }
+    else if(typeValue == 'Quick'){
+      var selectProductType = currentProductHandle.replaceAll(lastItem, "quick" );
+    }
+    else if(typeValue == 'Pro'){
+      var selectProductType = currentProductHandle.replaceAll(lastItem, "pro" );
     }
 
     window.location.href = "/products/"+selectProductType;
