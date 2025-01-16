@@ -236,27 +236,27 @@
               onclick="{% if last_third == 'crystal' %}changeImage(this){% else %}changeType(this){% endif %}"
             >
               <lable>
-                <img src="{{ 'btn_classic.png' | asset_url }}" alt="Crystal">
+                <img src="{{ 'crystal.png' | asset_url }}" alt="Crystal">
               </lable>
             </div>
           </div>
-          <div class="type-outer" id="defend-type" style="visibility: hidden;">
+          <div class="type-outer" id="dfend-type" style="visibility: hidden;">
             <input
               type="radio"
               class="product-type-radio"
               name="properties[Type]"
-              value="Defend"
-              {% if last_third == 'defend' %}
+              value="Dfend"
+              {% if last_third == 'dfend' %}
                 checked
               {% endif %}
             >
             <div
-              data-value="Eco"
-              class="swatch-element-type {% if last_third == 'defend' %}selected{% endif %}"
+              data-value="Dfend"
+              class="swatch-element-type {% if last_third == 'dfend' %}selected{% endif %}"
               onclick="changeType(this)"
             >
               <lable>
-                <img src="{{ 'btn_eco.png' | asset_url }}" alt="Defend">
+                <img src="{{ 'defend.png' | asset_url }}" alt="Dfend">
               </lable>
             </div>
           </div>
