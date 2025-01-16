@@ -213,8 +213,8 @@
 
       {% if product.tags contains 'trapo-tint' %}
         {% assign producthandle = product.handle | split: '-' %}
-        {% assign last_third = producthandle | slice: -3 %}
-        {{ last_third }}
+        {% assign lastthird = producthandle | slice: -3 %}
+        {{ lastthird }}
         <div class="new-steps">
           <span class="new-step-2">Variant</span>
         </div>
@@ -227,14 +227,14 @@
               class="product-type-radio"
               name="properties[Type]"
               value="Crystal"
-              {% if last_third == 'crystal' %}
+              {% if lastthird == 'crystal' %}
                 checked
               {% endif %}
             >
             <div
               data-value="Crystal"
-              class="swatch-element-type {% if last_third == 'crystal' %}selected{% endif %}"
-              onclick="{% if last_third == 'crystal' %}changeImage(this){% else %}changeType(this){% endif %}"
+              class="swatch-element-type {% if lastthird == 'crystal' %}selected{% endif %}"
+              onclick="{% if lastthird == 'crystal' %}changeImage(this){% else %}changeType(this){% endif %}"
             >
               <lable>
                 <img src="{{ 'crystal.png' | asset_url }}" alt="Crystal">
@@ -247,13 +247,13 @@
               class="product-type-radio"
               name="properties[Type]"
               value="Dfend"
-              {% if last_third == 'dfend' %}
+              {% if lastthird == 'dfend' %}
                 checked
               {% endif %}
             >
             <div
               data-value="Dfend"
-              class="swatch-element-type {% if last_third == 'dfend' %}selected{% endif %}"
+              class="swatch-element-type {% if lastthird == 'dfend' %}selected{% endif %}"
               onclick="changeType(this)"
             >
               <lable>
