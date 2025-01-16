@@ -233,7 +233,7 @@
             >
             <div
               data-value="Crystal"
-              class="swatch-element-type"
+              class="swatch-element-type {% if last_third == 'crystal' %}selected{% endif %}"
               onclick="{% if last_third == 'crystal' %}changeImage(this){% else %}changeType(this){% endif %}"
             >
               <lable>
