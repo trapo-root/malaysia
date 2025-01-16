@@ -214,8 +214,9 @@
       {% if product.tags contains 'trapo-tint' %}
         {% assign producthandle = product.handle | split: '-' %}
         {% assign last_third = producthandle | slice: -3 %}
+        {{ last_third }}
         <div class="new-steps">
-          <span class="new-step-2">Step 1</span>
+          <span class="new-step-2">Variant</span>
         </div>
          <p class="txt-choose-cmb">Choose a variant</p>
 
@@ -231,7 +232,7 @@
               {% endif %}
             >
             <div
-              data-value="Classic"
+              data-value="Crystal"
               class="swatch-element-type"
               onclick="{% if last_third == 'crystal' %}changeImage(this){% else %}changeType(this){% endif %}"
             >
@@ -260,6 +261,7 @@
               </lable>
             </div>
           </div>
+        
       {% endif %}
 
       {% if product.type == 'TRAPO CLASSIC'
