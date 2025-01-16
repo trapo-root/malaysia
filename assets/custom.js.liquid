@@ -180,10 +180,14 @@ var $product_img_cell = $(".variant_imgs_cell"),
     var currentProductHandle  = $(".product_form").attr("data-product-handle");
     var xtremeHandle = "xtreme-3d-car-mat";
 	var ultimateHandle = "hex-ultimate";
+    var tintHandle = "window-tint";
     if(currentProductHandle.indexOf(xtremeHandle) != -1){
         var lastItem = currentProductHandle.split("-").slice(-4).join("-");
     }else if(currentProductHandle.indexOf(ultimateHandle) != -1){
 		var lastItem = currentProductHandle.split("-").slice(-2).join("-");
+    }else if(currentProductHandle.indexOf(tintHandle) != -1){
+            var parts = currentProductHandle.split('-');
+            var lastItem = parts[parts.length - 3];
 	}else{
       var lastItem = currentProductHandle.split("-").pop();
     }
@@ -203,6 +207,12 @@ var $product_img_cell = $(".variant_imgs_cell"),
     }
     else if(typeValue == 'Xtreme'){
       var selectProductType = currentProductHandle.replaceAll(lastItem, "xtreme-3d-car-mat" );
+    }
+    else if(typeValue == 'Crystal'){
+      var selectProductType = currentProductHandle.replaceAll(lastItem, "crystal" );
+    }
+    else if(typeValue == 'dfend'){
+      var selectProductType = currentProductHandle.replaceAll(lastItem, "dfend" );
     }
 
     window.location.href = "/products/"+selectProductType;
