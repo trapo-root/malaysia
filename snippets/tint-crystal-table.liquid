@@ -84,6 +84,118 @@
       </tbody>
     </table>
   </div>
+
+  <div class="modal model-1">
+    <div class="modal-overlay modal-toggle"></div>
+    <div class="modal-wrapper modal-transition">
+      <div class="modal-header">
+        <button class="modal-close modal-toggle modal-toggle1">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_419.png?v=1717383520">
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-content">
+          <h2>Technology (Nano vs Metallized)</h2>
+          <p>
+            Nano-ceramic tint acts like clear sunscreen for your car, shielding it from heat and UV rays without
+            changing its appearance or affecting electronic devices. Metallized tint functions akin to reflective
+            sunglasses, deflecting heat from your car's interior to keep it cooler but potentially causing a mirrored
+            effect and electronic interference.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal model-2">
+    <div class="modal-overlay modal-toggle"></div>
+    <div class="modal-wrapper modal-transition">
+      <div class="modal-header">
+        <button class="modal-close modal-toggle modal-toggle2">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_419.png?v=1717383520">
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-content">
+          <h2>Mil</h2>
+          <p>
+            This refers to the thickness of the window tint film. It's measured in mils, which are thousandths of an
+            inch. Essentially, the higher the mil, the thicker and more durable the film. So, the higher the mil, the
+            harder it is to break through the tint.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal model-3">
+    <div class="modal-overlay modal-toggle"></div>
+    <div class="modal-wrapper modal-transition">
+      <div class="modal-header">
+        <button class="modal-close modal-toggle modal-toggle3">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_419.png?v=1717383520">
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-content">
+          <h2>IRR (Infrared Rejection)</h2>
+          <p>
+            This indicates the window tint's ability to block or reduce the amount of infrared radiation (heat) that
+            enters your car through the windows. Higher IRR percentages mean more heat is being rejected, resulting in a
+            cooler interior.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal model-4">
+    <div class="modal-overlay modal-toggle"></div>
+    <div class="modal-wrapper modal-transition">
+      <div class="modal-header">
+        <button class="modal-close modal-toggle modal-toggle4">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_419.png?v=1717383520">
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-content">
+          <h2>UVR (Ultraviolet Rejection)</h2>
+          <p>
+            This measures the window tint's effectiveness in blocking ultraviolet (UV) radiation from the sun. UV rays
+            can cause damage to your skin and the interior of your car, such as fading upholstery and dashboard
+            deterioration. A higher UVR percentage means more UV rays are being blocked, providing better protection.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal model-5">
+    <div class="modal-overlay modal-toggle"></div>
+    <div class="modal-wrapper modal-transition">
+      <div class="modal-header">
+        <button class="modal-close modal-toggle modal-toggle5">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_419.png?v=1717383520">
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-content">
+          <h2>VLT (Visible Light Transmission)</h2>
+          <p>
+            This refers to the amount of visible light that can pass through the window tint. It's usually expressed as
+            a percentage. For example, a VLT of 50% means that half of the visible light is transmitted through the
+            tint, while the other half is blocked. The VLT percentage helps you choose the level of darkness or
+            lightness for your window tint based on your preference for privacy and visibility.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <style>
@@ -144,18 +256,18 @@
             .tint_table .col_3{
                 border-right:1px solid #DEDEDE !important
             }
-  .modal-content h2{
+  .tint_table .modal-content h2{
                 font-size:20px;
                 line-height:21px;
                 letter-spacing:2px;
                 color:#fff;
               }
-              .modal-content p{
+              .tint_table .modal-content p{
                 font-size:16px;
                 line-linehgt:24px;
                 color:#fff;
               }
-              .modal {
+              .tint_table .modal {
                 position: absolute;
                 z-index: 10000; /* 1 */
                 top: 0;
@@ -165,11 +277,11 @@
                 height: 100%;
               }
 
-             .modal.is-visible {
+             .tint_table  .modal.is-visible {
                   visibility: visible;
               }
 
-              .modal-overlay {
+              .tint_table .modal-overlay {
                 position: fixed;
                 z-index: 10;
                 top: 0;
@@ -182,13 +294,13 @@
                 transition: visibility 0s linear 0.3s, opacity 0.3s;
               }
 
-              .modal.is-visible .modal-overlay {
+              .tint_table .modal.is-visible .modal-overlay {
                 opacity: 1;
                 visibility: visible;
                 transition-delay: 0s;
               }
 
-              .modal-wrapper {
+              .tint_table .modal-wrapper {
       position: fixed;
       z-index: 9999;
       top: 20%;
@@ -202,29 +314,30 @@
       max-width: 500px;
   }
 
-            .modal-transition {
+            .tint_table .modal-transition {
               transition: all 0.3s 0.12s;
               opacity: 0;
             }
 
-            .modal.is-visible .modal-transition {
+            .tint_table .modal.is-visible .modal-transition {
               opacity: 1;
             }
 
-              .modal-header,.modal-content {
+              .tint_table .modal-header,
+              .tint_table .modal-content {
                 background-color: #E82276;
                   text-align: center;
                   padding: 15px 20px 20px;
                   border: 0;
               }
 
-              .modal-header {
+              .tint_table .modal-header {
                 position: relative;
                 background-color: #E82276;
                 border-bottom: 0;
               }
 
-              .modal-close {
+              .tint_table .modal-close {
                 position: absolute;
                 top: 15px;
                 right: 15px;
@@ -235,22 +348,22 @@
                   z-index: 999
               }
 
-              .modal-close:hover {
+              .tint_table .modal-close:hover {
                 color: #777;
               }
 
-              .modal-heading {
+              .tint_table .modal-heading {
                 font-size: 1.125em;
                 margin: 0;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
               }
 
-              .modal-content > *:first-child {
+              .tint_table .modal-content > *:first-child {
                 margin-top: 0;
               }
 
-              .modal-content > *:last-child {
+              .tint_table .modal-content > *:last-child {
                 margin-bottom: 0;
               }
   @media(max-width:1024px){
