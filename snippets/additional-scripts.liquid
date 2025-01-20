@@ -41,7 +41,7 @@
                   var viewed_product = {
                   product_name: '{{ product.title }}',
                   product_url: '{{ shop.url }}{{ product.url }}',
-                  product_image_path: '{{ product.images[0].src | img_url: "2048x2048" | prepend: "https:" }}',
+                  product_image_path: '{{ product.images[0].src | image_url: "2048x2048" | prepend: "https:" }}',
                   product_description: '{{ product.description | strip_html | strip_newlines }}',
                   product_sku: '{{ product.sku }}',
                   product_price: '{% if product.compare_at_price %}{{ product.compare_at_price }}{% else %}{{ product.price | money_without_currency }}{% endif %}',
