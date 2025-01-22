@@ -322,15 +322,6 @@
       }
        $('.pickup-in-store-1').addClass('addedNote');
     }
-    
-        if ((cartObject.item_count || 0) > 0) {
-            console.log('count greater than 0');
-            if (!((window || {}).wowcart || {}).zapietinit) {
-                console.log('zapiet event called');
-                document.dispatchEvent(new CustomEvent('zapiet:start'));
-                window.wowcart.zapietinit = true;
-            }
-        }
 
     //clear cart if cart only has free products
     
