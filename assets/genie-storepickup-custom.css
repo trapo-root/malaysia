@@ -1,0 +1,54 @@
+#genie-store-pickup-front-holder-drawer .searchBar .searchField {
+  max-width: 1400px;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 14px;
+}
+
+#react-select-2-listbox {
+  z-index: 999999999999;
+}
+
+#wow-cart-drawer-app .slider-cart-fix-portions {
+  z-index: 0;
+}
+
+.trapo__option {
+  white-space:break-spaces;
+}
+
+.trapo__option .trapo-span { 
+  max-width: 200px; 
+  display: block;
+}
+
+.trapo__single-value .trapo-address {
+  display: none;
+}
+
+#genie-store-pickup-front-holder-drawer{
+	padding:0;
+}
+#genie-store-pickup-front-holder, #genie-store-pickup-front-holder-drawer{
+	margin-bottom:0px;
+}
+#geniePickupBox p{
+	font-size: 12px;
+    margin-bottom: 5px;
+    font-family: 'Roboto';
+    font-weight: 600;
+}
+/* Genie Store Pick up Edit by Sid */
+#genie-store-pickup-front-holder-drawer .genie-app, #genie-store-pickup-front-holder .genie-app{
+  margin: 10px 10px;
+}
+#genie-store-pickup-front-holder-drawer .genie-app .loc-opt-holder, #genie-store-pickup-front-holder .genie-app .loc-opt-holder{
+  margin: 0px 10px 10px;
+}
+#genieCollectorFirstName::placeholder, #genieCollectorLastName::placeholder, #genieCollectorEmail::placeholder{
+    font-weight: 500;
+    font-size: 14px;
+}
+#genie-store-pickup-front-holder-drawer .genie-app .genieError, #genie-store-pickup-front-holder .genie-app .genieError{
+  margin: 0px 10px 10px;
+}

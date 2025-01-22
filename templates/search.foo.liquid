@@ -1,0 +1,19 @@
+
+{% layout none %}
+{
+    "tags" : {% capture output %}
+        {% for collection in collections %}  
+                {% if collection.all_tags.size > 0 %}
+                    {% for tag in collection.all_tags %}
+                        {% if output contains tag %}
+                        {% else %}
+                            {% if tag contains 'brand:' %}
+                            ,"{{tag | remove:'brand:' }}"
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}  
+                {% endif %}     
+        {% endfor %}
+    {% endcapture %}
+    {{ output | strip_newlines | prepend: '[' | append: ']' }}
+}

@@ -1,0 +1,263 @@
+{% if product.type == 'TRAPO CLASSIC' or product.type == 'TRAPO HEX' or product.type == 'TRAPO ECO' %}
+  {% if product.type == 'TRAPO CLASSIC' %}
+    {% assign last-ele = 'trapo-classic' %}
+  {% elsif product.type == 'TRAPO HEX' %}
+    {% assign last-ele = 'trapo-hex' %}
+  {% elsif product.type == 'TRAPO ECO' %}
+    {% assign last-ele = 'trapo-eco' %}
+  {% endif %}
+
+  {% assign handle_parts = product.handle | split: '-' %}
+  {% assign parts_count = handle_parts | size %}
+  {% assign new_handle = '' %}
+  {% assign second_last_index = parts_count | minus: 1 %}
+  {% assign last_index = parts_count %}
+
+  {% for part in handle_parts %}
+    {% if forloop.index < second_last_index %}
+      {% assign new_handle = new_handle | append: part | append: '-' %}
+    {% elsif forloop.index == second_last_index %}
+      {% assign new_handle = new_handle | append: 'rear-' %}
+    {% else %}
+      {% assign new_handle = new_handle | append: last-ele %}
+    {% endif %}
+  {% endfor %}
+  {% assign product_exists = all_products[new_handle] %}
+
+  {% if product_exists %}
+    <div class="main-trialmat">
+      <div class="trial-url">
+        <p>Bought Trapo Trial Mats? 
+          <span class="info-icon">?</span> 
+          <span class="tooltip">Trial Mats : Driver or Driver+Passenger mats</span>
+          <a href="/products/{{ new_handle }}" target="_blank" class="banner-url">Get the rest here.</a></p>
+      </div>
+     {% comment %} <div class="banner">
+        <div class="banner-text">
+          Bought <strong>Trial Mats?</strong><br>
+          Get the rest here.
+        </div>
+        <a href="/products/{{ new_handle }}" target="_blank" class="banner-button">CLICK HERE</a>
+      </div>
+      <div class="info-link">
+        <div class="tooltip">Trial Mats : Driver or Driver+Passenger mats</div>
+        <span class="info-icon">i</span>
+        What's Trial Mats?
+      </div>{% endcomment %}
+    </div>
+
+    <style>
+.main-trialmat{
+  display: flex;
+    justify-content: space-between;
+  margin-bottom: 10px;
+}
+      .trial-url{
+        position: relative;
+      }
+      .trial-url p{
+        font-size: 13px;
+    line-height: 24px;
+    color: #808080;
+        margin-bottom: 0px;
+        display: flex;
+    gap: 3px;
+    align-items: center;
+    justify-content: center;
+      }
+      .trial-url p a{
+        text-decoration:underline;
+        padding-left: 5px;
+      }
+      .trial-url p a:hover{
+            color: #ee2a7b;
+      }
+      .trial-icon{
+        position:relative;
+      }
+      .info-icon:hover + .tooltip {
+      	opacity: 1;
+      	visibility: visible;
+      	transform: translateY(0px);
+      }
+      .info-icon {
+      	width: 20px;
+      	height: 20px;
+      	background-color: #fff;
+      	border: 2px solid;
+      	color: #E91E63;
+      	border-radius: 50%;
+      	display: inline-flex;
+      	align-items: center;
+      	justify-content: center;
+      	margin-right: 0px;
+      	font-style: italic;
+      	font-weight: bold;
+      	font-size: 12px;
+        cursor: pointer;
+      }
+      
+      .trial-url .tooltip {
+      	text-align: center;
+      	background: rgba(51, 51, 51, 0.9);
+      	color: #fff;
+      	top: 35px;
+      	padding: 5px 10px;
+      	display: block;
+      	position: absolute;
+      	width: 150px;
+      	font-size: 12px;
+      	line-height: 14px;
+      	left: 85px;
+      	margin-bottom: 0;
+      	opacity: 0;
+      	visibility: hidden;
+      	transform: translateY(10px);
+      	transition: all 0.25s ease-out;
+      	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      	z-index: 10000;
+      }
+      
+      .trial-url .tooltip:before {
+      	content: "";
+      	bottom: -20px;
+      	display: block;
+      	height: 20px;
+      	left: 0;
+      	position: absolute;
+      	width: 100%;
+      }
+      
+      .trial-url .tooltip:after {
+      	content: "";
+      	border-left: solid transparent 10px;
+      	border-right: solid transparent 10px;
+      	border-bottom: solid rgba(51, 51, 51, 0.9) 10px;
+      	top: -10px;
+      	height: 0;
+      	left: 50%;
+      	margin-left: -13px;
+      	position: absolute;
+      	width: 0;
+      } 
+      .txt-choose-pkg{
+      margin-bottom: 0px !important;
+}
+     /*.main-trialmat {
+      	display: grid;
+      	grid-template-columns: 1fr;
+      	max-width: max-content;
+      	text-align: center;
+      	margin-bottom: 10px;
+      }
+      
+      .banner {
+      	 background-color: #000;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    max-width: max-content;
+    width: 100%;
+    gap: 20px;
+      }
+      
+      .banner-text {
+      	font-size: 12px;
+      	line-height: 14px;
+      	text-align: center;
+      }
+      
+      .banner a.banner-button {
+      	background-color: #E91E63;
+      	color: #fff;
+      	padding: 10px 20px;
+      	border-radius: 25px;
+      	text-decoration: none;
+      	font-weight: bold;
+      	color: #fff;
+      	font-size: 12px;
+      	line-height: 14px;
+      }
+      
+      .main-trialmat .info-link {
+      	color: #1b3d6d;
+      	text-decoration: none;
+      	font-size: 10px;
+      	position: relative;
+      	line-height: 14px;
+      	width: max-content;
+      	margin: 0 auto;
+      	cursor: pointer;
+      	margin-top: 5px;
+      }
+      
+      .info-icon {
+      	width: 16px;
+      	height: 16px;
+      	background-color: #fff;
+      	border: 2px solid;
+      	color: #E91E63;
+      	border-radius: 50%;
+      	display: inline-flex;
+      	align-items: center;
+      	justify-content: center;
+      	margin-right: 10px;
+      	font-style: italic;
+      	font-weight: bold;
+      	font-size: 10px;
+      }
+      
+      .main-trialmat .info-link:hover .tooltip {
+      	opacity: 1;
+      	visibility: visible;
+      	transform: translateY(0px);
+      }
+      
+      .info-link .tooltip {
+      	text-align: center;
+      	background: rgba(51, 51, 51, 0.9);
+      	color: #fff;
+      	top: 27px;
+      	padding: 5px 10px;
+      	display: block;
+      	position: absolute;
+      	width: 150px;
+      	font-size: 12px;
+      	line-height: 14px;
+      	left: 0;
+      	margin-bottom: 0;
+      	opacity: 0;
+      	visibility: hidden;
+      	transform: translateY(10px);
+      	transition: all 0.25s ease-out;
+      	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      	z-index: 10000;
+      }
+      
+      .info-link .tooltip:before {
+      	content: "";
+      	bottom: -20px;
+      	display: block;
+      	height: 20px;
+      	left: 0;
+      	position: absolute;
+      	width: 100%;
+      }
+      
+      .info-link .tooltip:after {
+      	content: "";
+      	border-left: solid transparent 10px;
+      	border-right: solid transparent 10px;
+      	border-bottom: solid rgba(51, 51, 51, 0.9) 10px;
+      	top: -10px;
+      	height: 0;
+      	left: 50%;
+      	margin-left: -13px;
+      	position: absolute;
+      	width: 0;
+      }   */                  
+    </style>
+  {% endif %}
+{% endif %}

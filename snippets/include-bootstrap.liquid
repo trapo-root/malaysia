@@ -1,0 +1,55 @@
+{%- if template contains 'index'
+  or template contains 'carmats-custom'
+  or template contains 'caracc-custom'
+  or template contains 'loyalty-new'
+  or template contains 'car-club'
+  or template contains 'affiliate-program'
+  or template contains 'career-new'
+  or template contains 'csr-new'
+  or template contains 'about-us-new'
+  or template contains 'hoolah-installment'
+  or template contains 'press-kit'
+  or template contains 'news'
+  or template contains 'offline-services'
+  or template contains 'car-care-bundle'
+  or template contains 'landing-page'
+  or template contains 'nano-spray-certificate'
+  or template contains 'nano-clean-spray'
+  or template contains 'okendo-reviews'
+  or template contains 'book-an-appointment'
+  or template contains 'contact-us'
+  or template contains 'collab'
+  or template contains 'ppf'
+  or template contains 'coating'
+  or template contains 'tint'
+  or template contains 'diy'
+  or template contains 'exo'
+  or template contains 'wiper-landing'
+  or template contains 'dashcam-landing'
+  or template contains 'new-car-package'
+  or template contains 'byd'
+  or template contains 'homepage-new'
+  or template contains 'bundle'
+-%}
+  {{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{% if handle contains 'blog-posts-by-trapo'
+  or handle contains 'return-exchange-policy'
+  or handle contains 'warranty-claim'
+  or handle contains 'apply-now'
+  or handle contains 'installation-guide-video'
+  or handle contains 'cleaning-guide-video'
+  or handle contains 'terms-conditions'
+  or handle contains 'rewards'
+  or handle contains 'car-care-bundles'
+  or handle contains 'snap-fit-leather-car-seat'
+  or handle contains 'car-wiper-malaysia'
+  or handle contains 'car-hydrophobic-wiper'
+%}
+  {{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag }}
+{% endif %}
+{% if template contains 'store-' or template contains 'daya-hub' %}
+  {{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag }}
+  {{ 'store-location.css' | asset_url | stylesheet_tag }}
+{% endif %}

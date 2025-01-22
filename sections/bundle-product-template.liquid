@@ -1,0 +1,926 @@
+{% form 'product', product, id: 'flexi-box-form', class: 'shopify-product-form' %}
+  <!-- Tab menu -->
+  <div class="tab-menu sticky-header center show">
+    <ul class="tab-items">
+      <li class="tab-item">
+        <a href="javascript:void(0);" class="tab active-tab" data-id="tab1">
+          <div class="sticky-header-bubble">
+            <h5>STEP 1</h5>
+            <span id="checkbox_count_tab_1_product" style="display:none;"></span>
+            <p>Any 1 Car Mat</p>
+          </div>
+        </a>
+      </li>
+
+      <li class="tab-item">
+        <a href="javascript:void(0);" class="tab" data-id="tab2">
+          <div class="sticky-header-bubble">
+            <h5>STEP 2</h5>
+            <span id="checkbox_count_tab_2_product" style="display:none;"></span>
+            <p>Any 1 Wiper</p>
+          </div>
+        </a>
+      </li>
+
+      <li class="tab-item">
+        <a href="javascript:void(0);" class="tab" data-id="tab3">
+          <div class="sticky-header-bubble">
+            <h5>STEP 3</h5>
+            <span id="checkbox_count_tab_3_product" style="display:none;"></span>
+            <p>Any 1 Dashcam</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- end of tab-menu -->
+  <script>
+    let totalproductSelection = 0;
+  </script>
+  <!-- Custom search bar code -->
+  <div class="search center">
+    <input
+      id="searchbar"
+      type="text"
+      class="search-field"
+      name="search"
+      placeholder="Search..."
+      onkeypress="return event.keyCode != 13;"
+    >
+    <span class="search-clear">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z" fill="rgba(191,191,191,1)"></path>
+      </svg>
+    </span>
+  </div>
+  <!-- Custom search bar code Ends -->
+
+  <script>
+    totalproductSelection = totalproductSelection + Number(1);
+  </script>
+
+  <div class="tab-content active-tab-content" data-product-limit="1" data-id="tab1">
+    <!--
+      <div class="collection_info center">
+        <h3>Any 1 Perfume 100ml</h3>
+        <p>You can select only 1  item</p>
+      </div>
+    -->
+
+    <ul id="collection-list">
+      <div class="row collection page-width">
+        {%- assign products = collections['car-mats'].products -%}
+        {% for product in products limit: 15 %}
+          <li id="{{ product.selected_or_first_available_variant.id }}" class="collection-item">
+            <div class="one-fourth-column">
+              <div class="product-info">
+                <span class="product_counter _hidden">{{ forloop.index }}</span>
+                <svg
+                  class="added_to_cart _hidden"
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                  stroke-linejoin="round"
+                  stroke-miterlimit="2"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
+                  fill-rule="nonzero"></path>
+                </svg>
+                <div class="image">
+                  <div class="grid-view-item">
+                    <a class="grid-view-item__link" href="javascript:void()">
+                      <!--
+                        <img
+                          src="{{ product.featured_media.preview_image | img_url }}"
+                          alt="{{ product.title }}"
+                          srcset="//bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=500 500w"
+                          width="500"
+                          height="500"
+                          loading="lazy"
+                          fetchpriority="low"
+                          sizes="100vw"
+                          class="grid-view-item__image"
+                        >
+                      -->
+                      {% render 'image-element',
+                        image: product.featured_media.preview_image,
+                        alt: alt_text,
+                        object_fit: settings.align_height,
+                        max_height: settings.collection_height
+                      %}
+                    </a>
+                  </div>
+                </div>
+                <div class="product_grid_items">
+                  <h3 class="card-information__text h5">
+                    <a href="javascript:void(0);">{{ product.title }}</a>
+                  </h3>
+                  <!-- Custom code for product rating -->
+
+                  <!-- Custom code for product rating ends here -->
+                </div>
+
+                <div id="checkboxes">
+                  <p class="line-item-property__field add-to-box">
+                    <label>
+                      <input type="hidden" autocomplete="off" name="properties[_ITEM1]" value="No">
+                      <input
+                        id="{{ product.handle }}"
+                        class="button"
+                        type="checkbox"
+                        data-id-products="tab_1_product"
+                        data-id="tab_1_product_{{ forloop.index }}"
+                        autocomplete="off"
+                        name="properties[_ITEM1]"
+                        value="
+                          {{ product.selected_or_first_available_variant.title }}
+                          SKU: {{ product.selected_or_first_available_variant.image.sku }}
+                        "
+                        data-pid="{{ product.selected_or_first_available_variant.id }}"
+
+                      ><span></span>
+                    </label>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </div>
+    </ul>
+  </div>
+  <!-- End of tab -->
+
+  <script>
+    totalproductSelection = totalproductSelection + Number(1);
+  </script>
+
+  <div class="tab-content" data-product-limit="1" data-id="tab2">
+    <!--
+      <div class="collection_info center">
+        <h3>Any 1 Shower 500ml</h3>
+        <p>You can select only 1  item</p>
+      </div>
+    -->
+
+    <ul id="collection-list">
+      <div class="row collection page-width">
+        {%- assign products = collections['car-wipers'].products -%}
+        {% for product in products limit: 15 %}
+          <li id="{{ product.selected_or_first_available_variant.id }}" class="collection-item">
+            <div class="one-fourth-column">
+              <div class="product-info">
+                <span class="product_counter _hidden">{{ forloop.index }}</span>
+                <svg
+                  class="added_to_cart _hidden"
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                  stroke-linejoin="round"
+                  stroke-miterlimit="2"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
+                  fill-rule="nonzero"></path>
+                </svg>
+                <div class="image">
+                  <div class="grid-view-item">
+                    <a class="grid-view-item__link" href="javascript:void()">
+                      <!--
+                        <img
+                          src="{{ product.featured_media.preview_image | img_url }}"
+                          alt="{{ product.title }}"
+                          srcset="//bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=500 500w"
+                          width="500"
+                          height="500"
+                          loading="lazy"
+                          fetchpriority="low"
+                          sizes="100vw"
+                          class="grid-view-item__image"
+                        >
+                      -->
+                      {% render 'image-element',
+                        image: product.featured_media.preview_image,
+                        alt: alt_text,
+                        object_fit: settings.align_height,
+                        max_height: settings.collection_height
+                      %}
+                    </a>
+                  </div>
+                </div>
+                <div class="product_grid_items">
+                  <h3 class="card-information__text h5">
+                    <a href="javascript:void(0);">{{ product.title }}</a>
+                  </h3>
+                  <!-- Custom code for product rating -->
+
+                  <!-- Custom code for product rating ends here -->
+                </div>
+
+                <div id="checkboxes">
+                  <p class="line-item-property__field add-to-box">
+                    <label>
+                      <input type="hidden" autocomplete="off" name="properties[_ITEM2]" value="No">
+                      <input
+                        id="{{ product.handle }}"
+                        class="button"
+                        type="checkbox"
+                        data-id-products="tab_2_product"
+                        data-id="tab_2_product_{{ forloop.index }}"
+                        autocomplete="off"
+                        name="properties[_ITEM2]"
+                        value="
+                          {{ product.selected_or_first_available_variant.title }}
+                          SKU: {{ product.selected_or_first_available_variant.image.sku }}
+                        "
+                        data-pid="{{ product.selected_or_first_available_variant.id }}"
+
+                      ><span></span>
+                    </label>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </div>
+    </ul>
+  </div>
+  <!-- End of tab -->
+
+  <script>
+    totalproductSelection = totalproductSelection + Number(1);
+  </script>
+
+  <div class="tab-content" data-product-limit="1" data-id="tab3">
+    <!--
+      <div class="collection_info center">
+        <h3>Any 1 Deodorant</h3>
+        <p>You can select only 1  item</p>
+      </div>
+    -->
+
+    <ul id="collection-list">
+      <div class="row collection page-width">
+        {%- assign products = collections['car-dash-cams'].products -%}
+        {% for product in products %}
+          <li id="{{ product.selected_or_first_available_variant.id }}" class="collection-item">
+            <div class="one-fourth-column">
+              <div class="product-info">
+                <span class="product_counter _hidden">{{ forloop.index }}</span>
+                <svg
+                  class="added_to_cart _hidden"
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                  stroke-linejoin="round"
+                  stroke-miterlimit="2"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="m11.998 2.005c5.517 0 9.997 4.48 9.997 9.997 0 5.518-4.48 9.998-9.997 9.998-5.518 0-9.998-4.48-9.998-9.998 0-5.517 4.48-9.997 9.998-9.997zm-5.049 10.386 3.851 3.43c.142.128.321.19.499.19.202 0 .405-.081.552-.242l5.953-6.509c.131-.143.196-.323.196-.502 0-.41-.331-.747-.748-.747-.204 0-.405.082-.554.243l-5.453 5.962-3.298-2.938c-.144-.127-.321-.19-.499-.19-.415 0-.748.335-.748.746 0 .205.084.409.249.557z"
+                  fill-rule="nonzero"></path>
+                </svg>
+                <div class="image">
+                  <div class="grid-view-item">
+                    <a class="grid-view-item__link" href="javascript:void()">
+                      <!--
+                        <img
+                          src="{{ product.featured_media.preview_image | img_url }}"
+                          alt="{{ product.title }}"
+                          srcset="//bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=375 375w, //bellavitaluxury.co.in/cdn/shop/files/1_402bde70-7bac-4e1f-a698-a374f6d5f12a.jpg?v=1714555988&amp;width=500 500w"
+                          width="500"
+                          height="500"
+                          loading="lazy"
+                          fetchpriority="low"
+                          sizes="100vw"
+                          class="grid-view-item__image"
+                        >
+                      -->
+                      {% render 'image-element',
+                        image: product.featured_media.preview_image,
+                        alt: alt_text,
+                        object_fit: settings.align_height,
+                        max_height: settings.collection_height
+                      %}
+                    </a>
+                  </div>
+                </div>
+                <div class="product_grid_items">
+                  <h3 class="card-information__text h5">
+                    <a href="javascript:void(0);">{{ product.title }}</a>
+                  </h3>
+                  <!-- Custom code for product rating -->
+
+                  <!-- Custom code for product rating ends here -->
+                </div>
+
+                <div id="checkboxes">
+                  <p class="line-item-property__field add-to-box">
+                    <label>
+                      <input type="hidden" autocomplete="off" name="properties[_ITEM3]" value="No">
+                      <input
+                        id="{{ product.handle }}"
+                        class="button"
+                        type="checkbox"
+                        data-id-products="tab_3_product"
+                        data-id="tab_3_product_{{ forloop.index }}"
+                        autocomplete="off"
+                        name="properties[_ITEM3]"
+                        value="
+                          {{ product.selected_or_first_available_variant.title }}
+                          SKU: {{ product.selected_or_first_available_variant.image.sku }}
+                        "
+                        data-pid="{{ product.selected_or_first_available_variant.id }}"
+
+                      ><span></span>
+                    </label>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </div>
+    </ul>
+  </div>
+  <!-- End of tab -->
+
+  <select name="id" hidden="hidden">
+    <option value="42975758352428">Default Title</option>
+  </select>
+
+  <div class="sticky_cart">
+    <div class="product-details page-width">
+      <div class="prd-details prd-details-left">
+        <div class="prd-image-title">
+          <h3>Car Bundle</h3>
+        </div>
+      </div>
+      <div class="prd-details prd-details-right">
+        <div class="prd-image-price-cart">
+          <div class="prd-price"><span class="money">RM 399.80</span><span class="dis_price">RM 494.80</span></div>
+          <button
+            type="submit"
+            id="submit-btn"
+            name="add"
+            class="product-form__submit button button--small"
+            style="display: none;"
+          >
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endform %}
+<style>
+  .announcement-banner{
+    display:none;
+  }
+        .tab-menu ul.tab-items {
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	margin: 0
+    }
+
+    .tab-menu ul li {
+    	list-style-type: none;
+    	display: inline-block
+    }
+
+    .tab-menu ul li a {
+    	text-decoration: none
+    }
+
+    .tab-content {
+    	display: none
+    }
+
+    .active-tab-content {
+    	display: block
+    }
+
+    a.active-tab .sticky-header-bubble h5,
+    a.active-tab .sticky-header-bubble p,
+    a.active-tab .sticky-header-bubble:after {
+    	color: #ee2a7b
+    }
+
+    a.active-tab .sticky-header-bubble:after {
+    	background: #ee2a7b
+    }
+
+    a.active-tab .sticky-header-bubble:before {
+    	background: #a9a9a9
+    }
+
+    .row {
+    	display: grid;
+    	grid-template-columns: 1fr 1fr 1fr 1fr;
+    	grid-row-gap: 1rem;
+    	margin-top: 2rem;
+    	margin-bottom: 2rem
+    }
+
+    @media screen and (min-width: 1200px) {
+    	.row {
+    		padding: 0 5rem
+    	}
+    }
+
+    .row img {
+    	max-width: 100%;
+    	height: auto;
+    	display: block;
+    	border-top-left-radius: 6px;
+    	border-top-right-radius: 6px;
+    	padding: 6px
+    }
+
+    .one-fourth-column .product-info {
+    	box-shadow: 0 0 2px #0003
+    }
+
+    .one-fourth-column .product-info .product_grid_items {
+    	padding: 0 6px
+    }
+
+    @media (max-width: 749px) {
+    	.card-information__text a {
+    		min-height: 20px !important
+    	}
+
+    	.add-to-box,
+    	.add-to-box input:disabled+span {
+    		font-size: 1.2rem !important
+    	}
+
+    	.collection_info h3 {
+    		font-size: 18px !important
+    	}
+
+    	.sticky-header {
+    		min-height: 60px !important;
+    		top: 85px !important
+    	}
+    }
+
+    @media screen and (max-width: 989px) {
+    	.row {
+    		grid-template-columns: 1fr 1fr;
+    		grid-column-gap: 2rem;
+    		grid-row-gap: 2rem
+    	}
+    }
+
+    .add-to-box {
+    	background-color: #e82276;
+    	min-width: 115px;
+    	width: 100%;
+    	font-size: 1.3rem;
+    	font-weight: 600;
+    	color: #fff;
+    	margin: 5px 0
+    }
+
+    .add-to-box label span {
+    	text-align: center;
+    	padding: 8px;
+    	display: block;
+    	cursor: pointer
+    }
+
+    .add-to-box label input {
+    	position: absolute;
+    	display: none;
+    	color: #212326 !important
+    }
+
+    .add-to-box label input+span {
+    	color: #fff;
+    	font: inherit;
+    	font-family: inherit;
+    	letter-spacing: .2rem
+    }
+
+    .add-to-box input:checked+span {
+    	color: #fff
+    }
+
+    .add-to-box input:disabled+span {
+    	cursor: not-allowed;
+    	background-color: #a3aea5;
+    	min-width: 115px;
+    	width: 100%;
+    	font-weight: 600;
+    	color: #fff
+    }
+
+    .add-to-box input:checked+span:hover {
+    	background-color: transparent
+    }
+
+    input[type=checkbox]+span:after {
+    	content: "ADD TO BOX"
+    }
+
+    input[type=checkbox]:checked+span:after {
+    	content: "REMOVE ITEM"
+    }
+
+    div.product-info:has(input[type=checkbox]:checked) {
+    	background-color: #75757521
+    }
+
+    @media (max-width: 767px) {
+    	.product_grid_items h3 a {
+    		font-size: 14px
+    	}
+    }
+
+    .card-information__text a {
+    	text-align: center !important;
+      font-family: 'Roboto' !important;
+      font-weight: 700;
+      font-size: 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 1;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      min-height: 20px;
+      color: #1b3d6d;
+      text-decoration: none;
+      cursor: auto;
+    }
+
+    .card-information__text span {
+    	overflow: hidden;
+    	text-overflow: ellipsis;
+    	-webkit-line-clamp: 1;
+    	display: -webkit-box;
+    	-webkit-box-orient: vertical;
+    	min-height: 15px;
+    	font-weight: 400;
+    	font-size: 1rem
+    }
+
+    .product_grid_items h3.card-information__text {
+    	margin-bottom: 5px
+    }
+
+    .center {
+    	text-align: center
+    }
+
+    #flexi-box-form ul {
+    	list-style-type: none;
+    	padding: 0;
+    	margin: 0
+    }
+
+    .sticky-header-bubble {
+    	position: relative;
+    	display: inline-block;
+    	padding: 15px 15px 5px
+    }
+
+    .sticky-header-bubble h5 {
+    	display: inline-block;
+    	margin: 0;
+    	font-weight: 700;
+    	color: #16406D;
+      font-size:14px;
+    }
+
+    .sticky-header-bubble span {
+    	display: inline-block;
+    	width: 20px;
+    	height: 20px;
+    	line-height: 20px;
+    	background: #25d366;
+    	color: #fff;
+    	border-radius: 50%;
+    	vertical-align: top;
+    	font-weight: 600;
+    	font-size: 12px
+    }
+
+    .sticky-header-bubble:after {
+    	content: "";
+    	width: 1.3rem;
+    	height: 1.3rem;
+    	border: 2px solid;
+    	border-radius: 50%;
+    	display: block;
+    	position: absolute;
+    	top: 6px;
+    	left: 50%;
+    	transform: translate(-50%, -50%);
+    	background: #fff;
+    	color: #8a8a8a
+    }
+
+    .sticky-header-bubble:before {
+    	content: "";
+    	width: 100%;
+    	height: 2px;
+    	background: #d9e1e6;
+    	display: block;
+    	position: absolute;
+    	top: 6px;
+    	left: 50%;
+    	transform: translate(-50%, -50%)
+    }
+
+    svg.check-icon {
+    	margin-top: 1px
+    }
+
+    .sticky-header p {
+    	margin: 0;
+    	color: #8a8a8a;
+    	font-size: 13px;
+    	font-weight: 400;
+    	letter-spacing: 1px;
+    	font-weight: 600;
+    	line-height: 17px
+    }
+
+    .sticky-header {
+    	width: 100%;
+    	left: 0;
+    	min-height: 90px;
+    	padding-top: 10px;
+    	background: #fff;
+    	z-index: 9;
+       margin:0;
+    }
+
+    .sticky-header.show {
+    	z-index: 9;
+    }
+
+    .sticky_cart {
+    	position: fixed;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      min-height: 70px;
+      padding: 0;
+      background: #E82276;
+      box-shadow: 0 2px 10px #27272780;
+      -webkit-box-shadow: 0px 2px 10px #27272780;
+      transition: .6s;
+      -moz-box-shadow: 0px 2px 10px #27272780;
+      z-index: 9;
+    }
+
+    .sticky_cart .product-details {
+    	display: flex;
+      max-width: 1200px !important;
+      margin: 0 auto;
+      justify-content: center;
+    }
+
+    .sticky_cart .prd-details-left {
+      margin-right:15px;
+    }
+
+    .sticky_cart .prd-details-right {
+    	text-align: right
+    }
+
+    .sticky_cart .product-details img {
+    	max-height: 65px
+    }
+
+    .sticky_cart .product-details h3 {
+    	font-family: Roboto !important;
+      color: #fff;
+      margin-bottom: 0;
+      font-size: 20px;
+      margin-left: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .sticky_cart .prd-image-title,
+    .sticky_cart .prd-image-price-cart {
+    	display: flex;
+    	align-items: center;
+    	min-height: 70px
+    }
+
+    .sticky_cart .prd-details-right .prd-image-price-cart {
+    	justify-content: flex-end
+    }
+
+    .sticky_cart .prd-price {
+      margin-right: 20px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .sticky_cart .prd-price span.money{
+      font-size: 18px;
+    }
+    .sticky_cart .prd-price span.dis_price{
+      font-size: 16px;
+          text-decoration: line-through;
+      padding-left:10px;
+    }
+    .sticky_cart .prd-details-right .prd-image-price-cart #submit-btn {
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 800;
+      background-color: #16406D;
+      color: #fff;
+      letter-spacing:0.5px
+  }
+
+    @media (max-width: 749px) {
+    	.sticky_cart .prd-details-left {
+    		display: none
+    	}
+
+    	.sticky_cart .prd-details-right {
+    		width: 100%
+    	}
+
+    	.sticky_cart .prd-image-price-cart {
+    		min-height: 65px
+    	}
+
+    	.sticky_cart .prd-details-right .prd-image-price-cart {
+    		justify-content: space-between
+    	}
+
+    	.sticky_cart .prd-price {
+    		font-size: 18px
+    	}
+
+    	.prd-details .button--small {
+    		min-width: 14rem
+    	}
+    }
+
+    .swym-button-bar {
+    	display: none
+    }
+
+    .collection_info {
+    	margin: 0
+    }
+
+    .collection_info h3 {
+    	font-weight: 600;
+    	color: #000;
+    	margin: 0;
+    	font-size: 20px
+    }
+
+    .collection_info p {
+    	font-weight: 400;
+    	color: #6c757d;
+    	margin: 0;
+    	font-size: 15px
+    }
+
+    .product-info {
+    	position: relative
+    }
+
+    .added_to_cart {
+    	position: absolute;
+    	fill: #25d366;
+    	height: 25px;
+    	width: 25px;
+    	right: 10px;
+    	top: 10px
+    }
+
+    .product_counter {
+    	display: inline-flex;
+    	position: absolute;
+    	height: 25px;
+    	width: 25px;
+    	background: #000;
+    	color: #fff;
+    	justify-content: center;
+    	align-items: center;
+    	font-weight: 700;
+    	left: 10px;
+    	top: 10px
+    }
+
+    ._hidden {
+    	pointer-events: none;
+    	opacity: 0
+    }
+
+    .Message {
+    	display: table;
+    	position: relative;
+    	margin: 0 auto;
+    	max-width: 300px;
+    	width: 100%;
+    	background-color: #000;
+    	color: #fff;
+    	overflow: hidden
+    }
+
+    .Message_Bar {
+    	padding: 10px;
+    	display: flex;
+    	position: fixed;
+    	width: 100%;
+    	justify-content: center;
+    	transform: translateY(0);
+    	transition: all .4s ease;
+    	bottom: 70px;
+    	z-index: 999999;
+    	pointer-events: none
+    }
+
+    .Message_Bar.is-hidden {
+    	opacity: 0;
+    	transition: all .4s ease;
+    	transform: translateY(300px)
+    }
+
+    .Message--green {
+    	background-color: #000
+    }
+
+    .Message-icon {
+    	display: table-cell;
+    	vertical-align: middle;
+    	width: 30px;
+    	padding: 10px;
+    	text-align: center;
+    	background-color: #00000040
+    }
+
+    .Message-icon>svg {
+    	width: 24px;
+    	fill: #fff
+    }
+
+    .Message-body {
+    	display: table-cell;
+    	vertical-align: middle;
+    	padding: 15px 20px 15px 10px
+    }
+
+    .Message-body>p {
+    	line-height: 1.1;
+    	margin: 0
+    }
+
+    .search {
+    	position: relative;
+    	display: inline-block;
+    	left: 50%;
+    	transform: translate(-50%)
+    }
+
+    .search-field {
+    	background-image: url(https://cdn.shopify.com/s/files/1/0054/6665/2718/files/search-line_1.svg);
+    	background-position: 10px 9px;
+    	background-repeat: no-repeat;
+    	background-size: 20px;
+    	font-size: 16px;
+    	padding: 10px 35px 10px 40px;
+    	border: 1px solid #ddd;
+    	margin: 10px 0
+    }
+
+    .search-field:focus {
+    	outline: none
+    }
+
+    .search-clear {
+    	position: absolute;
+    	right: 12px;
+    	top: 50%;
+    	margin-top: -12px;
+    	text-decoration: none;
+    	cursor: pointer
+    }
+
+    .product_grid_items .rating {
+    	margin-top: 5px;
+    	margin-bottom: 8px;
+    	font-size: 1.3rem;
+    	letter-spacing: 0
+    }
+
+    .product_grid_items .rating svg.icon-star,
+    .product_grid_items .rating svg.icon-whatsapp-verified {
+    	vertical-align: text-top
+    }
+</style>

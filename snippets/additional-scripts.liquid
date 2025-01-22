@@ -1,0 +1,101 @@
+<script>
+      var loc_page = location.href;
+      if(!loc_page.match(/thank_you/g)) {
+        var timestamp = new Date().getTime();(function (d) {var s = d.createElement('script');s.src = 'https://click.accesstra.de/js/nct/lp.js?cb=' + timestamp;s.async = true;var e = d.getElementsByTagName('script')[0];e.parentNode.insertBefore(s, e);})(document);
+      }
+    </script> 
+  
+    <script>
+    function removeGorgiasChat() {
+    GorgiasChat.init().then(function() {
+    var container = document.querySelector('#gorgias-chat-container');
+    if (container) {
+    container.remove()
+    }
+    })
+    }
+    </script>
+
+    {% if template contains 'product' %}
+    <script>
+      
+        /* -------------------------------------------------------
+         IMPORTANT!
+
+         The code below requires a developer to install and setup.
+
+         Please do not simply copy/paste this onto your website.
+         ----------------------------------------------------------- */
+
+      // Initiate Web Behaviour Tracking (this section MUST come prior any other dmPt calls)
+      (function(w,d,u,t,o,c){w['dmtrackingobjectname']=o;c=d.createElement(t);c.async=1;c.src=u;t=d.getElementsByTagName
+      (t)[0];t.parentNode.insertBefore(c,t);w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments);};
+                            })(window, document, '//static.trackedweb.net/js/_dmptv4.js', 'script', 'dmPt');
+
+      // Replace DM-000000000-00 with your web behaviour profile's Unique ID
+      // Replace test.com with the domain of your store
+      {% if customer.email %}
+      window.dmPt('create', 'DM-1509105449-03', '{{ shop.domain }}');
+
+                  // Setup the last browsed product
+                  var viewed_product = {
+                  product_name: '{{ product.title }}',
+                  product_url: '{{ shop.url }}{{ product.url }}',
+                  product_image_path: '{{ product.images[0].src | img_url: "2048x2048" | prepend: "https:" }}',
+                  product_description: '{{ product.description | strip_html | strip_newlines }}',
+                  product_sku: '{{ product.sku }}',
+                  product_price: '{% if product.compare_at_price %}{{ product.compare_at_price }}{% else %}{{ product.price | money_without_currency }}{% endif %}',
+                  product_status: '{% if product.available %}In Stock{% else %}Out Of Stock{% endif %}',
+                  product_currency: '{{ shop.currency }}',
+                  product_specialPrice: '{{ product.price | money_without_currency }}',
+                  product_categories: '{% for collection in product.collections %}{{ collection.title }}{% unless forloop.last %},{% endunless %} {% endfor %}',
+                  product_brand: '{{ product.vendor }}'
+                  };
+
+                  // Initiate the tracking script, pass the product object
+                  window.dmPt('track', viewed_product);
+
+        // Replace test@test.com with the email address of the identified contact
+        window.dmPt("identify", "{{ customer.email }}");
+      {% endif %}
+
+    </script>
+
+    {% else %}
+    <script>
+      (function(w,d,u,t,o,c){w['dmtrackingobjectname']=o;c=d.createElement(t);c.async=1;c.src=u;t=d.getElementsByTagName
+      (t)[0];t.parentNode.insertBefore(c,t);w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments);};
+                            })(window, document, '//static.trackedweb.net/js/_dmptv4.js', 'script', 'dmPt');
+
+      window.dmPt('create', 'DM-1509105449-03', '{{ shop.domain }}');
+                  window.dmPt('track');
+    </script>
+    {% endif %}
+
+    <!-- hoolah merchant library start -->
+            <script src="https://merchant.cdn.hoolah.co/trapomy.myshopify.com/hoolah-library.js" defer="defer"></script>
+    <!-- hoolah merchant library end -->
+
+    <!-- Affiliate One Script -->
+    <script type="text/javascript">
+      (function () {
+        var VARemoteLoadOptions = {
+          whiteLabel: { id: 8, siteId: 2721, domain: 't.adotone.com' },
+           locale: "en-US", mkt: true
+        };
+        (function (c, o, n, v, e, r, l, y) {
+          c['VARemoteLoadOptions'] = e; r = o.createElement(n), l = o.getElementsByTagName(n)[0];
+          r.async = 1; r.src = v; l.parentNode.insertBefore(r, l);
+        })(window, document, 'script', 'https://cdn.adotone.com/javascripts/va.js', VARemoteLoadOptions);
+      })();
+    </script>
+    <!-- Affiliate One end -->
+{% if template contains 'product' %}
+    <style>
+      @media (max-width: 600px){
+        #loyaltylion .lion-loyalty-widget_position_left {
+            bottom: 80px !important;
+        }
+      }
+    </style>
+  {% endif %}

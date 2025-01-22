@@ -1,0 +1,93 @@
+<section class="section">
+  <div class="container announcement-banner center">
+    <div class="one-whole column">
+      {% if product.type == 'TRAPO CLASSIC REAR'
+        or product.type == 'TRAPO HEX REAR'
+        or product.type == 'TRAPO ECO REAR'
+      %}
+        <a href="/pages/complete-your-set">
+          <img
+            class="lazyload header-announcement-banner"
+            data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/minibanner_desktop.jpg?v=1714383722"
+            alt="Loyalty Program"
+            width="100%"
+            loading="lazy"
+          >
+        </a>
+        <a href="/pages/complete-your-set">
+          <img
+            class="lazyload header-announcement-banner-m"
+            data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/minibanner_mobile.jpg?v=1714383736g"
+            alt="Loyalty Program"
+            width="100%"
+            loading="lazy"
+          >
+        </a>
+      {% elsif product.handle == 'trapo-crystal-window-tint' %}
+        
+          <img
+            class="lazyload header-announcement-banner"
+            data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Dekstop-StripBanner-1940x180_0a4503b8-e6c0-4763-bc7b-f5ed142ab171.png?v=1729741810"
+            alt="Tint Evergreen"
+            width="100%"
+            loading="lazy"
+          >
+        
+        
+          <img
+            class="lazyload header-announcement-banner-m"
+            data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Mobile-StripBanner-600x150_1312c95b-8854-4efd-a4bf-cd817ec2d43f.png?v=1729741825"
+            alt="Tint Evergreen"
+            width="100%"
+            loading="lazy"
+          >
+        
+      {% else %}
+       <a href="/pages/loyalty-program">
+          <img class="lazyload header-announcement-banner" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/lALPGR5prxLMEt7MtM0HlA_1940_180.png" alt="Loyalty" width="100%" loading="lazy">
+        </a>
+        <a href="/pages/loyalty-program">
+          <img class="lazyload header-announcement-banner-m" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/lALPGR5prxLMEt7MtM0HlA_1940_180.png" alt="Loyalty" width="100%" loading="lazy">
+        </a>
+      
+        
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .announcement-banner {
+  	padding: 20px 0;
+  }
+
+  .header-announcement-banner {
+  	display: block;
+  }
+
+  .header-announcement-banner-m {
+  	display: none;
+  }
+
+  @media(max-width: 768px) {
+  	div.container {
+  		padding: 0px 0px;
+  	}
+
+  	.header-announcement-banner {
+  		display: none;
+  	}
+
+  	.header-announcement-banner-m {
+  		display: block;
+  		margin-top: 2.5rem;
+  	}
+  }
+
+  @media(max-width: 500px) {
+  	.header-announcement-banner-m {
+  		display: block;
+  		margin-top: 0rem;
+  	}
+  }
+</style>

@@ -1,0 +1,61 @@
+<section class="container" style="max-width: 1200px;">
+<div class="row" style="margin-bottom:0px;"><h1 class="headline page-title">Search Your Car Model</h1></div>
+<div class="row" style="margin-bottom: 5rem;">
+  <div class="col-12">  
+    <!-- <p class="sub-text">Discover the ultimate search experience tailored just for you, effortlessly guiding you straight to the product you need. </p> -->
+    <div id="gf-form"></div>
+    <!-- <p class="learn-more-txt">Didn't find your car model? Reach out to our customer support via the whatsapp icon.</p>
+    <p class="learn-more-txt">For more information about our car mats,</p>
+    <a href="/pages/car-mats" target="_blank" class="btn-learn-more">Click Here</a> -->
+  </div>
+</div>
+</section>
+{% schema %}
+{
+"name": "Search Car Mats",
+"settings": [],
+"presets": [
+{
+"name": "Search Car Mats",
+"category": "Additional Sections"
+}
+]
+}
+{% endschema %}
+<style>
+  
+  #gf-form h2 {
+    display: none;
+  }
+  #gf-form.loaded, .gf-YMM-forms.loaded{
+    padding: 0px !important;
+  }
+  
+  .headline{
+    font-size: 2rem;
+  }
+  .sub-text{
+    font-size: 1.2rem;
+  }
+  .btn-learn-more{
+    text-decoration: underline;
+    color: black !important;
+    font-size: 0.9rem;
+  }
+  .learn-more-txt {
+    font-size: 0.9rem;
+  }
+  @media only screen and (max-width: 600px){
+    #gf-form .gf-form-inner, .gf-YMM-forms .gf-form-inner{
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  #gf-form .gf-form-inner > .gf-form-input-wrapper, .gf-YMM-forms .gf-form-inner > .gf-form-input-wrapper{
+    min-width: 100% !important;
+  }
+  }
+  
+</style>

@@ -1,0 +1,151 @@
+<div id="dropdown-container">
+  <select id="brand-dropdown">
+    <option value="">Select Brand</option>
+  </select>
+
+  <select id="model-dropdown" disabled>
+    <option value="">Select Model</option>
+  </select>
+
+  <select id="year-dropdown" disabled>
+    <option value="">Select Year</option>
+  </select>
+</div>
+
+<div id="loading-indicator" style="display: none;">Loading...</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded and parsed'); // Debugging
+
+    const brands = new Set();
+    const models = new Set();
+    const years = new Set();
+    const limit = 250;
+
+    function showLoadingIndicator() {
+      document.getElementById('loading-indicator').style.display = 'block';
+    }
+
+    function hideLoadingIndicator() {
+      document.getElementById('loading-indicator').style.display = 'none';
+    }
+
+    function fetchProducts(url) {
+      console.log(`Fetching products from URL: ${url}`); // Debugging
+      return fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log(`Fetched ${data.products.length} products`); // Debugging
+          return data.products;
+        })
+        .catch(error => {
+          console.error('There has been a problem with your fetch operation:', error); // Debugging
+        });
+    }
+
+    function populateDropdown(dropdown, items) {
+      dropdown.innerHTML = '<option value="">Select</option>';
+      items.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item;
+        option.textContent = item;
+        dropdown.appendChild(option);
+      });
+      dropdown.disabled = false;
+    }
+
+    function fetchAllBrands(page = 1) {
+      showLoadingIndicator();
+      const url = `/collections/trapo-classic-car-mats/products.json?limit=${limit}&page=${page}`;
+      fetchProducts(url).then(products => {
+        products.forEach(product => {
+          product.tags.forEach(tag => {
+            if (tag.startsWith('brand:')) {
+              brands.add(tag.replace('brand:', '').trim());
+            }
+          });
+        });
+        if (products.length === limit) {
+          fetchAllBrands(page + 1);
+        } else {
+          populateDropdown(document.getElementById('brand-dropdown'), Array.from(brands));
+          hideLoadingIndicator();
+        }
+      });
+    }
+
+    function fetchModelsForBrand(brand, page = 1) {
+      models.clear();
+      showLoadingIndicator();
+      const url = `/collections/trapo-classic-car-mats/products.json?limit=${limit}&page=${page}&tag=brand:${brand}`;
+      fetchProducts(url).then(products => {
+        products.forEach(product => {
+          product.tags.forEach(tag => {
+            if (tag.startsWith('model:')) {
+              models.add(tag.replace('model:', '').trim());
+            }
+          });
+        });
+        if (products.length === limit) {
+          fetchModelsForBrand(brand, page + 1);
+        } else {
+          populateDropdown(document.getElementById('model-dropdown'), Array.from(models));
+          hideLoadingIndicator();
+        }
+      });
+    }
+
+    function fetchYearsForModel(brand, model, page = 1) {
+      years.clear();
+      showLoadingIndicator();
+      const url = `/collections/trapo-classic-car-mats/products.json?limit=${limit}&page=${page}&tag=brand:${brand}&tag=model:${model}`;
+      fetchProducts(url).then(products => {
+        products.forEach(product => {
+          product.tags.forEach(tag => {
+            if (tag.startsWith('year:')) {
+              years.add(tag.replace('year:', '').trim());
+            }
+          });
+        });
+        if (products.length === limit) {
+          fetchYearsForModel(brand, model, page + 1);
+        } else {
+          populateDropdown(document.getElementById('year-dropdown'), Array.from(years));
+          hideLoadingIndicator();
+        }
+      });
+    }
+
+    document.getElementById('brand-dropdown').addEventListener('change', function() {
+      const brand = this.value;
+      if (brand) {
+        fetchModelsForBrand(brand);
+      } else {
+        document.getElementById('model-dropdown').innerHTML = '<option value="">Select Model</option>';
+        document.getElementById('model-dropdown').disabled = true;
+        document.getElementById('year-dropdown').innerHTML = '<option value="">Select Year</option>';
+        document.getElementById('year-dropdown').disabled = true;
+      }
+    });
+
+    document.getElementById('model-dropdown').addEventListener('change', function() {
+      const brand = document.getElementById('brand-dropdown').value;
+      const model = this.value;
+      if (model) {
+        fetchYearsForModel(brand, model);
+      } else {
+        document.getElementById('year-dropdown').innerHTML = '<option value="">Select Year</option>';
+        document.getElementById('year-dropdown').disabled = true;
+      }
+    });
+
+    // Fetch all brands on page load
+    fetchAllBrands();
+  });
+</script>
