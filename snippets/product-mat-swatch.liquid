@@ -167,10 +167,19 @@
         {% if is_package %}
           <p class="swatch-package-title">
             {{ value }}
+            {% if product.type == 'TRAPO HEX' %}
+            {% if value == 'Front + Rear' %}
+              <span>(Upgrade +100RM For Ultimate)</span>
+            {% elsif value == 'All Included' %}
+              <span>(Upgrade +100RM For Ultimate)</span>
+            {% endif %}
+            {% else %}
+              
             {% if value == 'Front + Rear' %}
               <span>(Most Popular)</span>
             {% elsif value == 'All Included' %}
               <span>(Save 30%)</span>
+            {% endif %}
             {% endif %}
           </p>
         {% endif %}
