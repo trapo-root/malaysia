@@ -48,7 +48,7 @@ Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
           <label {% if variant.featured_image %}data-image="{{ variant.featured_image | product_img_url: '600x' }}"{% endif %} for="swatch-{{ option_index }}-{{ value | replace: ' ', '-' }}-{{ product.id }}{% if section.id %}-{{ section.id }}{% endif %}">
             {{ value }}
             {% if value == 'Front + Rear + Cabin' %}
-              <span style="color: #ee2a7b;font-size: 0.65rem;">(PROMO)</span>
+              <span style="color: #ee2a7b;font-size: 0.65rem;display: block;line-height: normal;">(PROMO)</span>
             {% endif %}
             <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" aria-label="sold out" alt="sold out"/>
           </label>
