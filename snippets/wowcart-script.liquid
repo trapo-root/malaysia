@@ -125,7 +125,79 @@
       //cart object
   		const cartObject = items.detail || {};
 
+    var cartSubtotal = cartObject.items_subtotal_price / 100;
+    const itemFree = cartObject.items.find(item => item.product_id == '7404443893837');
+
+    if (cartSubtotal >= 300 ) {
+        if (typeof itemFree === 'undefined' || itemFree === null) {
+            $.ajax({
+                type: "POST",
+                dataType: 'json',
+                url: '/cart/add.js',
+                data: {
+                    quantity: 1,
+                    id: 41516138299469
+                },
+                async: true
+            });
+        }
+    } else {
+        //console.log("Less than 150");
+        if (itemFree) {
+            $.ajax({
+                method: 'POST',
+                dataType: 'json',
+                url: '/cart/change.js',
+                data: {
+                    id: 41516138299469,
+                    quantity: 0
+                },
+                async: true
+            });
+        }
+    }
+
     const itemTypes = [
+          'TRAPO CLASSIC',
+          'TRAPO ECO',
+          'TRAPO HEX',
+          'TRAPO HEX ULTIMATE',
+          'TRAPO XTREME'
+      ];
+
+    const foundItemTypes = cartObject.items.filter(item => itemTypes.includes(item.product_type));
+    const itemFree1 = cartObject.items.find(item => item.product_id == '7404443861069');
+
+    if (foundItemTypes.length > 0 ) {
+        if (typeof itemFree1 === 'undefined' || itemFree1 === null) {
+            $.ajax({
+                type: "POST",
+                dataType: 'json',
+                url: '/cart/add.js',
+                data: {
+                    quantity: 1,
+                    id: 41516138266701
+                },
+                async: true
+            });
+        }
+    } else {
+        //console.log("Less than 150");
+        if (itemFree1) {
+            $.ajax({
+                method: 'POST',
+                dataType: 'json',
+                url: '/cart/change.js',
+                data: {
+                    id: 41516138266701,
+                    quantity: 0
+                },
+                async: true
+            });
+        }
+    }
+
+    /*const itemTypes = [
           'TRAPO CLASSIC',
           'TRAPO ECO',
           'TRAPO HEX',
@@ -163,7 +235,7 @@
                 async: true
             });
         }
-    }
+    }*/
 
     /*console.log('Hi',cartObject);
       const itemFree = cartObject.items.find(item => item.product_id == '7380875968589');
