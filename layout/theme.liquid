@@ -21,7 +21,7 @@
     <meta name="google-site-verification" content="jfGeUZ5noAfuVRah3IJBOuzyCh5zXnLrZ5o7AYU8O_4" />
     <meta charset="utf-8">
     <meta http-equiv="cleartype" content="on">
-    
+    {% render 'social-meta-info' %}
 
     {% if handle contains '/pages/car-mats-v2' or handle contains '/pages/car-dashcams' or handle contains '/pages/car-hydrophobic-wiper' %}
       <meta name="robots" content="noindex">
@@ -281,8 +281,6 @@
     </script>
 
     {{ content_for_header }}
-
-    {% render 'social-meta-info' %}
 
     {% if collection.previous_product %}<link rel="prev" href="{{ collection.previous_product }}">{% endif %}
     {% if collection.next_product %}<link rel="next" href="{{ collection.next_product }}">{% endif %}
