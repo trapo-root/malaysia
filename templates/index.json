@@ -12,6 +12,25 @@
     "e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8": {
       "type": "slideshow",
       "blocks": {
+        "image_7z6gf8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/New-Dashcam-Desktop.jpg",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "shopify://products/trapo-dashcam-i-sight-s550",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original",
+            "mobile_image": "shopify://shop_images/New-Dashcam-Mobile.jpg"
+          }
+        },
         "image_NYgbG4": {
           "type": "image",
           "settings": {
@@ -48,6 +67,25 @@
             "text_align": "center",
             "caption_content_background": "original",
             "mobile_image": "shopify://shop_images/Web-Slider-Tinting-Mobile.jpg"
+          }
+        },
+        "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/loyalty_getreward_desktop_2000x760_bbf7d8fb-ffdc-4ecb-a57c-dcdb83eb1eb2.jpg",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "shopify://pages/loyalty-program",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original",
+            "mobile_image": "shopify://shop_images/loyalty_getreward_mobile_1080x1080_55856f47-83f9-472f-8505-b9509e390d5f.jpg"
           }
         },
         "image_KptQ6p": {
@@ -108,25 +146,6 @@
             "text_align": "center",
             "caption_content_background": "original",
             "mobile_image": "shopify://shop_images/WebSlider-02_8eff4a11-e205-447c-8a16-6d0c4201c566.jpg"
-          }
-        },
-        "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/loyalty_getreward_desktop_2000x760_bbf7d8fb-ffdc-4ecb-a57c-dcdb83eb1eb2.jpg",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://pages/loyalty-program",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/loyalty_getreward_mobile_1080x1080_55856f47-83f9-472f-8505-b9509e390d5f.jpg"
           }
         },
         "image_DXyUMG": {
@@ -211,12 +230,13 @@
         }
       },
       "block_order": [
+        "image_7z6gf8",
         "image_NYgbG4",
         "image_PyPQbh",
+        "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2",
         "image_KptQ6p",
         "image_CJzXfp",
         "image_HpKJyx",
-        "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2",
         "image_DXyUMG",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-1",
         "image_yDRQaC",
