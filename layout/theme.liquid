@@ -289,21 +289,21 @@
     {% render 'gsf-conversion-pixels' %}
 
     <!-- Wow Cart Script -->
-    {% include 'wowcart-script' %}	  
-    {% include 'wowcart-handle-quantity-change' %}
+    {% render 'wowcart-script' %}	  
+    {% render 'wowcart-handle-quantity-change' %}
 	
 	<!-- Store Pickup -->
-	{% include 'genie-store-pickup' %}
+	{% render 'genie-store-pickup' %}
 	
 	<!-- Okendo Reviews -->
 	{{ shop.metafields.okendo.ReviewsWidgetStyleTag }}
     {{ shop.metafields.okendo.StyleCustomizations }}
-    {% include 'okendo-reviews-json-ld' %}
+    {% render 'okendo-reviews-json-ld' %}
     
-    {% include 'additional-scripts' %}
+    {% render 'additional-scripts' %}
 
     <!-- Social Login -->
-    {% include 'social-login' %}
+    {% render 'social-login' %}
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
