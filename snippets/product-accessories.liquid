@@ -178,6 +178,62 @@
 
               <div class="product-rating">{{ product.metafields.okendo.ProductListingSnippet }}</div>
             {% when 'price' %}
+            {% if product.handle == 'trapo-24-hour-parking-kit-hardwire-micro-usb-old-ver' %}
+              <!-- Start Campaign Logic -->
+                    {% liquid
+                      assign campaign_enabled = true
+                      assign tag_enabled = settings.enable_tag
+                      assign type_enabled = settings.enable_type
+                      assign campaing_discount = 50
+                      assign enable_type = settings.enable_type
+                    %}
+                      {% assign product_type = settings.product_type %}
+                    
+                        <div
+                          class="modal_price campaign-true"
+                          data-display-savings="{{ block.settings.display_savings }}"
+                          data-display-campaign="true"
+                          data-campaign-discount="{{ campaing_discount }}"
+                        >
+                          <div class="price-ui price-ui--loading" data-price-ui>
+                            <noscript>
+                              <style>
+                                 .price-ui--loading {
+                                display: block !important;
+                                opacity: 1 !important;
+                                 }
+                              </style>
+                            </noscript>
+                            {%- assign variant = product.selected_or_first_available_variant -%}
+                            {% assign discounted_per1 = 100 | minus: campaing_discount %}
+                            {% assign discounted_per2 = discounted_per1 | divided_by: 100.00 | round: 2 %}
+                            {% assign discounted_price = variant.price | times: discounted_per2 %}
+
+                            {%- capture mainprice -%}
+							  {%-
+								render 'price-ui-templates',
+								template: 'price',
+								value: variant.price,
+							  -%}
+							{%- endcapture -%}
+
+                            {%- capture disprice -%}
+							  {%-
+								render 'price-ui-templates',
+								template: 'price',
+								value: discounted_price,
+							  -%}
+							{%- endcapture -%}
+
+                            {%- render 'price-ui-templates',
+                              template: 'price-campaign',
+                              compare_at_price: mainprice,
+                              price: disprice,
+                              unit_pricing: false
+                            -%}
+                          </div>
+                        </div>
+            {% else %}
               {% if onboarding %}
                 <p class="modal_price">
                   <span class="current_price">
@@ -285,6 +341,7 @@
                     {% endif %}{% endcomment %}
                   </div>
                 {% endif %}
+              {% endif %}
               {% endif %}
             {% when 'custom-liquid' %}
               {{ block.settings.custom_liquid }}
