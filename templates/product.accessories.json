@@ -74,6 +74,12 @@
           "settings": {
             "tab_text_faq": "{{ product.metafields.custom.accessories_faq | metafield_tag }}"
           }
+        },
+        "custom_liquid_UTTc6A": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{% if product.type == 'TRAPO DASHCAM' %}\n<a href=\"https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Dashcam_Quick_Guide.pdf?v=1739781410\" target=\"_blank\" style=\"font-weight: 700;\n    text-transform: capitalize;\n    margin-top: 10px;\n    display: block;\n    text-decoration: underline;\">DOWNLOAD INSTALLATION GUIDE</a>\n{% endif %}"
+          }
         }
       },
       "block_order": [
@@ -85,7 +91,8 @@
         "description",
         "843e8076-5194-43fa-8559-4fd8414117c8",
         "dbcd492f-f3e2-4e6e-a7ee-58d9feee6b88",
-        "7c8d6431-a577-43e2-b006-268877f34372"
+        "7c8d6431-a577-43e2-b006-268877f34372",
+        "custom_liquid_UTTc6A"
       ],
       "settings": {
         "product_breadcrumb": true,
