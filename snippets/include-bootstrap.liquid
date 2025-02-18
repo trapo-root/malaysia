@@ -49,7 +49,7 @@
 %}
   {{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag }}
 {% endif %}
-{% if template contains 'store-' or template contains 'daya-hub' %}
+{% if template contains 'store-' or template contains 'daya-hub' or template contains 'trapo-kl-north' %}
   {{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag }}
   {{ 'store-location.css' | asset_url | stylesheet_tag }}
 {% endif %}
