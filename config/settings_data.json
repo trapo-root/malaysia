@@ -288,6 +288,14 @@
         "type": "shopify://apps/extendons-otp-login-with-phone/blocks/scripts_embedded_block/c7f2efe3-e781-470b-96ef-267ca74ad469",
         "disabled": false,
         "settings": {}
+      },
+      "874997913381123487": {
+        "type": "shopify://apps/social-login/blocks/automatic_login/8de41085-9237-4829-86d0-25e862482fec",
+        "disabled": false,
+        "settings": {
+          "appblock_width": 100,
+          "code_integration": false
+        }
       }
     }
   }
