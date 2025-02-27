@@ -455,9 +455,30 @@
     {% comment %}Inject icon-star-symbol end{% endcomment %}
 
 
-    {% sections 'header-group' %}
     {% if template contains "product" %}
       {%- include 'announcement-banner' -%}
+    {% endif %}
+
+    {% if template contains "page" %}
+      <div class="container breadcrumb-container-page">
+        <div class="sixteen columns">
+          {%- include 'page__breadcrumb' -%}
+        </div>
+      </div>
+    {% endif %}
+    {% if template contains "blog" %}
+      <div class="container breadcrumb-container-page">
+        <div class="sixteen columns">
+          {%- include 'blog__breadcrumb' -%}
+        </div>
+      </div>
+    {% endif %}
+    {% if template contains "article" %}
+      <div class="container breadcrumb-container-page">
+        <div class="sixteen columns">
+          {%- include 'article__breadcrumb' -%}
+        </div>
+      </div>
     {% endif %}
 
     <div style="--background-color: {{ settings.shop_bg_color }}">
@@ -475,6 +496,10 @@
     <div class="site-overlay" data-site-overlay></div>
 
     {% sections 'footer-group' %}
+
+    {% if template contains 'product' %}
+        {% render 'footer-price' %}
+    {% endif %}
 
     {% if settings.quick_shop_enabled %}
       {% render 'quick-shop' %}
