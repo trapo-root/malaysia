@@ -2,71 +2,69 @@
   type="application/json"
   data-section-type="header"
   data-section-id="{{ section.id }}"
->
-</script>
+></script>
 
 {% comment %} Structured data {% endcomment %}
-{%- comment smartseo_integration_begin_meta_data -%}
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Organization",
-    "name": "{{ shop.name }}",
-    {% if section.settings.logo %}
-      {% assign image_size = section.settings.logo.width | append:'x' %}
-      "logo": "https:{{ section.settings.logo | img_url: image_size }}",
-    {% endif %}
-    "sameAs": [
-      "{{ settings.behance_link }}",
-      "{{ settings.clubhouse_link }}",
-      "{{ settings.discord_link }}",
-      "{{ settings.dribbble_link }}",
-      "{{ settings.facebook_link }}",
-      "{{ settings.flickr_link }}",
-      "{{ settings.houzz_link }}",
-      "{{ settings.instagram_link }}",
-      "{{ settings.kickstarter_link }}",
-      "{{ settings.linkedin_link }}",
-      "{{ settings.medium_link }}",
-      "{{ settings.messenger_link }}",
-      "{{ settings.opensea_link }}",
-      "{{ settings.pinterest_link }}",
-      "{{ settings.reddit_link }}",
-      "{{ settings.rss_link }}",
-      "{{ settings.snapchat_link }}",
-      "{{ settings.spotify_link }}",
-      "{{ settings.tiktok_link }}",
-      "{{ settings.tumblr_link }}",
-      "{{ settings.twitch_link }}",
-      "{{ settings.twitter_link }}",
-      "{{ settings.vimeo_link }}",
-      "{{ settings.whatsapp_link }}",
-      "{{ settings.youtube_link }}"
-    ],
-    "url": "{{ shop.url }}{{ page.url }}"
-  }
-</script>
-{%- endcomment smartseo_integration_end_meta_data -%}
-{% if template.name == 'index' %}
-  {%- comment smartseo_integration_begin_meta_data -%}
+{%- comment -%}
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
-      "@type": "WebSite",
+      "@type": "Organization",
       "name": "{{ shop.name }}",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "{{ routes.search_url }}?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      },
+      {% if section.settings.logo %}
+        {% assign image_size = section.settings.logo.width | append:'x' %}
+        "logo": "https:{{ section.settings.logo | img_url: image_size }}",
+      {% endif %}
+      "sameAs": [
+        "{{ settings.behance_link }}",
+        "{{ settings.clubhouse_link }}",
+        "{{ settings.discord_link }}",
+        "{{ settings.dribbble_link }}",
+        "{{ settings.facebook_link }}",
+        "{{ settings.flickr_link }}",
+        "{{ settings.houzz_link }}",
+        "{{ settings.instagram_link }}",
+        "{{ settings.kickstarter_link }}",
+        "{{ settings.linkedin_link }}",
+        "{{ settings.medium_link }}",
+        "{{ settings.messenger_link }}",
+        "{{ settings.opensea_link }}",
+        "{{ settings.pinterest_link }}",
+        "{{ settings.reddit_link }}",
+        "{{ settings.rss_link }}",
+        "{{ settings.snapchat_link }}",
+        "{{ settings.spotify_link }}",
+        "{{ settings.tiktok_link }}",
+        "{{ settings.tumblr_link }}",
+        "{{ settings.twitch_link }}",
+        "{{ settings.twitter_link }}",
+        "{{ settings.vimeo_link }}",
+        "{{ settings.whatsapp_link }}",
+        "{{ settings.youtube_link }}"
+      ],
       "url": "{{ shop.url }}{{ page.url }}"
     }
   </script>
-{%- endcomment smartseo_integration_end_meta_data -%}  
+{%- endcomment -%}
+{% if template.name == 'index' %}
+  {%- comment -%}
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "name": "{{ shop.name }}",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "{{ routes.search_url }}?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "url": "{{ shop.url }}{{ page.url }}"
+      }
+    </script>
+  {%- endcomment -%}
 {% endif %}
 
-{%- include 'header-snippet'  -%}
-
+{%- render 'header-snippet' -%}
 
 {% schema %}
 {
@@ -301,5 +299,4 @@
     }
   ]
 }
-
 {% endschema %}
