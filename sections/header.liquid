@@ -68,39 +68,6 @@
 {%- include 'header-snippet'  -%}
 
 
-{% comment %}{% if template contains "product" %}
-  <div class="container breadcrumb-container">
-    <div class="sixteen columns mobile-only">
-      <a href="javascript:void(0);" class="back-btn" id="back_btn"><span class="b-left"><</span>BACK</a>
-    </div>
-    <div class="sixteen columns">
-      {%- include 'product__breadcrumb' -%}
-    </div>
-  </div>
-{% endif %}
-{% endcomment %}
-{% if template contains "page" %}
-  <div class="container breadcrumb-container-page">
-    <div class="sixteen columns">
-      {%- include 'page__breadcrumb' -%}
-    </div>
-  </div>
-{% endif %}
-{% if template contains "blog" %}
-  <div class="container breadcrumb-container-page">
-    <div class="sixteen columns">
-      {%- include 'blog__breadcrumb' -%}
-    </div>
-  </div>
-{% endif %}
-{% if template contains "article" %}
-  <div class="container breadcrumb-container-page">
-    <div class="sixteen columns">
-      {%- include 'article__breadcrumb' -%}
-    </div>
-  </div>
-{% endif %}
-
 {% schema %}
 {
   "name": "Header",
