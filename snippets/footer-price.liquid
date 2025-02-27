@@ -23,13 +23,13 @@
             {% elsif product.type == 'TRAPO ACCESSORIES BUNDLE' %}
               <div class="price-wrapper">
                 <span class="member-label">PRICE:</span>
-                <span class="price">{{ selected_variant.price | money }}</span>
                 {% if product.tags contains 'bundle-15' %}
                   {% assign bundle_price = selected_variant.price | times: 0.85 %}
                 {% elsif product.tags contains 'bundle-20' %}
                   {% assign bundle_price = selected_variant.price | times: 0.80 %}
                 {% endif %}
-                <span class="compare-price">{{ bundle_price | money }}</span>
+                <span class="price">{{ bundle_price | money }}</span>
+                <span class="compare-price">{{ selected_variant.price | money }}</span>
               </div>
             {% else %}
               <div class="price-wrapper">
