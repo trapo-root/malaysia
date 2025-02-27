@@ -14,11 +14,7 @@
           %}
             <div class="price-wrapper">
               <span class="member-label">PRICE:</span>
-              {% if selected_variant.compare_at_price > selected_variant.price %}
                 <span class="price">{{ selected_variant.price | money }}</span>
-              {% else %}
-                <span class="price">{{ member_price | money }}</span>
-              {% endif %}
               {% if selected_variant.compare_at_price > selected_variant.price %}
                 <span class="compare-price">{{ selected_variant.compare_at_price | money }}</span>
               {% else %}
