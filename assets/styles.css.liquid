@@ -20177,6 +20177,7 @@ ul#scrollbar3 {
   }
   .is-product-main .breadcrumb-wrapper {
     padding-bottom: 0.22rem;
+    margin-bottom:0;
   }
   ul.dashcam-features{
     column-count: 1;
@@ -20534,6 +20535,60 @@ color: #ee2a7b;
 }
 .send-gift-card-modal{
 z-index: 999999 !important;
+}
+
+.color-option{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.swatch_options.swatch_mat .swatch[data-option-index="0"] .option_title.color-title,
+.swatch_options.swatch_mat .swatch[data-option-index="1"] .option_title.color-title{
+    flex: 0 0 100%;
+    align-self: normal;
+    width: auto;
+}
+
+@media (max-width: 767px) {
+  .product-type-list .type-outer{
+  width:23%;
+    margin-bottom:0;
+}
+
+.swatch-element.color.swatch-element label{
+  width: 22px;
+    height: 22px;
+}
+
+  .swatch .color label{
+    min-width: 22px;
+  }
+
+  .swatch-element.color {
+    padding: 2px;
+}
+
+  .swatch .swatch-element{
+        min-width: 28px;
+  }
+
+  .price-ui-badges{
+    display:none;
+  }
+
+  .product-rating{
+    margin-top:0;
+  }
+
+  #gf-form.loaded h2{
+    font-size: 17px;
+    margin-top: 0;
+  }
+
+  .product_gallery {
+    margin-bottom: 5px;
+    paddinh-bottom:0px !important;
+    }
 }
 
 /* Start Collection Cover Image Badge CSS*/
