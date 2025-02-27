@@ -1,0 +1,330 @@
+{% assign selected_variant = product.selected_or_first_available_variant %}
+{% assign member_price = selected_variant.price | times: 0.92 %}
+<section class="footer-pricing">
+  <div class="container-sec">
+    <div class="pricing-bar">
+      <div class="product-info">
+        <div class="product-name">
+          {{ product.title }}
+        </div>
+        <div class="price-info {% if selected_variant.compare_at_price > selected_variant.price %}price-sale{%- endif -%}">
+          <div class="member-price">
+            <div class="price-wrapper">
+              <span class="member-label">MEMBER PRICE:</span>
+              {% if selected_variant.compare_at_price > selected_variant.price %}
+                <span class="price">{{ selected_variant.price | money }}</span>
+              {% else %}
+                <span class="price">{{ member_price | money }}</span>
+              {% endif %}
+              {% if selected_variant.compare_at_price > selected_variant.price %}
+                <span class="compare-price">{{ selected_variant.compare_at_price | money }}</span>
+              {% else %}
+                <span class="compare-price"></span>
+              {% endif %}
+            </div>
+
+            <span class="non-member-price"
+              >NON-MEMBER: <span class="nm-price">{{ selected_variant.price | money }}</span></span
+            >
+          </div>
+          {% comment %}
+              <div class="member-price member-in">
+                <div class="price-wrapper">
+                  <span class="price">{{ selected_variant.price | money }}</span>
+                  {% if selected_variant.compare_at_price > selected_variant.price %}
+                    <span class="compare-price">{{ selected_variant.compare_at_price | money }}</span>
+                  {% else %}
+                    <span class="compare-price"></span>
+                  {% endif %}
+                </div>
+                <a href="/account/register" class="member-login">Members Sign In & Get 5% OFF</a>
+              </div>
+
+            <div class="installment" style="">
+              RM866.66 x 3 months with
+              <span>with<img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_4b661642-8ad0-47cb-b0eb-394d5541d5ee.png?v=1736351207" /></span>
+            </div>
+          {% endcomment %}
+        </div>
+      </div>
+      <div class="cart-section">
+        <button class="add-to-cart">
+          <img
+            class="cart-icon"
+            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/cart-svg_501d7f64-f263-476c-ab90-451c2a0c1063.svg?v=1736236357"
+          >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+      .product-block--price,
+      .purchase-details {
+      	display: none;
+      }
+
+      /* Desktop Styles */
+    .footer-pricing{
+      z-index: 1000;
+          background-color: #DEDEDE;
+          position: sticky;
+      bottom: 0;
+      box-shadow: 0px 7px 8.7px 0px rgba(0, 0, 0, 0.25);
+      	box-shadow: 0px -5px 11.6px 0px rgba(0, 0, 0, 0.25);
+    }
+    .container-sec{
+      max-width: 1200px;
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+      .pricing-bar {
+      	display: flex;
+      	align-items: center;
+      	padding: 15px 10px;
+      }
+
+      .product-info {
+      	display: flex;
+      	align-items: center;
+      	gap: 32px;
+      	flex: 1;
+
+      }
+
+      .product-name {
+      	color: #808080;
+      	font-size: 18px;
+      	font-weight: 600;
+      	line-height: 21px;
+      	flex: 1;
+      	text-align: center;
+      }
+
+      .price-info {
+      	display: flex;
+      	align-items: center;
+      	gap: 32px;
+      }
+
+      .member-price {
+      	display: flex;
+      	flex-direction: column;
+      	gap: 1px;
+      }
+
+      .price-wrapper {
+      	display: flex;
+      	align-items: baseline;
+      	gap: 4px;
+      }
+
+      .member-label {
+      	color: #ee2a7b;
+      	font-size: 12px;
+      	font-weight: 500;
+      	text-transform: uppercase;
+      	line-height: 16px;
+      	letter-spacing: 0.6px;
+      }
+
+      .price {
+      	color: #ee2a7b;
+      	font-weight: 700;
+      	font-size: 20px;
+      	line-height: 1;
+      }
+
+      .compare-price {
+      	font-size: 14px;
+      	text-decoration: line-through;
+      	font-weight: 700;
+      }
+
+      .member-in .price {
+      	color: #222222;
+      }
+
+      .price-sale .member-in .price {
+      	color: #ee2a7b;
+      }
+
+      a.member-login {
+      	font-size: 14px;
+      	line-height: 16px;
+      	text-decoration: underline;
+      	margin-top: 5px;
+      	font-weight: 700;
+      	letter-spacing: 0.4px;
+      }
+
+      .non-member-price {
+      	color: #222222;
+      	font-size: 12px;
+      	font-weight: 400;
+      	line-height: 14px;
+      	letter-spacing: 0.2px;
+      }
+
+      .installment {
+      	color: #666;
+      	font-size: 13px;
+      	line-height: 1.4;
+      	font-weight: 400;
+      	display: flex;
+      	    flex-direction: column;
+      align-items: flex-end;
+      	gap: 0;
+      	white-space: nowrap;
+      }
+    .installment span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+  }
+
+      .atome-logo {
+      	height: 12px;
+      	vertical-align: middle;
+      }
+
+      .cart-section {
+      	margin-left: 32px;
+      }
+
+      .add-to-cart {
+      	background-color: #ee2a7b;
+      	color: white;
+      	border: none;
+      	padding: 10px 24px;
+      	border-radius: 4px;
+      	cursor: pointer;
+      	font-weight: 700;
+      	font-size: 14px;
+      	text-transform: uppercase;
+      	display: flex;
+      	align-items: center;
+      	gap: 8px;
+      	white-space: nowrap;
+      	letter-spacing: 0.5px;
+      	line-height: 16px;
+      }
+
+      .cart-icon {
+      	display: none;
+      	width: 28px;
+      	height: 28px;
+      }
+
+      /* Mobile Styles */
+      @media (max-width: 767px) {
+        .container-sec{
+          width:100%;
+        }
+      	.pricing-bar {
+      		flex-direction: row;
+      		background: #DEDEDE;
+      		padding: 0;
+      		box-shadow: none;
+      		align-items: stretch;
+      	}
+
+      	.product-info {
+      		flex-direction: column;
+      		align-items: flex-start;
+      		justify-content: center;
+      		gap: 5px;
+      		padding: 10px 5px 10px 20px;
+      		flex: 1;
+      	}
+
+      	.product-name {
+      		font-size: 12px;
+      		line-height: 1.4;
+      		color: #222222;
+      		flex: 0;
+      		text-align: left;
+            display:none;
+      	}
+
+      	.price-info {
+      		flex-direction: column;
+      		align-items: flex-start;
+      		gap: 12px;
+      		width: 100%;
+      	}
+
+      	.member-price {
+      		gap: 4px;
+      	}
+
+      	.price-wrapper {
+      		gap: 8px;
+      	}
+
+      	.member-label {
+      		font-size: 12px;
+      		display: inline;
+      		margin-right: 0;
+      	}
+
+      	.price {
+      		font-size: 20px;
+      		line-height: 1;
+      		display: inline;
+      	}
+
+      	.non-member-price {
+      		font-size: 12px;
+      		margin-top: 0px;
+      	}
+
+      	.installment {
+      		font-size: 12px;
+      		margin-top: 0px;
+      		white-space: normal;
+      	}
+
+      	.atome-logo {
+      		height: 14px;
+      	}
+
+      	.cart-section {
+      		width: 110px;
+      		background-color: #ee2a7b;
+      		padding: 20px 0;
+      		margin: 0;
+      		display: flex;
+      	}
+
+      	.add-to-cart {
+      		width: 100%;
+      		background: transparent;
+      		padding: 0;
+      		border-radius: 0;
+      		justify-content: center;
+      		font-size: 15px;
+      		flex-direction: column;
+      		gap: 5px;
+      		white-space: nowrap;
+      		text-transform: none;
+      		letter-spacing: 0.5px;
+      		font-weight: normal;
+      	}
+
+      	.cart-icon {
+      		display: inline-block;
+      	}
+        .installment{
+      flex-direction: unset;
+      gap:5px;
+      flex-wrap: wrap;
+      width: 100%;
+  }
+        .installment img{
+          margin-top:-3px;
+        }
+      }
+</style>
