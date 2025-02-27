@@ -9,9 +9,21 @@
         </div>
         <div class="price-info {% if selected_variant.compare_at_price > selected_variant.price %}price-sale{%- endif -%}">
           <div class="member-price">
-            {% if product.handle == 'gift-card'
-            or product.type == 'TRAPO ACCESSORIES BUNDLE'
-          %}
+            {% if product.handle == 'gift-card' %}
+            <div class="price-wrapper">
+              <span class="member-label">PRICE:</span>
+                <span class="price">{{ selected_variant.price | money }}</span>
+
+                {% if product.tags contains 'bundle-15' %}
+                  {% assign bundle_price = selected_variant.price | times: 0.85 %}
+                {% elsif product.tags contains 'bundle-20' %}
+                  {% assign bundle_price = selected_variant.price | times: 0.80 %}
+                {% endif %}
+                <span class="compare-price">{{ bundle_price | money }}</span>
+              
+            </div>
+
+         {% elsif product.type == 'TRAPO ACCESSORIES BUNDLE' %}
             <div class="price-wrapper">
               <span class="member-label">PRICE:</span>
                 <span class="price">{{ selected_variant.price | money }}</span>
