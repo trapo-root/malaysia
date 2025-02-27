@@ -716,19 +716,35 @@ window.selectCallback = function (variant, selector, $element) {
   }
   }*/
 
+  /* New Footer Price Logic*/
+
+  console.log(variant);
+  var selectedVarPrice = variant.price;
   var selectedVarCmp = variant.compare_at_price;
-  
-  if (selectedVarCmp !== null){
-    var finalVarCmp = window.Shopify.formatMoney(selectedVarCmp, $('body').data('money-format'));
-    $(".footer-p-price").find(".was-price").html(finalVarCmp);
+ 
+
+ if ($('body').hasClass('customer-in')) {
+    var memberPrice = selectedVarPrice * 0.92;
+    var finalVarMember = window.Shopify.formatMoney(memberPrice, $('body').data('money-format'));
+    $(".member-price .price").html(finalVarMember);
   }else{
-   $(".footer-p-price").find(".was-price").empty();
+    var memberPrice = selectedVarPrice * 0.92;
+    var finalMembVarMember = window.Shopify.formatMoney(memberPrice, $('body').data('money-format'));
+    $(".member-price .price").html(finalMembVarMember);
+    var finalVarPrice = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
+    $(".member-price .non-member-price .nm-price").html(finalVarPrice);
   }
   
-  var selectedVarPrice = variant.price;
-  var finalVarPrice = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
-
-  $(".footer-p-price").find(".money").html(finalVarPrice);
+  if (selectedVarCmp !== null){
+    var finalPrice = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
+    $(".member-price .price").html(finalPrice);
+    var finalVarCmp = window.Shopify.formatMoney(selectedVarCmp, $('body').data('money-format'));
+    $(".member-price .compare-price").html(finalVarCmp);
+    $(".member-text").hide();
+  }else{
+    $(".member-price .compare-price").empty();
+    $(".member-text").show();
+  }
   
   const evt = document.createEvent('HTMLEvents');
 
