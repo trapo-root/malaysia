@@ -722,8 +722,9 @@ window.selectCallback = function (variant, selector, $element) {
   var selectedVarPrice = variant.price;
   var selectedVarCmp = variant.compare_at_price;
  
-
- if ($('body').hasClass('customer-in')) {
+var productType = $(".product_form ").data('product-type');
+  if(productType != 'TRAPO ACCESSORIES BUNDLE' || productType !='Gift Card'){
+    if ($('body').hasClass('customer-in')) {
     var memberPrice = selectedVarPrice * 0.92;
     var finalVarMember = window.Shopify.formatMoney(memberPrice, $('body').data('money-format'));
     $(".member-price .price").html(finalVarMember);
@@ -745,6 +746,8 @@ window.selectCallback = function (variant, selector, $element) {
     $(".member-price .compare-price").empty();
     $(".member-text").show();
   }
+  }
+ 
   
   const evt = document.createEvent('HTMLEvents');
 
