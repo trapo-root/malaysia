@@ -15,7 +15,7 @@
         "image_jmDVDG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/lALPGR5prxLMEt7MtM0HlA_1940_180.png",
+            "image": "shopify://shop_images/desktop_0a17c6fb-5fdb-454d-a85b-05e2a6fc8906.jpg",
             "pretext": "",
             "title": "",
             "subtitle": "",
@@ -28,7 +28,7 @@
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/lALPGR5prxLMEt7MtM0HlA_1940_180.webp"
+            "mobile_image": "shopify://shop_images/mobile_317011bb-734d-4a59-b901-842ffb9e5e23.jpg"
           }
         }
       },
