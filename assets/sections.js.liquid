@@ -724,6 +724,18 @@ window.selectCallback = function (variant, selector, $element) {
  
 var productType = $(".product_form ").data('product-type');
   if(productType == 'TRAPO ACCESSORIES BUNDLE' || productType =='Gift Card'){
+    if (selectedVarCmp !== null){
+      var finalPrice = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
+      $(".member-price .price").html(finalPrice);
+      var finalVarCmp = window.Shopify.formatMoney(selectedVarCmp, $('body').data('money-format'));
+      $(".member-price .compare-price").html(finalVarCmp);
+      $(".member-text").hide();
+    }else{
+      var finalPrice = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
+      $(".member-price .price").html(finalPrice);
+      $(".member-price .compare-price").empty();
+      $(".member-text").show();
+    }
   }else{
     if ($('body').hasClass('customer-in')) {
       var memberPrice = selectedVarPrice * 0.92;
