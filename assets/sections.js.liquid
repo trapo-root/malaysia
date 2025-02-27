@@ -723,7 +723,7 @@ window.selectCallback = function (variant, selector, $element) {
   var selectedVarCmp = variant.compare_at_price;
  
 var productType = $(".product_form ").data('product-type');
-  if(productType == 'TRAPO ACCESSORIES BUNDLE' || productType =='Gift Card'){
+  if(productType =='Gift Card'){
     if (selectedVarCmp !== null){
       var finalPrice = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
       $(".member-price .price").html(finalPrice);
