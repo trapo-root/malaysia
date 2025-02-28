@@ -1,0 +1,182 @@
+{% if product.tags contains 'refresh' %}
+  <!-- Car Selection Dropdowns -->
+  <div class="select-wrapper">
+    <label for="car-brand">BRAND</label>
+    <select name="properties[Brand]" id="car-brand" required>
+      <option value="" disabled selected>Select Brand</option>
+    </select>
+  </div>
+
+  <div class="select-wrapper">
+    <label for="car-model">MODEL</label>
+    <select name="properties[Model]" id="car-model" required>
+      <option value="" disabled selected>Select Model</option>
+    </select>
+  </div>
+
+  <div class="select-wrapper">
+    <label for="car-year">YEAR</label>
+    <select name="properties[Year]" id="car-year" required>
+      <option value="" disabled selected>Select Year</option>
+    </select>
+  </div>
+
+  <input type="hidden" id="car-size">
+
+  <p class="refresh-info">
+    *XL-sized cars will incur an additional RM400. <br>
+    Not sure?
+    {% render 'car-size-finder' %}
+  </p>
+  <p class="refresh-info">
+    For this package, car mats come with a default black base and black lining, available for Front and Rear only.
+  </p>
+
+  <!-- Styles -->
+  <style>
+    .select-wrapper {
+      margin-bottom: 15px;
+    }
+    .select-wrapper label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      font-size: 13px;
+      color: #808080;
+    }
+    .select-wrapper select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: white;
+    }
+    p.refresh-info{
+      color:#A2A4A7;
+      font-size:15px;
+    }
+    #open-car-size-finder {
+        color: #e82276;
+        padding-left: 5px;
+        margin: 0 0px;
+        width: max-content;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+  </style>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const jsonUrl = 'https://trapo.com/search-car-size/car_tags.json';
+        const brandDropdown = document.getElementById('car-brand');
+        const modelDropdown = document.getElementById('car-model');
+        const yearDropdown = document.getElementById('car-year');
+
+        // Hidden input fields for Shopify line item properties
+        const selectedBrandInput = document.getElementById('selected-brand');
+        const selectedModelInput = document.getElementById('selected-model');
+        const selectedYearInput = document.getElementById('selected-year');
+
+        let carData = {}; // Store JSON data
+
+        // Fetch car data
+        fetch(jsonUrl)
+            .then(response => response.json())
+            .then(data => {
+                carData = data.brands;
+                console.log("Car Data Loaded:", carData);
+
+                // Populate Brand dropdown
+                Object.keys(carData).forEach(brand => {
+                    let option = new Option(brand, brand);
+                    brandDropdown.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching JSON:', error));
+
+        // Handle Brand selection
+        brandDropdown.addEventListener('change', () => {
+            const selectedBrand = brandDropdown.value;
+
+            // Reset Model & Year dropdowns
+            modelDropdown.innerHTML = '<option value="" disabled selected>Select Model</option>';
+            yearDropdown.innerHTML = '<option value="" disabled selected>Select Year</option>';
+            modelDropdown.disabled = true;
+            yearDropdown.disabled = true;
+
+            if (carData[selectedBrand]) {
+                Object.keys(carData[selectedBrand].models).forEach(model => {
+                    modelDropdown.appendChild(new Option(model, model));
+                });
+                modelDropdown.disabled = false;
+            }
+
+            // Update hidden input
+            selectedBrandInput.value = selectedBrand;
+        });
+
+        // Handle Model selection
+        modelDropdown.addEventListener('change', () => {
+            const selectedBrand = brandDropdown.value;
+            const selectedModel = modelDropdown.value;
+
+            // Reset Year dropdown
+            yearDropdown.innerHTML = '<option value="" disabled selected>Select Year</option>';
+            yearDropdown.disabled = true;
+
+            if (carData[selectedBrand] && carData[selectedBrand].models[selectedModel]) {
+                let yearsData = carData[selectedBrand].models[selectedModel].years;
+
+                // Ensure yearsData is an array
+                yearsData = Array.isArray(yearsData) ? yearsData : Object.keys(yearsData);
+
+                // Populate Year dropdown
+                yearsData.forEach(year => {
+                    yearDropdown.appendChild(new Option(year, year));
+                });
+
+                yearDropdown.disabled = false;
+            }
+
+            // Update hidden input
+            selectedModelInput.value = selectedModel;
+        });
+
+        // Handle Year selection
+        yearDropdown.addEventListener('change', () => {
+            selectedYearInput.value = yearDropdown.value;
+        });
+
+        document.getElementById('car-year').addEventListener('change', function() {
+          const brand = document.getElementById('car-brand').value;
+          const model = document.getElementById('car-model').value;
+          const year = this.value;
+          if (brand && model && year && carData[brand].models[model].years[year]) {
+            const size = carData[brand].models[model].years[year];
+           console.log(size);
+            document.getElementById('car-size').value = size;
+            if(size == 'S' || size == 'M' || size == 'L'){
+              var final = 99900;
+              var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
+              $(".modal_price").find(".price .money").html(final);
+    $(".footer-p-price").find(".money").html(final);
+            }else if(size == 'XL'){
+              var final = 139900;
+              var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
+              $(".modal_price").find(".price .money").html(final);
+    $(".footer-p-price").find(".money").html(final);
+            }
+
+          } else {
+            updateSizeResult('');
+          }
+        });
+    });
+  </script>
+  <style>
+    .purchase-details__quantity.product-quantity-box{
+      display:none !important;
+    }
+  </style>
+{% endif %}
