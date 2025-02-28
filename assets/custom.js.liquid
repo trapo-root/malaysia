@@ -812,6 +812,8 @@ $(document).ready(function(){
         classicProductHandle = classicProductHandle.replace(/[\. ,:-]+/g, "-");
         wiperProductHandle = wiperProductHandle.replace(/[\. ,:-]+/g, "-");
 
+        console.log(classicProductHandle);
+        console.log(wiperProductHandle);
 
         jQuery.getJSON(window.Shopify.routes.root + 'products/' + classicProductHandle.replace(/\s+/g, "-") + '.js', function(matproduct) {
 			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
