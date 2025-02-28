@@ -83,6 +83,15 @@
         </div>
       </div>
       <div class="cart-section">
+        {%  if product.type == 'TRAPO REFRESH PACKAGE' %}
+          <button class="refresh-submit">
+          <img
+            class="cart-icon"
+            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/cart-svg_501d7f64-f263-476c-ab90-451c2a0c1063.svg?v=1736236357"
+          >
+          Add to Cart
+        </button>
+        {% else %}
         <button class="add-to-cart">
           <img
             class="cart-icon"
@@ -90,6 +99,7 @@
           >
           Add to Cart
         </button>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -229,7 +239,7 @@
       	margin-left: 32px;
       }
 
-      .add-to-cart {
+      .add-to-cart,.refresh-submit {
       	background-color: #ee2a7b;
       	color: white;
       	border: none;
