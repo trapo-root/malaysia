@@ -778,3 +778,220 @@ $('.add-to-cart').click(function() {
     });
 
 
+/** Start Refresh Package Functionality **/
+
+$(document).ready(function(){
+
+ 
+  
+  $(document).on("click", ".refresh-submit", function() {
+      var selBrand = $("#car-brand option:selected").val().toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '');
+      var selModel = $("#car-model option:selected").val().toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '');
+      var selYear = $("#car-year option:selected").val().toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '');
+
+     var selBase = getSelectedRadioValue('option-0');
+    var selLining = getSelectedRadioValue('option-1'); 
+    $('.refresh-error').empty();
+    
+      if (selBrand == "" || selModel == "" || selYear == "") {
+          //If the "Please Select" option is selected display error.
+          alert("Please select an option!");
+          return false;
+      }
+    console.log(selBrand);
+        console.log(selModel);
+        console.log(selYear);
+    console.log(selBase);
+    console.log(selLining);
+
+      if(selBrand != '' || selYear != '' || selModel != '' ){
+        
+        var classicProductHandle = selBrand + '-' + selModel + '-' + selYear + '-trapo-classic';
+        var wiperProductHandle = selBrand + '-' + selModel + '-' + selYear + '-hydrophobic-wiper-blade';
+        
+        classicProductHandle = classicProductHandle.replace(/[\. ,:-]+/g, "-");
+        wiperProductHandle = wiperProductHandle.replace(/[\. ,:-]+/g, "-");
+
+
+        jQuery.getJSON(window.Shopify.routes.root + 'products/' + classicProductHandle.replace(/\s+/g, "-") + '.js', function(matproduct) {
+			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
+            console.log(matproduct);
+            
+            const option1 = selBase; 
+            const option2 = selLining; 
+            const option3 = "Front + Rear"; 
+            const variantMatId = getVariantIdByOptions(matproduct, option1, option2, option3);
+            console.log(variantMatId); 
+            if(variantMatId){
+              $.ajax({
+                  type: "POST",
+                  dataType: 'json',
+                  url: '/cart/add.js',
+                  data: {
+                      quantity: 1,
+                      id: variantMatId
+                  },
+                  async: false
+              });
+            }
+            
+		  }).fail(function() {
+		   alert('Car Mat Product not found!!')
+		  });
+
+        jQuery.getJSON(window.Shopify.routes.root + 'products/' + wiperProductHandle.replace(/\s+/g, "-") + '.js', function(wiperproduct) {
+			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
+            console.log(wiperproduct);
+            const variantFrontWiperId = wiperproduct.variants.find(variant => variant.title === "Front").id;   
+            
+            if(variantFrontWiperId){
+                $.ajax({
+                    type: "POST",
+                    dataType: 'json',
+                    url: '/cart/add.js',
+                    data: {
+                        quantity: 1,
+                        id: variantFrontWiperId
+                    },
+                    async: false
+                });
+              }
+		  }).fail(function() {
+		   //alert('No wiper found for the model. Please reach out to customer support');
+            $('.refresh-error').text('NOTE: The refresh package is not available for this car model.');
+            return false;
+		  });
+        
+          
+
+
+          jQuery.getJSON(window.Shopify.routes.root + 'products/trapo-quik-shield-car-coating.js', function(quickcoat) {
+			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
+            var sizeCode = $('#car-size').val();
+            console.log(quickcoat);
+            const coatId = getVariantIdByTitle(quickcoat,sizeCode);
+            console.log(coatId);
+
+            if(coatId){
+              $.ajax({
+                  type: "POST",
+                  dataType: 'json',
+                  url: '/cart/add.js',
+                  data: {
+                      quantity: 1,
+                      id: coatId
+                  },
+                  async: false
+              });
+            }
+      
+		  }).fail(function() {
+		  
+		  });
+
+        jQuery.getJSON(window.Shopify.routes.root + 'products/watermark-removal-glass-coating-service.js', function(watermark) {
+			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
+            console.log(watermark);
+            var sizeCode = $('#car-size').val();
+            const watermarkId = getVariantIdByTitle(watermark,sizeCode);
+            console.log(watermarkId);
+
+            if(watermarkId){
+              $.ajax({
+                  type: "POST",
+                  dataType: 'json',
+                  url: '/cart/add.js',
+                  data: {
+                      quantity: 1,
+                      id: watermarkId
+                  },
+                  async: false
+              });
+            }
+      
+		  }).fail(function() {
+		  
+		  });
+  
+      }
+  });
+
+  function getSelectedRadioValue(name) {
+    const radios = document.getElementsByName(name);
+    for (const radio of radios) {
+        if (radio.checked) {
+            return radio.value;
+        }
+    }
+    return null; // Return null if no radio is selected
+  }
+
+  function getVariantIdByOptions(product, option1, option2, option3) {
+      // Construct the variant title by joining the options with a slash
+      const variantTitle = `${option1} / ${option2} / ${option3}`;
+      
+      // Loop through the variants array
+      for (let variant of product.variants) {
+          // Check if the variant title matches the constructed title
+          if (variant.title === variantTitle) {
+              return variant.id; // Return the variant ID if found
+          }
+      }
+      return null; // Return null if no matching variant is found
+  }
+
+  function getVariantIdByTitle(product, title) {
+    const variant = product.variants.find(variant => variant.title === title);
+    return variant ? variant.id : null;
+}
+
+// Function to get size based on brand, model, and year
+function getSize(brand, model, year) {
+    return fetchCarSizeData() // Fetch the data
+        .then(data => {
+            // Check if the brand exists
+            if (data.brands[brand]) {          
+                if (data.brands[brand].models[model]) {         
+                    // Check if the year exists
+                    const years = data.brands[brand].models[model].years;
+                    for (const yearRange in years) {
+                        if (yearRange.includes(year)) {
+                            return years[yearRange]; // Return the size
+                        }
+                    }
+                } else {
+                    console.log(`Model not found: ${model}`); // Log if model is not found
+                }
+            } else {
+                console.log(`Brand not found: ${brand}`); // Log if brand is not found
+            }
+            return null; // Return null if not found
+        })
+        .catch(error => {
+            console.error("Error in getSize function:", error);
+            return null; // Return null in case of error
+        });
+}
+
+// Fetching car size data from the URL
+function fetchCarSizeData() {
+    const jsonUrl = "https://trapo.com/search-car-size/car_tags.json";
+    return fetch(jsonUrl)
+        .then(response => {
+            // Check if the response is OK (status in the range 200-299)
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json(); // Parse the JSON data
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
+            throw error; // Rethrow the error to be handled in getSize
+        });
+}
+
+});
+
+/** End Refresh Package Functionality **/
+
+
