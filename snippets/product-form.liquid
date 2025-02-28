@@ -216,6 +216,14 @@
         <!-- End Choose Product Type -->
       {% endif %}
 
+      {% if product.type == 'TRAPO REFRESH PACKAGE' %}
+        <div class="new-steps">
+          <span class="new-step-2">Step 1</span>
+        </div>
+        <p class="txt-choose-cmb">Choose your car model</p> 
+        {% render 'refresh-drop' %}
+      {% endif %}
+
       {% if product.tags contains 'trapo-tint' %}
         {% assign producthandle = product.handle | split: '-' %}
         {% assign lastthird = producthandle | slice: -3 %}
@@ -335,6 +343,7 @@
         or product.type == 'TRAPO ECO II'
         or product.type == 'TRAPO HEX ULTIMATE II'
         or product.type == 'TRAPO TEST'
+        or product.type == 'TRAPO REFRESH PACKAGE'
       %}
         <div class="swatch_options swatch_mat">
           {% for option in product.options %}
