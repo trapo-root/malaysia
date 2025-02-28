@@ -741,6 +741,10 @@
   <div class="sixteen columns">
     {% render 'xtreme-description-new' %}
   </div>
+{% elsif product.type == 'TRAPO REFRESH PACKAGE' %}
+  <div class="sixteen columns">
+    {% render 'refresh-description' %}
+  </div>
 {% elsif product.tags contains 'trapo-coating' %}
   <div class="sixteen columns">
     {% render 'coating-description' %}
