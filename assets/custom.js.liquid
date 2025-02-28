@@ -857,8 +857,8 @@ $(document).ready(function(){
                 });
               }
 		  }).fail(function() {
-		   //alert('No wiper found for the model. Please reach out to customer support');
-            $('.refresh-error').text('NOTE: The refresh package is not available for this car model.');
+		   alert('Only available for cars with compatible wipers.');
+            //$('.refresh-error').text('NOTE: The refresh package is not available for this car model.');
             return false;
 		  });
         
