@@ -243,8 +243,7 @@
                 </div>
 
                 <div id="checkboxes">
-                  <p class="line-item-property__field add-to-box">
-                    {% if product.selected_or_first_available_variant.available %}
+                  {% if product.selected_or_first_available_variant.available %}
                       <p class="line-item-property__field add-to-box">
                     <label>
                       <input type="hidden" autocomplete="off" name="properties[_ITEM2]" value="No">
@@ -274,7 +273,6 @@
                     </label>
                       </p>
                     {% endif %}
-                  </p>
                 </div>
               </div>
             </div>
@@ -353,28 +351,36 @@
                   </div>
 
                   <div id="checkboxes">
-                    <p class="line-item-property__field add-to-box">
-                      <label>
-                        <input type="hidden" autocomplete="off" name="properties[_ITEM3]" value="No">
-                        <input
-                          id="{{ product.handle }}"
-                          class="button"
-                          type="checkbox"
-                          data-id-products="tab_3_product"
-                          data-id="tab_3_product_{{ forloop.index }}"
-                          autocomplete="off"
-                          name="properties[_ITEM3]"
-                          value="
-                            {{ product.selected_or_first_available_variant.title }}
-                            SKU: {{ product.selected_or_first_available_variant.sku }}
-                          "
-                          data-pid="{{ product.selected_or_first_available_variant.id }}"
-                          data-price="{{ product.selected_or_first_available_variant.price }}"
-                          data-saleprice="{{ product.selected_or_first_available_variant.price | times:0.87 | round: 0 }}"
+                    {% if product.selected_or_first_available_variant.available %}
+                      <p class="line-item-property__field add-to-box">
+                    <label>
+                      <input type="hidden" autocomplete="off" name="properties[_ITEM2]" value="No">
+                      <input
+                        id="{{ product.handle }}"
+                        class="button"
+                        type="checkbox"
+                        data-id-products="tab_2_product"
+                        data-id="tab_2_product_{{ forloop.index }}"
+                        autocomplete="off"
+                        name="properties[_ITEM2]"
+                        value="
+                          {{ product.selected_or_first_available_variant.title }}
+                          SKU: {{ product.selected_or_first_available_variant.sku }}
+                        "
+                        data-pid="{{ product.selected_or_first_available_variant.id }}"
+                        data-price="{{ product.selected_or_first_available_variant.price }}"
+                        data-saleprice="{{ product.selected_or_first_available_variant.price | times:0.87 | round: 0  }}"
 
-                        ><span></span>
-                      </label>
-                    </p>
+                      ><span></span>
+                    </label>
+                      </p>
+                    {% else %}
+                      <p class="line-item-property__field add-to-box outofstock">
+                      <label>
+                      <span>OUT OF STOCK</span>
+                    </label>
+                      </p>
+                    {% endif %}
                   </div>
                 </div>
               </div>
