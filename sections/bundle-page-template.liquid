@@ -584,8 +584,17 @@
       	background-color: transparent
       }
   .add-to-box.outofstock{
-    
+    cursor: not-allowed;
+    background-color: #a3aea5;
   }
+  .add-to-box.outofstock label span {
+    text-align: center;
+    padding: 8px;
+    display: block;
+    cursor: pointer;
+    color: #fff;
+    letter-spacing: .2rem;
+}
 
       input[type=checkbox]+span:after {
       	content: "ADD TO BOX"
