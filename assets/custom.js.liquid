@@ -979,7 +979,7 @@ function getSize(brand, model, year) {
 
 // Fetching car size data from the URL
 function fetchCarSizeData() {
-    const jsonUrl = "https://trapo.com/search-car-size/car_tags.json";
+    const jsonUrl = "https://trapo.com/search-size/car_tags.json";
     return fetch(jsonUrl)
         .then(response => {
             // Check if the response is OK (status in the range 200-299)
