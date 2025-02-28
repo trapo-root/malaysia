@@ -763,6 +763,22 @@ var productType = $(".product_form ").data('product-type');
       $(".member-text").show();
     }
   }
+
+  var productHandle = $(".product_form ").data('product-handle');
+  if(productHandle == 'refresh-package'){
+    var sizeCode = $('#car-size').val();
+    if(sizeCode == 'S' || sizeCode == 'M' || sizeCode == 'L'){
+      var final = 99900;
+      var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
+      $(".modal_price").find(".price .money").html(final);
+        $(".footer-p-price").find(".money").html(final);
+    }else if(sizeCode == 'XL'){
+      var final = 139900;
+      var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
+      $(".modal_price").find(".price .money").html(final);
+        $(".footer-p-price").find(".money").html(final);
+    }
+  }
  
   
   const evt = document.createEvent('HTMLEvents');
