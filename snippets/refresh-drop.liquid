@@ -159,13 +159,11 @@
             if(size == 'S' || size == 'M' || size == 'L'){
               var final = 99900;
               var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
-              $(".modal_price").find(".price .money").html(final);
-    $(".footer-p-price").find(".money").html(final);
+              $(".member-price .price").html(final);
             }else if(size == 'XL'){
               var final = 139900;
               var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
-              $(".modal_price").find(".price .money").html(final);
-    $(".footer-p-price").find(".money").html(final);
+              $(".member-price .price").html(final);
             }
 
           } else {
