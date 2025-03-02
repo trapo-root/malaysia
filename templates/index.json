@@ -14,6 +14,7 @@
       "blocks": {
         "image_CJzXfp": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/2000x760_e89c7327-b7da-4049-8b05-e2f9dce9d216.webp",
             "pretext": "",
