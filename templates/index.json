@@ -32,6 +32,25 @@
             "mobile_image": "shopify://shop_images/1080x1080.webp"
           }
         },
+        "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/desktop_loyalty_now.jpg",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "shopify://pages/loyalty-program",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original",
+            "mobile_image": "shopify://shop_images/mobile_loyalty_now.jpg"
+          }
+        },
         "image_KptQ6p": {
           "type": "image",
           "settings": {
@@ -106,25 +125,6 @@
             "text_align": "center",
             "caption_content_background": "original",
             "mobile_image": "shopify://shop_images/Web-Slider-Tinting-Mobile.jpg"
-          }
-        },
-        "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/loyalty_getreward_desktop_2000x760_bbf7d8fb-ffdc-4ecb-a57c-dcdb83eb1eb2.jpg",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://pages/loyalty-program",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/loyalty_getreward_mobile_1080x1080_55856f47-83f9-472f-8505-b9509e390d5f.jpg"
           }
         },
         "image_HpKJyx": {
@@ -230,11 +230,11 @@
       },
       "block_order": [
         "image_CJzXfp",
+        "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2",
         "image_KptQ6p",
         "image_7z6gf8",
         "image_NYgbG4",
         "image_PyPQbh",
-        "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2",
         "image_HpKJyx",
         "image_DXyUMG",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-1",
