@@ -1128,10 +1128,6 @@ h3.spf-heading {
     display: block
 }
 
-.product {
-    margin-bottom: 35px
-}
-
 .aspect-product__images,.product .loop-thumbnail .image-hover,.product .loop-thumbnail .product-item-image {
     margin: auto;
     right: 0;
