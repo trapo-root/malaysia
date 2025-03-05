@@ -27,7 +27,11 @@
 {%- assign downcased_swatch = swatch | downcase -%}
 
 {% if downcased_swatch == 'base colour' or downcased_swatch == 'base color' %}
+  {% if product.type == 'TRAPO REFRESH PACKAGE' %}
+    <p class="txt-choose-cmb">Choose your car mat colour combination</p>
+  {% else %}
   <p class="txt-choose-cmb">Choose your colour combination</p>
+  {% endif %}
 {% endif %}
 {% if swatch == 'Packages' %}
   <p class="txt-choose-pkg">Choose your car mat package</p>
