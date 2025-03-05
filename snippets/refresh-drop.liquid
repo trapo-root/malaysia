@@ -22,6 +22,7 @@
   </div>
 
   <input type="hidden" id="car-size">
+  <input type="hidden" id="car-mat-size">
 
   <p class="refresh-info">
     *XL-sized cars will incur an additional RM400. <br>
@@ -154,13 +155,22 @@
           const year = this.value;
           if (brand && model && year && carData[brand].models[model].years[year]) {
             const size = carData[brand].models[model].years[year];
+            var parts = size.split("-");
+            var firstPart = parts[0]; 
+            var secondPart = parts[1];
            console.log(size);
-            document.getElementById('car-size').value = size;
-            if(size == 'S' || size == 'M' || size == 'L'){
+            document.getElementById('car-size').value = secondPart;
+            document.getElementById('car-mat-size').value = firstPart;
+            if(firstPart == 'Small' || firstPart == 'Medium' || firstPart == 'Large' || firstPart == '3 Rows'){
               var final = 99900;
               var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
               $(".member-price .price").html(final);
-            }else if(size == 'XL'){
+            }else if(firstPart == 'Small MPV' ){
+              var final = 109900;
+              var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
+              $(".member-price .price").html(final);
+            }
+            else if(firstPart == 'Large MPV'){
               var final = 139900;
               var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
               $(".member-price .price").html(final);
