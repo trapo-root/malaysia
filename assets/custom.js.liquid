@@ -798,11 +798,11 @@ $(document).ready(function(){
           alert("Please select an option!");
           return false;
       }
-    console.log(selBrand);
-        console.log(selModel);
-        console.log(selYear);
-    console.log(selBase);
-    console.log(selLining);
+    // console.log(selBrand);
+    //     console.log(selModel);
+    //     console.log(selYear);
+    // console.log(selBase);
+    // console.log(selLining);
 
       if(selBrand != '' || selYear != '' || selModel != '' ){
         
@@ -812,18 +812,26 @@ $(document).ready(function(){
         classicProductHandle = classicProductHandle.replace(/[\. ,:-]+/g, "-");
         wiperProductHandle = wiperProductHandle.replace(/[\. ,:-]+/g, "-");
 
-        console.log(classicProductHandle.replace(/\s+/g, "-"));
-        console.log(wiperProductHandle.replace(/\s+/g, "-"));
+        //console.log(classicProductHandle.replace(/\s+/g, "-"));
+        //console.log(wiperProductHandle.replace(/\s+/g, "-"));
 
         jQuery.getJSON(window.Shopify.routes.root + 'products/' + classicProductHandle.replace(/\s+/g, "-") + '.js', function(matproduct) {
 			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
             console.log(matproduct);
+
+          var matSize = $('#car-mat-size').val();
+          //console.log(matSize);
+          if(matSize == 'Small' || matSize == 'Medium' || matSize == 'Large' || matSize == '3 Rows' ){
+            var option3 = "Front + Rear";
+          }else if(matSize == 'Small MPV' || matSize == 'Large MPV'){
+            var option3 = "All Included";
+          }
             
-            const option1 = selBase; 
-            const option2 = selLining; 
-            const option3 = "Front + Rear"; 
+            var option1 = selBase; 
+            var option2 = selLining; 
+             
             const variantMatId = getVariantIdByOptions(matproduct, option1, option2, option3);
-            console.log(variantMatId); 
+            //console.log(variantMatId); 
             if(variantMatId){
               $.ajax({
                   type: "POST",
@@ -845,7 +853,7 @@ $(document).ready(function(){
 
         jQuery.getJSON(window.Shopify.routes.root + 'products/' + wiperProductHandle.replace(/\s+/g, "-") + '.js', function(wiperproduct) {
 			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
-            console.log(wiperproduct);
+            //console.log(wiperproduct);
             const variantFrontWiperId = wiperproduct.variants.find(variant => variant.title === "Front").id;   
             
             if(variantFrontWiperId){
@@ -865,16 +873,17 @@ $(document).ready(function(){
             //$('.refresh-error').text('NOTE: The refresh package is not available for this car model.');
             return false;
 		  });
-        
-          
-
-
+ 
           jQuery.getJSON(window.Shopify.routes.root + 'products/trapo-quik-shield-car-coating.js', function(quickcoat) {
 			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
             var sizeCode = $('#car-size').val();
-            console.log(quickcoat);
+            //console.log(sizeCode);
+            //console.log(quickcoat);
+            if(sizeCode == 'undefined') {
+              var sizeCode = 'S';
+            }
             const coatId = getVariantIdByTitle(quickcoat,sizeCode);
-            console.log(coatId);
+            //console.log(coatId);
 
             if(coatId){
               $.ajax({
@@ -895,10 +904,14 @@ $(document).ready(function(){
 
         jQuery.getJSON(window.Shopify.routes.root + 'products/watermark-removal-glass-coating-service.js', function(watermark) {
 			//window.location.href = "/products/"+rearProductHandle.replace(/\s+/g, "-").toLowerCase();
-            console.log(watermark);
+            //console.log(watermark);
             var sizeCode = $('#car-size').val();
+          //console.log(sizeCode);
+          if( sizeCode == 'undefined') {
+              var sizeCode = 'S';
+            }
             const watermarkId = getVariantIdByTitle(watermark,sizeCode);
-            console.log(watermarkId);
+            //console.log(watermarkId);
 
             if(watermarkId){
               $.ajax({
@@ -979,7 +992,7 @@ function getSize(brand, model, year) {
 
 // Fetching car size data from the URL
 function fetchCarSizeData() {
-    const jsonUrl = "https://trapo.com/search-size/car_tags.json";
+    const jsonUrl = "https://trapo.com/search-car-category/filtered_car_tags.json";
     return fetch(jsonUrl)
         .then(response => {
             // Check if the response is OK (status in the range 200-299)
