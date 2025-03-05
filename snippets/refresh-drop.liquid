@@ -69,118 +69,123 @@
   <!-- JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const jsonUrl = 'https://trapo.com/search-car-category/filtered_car_tags.json';
-        const brandDropdown = document.getElementById('car-brand');
-        const modelDropdown = document.getElementById('car-model');
-        const yearDropdown = document.getElementById('car-year');
+    const jsonUrl = 'https://trapo.com/search-car-category/filtered_car_tags.json';
+    const brandDropdown = document.getElementById('car-brand');
+    const modelDropdown = document.getElementById('car-model');
+    const yearDropdown = document.getElementById('car-year');
 
-        // Hidden input fields for Shopify line item properties
-        const selectedBrandInput = document.getElementById('selected-brand');
-        const selectedModelInput = document.getElementById('selected-model');
-        const selectedYearInput = document.getElementById('selected-year');
+    // Hidden input fields for Shopify line item properties
+    const selectedBrandInput = document.getElementById('selected-brand');
+    const selectedModelInput = document.getElementById('selected-model');
+    const selectedYearInput = document.getElementById('selected-year');
 
-        let carData = {}; // Store JSON data
+    let carData = {}; // Store JSON data
 
-        // Fetch car data
-        fetch(jsonUrl)
-            .then(response => response.json())
-            .then(data => {
-                carData = data.brands;
-                console.log("Car Data Loaded:", carData);
+    // Fetch car data
+    fetch(jsonUrl)
+        .then(response => response.json())
+        .then(data => {
+            carData = data.brands;
+            console.log("Car Data Loaded:", carData);
 
-                // Populate Brand dropdown
-                Object.keys(carData).forEach(brand => {
+            // Populate and sort Brand dropdown
+            Object.keys(carData)
+                .sort() // Sort alphabetically
+                .forEach(brand => {
                     let option = new Option(brand, brand);
                     brandDropdown.appendChild(option);
                 });
-            })
-            .catch(error => console.error('Error fetching JSON:', error));
+        })
+        .catch(error => console.error('Error fetching JSON:', error));
 
-        // Handle Brand selection
-        brandDropdown.addEventListener('change', () => {
-            const selectedBrand = brandDropdown.value;
+    // Handle Brand selection
+    brandDropdown.addEventListener('change', () => {
+        const selectedBrand = brandDropdown.value;
 
-            // Reset Model & Year dropdowns
-            modelDropdown.innerHTML = '<option value="" disabled selected>Select Model</option>';
-            yearDropdown.innerHTML = '<option value="" disabled selected>Select Year</option>';
-            modelDropdown.disabled = true;
-            yearDropdown.disabled = true;
+        // Reset Model & Year dropdowns
+        modelDropdown.innerHTML = '<option value="" disabled selected>Select Model</option>';
+        yearDropdown.innerHTML = '<option value="" disabled selected>Select Year</option>';
+        modelDropdown.disabled = true;
+        yearDropdown.disabled = true;
 
-            if (carData[selectedBrand]) {
-                Object.keys(carData[selectedBrand].models).forEach(model => {
+        if (carData[selectedBrand]) {
+            Object.keys(carData[selectedBrand].models)
+                .sort() // Sort models alphabetically
+                .forEach(model => {
                     modelDropdown.appendChild(new Option(model, model));
                 });
-                modelDropdown.disabled = false;
-            }
+            modelDropdown.disabled = false;
+        }
 
-            // Update hidden input
-            selectedBrandInput.value = selectedBrand;
-        });
+        // Update hidden input
+        selectedBrandInput.value = selectedBrand;
+    });
 
-        // Handle Model selection
-        modelDropdown.addEventListener('change', () => {
-            const selectedBrand = brandDropdown.value;
-            const selectedModel = modelDropdown.value;
+    // Handle Model selection
+    modelDropdown.addEventListener('change', () => {
+        const selectedBrand = brandDropdown.value;
+        const selectedModel = modelDropdown.value;
 
-            // Reset Year dropdown
-            yearDropdown.innerHTML = '<option value="" disabled selected>Select Year</option>';
-            yearDropdown.disabled = true;
+        // Reset Year dropdown
+        yearDropdown.innerHTML = '<option value="" disabled selected>Select Year</option>';
+        yearDropdown.disabled = true;
 
-            if (carData[selectedBrand] && carData[selectedBrand].models[selectedModel]) {
-                let yearsData = carData[selectedBrand].models[selectedModel].years;
+        if (carData[selectedBrand] && carData[selectedBrand].models[selectedModel]) {
+            let yearsData = carData[selectedBrand].models[selectedModel].years;
 
-                // Ensure yearsData is an array
-                yearsData = Array.isArray(yearsData) ? yearsData : Object.keys(yearsData);
+            // Ensure yearsData is an array
+            yearsData = Array.isArray(yearsData) ? yearsData : Object.keys(yearsData);
 
-                // Populate Year dropdown
-                yearsData.forEach(year => {
-                    yearDropdown.appendChild(new Option(year, year));
-                });
+            // Sort years numerically before populating dropdown
+            yearsData.sort((a, b) => a - b);
 
-                yearDropdown.disabled = false;
-            }
+            // Populate Year dropdown
+            yearsData.forEach(year => {
+                yearDropdown.appendChild(new Option(year, year));
+            });
 
-            // Update hidden input
-            selectedModelInput.value = selectedModel;
-        });
+            yearDropdown.disabled = false;
+        }
 
-        // Handle Year selection
-        yearDropdown.addEventListener('change', () => {
-            selectedYearInput.value = yearDropdown.value;
-        });
+        // Update hidden input
+        selectedModelInput.value = selectedModel;
+    });
 
-        document.getElementById('car-year').addEventListener('change', function() {
-          const brand = document.getElementById('car-brand').value;
-          const model = document.getElementById('car-model').value;
-          const year = this.value;
-          if (brand && model && year && carData[brand].models[model].years[year]) {
+    // Handle Year selection
+    yearDropdown.addEventListener('change', () => {
+        selectedYearInput.value = yearDropdown.value;
+    });
+
+    document.getElementById('car-year').addEventListener('change', function() {
+        const brand = document.getElementById('car-brand').value;
+        const model = document.getElementById('car-model').value;
+        const year = this.value;
+        if (brand && model && year && carData[brand].models[model].years[year]) {
             const size = carData[brand].models[model].years[year];
             var parts = size.split("-");
             var firstPart = parts[0]; 
             var secondPart = parts[1];
-           //console.log(size);
+            console.log(size);
             document.getElementById('car-size').value = secondPart;
             document.getElementById('car-mat-size').value = firstPart;
-            if(firstPart == 'Small' || firstPart == 'Medium' || firstPart == 'Large' || firstPart == '3 Rows'){
-              var final = 99900;
-              var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
-              $(".member-price .price").html(final);
-            }else if(firstPart == 'Small MPV' ){
-              var final = 109900;
-              var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
-              $(".member-price .price").html(final);
+            if (firstPart == 'Small' || firstPart == 'Medium' || firstPart == 'Large' || firstPart == '3 Rows') {
+                var final = 99900;
+                var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
+                $(".member-price .price").html(final);
+            } else if (firstPart == 'Small MPV') {
+                var final = 109900;
+                var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
+                $(".member-price .price").html(final);
+            } else if (firstPart == 'Large MPV') {
+                var final = 139900;
+                var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
+                $(".member-price .price").html(final);
             }
-            else if(firstPart == 'Large MPV'){
-              var final = 139900;
-              var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
-              $(".member-price .price").html(final);
-            }
-
-          } else {
+        } else {
             updateSizeResult('');
-          }
-        });
+        }
     });
+});
   </script>
   <style>
     .purchase-details__quantity.product-quantity-box{
