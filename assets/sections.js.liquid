@@ -740,12 +740,17 @@ var productType = $(".product_form ").data('product-type');
   else if(productType == 'TRAPO ACCESSORIES BUNDLE' ){
     }
   else if(productType == 'TRAPO REFRESH PACKAGE' ){
-    var sizeCode = $('#car-size').val();
-    if(sizeCode == 'S' || sizeCode == 'M' || sizeCode == 'L'){
+    var sizeCode = $('#car-mat-size').val();
+     if(sizeCode == 'Small' || sizeCode == 'Medium' || sizeCode == 'Large' || sizeCode == '3 Rows'){
       var final = 99900;
       var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
       $(".member-price .price").html(final);
-    }else if(sizeCode == 'XL'){
+    }else if(sizeCode == 'Small MPV' ){
+      var final = 109900;
+      var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
+      $(".member-price .price").html(final);
+    }
+    else if(sizeCode == 'Large MPV' ){
       var final = 139900;
       var final = window.Shopify.formatMoney(final, $('body').data('money-format'));
       $(".member-price .price").html(final);
