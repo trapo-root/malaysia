@@ -111,12 +111,12 @@
         "image_PyPQbh": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Web-Slider-Tinting.jpg",
+            "image": "shopify://shop_images/WebSlider---Car-Coating-for-ONLY-RM399.jpg",
             "pretext": "",
             "title": "",
             "subtitle": "",
             "button1": "",
-            "button1_link": "shopify://products/trapo-crystal-window-tint",
+            "button1_link": "shopify://pages/trapo-car-coating",
             "button1_style": "global-button--banner",
             "button2": "",
             "button2_link": "",
@@ -124,7 +124,7 @@
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/Web-Slider-Tinting-Mobile.jpg"
+            "mobile_image": "shopify://shop_images/WebSlider---Car-Coating-for-ONLY-RM399-_1.jpg"
           }
         },
         "image_HpKJyx": {
