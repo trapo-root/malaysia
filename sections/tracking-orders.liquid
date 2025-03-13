@@ -1,6 +1,92 @@
+<div class="tracking-container">
+  <h1>Track Your Order</h1>
+  <p>Enter your tracking number or Shopify order number (e.g., TMR-O12345) below:</p>
+
+  <form id="trackingForm" class="tracking-form">
+    <div class="input-group">
+      <input
+        type="text"
+        id="orderNumber"
+        class="tracking-input"
+        placeholder="Tracking number or Shopify order number"
+        required
+      >
+      <button type="submit" class="tracking-button">Track</button>
+    </div>
+  </form>
+
+  <div id="trackingStatus" class="tracking-status">
+    <div class="status-header">
+      <h2>Current Status: <span id="currentStatusDisplay">Loading...</span></h2>
+    </div>
+
+    <div class="tracking-details">
+      <div class="detail-item">
+        <span class="detail-label">Tracking Number:</span>
+        <span id="trackingNumberDisplay" class="detail-value">-</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Warehouse:</span>
+        <span id="warehouseDisplay" class="detail-value">-</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Order Number:</span>
+        <span id="customerOrderNumberDisplay" class="detail-value">-</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Delivery Date:</span>
+        <span id="deliveryDateDisplay" class="detail-value">-</span>
+      </div>
+    </div>
+
+    <div id="shareContainer" class="share-container">
+      <button id="copyTrackingLink" class="share-button"><i class="fas fa-link"></i> Copy Tracking Link</button>
+      <div id="copyNotification" class="copy-notification">Link copied!</div>
+    </div>
+
+    <div class="status-timeline">
+      <div class="status-steps">
+        <div class="status-step" data-step="1">
+          <div class="step-icon"><i class="fas fa-shopping-cart"></i></div>
+          <div class="step-label">Order Received</div>
+        </div>
+        <div class="status-step" data-step="2">
+          <div class="step-icon"><i class="fas fa-box-open"></i></div>
+          <div class="step-label">Processing</div>
+        </div>
+        <div class="status-step" data-step="3">
+          <div class="step-icon"><i class="fas fa-shipping-fast"></i></div>
+          <div class="step-label">Shipping</div>
+        </div>
+        <div class="status-step" data-step="4">
+          <div class="step-icon"><i class="fas fa-route"></i></div>
+          <div class="step-label">Out for Delivery</div>
+        </div>
+        <div class="status-step" data-step="5">
+          <div class="step-icon"><i class="fas fa-home"></i></div>
+          <div class="step-label">Delivered</div>
+        </div>
+      </div>
+      <div class="status-line-container">
+        <div id="statusLine" class="status-line"></div>
+      </div>
+    </div>
+
+    <div class="timeline-detailed">
+      <h3>Detailed Timeline</h3>
+      <div id="timelineLoader" class="timeline-loader">
+        <div class="loader-spinner"></div>
+        <div>Loading tracking information...</div>
+      </div>
+      <ul id="timelineStepsDetailed" class="timeline-steps-detailed"></ul>
+    </div>
+  </div>
+</div>
+<script src="{{ 'tracking.js' | shopify_asset_url }}" defer></script>
+
 {% schema %}
   {
-    "name": "Section name",
+    "name": "Tracking Orders",
     "settings": []
   }
 {% endschema %}
