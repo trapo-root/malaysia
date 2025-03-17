@@ -48,6 +48,9 @@
   data-product-type="{{ product.type }}"
 >
   {% form 'product', product %}
+    {% if product.type == 'OFFLINE SERVICE' %}
+       <input id="offline-service" type="hidden" name="properties[Type]" value="Offline Service">
+    {% endif %}
     <div
       class="
         select
