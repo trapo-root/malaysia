@@ -1,643 +1,561 @@
-// Client-side logging utility
-const logger = {
-    // Log levels
-    levels: {
-        debug: 0,
-        info: 1,
-        warn: 2,
-        error: 3
-    },
-    
-    // Current log level (only logs at this level or higher will be sent to server)
-    currentLevel: 1, // Default to info
-    
-    // Whether to also log to console (for development)
-    consoleOutput: false,
-    
-    // Send log to server
-    async sendToServer(type, message, data = null) {
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize all DOM elements
+    const trackingForm = document.getElementById('trackingForm');
+    const trackingStatus = document.getElementById('trackingStatus');
+    const statusLine = document.getElementById('statusLine');
+    const currentStatusDisplay = document.getElementById('currentStatusDisplay');
+    const trackingNumberDisplay = document.getElementById('trackingNumberDisplay');
+    const warehouseDisplay = document.getElementById('warehouse_display');
+    const customerOrderNumberDisplay = document.getElementById('customerOrderNumberDisplay');
+    const deliveryDateDisplay = document.getElementById('deliveryDateDisplay');
+    const timelineStepsDetailed = document.getElementById('timelineStepsDetailed');
+    const timelineLoader = document.getElementById('timelineLoader');
+    const orderNumberInput = document.getElementById('orderNumber');
+    const trackingFeedback = document.getElementById('trackingFeedback');
+
+    // Status mapping to step numbers (used if needed for reference)
+    const statusMap = {
+        'RECEIVED': 1,       // Ordered
+        'INPROCESS': 2,      // In Process (new state)
+        'IN PROCESS': 2,
+        'ALLOCATING': 2,     
+        'ALLOCATED': 2,      
+        'PICKING': 2,        
+        'STAGING': 2,        
+        'PROCESSING': 3,     // Ready to Ship
+        'PACKED': 3,         
+        'LOADED': 4,         // Picked Up
+        'DISPATCHED': 4,     
+        'INTRANSIT': 5,      // In Transit
+        'OUTFORDELIVERY': 6, // Out for Delivery
+        'DELIVERED': 7       // Delivered
+    };
+
+    /**
+     * Returns a canonical status (uppercase) from the raw status or isInProcess flags
+     * - This consolidates “ALLOCATING,” “PICKING,” etc. into “IN PROCESS,”
+     *   or uses trackingDetails.deliveryStatus if provided.
+     */
+    function getCanonicalStatus(rawStatus, isInProcessFlag, trackingDetails) {
+        if (isInProcessFlag) {
+            return 'IN PROCESS';
+        }
+        if (rawStatus.match(/ALLOCAT|PICKING|IN PROCESS|STAGING/i)) {
+            return 'IN PROCESS';
+        }
+        // If we have a trackingDetails.deliveryStatus, let it override
+        if (trackingDetails && trackingDetails.deliveryStatus) {
+            return trackingDetails.deliveryStatus.toUpperCase();
+        }
+        return rawStatus ? rawStatus.toUpperCase() : 'UNKNOWN';
+    }
+
+    /**
+     * Converts a canonical status to a progress percentage for the status bar
+     * (You can adjust these percentages as you see fit.)
+     */
+    function getProgressPercentage(status) {
+        switch (status) {
+            case 'RECEIVED':
+                return 0;
+            case 'IN PROCESS':
+                return 25;
+            case 'PROCESSING':
+            case 'PACKED':
+                return 50;
+            case 'LOADED':
+            case 'DISPATCHED':
+                return 60;
+            case 'INTRANSIT':
+                return 70;
+            case 'OUTFORDELIVERY':
+                return 90;
+            case 'DELIVERED':
+                return 100;
+            default:
+                return 0;
+        }
+    }
+
+    /**
+     * Checks URL parameters and automatically triggers tracking if ?tracking=xxxx is present.
+     */
+    function checkUrlParameters() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const trackingParam = urlParams.get('tracking');
+        
+        if (trackingParam) {
+            orderNumberInput.value = trackingParam;
+            trackOrderByNumber(trackingParam);
+        }
+    }
+
+    /**
+     * Main function to track an order by its number
+     */
+    async function trackOrderByNumber(orderNumber) {
+        if (!orderNumber) {
+            alert('Please enter a tracking number or Shopify order name');
+            return;
+        }
+        
+        const trackButton = document.querySelector('.track-button');
+        
+        // Show loading states
+        trackButton.classList.add('loading');
+        trackingFeedback.style.display = 'block';
+        trackingFeedback.textContent = 'Connecting to tracking server...';
+        timelineLoader.style.display = 'none';
+        trackingStatus.style.display = 'none';
+        
         try {
-            // Only send logs at or above the current level
-            if (this.levels[type] < this.currentLevel) return;
+            setTimeout(() => {
+                if (trackingFeedback.style.display === 'block') {
+                    trackingFeedback.textContent = 'Searching for your order...';
+                }
+            }, 500);
             
-            // Send log to server
-            await fetch('https://trapo.com/tracking-orders/api/log', {
+            const orderData = await trackOrder(orderNumber);
+            
+            trackingFeedback.textContent = 'Order found! Loading details...';
+            
+            // Small delay to show success text, then display results
+            setTimeout(() => {
+                displayOrderData(orderData);
+                trackingFeedback.style.display = 'none';
+            }, 300);
+        } catch (error) {
+            trackingFeedback.style.display = 'none';
+            alert('Error: ' + error.message);
+        } finally {
+            trackButton.classList.remove('loading');
+            timelineLoader.style.display = 'none';
+        }
+    }
+
+    /**
+     * The event listener for form submission
+     */
+    trackingForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const orderNumber = orderNumberInput.value.trim();
+        trackOrderByNumber(orderNumber);
+    });
+
+    // Check for URL parameters on page load
+    checkUrlParameters();
+
+    /**
+     * Tracks an order by calling the PHP backend
+     * and returns the order data (or throws if there's an error).
+     */
+    async function trackOrder(orderNumber) {
+        try {
+            // Create a 10-second timeout
+            const timeoutPromise = new Promise((_, reject) => {
+                setTimeout(() => reject(new Error('Request timed out. The tracking server is taking too long to respond.')), 10000);
+            });
+            
+            // Create the fetch promise
+            const fetchPromise = fetch('https://trapo.com/tracking-orders/track.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    type,
-                    message,
-                    data
-                })
+                body: JSON.stringify({ orderNumber }),
+                credentials: 'include'
             });
             
-            // Also log to console if enabled
-            if (this.consoleOutput) {
-                if (type === 'error') {
-                    console.error(message, data || '');
-                } else if (type === 'warn') {
-                    console.warn(message, data || '');
-                } else {
-                    console.log(`[${type.toUpperCase()}] ${message}`, data || '');
+            // Race the fetch against the timeout
+            const response = await Promise.race([fetchPromise, timeoutPromise]);
+
+            if (window.sessionStorage) {
+                // Check for existing cached data to avoid repeated API calls
+                const cachedData = sessionStorage.getItem(`order_${orderNumber}`);
+                if (cachedData) {
+                    console.log('Using cached data for', orderNumber);
+                    return JSON.parse(cachedData);
                 }
             }
-        } catch (e) {
-            // If sending to server fails, log to console as fallback
-            console.error('Failed to send log to server:', e);
-            console.error(`[${type.toUpperCase()}] ${message}`, data || '');
-        }
-    },
-    
-    // Convenience methods for different log levels
-    debug(message, data = null) {
-        this.sendToServer('debug', message, data);
-    },
-    
-    info(message, data = null) {
-        this.sendToServer('info', message, data);
-    },
-    
-    warn(message, data = null) {
-        this.sendToServer('warn', message, data);
-    },
-    
-    error(message, data = null) {
-        this.sendToServer('error', message, data);
-    }
-};
 
-// Function to store the session cookie with expiration time (24 hours)
-function storeSessionCookie(sessionCookie) {
-    if (!sessionCookie) return false;
-    
-    try {
-        // Calculate expiration time (24 hours from now)
-        const expirationTime = new Date().getTime() + (24 * 60 * 60 * 1000);
-        
-        // Store both the cookie and its expiration time
-        const cookieData = {
-            cookie: sessionCookie,
-            expires: expirationTime
-        };
-        
-        localStorage.setItem('wmsSessionData', JSON.stringify(cookieData));
-        logger.info('Session cookie stored with expiration', { expiration: new Date(expirationTime).toLocaleString() });
-        return true;
-    } catch (error) {
-        logger.error('Error storing session cookie', { error: error.message });
-        return false;
-    }
-}
-
-// Function to retrieve a valid session cookie if one exists
-function getStoredSessionCookie() {
-    try {
-        const cookieDataStr = localStorage.getItem('wmsSessionData');
-        if (!cookieDataStr) return null;
-        
-        const cookieData = JSON.parse(cookieDataStr);
-        const currentTime = new Date().getTime();
-        
-        // Check if the cookie has expired
-        if (cookieData.expires && cookieData.expires > currentTime) {
-            const hoursRemaining = Math.round((cookieData.expires - currentTime) / (60 * 60 * 1000));
-            logger.info('Using stored session cookie', { expiresIn: `${hoursRemaining} hours` });
-            return cookieData.cookie;
-        } else {
-            // Cookie expired, remove it
-            logger.info('Stored session cookie expired, removing');
-            localStorage.removeItem('wmsSessionData');
-            return null;
-        }
-    } catch (error) {
-        logger.error('Error retrieving session cookie', { error: error.message });
-        localStorage.removeItem('wmsSessionData');
-        return null;
-    }
-}
-
-// Function to login to iStoreISend WMS API via proxy server
-async function loginToWMS() {
-    try {
-        // First check if we have a valid stored session cookie
-        const storedCookie = getStoredSessionCookie();
-        if (storedCookie) {
-            logger.info('Using existing session cookie');
-            return storedCookie;
-        }
-        
-        logger.info('No valid session cookie found, logging in...');
-        const response = await fetch('https://trapo.com/tracking-orders/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({})
-        });
-        
-        if (!response.ok) {
-            throw new Error(`Login failed: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        logger.info('Login response received', { success: data.success });
-        
-        if (!data.success) {
-            throw new Error(data.message || 'Login failed');
-        }
-        
-        if (!data.sessionCookie) {
-            throw new Error('No session cookie returned from server');
-        }
-        
-        // Store the new session cookie
-        storeSessionCookie(data.sessionCookie);
-        
-        return data.sessionCookie;
-    } catch (error) {
-        logger.error('Login error', { message: error.message });
-        throw error;
-    }
-}
-
-// Function to query order by Shopify order name via proxy server
-async function queryOrderByShopifyName(orderName, sessionCookie) {
-    try {
-        logger.info('Querying order by Shopify name', { orderName });
-        logger.debug('Session cookie details', { 
-            type: typeof sessionCookie,
-            isArray: Array.isArray(sessionCookie),
-            length: Array.isArray(sessionCookie) ? sessionCookie.length : 'N/A'
-        });
-        
-        const response = await fetch('https://trapo.com/tracking-orders/api/query-order', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                orderName,
-                sessionCookie
-            })
-        });
-        
-        if (!response.ok) {
-            const errorText = await response.text();
-            logger.error('Query order error response', { status: response.status, response: errorText });
-            throw new Error(`Order query failed: ${response.status} - ${errorText}`);
-        }
-        
-        const data = await response.json();
-        logger.info('Query order response received', { success: data.success });
-        
-        if (!data.success) {
-            throw new Error(data.message || 'Failed to query order');
-        }
-        
-        if (!data.trackingCode) {
-            throw new Error('No tracking code returned from server');
-        }
-        
-        return data.trackingCode;
-    } catch (error) {
-        logger.error('Order query error', { message: error.message });
-        throw error;
-    }
-}
-
-// Helper function to format Shopify order names if needed
-function formatShopifyOrderName(orderName) {
-    if (orderName && !orderName.toUpperCase().startsWith('TMR-O') && orderName.toUpperCase().startsWith('TMR-')) {
-        // If it starts with TMR- but not TMR-O, add the O
-        return orderName.replace(/^TMR-/i, 'TMR-O');
-    }
-    return orderName;
-}
-
-// Function to determine if input is a tracking number or Shopify order name
-function isTrackingNumber(input) {
-    // Tracking numbers are typically alphanumeric and may contain hyphens
-    // Shopify order names often start with specific prefixes like TMR-O
-    const isShopifyOrder = input.toUpperCase().startsWith('TMR-O') || input.toUpperCase().startsWith('TMR-');
-    logger.debug('Checking input type', { input, isShopifyOrder });
-    return !isShopifyOrder;
-}
-
-// Function to track an order
-async function trackOrder(input) {
-    if (!input || input.trim() === '') {
-        alert('Please enter a tracking number or Shopify order name.');
-        return;
-    }
-    
-    const trackingStatusSection = document.getElementById('trackingStatus');
-    if (!trackingStatusSection) {
-        logger.error('DOM element not found', { element: 'trackingStatus' });
-        return;
-    }
-    const currentStatusDisplay = document.getElementById('currentStatusDisplay');
-    const trackingNumberDisplay = document.getElementById('trackingNumberDisplay');
-    const warehouseDisplay = document.getElementById('warehouseDisplay');
-    const customerOrderNumberDisplay = document.getElementById('customerOrderNumberDisplay');
-    const deliveryDateDisplay = document.getElementById('deliveryDateDisplay');
-    const statusSteps = document.querySelectorAll('.status-step');
-    const statusLine = document.getElementById('statusLine');
-    const timelineStepsDetailed = document.getElementById('timelineStepsDetailed');
-    const timelineLoader = document.getElementById('timelineLoader');
-    const shareContainer = document.getElementById('shareContainer');
-    
-    // Show loading state
-    trackingStatusSection.style.display = 'block';
-    currentStatusDisplay.textContent = 'Loading...';
-    timelineLoader.style.display = 'flex';
-    timelineStepsDetailed.innerHTML = '';
-    
-    // Reset step statuses and line
-    statusSteps.forEach(step => {
-        step.classList.remove('active', 'completed', 'pending');
-    });
-    statusLine.style.width = '0%';
-    
-    let orderNumber = input.trim();
-    
-    try {
-        // If input looks like a Shopify order name, try to get the tracking number
-        if (!isTrackingNumber(orderNumber)) {
-            logger.info('Processing as Shopify order name', { orderName: orderNumber });
-            
-            // Format Shopify order name if needed
-            orderNumber = formatShopifyOrderName(orderNumber);
-            logger.info('Using formatted order name', { orderName: orderNumber });
-            
-            // Login to WMS API via proxy server
-            logger.info('Attempting to login to WMS API');
-            const sessionCookie = await loginToWMS();
-            logger.info('Login successful, session cookie received');
-            
-            // Query order by Shopify order name via proxy server
-            logger.info('Querying order with name', { orderName: orderNumber });
-            orderNumber = await queryOrderByShopifyName(orderNumber, sessionCookie);
-            logger.info('Received tracking number', { trackingNumber: orderNumber });
-        }
-        
-        // Update URL with the original user input without reloading page
-        const url = new URL(window.location);
-        url.searchParams.set('tracking', input.trim());
-        window.history.pushState({}, '', url);
-        
-        // Fetch tracking data from S3
-        const trackingUrl = `https://s3.ap-southeast-1.amazonaws.com/tracking.istoreisend-wms.com/${orderNumber}.xml`;
-        const response = await fetch(trackingUrl);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        
-        const xmlString = await response.text();
-        timelineLoader.style.display = 'none';
-        
-        if (!xmlString || xmlString.trim() === '') {
-            throw new Error('Empty response received');
-        }
-        
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlString, "text/xml");
-        
-        if (xmlDoc.querySelector('parsererror')) {
-            throw new Error('Invalid XML format');
-        }
-
-        const wmsTrackingView = xmlDoc.querySelector('WmsTrackingView');
-        if (!wmsTrackingView) {
-            throw new Error('Tracking information not found in XML');
-        }
-        
-        // Extract tracking information
-        const trackingCode = wmsTrackingView.querySelector('trackingCode')?.textContent || 'Not available';
-        const warehouse = wmsTrackingView.querySelector('warehouse')?.textContent || 'Not available';
-        const customerOrderNo = wmsTrackingView.querySelector('customerOrderNo')?.textContent || 'Not available';
-        
-        // Update tracking information display
-        trackingNumberDisplay.textContent = trackingCode;
-        warehouseDisplay.textContent = warehouse;
-        customerOrderNumberDisplay.textContent = customerOrderNo;
-        
-        // Show share container if available
-        if (shareContainer) {
-            shareContainer.style.display = 'flex';
-        }
-        
-        // Process tracking status and timeline
-        const trackingDetails = wmsTrackingView.querySelectorAll('trackingDetails > trackingDetail');
-        if (!trackingDetails || trackingDetails.length === 0) {
-            throw new Error('No tracking details found');
-        }
-        
-        // Find the latest status
-        let latestStatus = '';
-        let latestDate = null;
-        let latestTimestamp = 0;
-        let deliveryDate = null;
-        
-        // Process each tracking detail to find the latest status and delivery date
-        trackingDetails.forEach(detail => {
-            const detailDateRaw = detail.querySelector('detailDate')?.textContent;
-            const detailDesc = detail.querySelector('detailDesc')?.textContent || '';
-            
-            if (detailDateRaw) {
-                try {
-                    // Try to parse the date
-                    let detailDate;
-                    
-                    // First try to match the DD/MM/YYYY HH:MM:SS format
-                    const dateMatch = detailDateRaw.match(/(\d{2})\/(\d{2})\/(\d{4})\s(\d{2}):(\d{2}):(\d{2})/);
-                    if (dateMatch) {
-                        const [, day, month, year, hours, minutes, seconds] = dateMatch;
-                        detailDate = new Date(year, month-1, day, hours, minutes, seconds);
-                    } else {
-                        detailDate = new Date(detailDateRaw);
-                    }
-                    
-                    if (!isNaN(detailDate.getTime())) {
-                        const timestamp = detailDate.getTime();
-                        
-                        // Check if this is the latest status
-                        if (timestamp > latestTimestamp) {
-                            latestTimestamp = timestamp;
-                            latestDate = detailDate;
-                            latestStatus = detailDesc;
-                        }
-                        
-                        // Check if this is a delivery status
-                        if (detailDesc.toLowerCase().includes('delivered')) {
-                            deliveryDate = detailDate;
-                        }
-                    }
-                } catch (e) {
-                    logger.error('Error parsing detail date', { error: e.message, date: detailDateRaw });
-                }
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
             }
-        });
-        
-        // If no delivery date was found, use the latest date
-        if (!deliveryDate && latestDate) {
-            deliveryDate = latestDate;
-        }
-        
-        // Format and display the delivery date
-        if (deliveryDate) {
-            try {
-                const day = deliveryDate.getDate();
-                const month = deliveryDate.toLocaleString('en-US', { month: 'long' });
-                const year = deliveryDate.getFullYear();
-                const hours = deliveryDate.getHours().toString().padStart(2, '0');
-                const minutes = deliveryDate.getMinutes().toString().padStart(2, '0');
-                
-                const formattedDeliveryDate = `${day} ${month} ${year} at ${hours}:${minutes}`;
-                deliveryDateDisplay.textContent = formattedDeliveryDate;
-            } catch (e) {
-                logger.error('Error formatting delivery date', { error: e.message });
-                deliveryDateDisplay.textContent = 'Date not available';
-            }
-        } else {
-            deliveryDateDisplay.textContent = 'Not yet delivered';
-        }
-        
-        // Update current status
-        if (latestStatus) {
-            currentStatusDisplay.textContent = latestStatus;
+
+            const data = await response.json();
             
-            // Set status color based on content
-            if (latestStatus.toLowerCase().includes('delivered')) {
-                currentStatusDisplay.style.color = '#28a745'; // Green for delivered
-            } else if (latestStatus.toLowerCase().includes('transit') || 
-                       latestStatus.toLowerCase().includes('shipping')) {
-                currentStatusDisplay.style.color = '#007bff'; // Blue for in transit
-            } else if (latestStatus.toLowerCase().includes('processing') || 
-                       latestStatus.toLowerCase().includes('prepared')) {
-                currentStatusDisplay.style.color = '#ffc107'; // Yellow/amber for processing
+            // Cache the successful response
+            if (window.sessionStorage && data.success) {
+                sessionStorage.setItem(`order_${orderNumber}`, JSON.stringify(data));
+            }
+            
+            return data;
+        } catch (error) {
+            console.error('Fetch error:', error);
+            if (error.message.includes('Failed to fetch') || error.name === 'TypeError') {
+                throw new Error('Cannot connect to tracking server. Please check your internet connection and try again.');
+            }
+            throw error;
+        }
+    }
+
+    /**
+     * Displays the order data in the UI
+     */
+    function displayOrderData(data) {
+        if (!data.success || !data.orderInfo || data.orderInfo.length === 0) {
+            alert('No order information found');
+            return;
+        }
+        
+        // Show the first order returned
+        const order = data.orderInfo[0];
+        
+        trackingNumberDisplay.textContent = order.trackingCode || 'Not assigned yet';
+
+        // Determine the warehouse value
+        let warehouseValue = 'Not Assigned';
+        if (order.cleanCourierService && order.cleanCourierService.trim() !== '') {
+            warehouseValue = order.cleanCourierService;
+        } else if (order.courierServiceNo && order.courierServiceNo.trim() !== '') {
+            warehouseValue = order.courierServiceNo.replace(/\[.*?\]\s*/, '').trim();
+        } else if (order.warehouseName && order.warehouseName.trim() !== 'N/A') {
+            warehouseValue = order.warehouseName;
+        } else if (order.warehouse && order.warehouse.trim() !== '') {
+            warehouseValue = order.warehouse;
+        }
+        if (warehouseDisplay) {
+            warehouseDisplay.textContent = warehouseValue;
+        }
+
+        customerOrderNumberDisplay.textContent = order.documentNo || order.custOrderNo || 'N/A';
+
+        // Set the delivery date (prioritize trackingDetails if available)
+        let deliveryDate = order.deliveryDate || order.updatedDate || 'N/A';
+        if (order.trackingDetails && order.trackingDetails.deliveryStatusDate) {
+            deliveryDate = order.trackingDetails.deliveryStatusDate;
+        }
+        deliveryDateDisplay.textContent = formatDate(deliveryDate);
+
+        // Resolve the final, canonical status
+        const rawStatus = order.orderStatus || 'UNKNOWN';
+        const canonicalStatus = getCanonicalStatus(
+            rawStatus,
+            order.isInProcess || data.hasInProcessState,
+            order.trackingDetails
+        );
+        
+        // Format it for display
+        const formattedStatus = formatStatus(canonicalStatus);
+        document.getElementById('statusText').textContent = formattedStatus.toUpperCase();
+
+        // Update the progress bar + steps based on final status
+        updateStatusSteps(canonicalStatus);
+
+        // Update timeline details if available
+        if (order.trackingDetails) {
+            displayTrackingTimeline(order.trackingDetails);
+        } else {
+            // If no detailed tracking, just show the order status as a single step
+            const currentDate = new Date();
+            const formattedCurrentDate = formatDate(currentDate.toISOString());
+            const statusEntry = createTimelineEntry(
+                formattedStatus,
+                formattedCurrentDate,
+                `Order status: ${formattedStatus}`
+            );
+            timelineStepsDetailed.innerHTML = '';
+            timelineStepsDetailed.appendChild(statusEntry);
+        }
+
+        // Show the tracking status section
+        trackingStatus.style.display = 'block';
+    }
+
+    /**
+     * Updates the status steps in the UI
+     */
+    function updateStatusSteps(currentStatus) {
+        // Convert to uppercase for consistency
+        const upperStatus = currentStatus.toUpperCase();
+
+        // 1) Update the status line’s width
+        const progressPercentage = getProgressPercentage(upperStatus);
+        statusLine.style.width = `${progressPercentage}%`;
+
+        // 2) Determine which steps to hide or show
+        const allSteps = document.querySelectorAll('.status-step');
+        const inProcessStep = document.querySelector('.status-step[data-step="2"]'); 
+        const pickupStep = document.querySelector('.status-step[data-step="4"]');
+        const outForDeliveryStep = document.querySelector('.status-step[data-step="6"]');
+
+        // If we are "IN PROCESS," show step 2, hide "Picked Up" & "Out for Delivery."
+        if (upperStatus === 'IN PROCESS') {
+            if (inProcessStep) inProcessStep.style.display = '';
+            if (pickupStep) pickupStep.style.display = 'none';
+            if (outForDeliveryStep) outForDeliveryStep.style.display = 'none';
+        } else {
+            // Otherwise, hide in-process step, show the others (with mobile adjustments).
+            if (inProcessStep) inProcessStep.style.display = 'none';
+
+            if (window.innerWidth > 768) {
+                if (pickupStep) pickupStep.style.display = '';
+                if (outForDeliveryStep) outForDeliveryStep.style.display = '';
             } else {
-                currentStatusDisplay.style.color = '#6c757d'; // Gray for other statuses
+                // Respect data-mobile-hide attribute
+                allSteps.forEach(step => {
+                    if (step.getAttribute('data-mobile-hide') === 'true') {
+                        step.style.display = 'none';
+                    } else {
+                        step.style.display = '';
+                    }
+                });
             }
-        } else {
-            currentStatusDisplay.textContent = 'Status not available';
-            currentStatusDisplay.style.color = '#6c757d';
         }
-        
-        // Update status steps
-        updateStatusSteps(trackingDetails);
-        
-        // Populate detailed timeline
-        populateDetailedTimeline(trackingDetails);
-        
-    } catch (error) {
-        timelineLoader.style.display = 'none';
-        logger.error('Error tracking order', { message: error.message });
-        currentStatusDisplay.textContent = 'Error: Could not retrieve tracking information';
-        currentStatusDisplay.style.color = '#e12c7b';
-        timelineStepsDetailed.innerHTML = `
-            <li><i class="fas fa-exclamation-circle timeline-detail-icon"></i> 
-            <strong>Error</strong>: ${error.message || 'Please check your input and try again.'}</li>
-        `;
-        if (shareContainer) {
-            shareContainer.style.display = 'none';
-        }
-    }
-}
 
-// Function to update the status steps based on tracking details
-function updateStatusSteps(trackingDetails) {
-    const statusSteps = document.querySelectorAll('.status-step');
-    const statusLine = document.getElementById('statusLine');
-    
-    if (!statusSteps || statusSteps.length === 0) return;
-    
-    // Define the status mapping
-    const statusMapping = {
-        'order': 1, // Order received
-        'processing': 2, // Processing
-        'shipping': 3, // Shipping
-        'transit': 3, // In transit (same as shipping)
-        'delivery': 4, // Out for delivery
-        'delivered': 5  // Delivered
-    };
-    
-    // Find the current step based on tracking details
-    let currentStep = 0;
-    
-    Array.from(trackingDetails).forEach(detail => {
-        const detailDesc = detail.querySelector('detailDesc')?.textContent?.toLowerCase() || '';
+        // 3) Mark each step as completed, active, or pending
+        allSteps.forEach(step => {
+            step.classList.remove('active', 'completed', 'pending');
+            step.classList.add('pending');
+        });
+
+        // We can still use statusMap if we want a numeric step. Otherwise, we rely on the progress bar alone.
+        let currentStepNumber = statusMap[upperStatus] || 1;
         
-        // Check each status keyword
-        Object.keys(statusMapping).forEach(keyword => {
-            if (detailDesc.includes(keyword)) {
-                const stepNumber = statusMapping[keyword];
-                if (stepNumber > currentStep) {
-                    currentStep = stepNumber;
-                }
+        // Mark steps up to current as "completed," the current one as "active," etc.
+        allSteps.forEach(step => {
+            const stepNumber = parseInt(step.getAttribute('data-step'));
+            if (stepNumber < currentStepNumber) {
+                step.classList.remove('pending', 'active');
+                step.classList.add('completed');
+            } else if (stepNumber === currentStepNumber) {
+                step.classList.remove('pending', 'completed');
+                step.classList.add('active');
+            } else {
+                step.classList.remove('active', 'completed');
+                step.classList.add('pending');
             }
         });
-    });
-    
-    // If no step was determined, default to step 1
-    if (currentStep === 0) currentStep = 1;
-    
-    // Update the status steps
-    statusSteps.forEach(step => {
-        const stepNumber = parseInt(step.getAttribute('data-step'));
-        
-        if (stepNumber < currentStep) {
-            // Steps before current are completed
-            step.classList.add('completed');
-            step.classList.remove('active', 'pending');
-        } else if (stepNumber === currentStep) {
-            // Current step is active
-            step.classList.add('active');
-            step.classList.remove('completed', 'pending');
-        } else {
-            // Steps after current are pending
-            step.classList.add('pending');
-            step.classList.remove('active', 'completed');
-        }
-    });
-    
-    // Update the status line width
-    const progressPercentage = ((currentStep - 1) / (statusSteps.length - 1)) * 100;
-    statusLine.style.width = `${progressPercentage}%`;
-}
-
-// Function to populate the detailed timeline
-function populateDetailedTimeline(trackingDetails) {
-    const timelineStepsDetailed = document.getElementById('timelineStepsDetailed');
-    if (!timelineStepsDetailed) return;
-    
-    timelineStepsDetailed.innerHTML = '';
-    
-    // Convert NodeList to Array and reverse to show newest first
-    const detailsArray = Array.from(trackingDetails).reverse();
-    
-    if (detailsArray.length === 0) {
-        timelineStepsDetailed.innerHTML = '<li>No tracking details available</li>';
-        return;
     }
-    
-    detailsArray.forEach(detail => {
-        const detailDateRaw = detail.querySelector('detailDate')?.textContent;
-        
-        console.log('Timeline detail date raw:', detailDateRaw);
-        
-        // Format the date or use a fallback for invalid dates
-        let formattedDetailDate = 'Date not available';
+
+    /**
+     * Displays the detailed tracking timeline
+     */
+    function displayTrackingTimeline(trackingDetails) {
+        timelineStepsDetailed.innerHTML = '';
+
+        // Extract + normalize events
+        let events = extractEvents(trackingDetails);
+
+        // If there's a final “delivery status,” treat that like an event
+        if (trackingDetails.deliveryStatus && trackingDetails.deliveryStatusDate) {
+            events.push({
+                date: trackingDetails.deliveryStatusDate,
+                desc: `Order ${trackingDetails.deliveryStatus}`,
+                loc: ''
+            });
+        }
+
+        if (events.length === 0) {
+            const noDataEntry = document.createElement('li');
+            noDataEntry.className = 'timeline-step default';
+            noDataEntry.textContent = 'No detailed tracking information available';
+            timelineStepsDetailed.appendChild(noDataEntry);
+            return;
+        }
+
+        // Sort by date ascending
+        events.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        // Build timeline entries (prepend so newest appear at the top if you want that order)
+        events.forEach(evt => {
+            const formattedTime = formatDate(evt.date);
+            // Remove “, status id: XXXXX” from desc
+            let desc = evt.desc.replace(/,\s*status id:\s*\d+/gi, '');
+            const statusClass = getStatusClassFromDescription(desc);
+
+            const timelineEntry = createTimelineEntry(
+                desc,
+                formattedTime,
+                evt.loc,
+                statusClass
+            );
+            
+            // Prepend to show the most recent event at the top
+            timelineStepsDetailed.prepend(timelineEntry);
+        });
+    }
+
+    /**
+     * Extracts + normalizes timeline events from various potential API structures
+     */
+    function extractEvents(trackingDetails) {
+        let rawEvents = [];
+
+        if (trackingDetails.TrackingEvent) {
+            // Possibly an array or single event
+            rawEvents = Array.isArray(trackingDetails.TrackingEvent)
+                ? trackingDetails.TrackingEvent
+                : [trackingDetails.TrackingEvent];
+        } else if (trackingDetails.events && trackingDetails.events.event) {
+            rawEvents = Array.isArray(trackingDetails.events.event)
+                ? trackingDetails.events.event
+                : [trackingDetails.events.event];
+        } else if (trackingDetails.detailList && trackingDetails.detailList.WmsTrackingDetailView) {
+            rawEvents = Array.isArray(trackingDetails.detailList.WmsTrackingDetailView)
+                ? trackingDetails.detailList.WmsTrackingDetailView
+                : [trackingDetails.detailList.WmsTrackingDetailView];
+        } else if (Array.isArray(trackingDetails)) {
+            // If trackingDetails is directly an array
+            rawEvents = trackingDetails;
+        }
+
+        // Normalize
+        return rawEvents.map(e => {
+            return {
+                date: e.eventTime || e.time || e.detailDate || '',
+                desc: e.eventDesc || e.description || e.detailDesc || 'Status update',
+                loc: e.eventLocation || e.location || ''
+            };
+        });
+    }
+
+    /**
+     * Maps event descriptions to a status class for icons (timeline styling).
+     */
+    function getStatusClassFromDescription(description) {
+        const desc = description.toLowerCase();
+
+        if (desc.includes('delivered') || desc.includes('successfully')) {
+            return 'delivered';
+        } else if (desc.includes('out for delivery')) {
+            return 'out-for-delivery';
+        } else if (desc.includes('transit') || desc.includes('inbound')) {
+            return 'in-transit';
+        } else if (desc.includes('processed') || desc.includes('picked up')) {
+            return 'processed';
+        } else if (desc.includes('departed') || desc.includes('outbound')) {
+            return 'departed';
+        } else if (desc.includes('sorted')) {
+            return 'sorted';
+        } else {
+            return 'default';
+        }
+    }
+
+    /**
+     * Creates a timeline entry element
+     */
+    function createTimelineEntry(title, datetime, description, statusClass = 'default') {
+        // Main li element
+        const entry = document.createElement('li');
+        entry.className = `timeline-step ${statusClass}`;
+
+        // Optional mapping to icons
+        const iconMap = {
+            'delivered': 'truck',
+            'intransit': 'shipping-fast',
+            'in-transit': 'shipping-fast',
+            'processing': 'box-open',
+            'processed': 'box-open',
+            'received': 'shopping-cart',
+            'departed': 'plane-departure',
+            'out-for-delivery': 'truck-loading'
+        };
+        entry.setAttribute('data-icon', iconMap[statusClass] || 'circle');
+
+        // Time element
+        const timeElement = document.createElement('div');
+        timeElement.className = 'timeline-time';
+        timeElement.textContent = datetime;
+
+        // Content container
+        const contentElement = document.createElement('div');
+        contentElement.className = 'timeline-content';
+
+        // Title
+        const titleElement = document.createElement('h4');
+        titleElement.textContent = title;
+        contentElement.appendChild(titleElement);
+
+        // Description
+        if (description && description !== title && description.trim() !== '') {
+            const descElement = document.createElement('p');
+            descElement.textContent = description;
+            contentElement.appendChild(descElement);
+        }
+
+        // Assemble
+        entry.appendChild(timeElement);
+        entry.appendChild(contentElement);
+
+        return entry;
+    }
+
+    /**
+     * Formats a date string for display as: 'Mar 13, 2025, 09:14 PM'
+     */
+    function formatDate(dateStr) {
+        if (!dateStr) return 'N/A';
         
         try {
-            if (detailDateRaw) {
-                // First try to match the DD/MM/YYYY HH:MM:SS format directly
-                const dateMatch = detailDateRaw.match(/(\d{2})\/(\d{2})\/(\d{4})\s(\d{2}):(\d{2}):(\d{2})/);
-                if (dateMatch) {
-                    // Extract components and format directly
-                    const [, day, month, year, hours, minutes] = dateMatch;
-                    const monthName = new Date(year, month-1, day).toLocaleString('en-US', { month: 'long' });
-                    formattedDetailDate = `${parseInt(day)} ${monthName} ${year} at ${hours}:${minutes}`;
-                } else {
-                    // Try standard date parsing
-                    const date = new Date(detailDateRaw);
-                    
-                    if (!isNaN(date.getTime())) {
-                        // Format as '13 March 2025 at 12:05'
-                        const day = date.getDate();
-                        const month = date.toLocaleString('en-US', { month: 'long' });
-                        const year = date.getFullYear();
-                        const hours = date.getHours().toString().padStart(2, '0');
-                        const minutes = date.getMinutes().toString().padStart(2, '0');
-                        
-                        formattedDetailDate = `${day} ${month} ${year} at ${hours}:${minutes}`;
-                    } else {
-                        // If parsing fails, just show the raw date
-                        formattedDetailDate = detailDateRaw;
-                    }
+            // If it's already in target format, do nothing
+            const targetFormatRegex = /^[A-Z][a-z]{2} \d{1,2}, \d{4}, \d{1,2}:\d{2} [AP]M$/i;
+            if (targetFormatRegex.test(dateStr)) {
+                return dateStr;
+            }
+            
+            // Attempt European date format like DD/MM/YYYY HH:MM(:SS)
+            const europeanDateRegex = /^(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{4}) (\d{1,2}):(\d{1,2})(?::(\d{1,2}))?$/;
+            const match = dateStr.match(europeanDateRegex);
+            if (match) {
+                const [_, day, month, year, hour, minute, second] = match;
+                const date = new Date(
+                    parseInt(year), 
+                    parseInt(month) - 1, 
+                    parseInt(day), 
+                    parseInt(hour), 
+                    parseInt(minute), 
+                    parseInt(second || 0)
+                );
+                if (!isNaN(date.getTime())) {
+                    return formatDateObject(date);
                 }
             }
-        } catch (e) {
-            logger.error('Error formatting timeline date', { error: e.message });
-            formattedDetailDate = detailDateRaw || 'Date not available';
-        }
-        
-        const detailDesc = detail.querySelector('detailDesc').textContent;
-        console.log('Original detailDesc:', detailDesc);
-        const descriptionWithoutStatusId = detailDesc.replace(/status id:\s*\d+,?/i, '').trim();
-        
-        let iconClass = 'fas fa-info-circle'; // Default icon
-        
-        if (detailDesc.toLowerCase().includes('picked up')) {
-            iconClass = 'fas fa-box-open';
-        } else if (detailDesc.toLowerCase().includes('outbound') || 
-                  detailDesc.toLowerCase().includes('transit') || 
-                  detailDesc.toLowerCase().includes('inbound')) {
-            iconClass = 'fas fa-shipping-fast';
-        } else if (detailDesc.toLowerCase().includes('delivery')) {
-            iconClass = 'fas fa-route';
-        } else if (detailDesc.toLowerCase().includes('delivered')) {
-            iconClass = 'fas fa-home';
-        } else if (detailDesc.toLowerCase().includes('order')) {
-            iconClass = 'fas fa-shopping-cart';
-        }
-
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `
-            <i class="${iconClass} timeline-detail-icon"></i>
-            <strong>${formattedDetailDate}</strong>
-        ${descriptionWithoutStatusId}
-        `;
-        timelineStepsDetailed.appendChild(listItem);
-    });
-}
-
-// Form submit handler
-document.addEventListener('DOMContentLoaded', function() {
-    const trackingForm = document.getElementById('trackingForm');
-    if (trackingForm) {
-        trackingForm.addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const orderNumber = document.getElementById('orderNumber').value.trim();
-            await trackOrder(orderNumber);
-        });
-    }
-    
-    // Check for URL parameters on page load
-    const urlParams = new URLSearchParams(window.location.search);
-    const trackingParam = urlParams.get('tracking');
-    
-    if (trackingParam) {
-        // Set the input field value to what was in the URL
-        const orderNumberInput = document.getElementById('orderNumber');
-        if (orderNumberInput) {
-            orderNumberInput.value = trackingParam;
             
-            // Track the order using the parameter from the URL
-            trackOrder(trackingParam);
+            // Fallback standard parse
+            const date = new Date(dateStr);
+            if (isNaN(date.getTime())) return dateStr;
+
+            return formatDateObject(date);
+        } catch (e) {
+            return dateStr;
         }
     }
-    
-    // Add copy link button functionality
-    const copyTrackingLink = document.getElementById('copyTrackingLink');
-    if (copyTrackingLink) {
-        copyTrackingLink.addEventListener('click', function() {
-            const currentUrl = window.location.href;
-            navigator.clipboard.writeText(currentUrl).then(() => {
-                const notification = document.getElementById('copyNotification');
-                if (notification) {
-                    notification.classList.add('show');
-                    
-                    setTimeout(() => {
-                        notification.classList.remove('show');
-                    }, 3000);
-                }
-            }).catch(err => {
-                logger.error('Could not copy text', { error: err.message });
-                alert('Failed to copy the link. Please try again.');
-            });
-        });
+
+    /**
+     * Helper to format a Date object to 'Mar 13, 2025, 09:14 PM'
+     */
+    function formatDateObject(date) {
+        const month = date.toLocaleString('en-US', { month: 'short' });
+        const day = date.getDate();
+        const year = date.getFullYear();
+        const time = date.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }).toUpperCase();
+        
+        return `${month} ${day}, ${year}, ${time}`;
+    }
+
+    /**
+     * Converts a raw status string to a nicer “title case” format
+     */
+    function formatStatus(status) {
+        if (!status) return 'Unknown';
+        // Replace underscores with spaces, etc.
+        return status
+            .toLowerCase()
+            .split('_')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
     }
 });
