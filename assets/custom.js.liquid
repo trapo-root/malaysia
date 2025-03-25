@@ -1,5 +1,6 @@
 // ====================== MEGANTIC SUBCATEGORIES JS =========================== 
 document.addEventListener('DOMContentLoaded', function() {
+  if ($('body').hasClass('collection')) {
     var dropdownButton = document.querySelector('.mgc-subcategories-button');
     var dropdownContent = document.querySelector('.mgc-subcategories-dropdown');
     var accordion = document.querySelector('.accordion');
@@ -24,9 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
         this.classList.toggle('active');
         panel.classList.toggle('show');
     });
+  }
 });
 /** Start Check Ultimate Hex & Xtreme Product **/
  $(document).ready(function(){
+   if ($('body').hasClass('product-page')) {
 		var currentProductHandle  = $(".product_form").attr("data-product-handle");
 		//var lastItem = currentProductHandle.split("-").pop();
 		//console.log(currentProductHandle);
@@ -50,77 +53,97 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log(lastItem);
 
        var selectProductClassic = currentProductHandle.replaceAll(lastItem, "classic" );
-		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductClassic + '.js', function(product) {
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductClassic + '.js')
 			//console.log(product);
+            .done(function(product) {
            $('#classic-type').css('visibility','visible');
 		  }).fail(function() {
 		   $('#classic-type').hide();
+           return false;
 		  });
 
      var selectProductEco = currentProductHandle.replaceAll(lastItem, "eco" );
-		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductEco + '.js', function(product) {
-			//console.log(product);
+   
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductEco + '.js') 
+          .done(function(product) {
            $('#eco-type').css('visibility','visible');
 		  }).fail(function() {
 		   $('#eco-type').hide();
+            return false;
 		  });
 
    var selectProductHex = currentProductHandle.replaceAll(lastItem, "hex" );
-		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductHex + '.js', function(product) {
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductHex + '.js')
+            .done(function(product) {
 			//console.log(product);
            $('#hex-type').css('visibility','visible');
 		  }).fail(function() {
 		   $('#hex-type').hide();
+              return false;
 		  });
   
    
-		 var selectProductXtreme = currentProductHandle.replaceAll(lastItem, "xtreme-3d-car-mat" );
-		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductXtreme + '.js', function(product) {
+		var selectProductXtreme = currentProductHandle.replaceAll(lastItem, "xtreme-3d-car-mat");
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductXtreme + '.js')
+            .done(function(product) {
 			//console.log(product);
            $('#xtreme-type').css('visibility','visible');
 		  }).fail(function() {
 		   $('#xtreme-type').hide();
+              return false;
 		  });
+
 	 
 		 var selectProductUltimate = currentProductHandle.replaceAll(lastItem, "hex-ultimate" );
-		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductUltimate + '.js', function(product) {
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductUltimate + '.js')
+                        .done(function(product) {
 			//console.log(product);
            $('#ultimatehex-type').css('visibility','visible');
 		  }).fail(function() {
 		   $('#ultimatehex-type').hide();
+                          return false;
 		  });
 
          var selectProductCrystalTint = currentProductHandle.replaceAll(lastItem, "crystal" );
-		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductCrystalTint + '.js', function(product) {
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductCrystalTint + '.js')
+                        .done(function(product) {
 			//console.log(product);
            $('#crystal-type').css('visibility','visible');
 		  }).fail(function() {
 		   $('#crystal-type').hide();
+                          return false;
 		  });
 
          var selectProductDfendTint = currentProductHandle.replaceAll(lastItem, "dfend" );
-		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductDfendTint + '.js', function(product) {
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductDfendTint + '.js') 
+                        .done(function(product) {
 			//console.log(product);
            $('#dfend-type').css('visibility','visible');
 		  }).fail(function() {
 		   $('#dfend-type').hide();
+                          return false;
 		  });
 
          var selectProductQuickCoat = currentProductHandle.replaceAll(lastItem, "quik" );
-		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductQuickCoat + '.js', function(product) {
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductQuickCoat + '.js') 
+                        .done(function(product) {
 			//console.log(product);
            $('#quik-type').css('visibility','visible');
 		  }).fail(function() {
 		   $('#quik-type').hide();
+                          return false;
 		  });
 
          var selectProductProCoat = currentProductHandle.replaceAll(lastItem, "pro" );
-		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductProCoat + '.js', function(product) {
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductProCoat + '.js') 
+                        .done(function(product) {
 			//console.log(product);
            $('#pro-type').css('visibility','visible');
 		  }).fail(function() {
 		   $('#pro-type').hide();
+                          return false;
 		  });
+   }
    
   });
 
@@ -132,7 +155,9 @@ var $product_img_cell = $(".variant_imgs_cell"),
     $product_slider = $("#productImg").flickity();
 	$product_slider.flickity("destroy"),
     $(function() {
+      if ($('body').hasClass('product-page')) {
         productImgArray(), imageUpdater();
+      }
     }),
     (productImgArray = () => {
         $product_img_cell.each(function() {
