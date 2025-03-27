@@ -128,7 +128,7 @@
         "image_MP38Nb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/EF2329F4-66F1-421C-A8FA-70D6A92C3487.png",
+            "image": "shopify://shop_images/Free-Install-Free-Ship.png",
             "pretext": "",
             "title": "",
             "subtitle": "",
@@ -141,7 +141,7 @@
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/EF2329F4-66F1-421C-A8FA-70D6A92C3487.png"
+            "mobile_image": "shopify://shop_images/Free-Install-Free-Ship.png"
           }
         }
       },
