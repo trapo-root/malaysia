@@ -1,7 +1,12 @@
 {% if page.handle == 'mr-diy-rear' or
   collection.handle == 'trapo-diy' or
   product.type contains 'REAR' or 
-  product.type == 'TRAPO x MRDIY'
+  product.type == 'TRAPO x MRDIY' or
+  handle contains '/pages/car-mats-v2' or 
+  handle contains '/pages/car-dashcams' or 
+  handle contains '/pages/car-hydrophobic-wiper'
 %}
-<meta name="robots" content="noindex" />
+    <meta name="robots" content="noindex" />
+{% else %}
+      <meta name="robots" content="index,follow">
 {% endif %}
