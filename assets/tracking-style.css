@@ -136,8 +136,8 @@ body {
 .status-line-container {
     position: absolute;
     top: 45px; /* Align with the center of the icons */
-    left: 80px; /* Start at the center of the first icon */
-    right: 80px; /* End at the center of the last icon */
+    left: 100px; /* Start at the center of the first icon */
+    right: 100px; /* End at the center of the last icon */
     height: 3px;
     z-index: 0;
 }
@@ -286,6 +286,7 @@ body {
     border-bottom: 1px dashed #ced4da;
     position: relative;
     padding-left: 35px;
+    margin-bottom: unset;
 }
 
 .detailed-timeline li:last-child {
