@@ -8,18 +8,19 @@
         <section class="tracking-form">
             <form id="trackingForm">
                 <div class="form-group" style="display: flex;">
-                    <input type="text" id="orderNumber" name="orderNumber" placeholder="Enter Shopify Order name or Tracking number" required>
+                    <input type="text" id="orderNumber" name="orderNumber"
+                        placeholder="Enter Shopify Order name or Tracking number" required>
                     <button type="submit" class="track-button">Track</button>
                 </div>
                 <div class="tracking-feedback" id="trackingFeedback">
                     Connecting to tracking server...
                 </div>
-                
+
             </form>
         </section>
 
         <section class="tracking-status" id="trackingStatus" style="display:none;">
-            <h2>Order Status</h2>
+            <!-- <h2>Order Status</h2> -->
             <div class="current-status" id="currentStatusDisplay">Current Status: <span id="statusText"></span></div>
             <div class="status-steps-container">
                 <div class="status-line-container">
@@ -31,31 +32,19 @@
                     <div class="status-label">Ordered</div>
                 </div>
                 <div class="status-step" data-step="2" data-always-show="true">
-                    <div class="status-icon"><i class="fas fa-cog fa-spin"></i></div>
-                    <div class="status-label">In Process</div>
+                    <div class="status-icon"><i class="fas fa-shipping-fast"></i></div>
+                    <div class="status-label">Shipped Out</div>
                 </div>
                 <div class="status-step" data-step="3" data-always-show="true">
-                    <div class="status-icon"><i class="fas fa-clipboard-list"></i></div>
-                    <div class="status-label">Ready to Ship</div>
-                </div>
-                <div class="status-step" data-step="4" data-always-show="false" data-mobile-hide="true">
-                    <div class="status-icon"><i class="fas fa-box-open"></i></div>
-                    <div class="status-label">Picked Up</div>
-                </div>
-                <div class="status-step" data-step="5" data-always-show="true">
-                    <div class="status-icon"><i class="fas fa-shipping-fast"></i></div>
-                    <div class="status-label">In Transit</div>
-                </div>
-                <div class="status-step" data-step="6" data-always-show="false" data-mobile-hide="true">
                     <div class="status-icon"><i class="fas fa-route"></i></div>
                     <div class="status-label">Out for Delivery</div>
                 </div>
-                <div class="status-step" data-step="7" data-always-show="true">
+                <div class="status-step" data-step="4" data-always-show="true">
                     <div class="status-icon"><i class="fas fa-home"></i></div>
                     <div class="status-label">Delivered</div>
                 </div>
             </div>
-            
+
             <div class="order-details" id="orderDetails">
                 <div class="detail-item">
                     <span class="detail-label">Tracking Number:</span>
@@ -65,14 +54,7 @@
                     <span class="detail-label">Courier:</span>
                     <span id="warehouse_display" class="detail-value">Not Assigned</span>
                 </div>
-                <div class="detail-item">
-                    <span class="detail-label">Customer Order Number:</span>
-                    <span id="customerOrderNumberDisplay" class="detail-value"></span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Delivery Date:</span>
-                    <span id="deliveryDateDisplay" class="detail-value"></span>
-                </div>
+
             </div>
 
             <div class="detailed-timeline" id="detailedTimeline">
