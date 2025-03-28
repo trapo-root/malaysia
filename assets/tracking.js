@@ -6,29 +6,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentStatusDisplay = document.getElementById('currentStatusDisplay');
     const trackingNumberDisplay = document.getElementById('trackingNumberDisplay');
     const warehouseDisplay = document.getElementById('warehouse_display');
-    const customerOrderNumberDisplay = document.getElementById('customerOrderNumberDisplay');
-    const deliveryDateDisplay = document.getElementById('deliveryDateDisplay');
+
     const timelineStepsDetailed = document.getElementById('timelineStepsDetailed');
     const timelineLoader = document.getElementById('timelineLoader');
     const orderNumberInput = document.getElementById('orderNumber');
     const trackingFeedback = document.getElementById('trackingFeedback');
 
-    // Status mapping to step numbers (used if needed for reference)
+    // Status mapping to 6 steps
     const statusMap = {
-        'RECEIVED': 1,       // Ordered
-        'INPROCESS': 2,      // In Process (new state)
-        'IN PROCESS': 2,
-        'ALLOCATING': 2,     
-        'ALLOCATED': 2,      
-        'PICKING': 2,        
-        'STAGING': 2,        
-        'PROCESSING': 3,     // Ready to Ship
-        'PACKED': 3,         
-        'LOADED': 4,         // Picked Up
-        'DISPATCHED': 4,     
-        'INTRANSIT': 5,      // In Transit
-        'OUTFORDELIVERY': 6, // Out for Delivery
-        'DELIVERED': 7       // Delivered
+        // Step 1: Ordered (includes all processing states)
+        'RECEIVED': 1,
+        'ORDER PLACED': 1,
+        'ORDER CONFIRMED': 1,
+        'IN PROCESS': 1,
+        'INPROCESS': 1,
+        'ALLOCATING': 1,
+        'ALLOCATED': 1,
+        'PICKING': 1,
+        'STAGING': 1,
+        'PROCESSING': 1,
+        'PACKED': 1,
+        'READY': 1,
+        
+        // Step 2: Shipped Out
+        'SHIPPED OUT': 2,
+        'LOADED': 2,
+        'PICKED UP': 2,
+        
+        // Step 3: Out for Delivery (includes all transit states)
+        'OUT FOR DELIVERY': 3,
+        'OUTFORDELIVERY': 3,
+        'OUT_FOR_DELIVERY': 3,
+        'IN TRANSIT': 3,
+        'INTRANSIT': 3,
+        'DISPATCHED': 3,
+        'DEPARTED': 3,
+        
+        // Step 4: Delivered
+        'DELIVERED': 4,
+        'COMPLETED': 4
     };
 
     /**
@@ -37,17 +53,29 @@ document.addEventListener('DOMContentLoaded', () => {
      *   or uses trackingDetails.deliveryStatus if provided.
      */
     function getCanonicalStatus(rawStatus, isInProcessFlag, trackingDetails) {
-        if (isInProcessFlag) {
-            return 'IN PROCESS';
+        // First prioritize the deliveryStatus from tracking details if available
+        if (trackingDetails?.deliveryStatus) {
+            const deliveryStatus = trackingDetails.deliveryStatus.toUpperCase();
+            // Check if this status is directly in our map
+            if (Object.keys(statusMap).includes(deliveryStatus)) {
+                return deliveryStatus;
+            }
+            // If not directly in map, try to match patterns
+            if (deliveryStatus.match(/DELIVERED|COMPLETED/i)) return 'DELIVERED';
+            if (deliveryStatus.match(/OUTFORDELIVERY|OUT[_ ]?FOR[_ ]?DELIVERY|INTRANSIT|IN[_ ]?TRANSIT|DISPATCHED|DEPARTED/i)) return 'OUT FOR DELIVERY';
+            if (deliveryStatus.match(/LOADED|PICKED[_ ]?UP|SHIPPED/i)) return 'SHIPPED OUT';
+            if (deliveryStatus.match(/PROCESSING|PACKED|READY|INPROCESS|IN[_ ]?PROCESS|ALLOCAT|PICKING|STAGING|RECEIVED|ORDER[_ ]?PLACED|ORDER[_ ]?CONFIRMED/i)) return 'ORDERED';
         }
-        if (rawStatus.match(/ALLOCAT|PICKING|IN PROCESS|STAGING/i)) {
-            return 'IN PROCESS';
-        }
-        // If we have a trackingDetails.deliveryStatus, let it override
-        if (trackingDetails && trackingDetails.deliveryStatus) {
-            return trackingDetails.deliveryStatus.toUpperCase();
-        }
-        return rawStatus ? rawStatus.toUpperCase() : 'UNKNOWN';
+        
+        // If no tracking details or couldn't match deliveryStatus, check raw status
+        const status = (rawStatus || '').toUpperCase();
+        if (status.match(/DELIVERED|COMPLETED/i)) return 'DELIVERED';
+        if (status.match(/OUTFORDELIVERY|OUT[_ ]?FOR[_ ]?DELIVERY|INTRANSIT|IN[_ ]?TRANSIT|DISPATCHED|DEPARTED/i)) return 'OUT FOR DELIVERY';
+        if (status.match(/LOADED|PICKED[_ ]?UP|SHIPPED/i)) return 'SHIPPED OUT';
+        if (status.match(/PROCESSING|PACKED|READY|INPROCESS|IN[_ ]?PROCESS|ALLOCAT|PICKING|STAGING|RECEIVED|ORDER[_ ]?PLACED|ORDER[_ ]?CONFIRMED/i)) return 'ORDERED';
+        
+        // If no match found and we're in process, or if no status matches
+        return 'ORDERED';
     }
 
     /**
@@ -56,20 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function getProgressPercentage(status) {
         switch (status) {
-            case 'RECEIVED':
+            case 'ORDERED':
                 return 0;
-            case 'IN PROCESS':
-                return 25;
-            case 'PROCESSING':
-            case 'PACKED':
-                return 50;
-            case 'LOADED':
-            case 'DISPATCHED':
-                return 60;
-            case 'INTRANSIT':
-                return 70;
-            case 'OUTFORDELIVERY':
-                return 90;
+            case 'SHIPPED OUT':
+                return 33;
+            case 'OUT FOR DELIVERY':
+                return 67;
             case 'DELIVERED':
                 return 100;
             default:
@@ -149,6 +169,32 @@ document.addEventListener('DOMContentLoaded', () => {
      * Tracks an order by calling the PHP backend
      * and returns the order data (or throws if there's an error).
      */
+    /**
+     * Logs messages to the debug.log file via a fetch request
+     * @param {string} message - The message to log
+     * @param {string} level - The log level (info, error, warn)
+     */
+    async function logToDebugFile(message, level = 'info') {
+        try {
+            // Don't block the main flow with await
+            fetch('https://trapo.com/tracking-orders/track.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    message: message,
+                    level: level,
+                    source: 'tracking.js'
+                })
+            }).catch(() => {
+                // Silently fail if logging fails
+            });
+        } catch (e) {
+            // Silently fail if logging fails
+        }
+    }
+
     async function trackOrder(orderNumber) {
         try {
             // Create a 10-second timeout
@@ -156,8 +202,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => reject(new Error('Request timed out. The tracking server is taking too long to respond.')), 10000);
             });
             
-            // Create the fetch promise
-            const fetchPromise = fetch('https://trapo.com/tracking-orders/track.php', {
+            // Create the fetch promise with cache-busting parameter in URL only
+            const nocache = Date.now() + Math.floor(Math.random() * 10000);
+            const fetchPromise = fetch(`https://trapo.com/tracking-orders/track.php?nocache=${nocache}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -169,14 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Race the fetch against the timeout
             const response = await Promise.race([fetchPromise, timeoutPromise]);
 
-            if (window.sessionStorage) {
-                // Check for existing cached data to avoid repeated API calls
-                const cachedData = sessionStorage.getItem(`order_${orderNumber}`);
-                if (cachedData) {
-                    console.log('Using cached data for', orderNumber);
-                    return JSON.parse(cachedData);
-                }
-            }
+            // Caching removed to ensure fresh data is always fetched
 
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({}));
@@ -185,14 +225,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
             
-            // Cache the successful response
-            if (window.sessionStorage && data.success) {
-                sessionStorage.setItem(`order_${orderNumber}`, JSON.stringify(data));
-            }
+            // Caching removed to ensure fresh data is always fetched
             
             return data;
         } catch (error) {
-            console.error('Fetch error:', error);
+            logToDebugFile(`Fetch error: ${error.message}`, 'error');
             if (error.message.includes('Failed to fetch') || error.name === 'TypeError') {
                 throw new Error('Cannot connect to tracking server. Please check your internet connection and try again.');
             }
@@ -229,24 +266,80 @@ document.addEventListener('DOMContentLoaded', () => {
             warehouseDisplay.textContent = warehouseValue;
         }
 
-        customerOrderNumberDisplay.textContent = order.documentNo || order.custOrderNo || 'N/A';
-
-        // Set the delivery date (prioritize trackingDetails if available)
-        let deliveryDate = order.deliveryDate || order.updatedDate || 'N/A';
-        if (order.trackingDetails && order.trackingDetails.deliveryStatusDate) {
-            deliveryDate = order.trackingDetails.deliveryStatusDate;
+        // Get events from tracking details if available
+        let canonicalStatus = '';
+        if (order.trackingDetails) {
+            const events = extractEvents(order.trackingDetails);
+            if (events.length > 0) {
+                // Sort events by date descending
+                events.sort((a, b) => {
+                    // Parse DD/MM/YYYY HH:MM:SS format
+                    function parseLocalDate(dateStr) {
+                        if (!dateStr) return new Date(0);
+                        
+                        // Extract parts from DD/MM/YYYY HH:MM:SS
+                        const parts = dateStr.split(' ');
+                        if (parts.length !== 2) return new Date(0);
+                        
+                        const dateParts = parts[0].split('/');
+                        const timeParts = parts[1].split(':');
+                        
+                        if (dateParts.length !== 3 || timeParts.length !== 3) return new Date(0);
+                        
+                        // Note: months are 0-indexed in JavaScript Date
+                        return new Date(
+                            parseInt(dateParts[2]), // year
+                            parseInt(dateParts[1]) - 1, // month (0-indexed)
+                            parseInt(dateParts[0]), // day
+                            parseInt(timeParts[0]), // hour
+                            parseInt(timeParts[1]), // minute
+                            parseInt(timeParts[2])  // second
+                        );
+                    }
+                    
+                    const dateA = parseLocalDate(a.date);
+                    const dateB = parseLocalDate(b.date);
+                    
+                    // Removed excessive date comparison logging
+                    
+                    return dateB - dateA; // Newest first
+                });
+                
+                const latestEvent = events[0];
+                // Map the latest event description to a status
+                const desc = latestEvent.desc.toLowerCase();
+                
+                // Determine status directly from timeline events
+                if (desc.includes('delivered') && !desc.includes('unsuccessful')) {
+                    canonicalStatus = 'DELIVERED';
+                } else if (desc.includes('unsuccessful') || desc.includes('failed')) {
+                    // For unsuccessful delivery attempts, use OUT FOR DELIVERY status
+                    // since the package is still with the courier and will be redelivered
+                    canonicalStatus = 'OUT FOR DELIVERY';
+                    logToDebugFile('Detected unsuccessful delivery, setting status to OUT FOR DELIVERY');
+                } else if (desc.includes('out for delivery') || desc.includes('inbound')) {
+                    canonicalStatus = 'OUT FOR DELIVERY';
+                } else if (desc.includes('picked up') || desc.includes('outbound')) {
+                    canonicalStatus = 'SHIPPED OUT';
+                } else {
+                    // If we can't determine from timeline, use getCanonicalStatus
+                    canonicalStatus = getCanonicalStatus(order.orderStatus, order.isInProcess, null);
+                }
+                
+                // Only log status changes when relevant
+                if (canonicalStatus !== order.orderStatus) {
+                    logToDebugFile(`Status determined from timeline: ${canonicalStatus} (original: ${order.orderStatus})`);
+                }
+            } else {
+                // No events, use getCanonicalStatus
+                canonicalStatus = getCanonicalStatus(order.orderStatus, order.isInProcess, null);
+            }
+        } else {
+            // No tracking details, use getCanonicalStatus
+            canonicalStatus = getCanonicalStatus(order.orderStatus, order.isInProcess, null);
         }
-        deliveryDateDisplay.textContent = formatDate(deliveryDate);
 
-        // Resolve the final, canonical status
-        const rawStatus = order.orderStatus || 'UNKNOWN';
-        const canonicalStatus = getCanonicalStatus(
-            rawStatus,
-            order.isInProcess || data.hasInProcessState,
-            order.trackingDetails
-        );
-        
-        // Format it for display
+        // Update status text
         const formattedStatus = formatStatus(canonicalStatus);
         document.getElementById('statusText').textContent = formattedStatus.toUpperCase();
 
@@ -280,83 +373,61 @@ document.addEventListener('DOMContentLoaded', () => {
         // Convert to uppercase for consistency
         const upperStatus = currentStatus.toUpperCase();
 
-        // 1) Update the status line’s width
-        const progressPercentage = getProgressPercentage(upperStatus);
-        statusLine.style.width = `${progressPercentage}%`;
-
-        // 2) Determine which steps to hide or show
-        const allSteps = document.querySelectorAll('.status-step');
-        const inProcessStep = document.querySelector('.status-step[data-step="2"]'); 
-        const pickupStep = document.querySelector('.status-step[data-step="4"]');
-        const outForDeliveryStep = document.querySelector('.status-step[data-step="6"]');
-
-        // If we are "IN PROCESS," show step 2, hide "Picked Up" & "Out for Delivery."
-        if (upperStatus === 'IN PROCESS') {
-            if (inProcessStep) inProcessStep.style.display = '';
-            if (pickupStep) pickupStep.style.display = 'none';
-            if (outForDeliveryStep) outForDeliveryStep.style.display = 'none';
-        } else {
-            // Otherwise, hide in-process step, show the others (with mobile adjustments).
-            if (inProcessStep) inProcessStep.style.display = 'none';
-
-            if (window.innerWidth > 768) {
-                if (pickupStep) pickupStep.style.display = '';
-                if (outForDeliveryStep) outForDeliveryStep.style.display = '';
-            } else {
-                // Respect data-mobile-hide attribute
-                allSteps.forEach(step => {
-                    if (step.getAttribute('data-mobile-hide') === 'true') {
-                        step.style.display = 'none';
-                    } else {
-                        step.style.display = '';
-                    }
-                });
-            }
+        // Map old statuses to new ones for progress calculation
+        let mappedStatus = upperStatus;
+        if (upperStatus === 'IN TRANSIT' || upperStatus === 'INTRANSIT') {
+            mappedStatus = 'OUT FOR DELIVERY';
+        } else if (upperStatus === 'IN PROCESS' || upperStatus === 'PROCESSING' || upperStatus === 'RECEIVED') {
+            mappedStatus = 'ORDERED';
         }
 
-        // 3) Mark each step as completed, active, or pending
-        allSteps.forEach(step => {
-            step.classList.remove('active', 'completed', 'pending');
-            step.classList.add('pending');
-        });
+        // Get the current step number from our status map
+        const currentStep = statusMap[mappedStatus] || 1;
 
-        // We can still use statusMap if we want a numeric step. Otherwise, we rely on the progress bar alone.
-        let currentStepNumber = statusMap[upperStatus] || 1;
-        
-        // Mark steps up to current as "completed," the current one as "active," etc.
+        // 1) Update the status line's width
+        const progressPercentage = getProgressPercentage(mappedStatus);
+        statusLine.style.width = `${progressPercentage}%`;
+
+        // 2) Update all steps
+        const allSteps = document.querySelectorAll('.status-step');
         allSteps.forEach(step => {
             const stepNumber = parseInt(step.getAttribute('data-step'));
-            if (stepNumber < currentStepNumber) {
-                step.classList.remove('pending', 'active');
+            step.style.display = ''; // Show all steps by default
+            
+            // Remove all classes first
+            step.classList.remove('active', 'completed', 'pending');
+            
+            // Add appropriate classes based on current status
+            if (stepNumber < currentStep) {
                 step.classList.add('completed');
-            } else if (stepNumber === currentStepNumber) {
-                step.classList.remove('pending', 'completed');
+            } else if (stepNumber === currentStep) {
                 step.classList.add('active');
             } else {
-                step.classList.remove('active', 'completed');
                 step.classList.add('pending');
             }
+            
+            // Handle mobile view
+            if (window.innerWidth <= 768 && step.getAttribute('data-mobile-hide') === 'true') {
+                step.style.display = 'none';
+            }
         });
+        
+
     }
 
     /**
      * Displays the detailed tracking timeline
      */
     function displayTrackingTimeline(trackingDetails) {
-        timelineStepsDetailed.innerHTML = '';
-
-        // Extract + normalize events
-        let events = extractEvents(trackingDetails);
-
-        // If there's a final “delivery status,” treat that like an event
-        if (trackingDetails.deliveryStatus && trackingDetails.deliveryStatusDate) {
-            events.push({
-                date: trackingDetails.deliveryStatusDate,
-                desc: `Order ${trackingDetails.deliveryStatus}`,
-                loc: ''
-            });
+        // Only log a summary of tracking details instead of the full structure
+        if (trackingDetails && trackingDetails.trackingCode) {
+            logToDebugFile(`Processing tracking details for: ${trackingDetails.trackingCode}, status: ${trackingDetails.deliveryStatus || 'N/A'}`);
         }
-
+        timelineStepsDetailed.innerHTML = '';
+    
+        // Get events directly from the API response
+        let events = extractEvents(trackingDetails);
+    
         if (events.length === 0) {
             const noDataEntry = document.createElement('li');
             noDataEntry.className = 'timeline-step default';
@@ -364,19 +435,29 @@ document.addEventListener('DOMContentLoaded', () => {
             timelineStepsDetailed.appendChild(noDataEntry);
             return;
         }
-
-        // Sort by date ascending
-        events.sort((a, b) => new Date(a.date) - new Date(b.date));
-
-        // Build timeline entries (prepend so newest appear at the top if you want that order)
+    
+        // Sort by date ascending with improved handling for invalid dates
+        events.sort((a, b) => {
+            // Handle invalid dates by putting them at the beginning
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            
+            if (isNaN(dateA.getTime()) && isNaN(dateB.getTime())) return 0;
+            if (isNaN(dateA.getTime())) return -1;
+            if (isNaN(dateB.getTime())) return 1;
+            
+            return dateA - dateB;
+        });
+    
+        // Build timeline entries (prepend so newest appear at the top)
         events.forEach(evt => {
+            // Skip events with empty dates or descriptions
+            if (!evt.date || !evt.desc) return;
             const formattedTime = formatDate(evt.date);
-            // Remove “, status id: XXXXX” from desc
-            let desc = evt.desc.replace(/,\s*status id:\s*\d+/gi, '');
-            const statusClass = getStatusClassFromDescription(desc);
-
+            const statusClass = getStatusClassFromDescription(evt.desc);
+    
             const timelineEntry = createTimelineEntry(
-                desc,
+                evt.desc,
                 formattedTime,
                 evt.loc,
                 statusClass
@@ -388,37 +469,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Extracts + normalizes timeline events from various potential API structures
+     * Extracts timeline events from the S3 API response
+     * Uses raw data from https://s3.ap-southeast-1.amazonaws.com/tracking.istoreisend-wms.com/
      */
     function extractEvents(trackingDetails) {
         let rawEvents = [];
-
-        if (trackingDetails.TrackingEvent) {
-            // Possibly an array or single event
-            rawEvents = Array.isArray(trackingDetails.TrackingEvent)
-                ? trackingDetails.TrackingEvent
-                : [trackingDetails.TrackingEvent];
-        } else if (trackingDetails.events && trackingDetails.events.event) {
-            rawEvents = Array.isArray(trackingDetails.events.event)
-                ? trackingDetails.events.event
-                : [trackingDetails.events.event];
-        } else if (trackingDetails.detailList && trackingDetails.detailList.WmsTrackingDetailView) {
+    
+        // Only handle the WMS tracking detail view structure
+        if (trackingDetails.detailList && trackingDetails.detailList.WmsTrackingDetailView) {
             rawEvents = Array.isArray(trackingDetails.detailList.WmsTrackingDetailView)
                 ? trackingDetails.detailList.WmsTrackingDetailView
                 : [trackingDetails.detailList.WmsTrackingDetailView];
-        } else if (Array.isArray(trackingDetails)) {
-            // If trackingDetails is directly an array
-            rawEvents = trackingDetails;
         }
-
-        // Normalize
-        return rawEvents.map(e => {
-            return {
-                date: e.eventTime || e.time || e.detailDate || '',
-                desc: e.eventDesc || e.description || e.detailDesc || 'Status update',
-                loc: e.eventLocation || e.location || ''
-            };
-        });
+    
+        // Map the fields and ensure proper date format
+        return rawEvents.map(e => ({
+            date: e.detailDate || '',
+            desc: e.detailDesc || '',
+            loc: e.detailLocation || '',
+            // Add a parsed date for easier comparison
+            parsedDate: e.detailDate ? new Date(
+                e.detailDate.split('/')[2].split(' ')[0], // year
+                parseInt(e.detailDate.split('/')[1]) - 1, // month (0-indexed)
+                e.detailDate.split('/')[0], // day
+                ...e.detailDate.split(' ')[1].split(':') // hour, minute, second
+            ) : null
+        }));
     }
 
     /**
@@ -426,22 +502,22 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function getStatusClassFromDescription(description) {
         const desc = description.toLowerCase();
-
-        if (desc.includes('delivered') || desc.includes('successfully')) {
+        
+        // Map to our 6 main statuses
+        if (desc.includes('delivered')) {
             return 'delivered';
         } else if (desc.includes('out for delivery')) {
             return 'out-for-delivery';
-        } else if (desc.includes('transit') || desc.includes('inbound')) {
+        } else if (desc.includes('transit') || desc.includes('loaded') || desc.includes('dispatched')) {
             return 'in-transit';
-        } else if (desc.includes('processed') || desc.includes('picked up')) {
-            return 'processed';
-        } else if (desc.includes('departed') || desc.includes('outbound')) {
-            return 'departed';
-        } else if (desc.includes('sorted')) {
-            return 'sorted';
-        } else {
-            return 'default';
+        } else if (desc.includes('processing') || desc.includes('packed') || desc.includes('ready')) {
+            return 'processing';
+        } else if (desc.includes('in process') || desc.includes('allocat') || desc.includes('picking') || desc.includes('staging')) {
+            return 'in-process';
+        } else if (desc.includes('received') || desc.includes('order placed')) {
+            return 'received';
         }
+        return 'default';
     }
 
     /**
@@ -452,16 +528,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const entry = document.createElement('li');
         entry.className = `timeline-step ${statusClass}`;
 
-        // Optional mapping to icons
+        // Icon mapping for each status type
         const iconMap = {
-            'delivered': 'truck',
-            'intransit': 'shipping-fast',
+            'delivered': 'check-circle',     // Checkmark for completed delivery
+            'completed': 'check-circle',
+            'out-for-delivery': 'truck',     // Delivery truck
+            'intransit': 'shipping-fast',    // Fast shipping truck
             'in-transit': 'shipping-fast',
-            'processing': 'box-open',
-            'processed': 'box-open',
-            'received': 'shopping-cart',
-            'departed': 'plane-departure',
-            'out-for-delivery': 'truck-loading'
+            'departed': 'plane-departure',   // Plane departure
+            'processing': 'box-open',        // Open box for processing
+            'packed': 'box',                // Closed box for packed
+            'in-process': 'cogs',           // Cogs for in process
+            'received': 'clipboard-check',   // Clipboard for order received
+            'order-placed': 'shopping-cart', // Shopping cart for order placed
+            'default': 'circle'             // Default circle icon
         };
         entry.setAttribute('data-icon', iconMap[statusClass] || 'circle');
 
@@ -474,13 +554,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const contentElement = document.createElement('div');
         contentElement.className = 'timeline-content';
 
-        // Title
+        // Title - preserve the original title text without modifications
         const titleElement = document.createElement('h4');
-        titleElement.textContent = title;
+        // Remove any trailing status IDs but keep the rest of the text intact
+        titleElement.textContent = title.replace(/,\s*status id:\s*\d+(?=,|$)/gi, '');
         contentElement.appendChild(titleElement);
 
-        // Description
-        if (description && description !== title && description.trim() !== '') {
+        // Description - only show if it adds additional information
+        if (description && 
+            description !== title && 
+            description.trim() !== '' && 
+            !title.toLowerCase().includes(description.toLowerCase())) {
             const descElement = document.createElement('p');
             descElement.textContent = description;
             contentElement.appendChild(descElement);
@@ -506,6 +590,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 return dateStr;
             }
             
+            // Handle Unix timestamps (seconds or milliseconds)
+            if (/^\d{10,13}$/.test(dateStr)) {
+                const timestamp = dateStr.length === 10 ? parseInt(dateStr) * 1000 : parseInt(dateStr);
+                const date = new Date(timestamp);
+                if (!isNaN(date.getTime())) {
+                    return formatDateObject(date);
+                }
+            }
+            
+            // Handle ISO 8601 dates with timezone offset (common in APIs)
+            const isoDateRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?(?:Z|[+-]\d{2}:\d{2})$/;
+            if (isoDateRegex.test(dateStr)) {
+                const date = new Date(dateStr);
+                if (!isNaN(date.getTime())) {
+                    return formatDateObject(date);
+                }
+            }
+            
             // Attempt European date format like DD/MM/YYYY HH:MM(:SS)
             const europeanDateRegex = /^(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{4}) (\d{1,2}):(\d{1,2})(?::(\d{1,2}))?$/;
             const match = dateStr.match(europeanDateRegex);
@@ -524,12 +626,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             
+            // Handle American date format MM/DD/YYYY HH:MM(:SS)
+            const americanDateRegex = /^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})(?:\s+(\d{1,2}):(\d{1,2})(?::(\d{1,2}))?)?$/;
+            const americanMatch = dateStr.match(americanDateRegex);
+            if (americanMatch) {
+                const [_, month, day, year, hour, minute, second] = americanMatch;
+                const date = new Date(
+                    parseInt(year), 
+                    parseInt(month) - 1, 
+                    parseInt(day), 
+                    parseInt(hour || 0), 
+                    parseInt(minute || 0), 
+                    parseInt(second || 0)
+                );
+                if (!isNaN(date.getTime())) {
+                    return formatDateObject(date);
+                }
+            }
+            
             // Fallback standard parse
             const date = new Date(dateStr);
-            if (isNaN(date.getTime())) return dateStr;
+            if (isNaN(date.getTime())) {
+                logToDebugFile(`Unable to parse date: ${dateStr}`);
+                return dateStr; // Return original if we can't parse it
+            }
 
             return formatDateObject(date);
         } catch (e) {
+            logToDebugFile(`Error parsing date: ${e.message}, date string: ${dateStr}`, 'error');
             return dateStr;
         }
     }
@@ -551,8 +675,21 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function formatStatus(status) {
         if (!status) return 'Unknown';
-        // Replace underscores with spaces, etc.
-        return status
+
+        // Map old statuses to new ones
+        const statusMapping = {
+            'IN TRANSIT': 'Out for Delivery',
+            'INTRANSIT': 'Out for Delivery',
+            'RECEIVED': 'Ordered',
+            'IN PROCESS': 'Ordered',
+            'PROCESSING': 'Ordered'
+        };
+
+        // Check if we need to map this status
+        const mappedStatus = statusMapping[status.toUpperCase()] || status;
+
+        // Replace underscores with spaces and convert to title case
+        return mappedStatus
             .toLowerCase()
             .split('_')
             .map(word => word.charAt(0).toUpperCase() + word.slice(1))
