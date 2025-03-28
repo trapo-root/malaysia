@@ -1,4 +1,8 @@
-<div class="coupon-container">
+<div class="coupon-container"
+  {% if product.type contains 'REAR' %}
+    style="display:none"
+  {% endif %}
+  >
   <div class="coupon">
     <div class="coupon-content">
       <div class="coupon-header">
