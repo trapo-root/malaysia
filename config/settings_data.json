@@ -212,11 +212,6 @@
         "disabled": false,
         "settings": {}
       },
-      "4918592460924562117": {
-        "type": "shopify://apps/optimonk-popup-cro-a-b-test/blocks/app-embed/0b488be1-fc0a-4fe6-8793-f2bef383dba8",
-        "disabled": false,
-        "settings": {}
-      },
       "6544724514127332554": {
         "type": "shopify://apps/go-gift-cards/blocks/app-embed/3676fc08-8fa0-4857-baf6-8c6e28f899dc",
         "disabled": false,
@@ -294,12 +289,12 @@
       },
       "17745481618859153576": {
         "type": "shopify://apps/genie-store-pickup/blocks/app-embed/e00f106c-bb7f-4e25-b11d-baff1a328f6b",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       },
-      "9670189827046205946": {
-        "type": "shopify://apps/hextom-translate-and-currency/blocks/app-block/b927a799-be04-4b97-9efb-5c8f0290a68e",
-        "disabled": true,
+      "4918592460924562117": {
+        "type": "shopify://apps/optimonk-popup-cro-a-b-test/blocks/app-embed/0b488be1-fc0a-4fe6-8793-f2bef383dba8",
+        "disabled": false,
         "settings": {}
       }
     }
