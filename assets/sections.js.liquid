@@ -770,7 +770,7 @@ var productType = $(".product_form ").data('product-type');
     }
     
     if (selectedVarCmp !== null){
-      if(productHandle == 'trapo-quik-shield-car-coating'){
+      /*if(productHandle == 'trapo-quik-shield-car-coating'){
         var final = 33900;
         var finalPrice = window.Shopify.formatMoney(final, $('body').data('money-format'));
         $(".member-price .price").html(finalPrice);
@@ -783,7 +783,12 @@ var productType = $(".product_form ").data('product-type');
         var finalVarCmp = window.Shopify.formatMoney(selectedVarCmp, $('body').data('money-format'));
         $(".member-price .compare-price").html(finalVarCmp);
         $(".member-text").hide();
-    }
+    }*/
+      var finalPrice = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
+        $(".member-price .price").html(finalPrice);
+        var finalVarCmp = window.Shopify.formatMoney(selectedVarCmp, $('body').data('money-format'));
+        $(".member-price .compare-price").html(finalVarCmp);
+        $(".member-text").hide();
     }else{
       $(".member-price .compare-price").empty();
       $(".member-text").show();
