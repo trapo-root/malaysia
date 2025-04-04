@@ -110,6 +110,7 @@
         },
         "image_PyPQbh": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/WebSlider---Car-Coating-for-ONLY-RM399.jpg",
             "pretext": "",
