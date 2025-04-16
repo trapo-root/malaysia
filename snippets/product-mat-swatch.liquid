@@ -26,7 +26,7 @@
 
 {%- assign downcased_swatch = swatch | downcase -%}
 
-{% if downcased_swatch == 'base colour' or downcased_swatch == 'base color' %}
+{% if downcased_swatch contains 'base colour' or downcased_swatch contains 'base color' %}
   {% if product.type == 'TRAPO REFRESH PACKAGE' %}
     <p class="txt-choose-cmb">Choose your car mat colour combination</p>
   {% else %}
@@ -38,14 +38,14 @@
    {% render 'trial-mat-url' %}
 {% endif %}
 
-{% if downcased_swatch == 'base colour' or downcased_swatch == 'base color' %}
+{% if downcased_swatch contains 'base colour' or downcased_swatch contains 'base color' %}
   <div class="color-option">
   {% endif %}
 
 <div class="swatch is-flex is-flex-wrap" data-option-index="{{ option_index }}">
-  {% if downcased_swatch == 'base colour' or downcased_swatch == 'base color' %}
+  {% if downcased_swatch contains 'base colour' or downcased_swatch contains 'base color' %}
     <div class="option_title color-title">Base</div>
-  {% elsif downcased_swatch == 'lining colour' or downcased_swatch == 'lining color' %}
+  {% elsif downcased_swatch contains 'lining colour' or downcased_swatch contains 'lining color' %}
     <div class="option_title color-title">Lining</div>
   {% elsif swatch == 'Packages' %}
 
