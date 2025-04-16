@@ -1,114 +1,474 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
+<script
+  type="application/json"
+  data-section-type="product-template"
+  data-section-id="{{ section.id }}"
+>
+</script>
+<div class="section">
+  <div class="container">
+    {% if section.settings.product_breadcrumb %}
+      <div class="breadcrumb-wrapper one-whole column">
+        <div class="breadcrumb-collection breadcrumb-collection--product">
+          {% if collection.previous_product or collection.next_product %}
+            <div class="nav_arrows breadcrumb_text">
+              {% if collection.previous_product %}
+                <a href="{{ collection.previous_product }}" title="{{ 'products.general.previous_product_html' | t }}" class="breadcrumb_link"><span class="icon-left-arrow"> {{ 'products.general.previous_product_html' | t }}</span></a>
+              {% endif %}
+              {% if collection.previous_product and collection.next_product %}<span class="breadcrumb-divider"> | </span>{% endif %}
+
+              {% if collection.next_product %}
+                <a href="{{collection.next_product}}" title="{{ 'products.general.next_product_html' | t }}" class="breadcrumb_link">{{ 'products.general.next_product_html' | t }} <span class="icon-right-arrow"></span></a>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          {% render 'product__breadcrumb' %}
+        </div>
+      </div>
+    {% endif %}
+
+    <section
+      class="
+        product-container
+        is-flex
+        is-flex-wrap
+      "
+    >
+      {%
+        render 'product',
+        context: 'product',
+        product: product,
+        variant: product.selected_or_first_available_variant,
+        gallery_thumbnails: section.settings.product_thumbs,
+        gallery_click_to_zoom: section.settings.enable_product_lightbox,
+        gallery_hover_zoom: section.settings.activate_zoom,
+        gallery_arrows: section.settings.gallery_arrows,
+        gallery_thumbnail_position: section.settings.thumbnail_position,
+        gallery_thumbnail_slider: section.settings.enable_thumbnail_slider,
+        gallery_slideshow_speed: section.settings.slideshow_speed,
+        gallery_slideshow_transition: section.settings.slideshow_animation,
+        media_position: section.settings.media_position,
+        set_product_height: section.settings.set_product_height,
+        product_height: section.settings.product_height,
+        video_looping: section.settings.video_looping,
+        show_dynamic_checkout_button: settings.show_dynamic_checkout_button
+      %}
+    </section>
+  </div>
+</div>
+
+{% schema %}
 {
-  "sections": {
-    "main": {
-      "type": "product-hex-template",
-      "blocks": {
-        "title": {
-          "type": "title",
-          "settings": {}
+  "name": "Product information",
+  "class": "shopify-section--product-template is-product-main content",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "product_breadcrumb",
+      "label": "Show breadcrumb links"
+    },
+    {
+      "type": "header",
+      "content": "Media",
+      "info": "Learn more about [media types](https://help.shopify.com/en/manual/products/product-media)"
+    },
+    {
+      "type": "radio",
+      "id": "media_position",
+      "label": "Product media position",
+      "options": [
+        {
+          "value": "is-flex-row",
+          "label": "Left"
         },
-        "price": {
-          "type": "price",
-          "settings": {
-            "display_savings": false
-          }
-        },
-        "custom_liquid_GeG4JY": {
-          "type": "custom-liquid",
-          "settings": {
-            "custom_liquid": "{% render 'offer-block' %}"
-          }
-        },
-        "df16a939-5c74-4527-9f45-ae0c6d5ba084": {
-          "type": "text",
-          "settings": {
-            "text": "<p>(Ships out in 2 working days)</p>"
-          }
-        },
-        "form": {
-          "type": "form",
-          "settings": {
-            "show_gift_card_recipient_form": false
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "279aaf5d-4f01-4015-9542-49ecb7a4e298": {
-          "type": "collapsible-tab",
-          "settings": {
-            "collapsible_tab_heading": "Other Great Features",
-            "collapsible_tab_text": "<p>• 5 Years Warranty<br/>• Improved padding design<br/>• 5x more durable than previous generation <br/>• Easy to clean<br/>• No smell<br/>• Waterproof<br/>• Recyclable Material <br/>• Trapo Lining made from RPET recyclable bottles</p>"
-          }
-        },
-        "7d7d2cf1-1157-45ae-b4b7-2a58000ce776": {
-          "type": "collapsible-tab",
-          "settings": {
-            "collapsible_tab_heading": "FAQ",
-            "collapsible_tab_text": "<p><strong>1. How do I know if Trapo Hex fits my car?</strong></p><p>-We understand that shopping online can at times leave you with questions on how an item will fit you. For each product, Trapo has designed it closest to the original mat sizes. However, whenever you would like to have your customized size, please do email us and we will try our best to meet your requirements. Please contact us at enquiry.my@trapo.asia</p><p><strong>2. Material</strong></p><p>- TRAPO Car Mats are made up of a mixture of 50% recycled material with 50% virgin polymer product. Our car mats are guaranteed to be safe, odourless and safe for everyone.</p><p><strong>3. Cleaning Guide When you see your Trapo Car mats are dirty, that means it is time to clean it.</strong> Follow the steps below:</p><p>- Flip / Tap / Vacuum to remove the dirt - Simply rinse with clean water. Use a soft brush if needed.</p><p>- Air dry, avoid direct sunlight</p><p>- Place in the car once dried.</p><p><strong>4. Shipping</strong></p><p>- Please do note that our mats are custom made upon order, hence, takes around 3-5 working days before shipping out from production.</p><p><strong>5. TRAPO Points</strong></p><p>- TRAPO POINTS is a customer loyalty program that allows the customer to redeem cash during purchase. Every Ringgit spent will be transformed into 10 Trapo Points, Collected Trapo Points can be redeemed at checkout. Trapo Points is only valid for customers who purchase through Trapo Malaysia Official Website my.trapo.asia.</p>"
-          }
+        {
+          "value": "is-flex-row-reverse",
+          "label": "Right"
         }
-      },
-      "block_order": [
-        "title",
-        "price",
-        "custom_liquid_GeG4JY",
-        "df16a939-5c74-4527-9f45-ae0c6d5ba084",
-        "form",
-        "description",
-        "279aaf5d-4f01-4015-9542-49ecb7a4e298",
-        "7d7d2cf1-1157-45ae-b4b7-2a58000ce776"
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "set_product_height",
+      "label": "Set height of product media",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "product_height",
+      "label": "Product media height",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "default": 500,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_looping",
+      "label": "Enable video looping",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Product gallery"
+    },
+    {
+      "type": "checkbox",
+      "id": "product_thumbs",
+      "label": "Show thumbnails",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "gallery_arrows",
+      "label": "Show arrows",
+      "info": "Only applies to desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_product_lightbox",
+      "label": "Enable lightbox",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "activate_zoom",
+      "label": "Magnify product images on hover",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "slideshow_speed",
+      "label": "Gallery speed",
+      "min": 0,
+      "max": 6,
+      "unit": "sec",
+      "default": 0,
+      "info": "Set to 0 to disable autoplay."
+    },
+    {
+      "type": "select",
+      "id": "slideshow_animation",
+      "label": "Transition",
+      "options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        }
       ],
-      "settings": {
-        "product_breadcrumb": true,
-        "media_position": "is-flex-row",
-        "set_product_height": false,
-        "product_height": 500,
-        "video_looping": false,
-        "product_thumbs": false,
-        "gallery_arrows": true,
-        "enable_product_lightbox": true,
-        "activate_zoom": true,
-        "slideshow_speed": 0,
-        "slideshow_animation": "slide",
-        "thumbnail_position": "bottom",
-        "enable_thumbnail_slider": false
-      }
+      "default": "slide"
     },
-    "recommendations": {
-      "type": "product-recommendations",
-      "disabled": true,
-      "settings": {
-        "show_product_recommendations": true,
-        "wide_display": false,
-        "product_recommendations_style": "grid",
-        "product_recommendations_heading": "You may also like",
-        "products_per_row": 3,
-        "recommended_products_limit": 4
-      }
+    {
+      "type": "select",
+      "id": "thumbnail_position",
+      "label": "Thumbnails position",
+      "default": "bottom",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Below main image"
+        },
+        {
+          "value": "left",
+          "label": "Left of main image"
+        },
+        {
+          "value": "right",
+          "label": "Right of main image"
+        }
+      ]
     },
-    "custom_liquid_PYhcEA": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "{% render 'testimonial-product-page' %}\n\n<div class=\"sixteen columns\">\n  <div class=\"shopify-reviews reviewsVisibility--{{settings.enable_shopify_review_comments}}\">\n    <div data-oke-reviews-widget data-oke-reviews-product-id=\"shopify-{{ product.id }}\"></div>\n  </div>\n</div>",
-        "css_class": "",
-        "custom_css": ""
-      }
+    {
+      "type": "checkbox",
+      "id": "enable_thumbnail_slider",
+      "label": "Enable thumbnail slider",
+      "default": true
     }
-  },
-  "order": [
-    "main",
-    "recommendations",
-    "custom_liquid_PYhcEA"
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "collapsible-tab",
+      "name": "Collapsible tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "collapsible_tab_heading",
+          "label": "Heading",
+          "default": "Collapsible tab"
+        },
+        {
+          "type": "richtext",
+          "id": "collapsible_tab_text",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your product.</p>"
+        }
+      ]
+    },
+    {
+      "type": "custom-liquid",
+      "name": "Custom liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Custom liquid"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1
+    },
+    {
+      "type": "form",
+      "name": "Form",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Customize form features for the product in the products portion of the theme settings."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_gift_card_recipient_form",
+          "label": "t:sections.product.blocks.form.show_gift_card_recipient_form.label",
+          "info": "t:sections.product.blocks.form.show_gift_card_recipient_form.info",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "popup",
+      "name": "Pop-up",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Pop-up link text"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Text alignment",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Page",
+          "info": "[Learn more](https:\/\/help.outofthesandbox.com\/hc\/en-us\/articles\/115006910707-Using-the-Size-Chart-Sections-themes-)"
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "display_savings",
+          "label": "Show price savings",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "product-links",
+      "name": "Product links",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_collections",
+          "label": "Show collections",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_types",
+          "label": "Show types",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_tags",
+          "label": "Show tags",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "rating",
+      "name": "Product rating",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "To display a rating, add a product rating app. [Learn more](https://apps.shopify.com/product-reviews)"
+        }
+      ]
+    },
+    {
+      "type": "sku",
+      "name": "SKU",
+      "limit": 1
+    },
+    {
+      "type": "share",
+      "name": "Share",
+      "limit": 1
+    },
+    {
+      "type": "tabs",
+      "name": "Tabs",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_product_description",
+          "label": "Show product description",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_tabs_below_product_gallery",
+          "label": "Show tabs below product gallery",
+          "info": "Desktop only",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Tab"
+        },
+        {
+          "type": "text",
+          "id": "tab_heading_1",
+          "label": "Heading",
+          "default": "Tab 1"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_text_1",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your product.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Tab"
+        },
+        {
+          "type": "text",
+          "id": "tab_heading_2",
+          "label": "Heading",
+          "default": "Tab 2"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_text_2",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your product.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Tab"
+        },
+        {
+          "type": "text",
+          "id": "tab_heading_3",
+          "label": "Heading",
+          "default": "Tab 3"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_text_3",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your product.</p>"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Text block</p>"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 1
+    },
+    {
+      "type": "vendor",
+      "name": "Vendor",
+      "limit": 1
+    },
+    {
+      "type": "complementary_products",
+      "name": "Complementary products",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "To select complementary products, add the Search & Discovery app. [Learn more](https:\/\/shopify.dev\/themes\/product-merchandising\/recommendations)"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Pairs well with"
+        },
+        {
+          "type": "range",
+          "id": "product_recommendation_limit",
+          "label": "Maximum products to show",
+          "min": 1,
+          "max": 10,
+          "default": 5
+        },
+        {
+          "type": "range",
+          "id": "products_per_slide",
+          "label": "Number of products per page",
+          "min": 1,
+          "max": 3,
+          "default": 2
+        }
+      ]
+    }
   ]
 }
+
+{% endschema %}

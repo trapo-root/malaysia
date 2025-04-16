@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "product-hex-template",
+      "type": "product-packagemat-template",
       "blocks": {
         "title": {
           "type": "title",
