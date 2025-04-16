@@ -416,6 +416,13 @@
     if(window.Shopify&&window.Shopify.designMode)document.documentElement.className+=' in-theme-editor';
     if(('ontouchstart' in window)||window.DocumentTouch&&document instanceof DocumentTouch)document.documentElement.className=document.documentElement.className.replace(/\bno-touch\b/,'has-touch');
   </script>
+  {% if request.path contains '/apps/order-tracking?*' %}
+  <script>
+    window.location.href = '/pages/track-your-order';
+    // Or to preserve the dynamic part:
+    // window.location.href = '/new-path' + '{{ request.path | replace: "/apps/order-tracking?*", "" }}';
+  </script>
+{% endif %}
 
     {% comment %}Inject icon-star-symbol begin{% endcomment %}
     <svg
