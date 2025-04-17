@@ -44,6 +44,7 @@
             <div {% if showPageData %} data-page="{{page}}"{% endif %} class="spf-col-xl-3 spf-col-lg-3 spf-col-md-6 spf-col-sm-6 spf-col-6">
   <div class="spf-product-card spf-product-card__center spf-product-card__template-1{% unless product.available %} spf-soldout{% endunless %}">
     <div class="spf-product-card__inner">
+      <div class="badge-outer">
       {% if product.tags contains 'pre-order' %}
         <div class="preorder-badge">
           Pre-Order
@@ -58,6 +59,7 @@
       {% unless product.available %}
             <span translatable class="spf-product__label spf-product__label-soldout">{{translation.product.sold_out | default: "Sold out"}}</span>
                   {% endunless %}
+      </div>
                       <a class="spf-product-card__image-wrapper" href="{{root_url}}{{ product.url }}{{variant_url}}" style="padding-top:66.783216783217%;">
         {% if images_count > 0 %}
           {% for image in product.images limit: 2 %}
