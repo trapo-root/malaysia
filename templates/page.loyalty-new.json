@@ -102,7 +102,7 @@
           "type": "content",
           "settings": {
             "title": "12. Can I register multiple loyalty accounts?",
-            "answer": "<p>No, each user can only register <strong>one</strong> loyalty account using a single phone number.</p>"
+            "answer": "<p>No, each user can only register one loyalty account using a single phone number.</p><p>Any attempt to abuse this by creating multiple or fake accounts may result in Trapo revoking your loyalty privileges.</p>"
           }
         }
       },
