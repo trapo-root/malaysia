@@ -860,7 +860,7 @@ const cartObject = items.detail || {};
    if(cartObject.item_count > 0){
       let addonProducts = ((wowcart.cartItems || {}).items || []).filter(item=>item.product_type == 'Add-On' || item.product_type == 'Promotional')
         if((addonProducts||{}).length == (wowcart.cartItems || {}).item_count){
-          (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
+          // (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
         }  
     }
   initOrGetLocsStorePickup();
