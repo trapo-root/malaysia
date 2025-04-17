@@ -95,7 +95,10 @@
       <div class="cart-section">
         {% capture add_to_cart_label %}{% if product.tags contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
         {%  if product.type == 'TRAPO REFRESH PACKAGE' %}
-          <button class="refresh-submit">
+          <button class="refresh-submit 
+            {% if product.available == false %}
+              disabled
+            {% endif %}">
           <img
             class="cart-icon"
             src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/cart-svg_501d7f64-f263-476c-ab90-451c2a0c1063.svg?v=1736236357"
@@ -271,6 +274,9 @@
       	letter-spacing: 0.5px;
       	line-height: 16px;
       }
+  .add-to-cart.disabled,.refresh-submit.disabled{
+    background-color: #808080;
+  }
 
       .cart-icon {
       	display: none;
