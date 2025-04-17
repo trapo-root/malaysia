@@ -165,7 +165,7 @@
                   {{- product.title | escape -}}
                 </h1>
               {% else %}
-                <h2 class="product_name">
+                <h1 class="product_name">
                   <a href="{{ product.url }}">
                     {% if onboarding %}
                       {{- 'homepage.onboarding.product_title' | t -}}
@@ -173,7 +173,7 @@
                       {{- product.title | escape -}}
                     {% endif %}
                   </a>
-                </h2>
+                </h1>
               {% endif %}
 
               <div class="product-rating">{{ product.metafields.okendo.ProductListingSnippet }}</div>
