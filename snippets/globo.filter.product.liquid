@@ -57,7 +57,7 @@
       {% endif %}
       
       {% unless product.available %}
-            <span translatable class="spf-product__label spf-product__label-soldout">{{translation.product.sold_out | default: "Sold out"}}</span>
+            <span translatable class="spf-product__label spf-product__label-soldout" {% if product.tags contains 'new' %}style="right: 45px;"{% endif %}>{{translation.product.sold_out | default: "Sold out"}}</span>
                   {% endunless %}
       </div>
                       <a class="spf-product-card__image-wrapper" href="{{root_url}}{{ product.url }}{{variant_url}}" style="padding-top:66.783216783217%;">
