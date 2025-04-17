@@ -318,7 +318,7 @@
               ></a>
             </div>
           </td>
-          <td class="col_2">6H</td>
+          <td class="col_2">8H</td>
           <td class="col_3">9H</td>
           <td class="col_4">10H</td>
         </tr>
@@ -351,9 +351,7 @@
             </div>
           </td>
           <td class="col_2"></td>
-          <td class="col_3">
-            <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/correct-icon.svg?v=1718041295">
-          </td>
+          <td class="col_3"></td>
           <td class="col_4">
             <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/correct-icon.svg?v=1718041295">
           </td>
@@ -555,7 +553,7 @@
   </div>
 </section>
 
-<section class="blog_post_container tint_service_blk">
+<section class="blog_post_container tint_service_blk" id="warranty-section">
   <div class="tint_service_tab">
     <ul id="tabs-nav">
       <li><a class="active" href="#tab1">FAQ</a></li>
@@ -1594,4 +1592,26 @@
             $(activeTab).fadeIn();
             return false;
         });
+  $(window).on('load', function () {
+      // Get the section ID from URL parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const sectionId = urlParams.get('section');
+  //console.log(sectionId);
+      if (sectionId) {
+        // Find the section element
+        const $section = $('#' + sectionId);
+
+        $('#tabs-nav li').removeClass('active');
+        $('#tabs-nav li:nth-child(2)').addClass('active');
+        $('.tab-content').hide();
+        $('#tab2').fadeIn();
+
+        if ($section.length) {
+          // Smooth scroll to the section
+          $('html, body').animate({
+            scrollTop: $section.offset().top + 100
+          }, 2000); // 1000ms = 1 second duration
+        }
+      }
+    });
 </script>
