@@ -161,9 +161,9 @@
               {% endif %}
             {% when 'title' %}
               {% if context == 'product' %}
-                <h1 class="product_name">
+                <h2 class="product_name">
                   {{- product.title | escape -}}
-                </h1>
+                </h2>
               {% else %}
                 <h2 class="product_name">
                   <a href="{{ product.url }}">
