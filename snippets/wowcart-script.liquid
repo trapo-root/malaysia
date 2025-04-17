@@ -847,7 +847,7 @@ margin-bottom: unset !important;
     //clear cart if cart only has free products
     
     if(cartObject.item_count >0 && cartObject.items_subtotal_price === 0){
-      (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
+      //(window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
     }
     removeQuantitySelector();
     initOrGetLocsStorePickup();
