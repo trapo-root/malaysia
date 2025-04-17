@@ -67,7 +67,7 @@
       <link rel="alternate" href="https://shop.trapo.com/en-nz" hreflang="en-NZ" />
       <link rel="alternate" href="https://shop.trapo.com/en-uae" hreflang="en-AE" />
     {% endif %}
-  
+    {% if handle contains 'collections' %}
     {% if collection.template_suffix != 'only-my' %}
     <!-- Collections Hreflang   -->
       <link rel="alternate" hreflang="en-MY" href="https://my.trapo.asia{{ collection.url }}">
@@ -79,7 +79,8 @@
       <link rel="alternate" hreflang="en-NZ" href="https://shop.trapo.com/en-nz{{  collection.url }}" />
       <link rel="alternate" hreflang="en-AE" href="https://shop.trapo.com/en-uae{{  collection.url }}" />
     {% endif %}
-
+      {% endif %}
+    
     {% if product.tags != 'only-malaysia' %}
     <!-- Product page Hreflang   -->
       <link rel="alternate" hreflang="en-MY" href="https://my.trapo.asia{{ product.url }}">
