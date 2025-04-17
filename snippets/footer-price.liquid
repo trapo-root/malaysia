@@ -103,7 +103,11 @@
           {% if product.available %}{{ add_to_cart_label }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}
         </button>
         {% else %}
-        <button class="add-to-cart">
+        <button class="add-to-cart
+           {% if product.available == false %}
+              disabled
+            {% endif %}
+          ">
           <img
             class="cart-icon"
             src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/cart-svg_501d7f64-f263-476c-ab90-451c2a0c1063.svg?v=1736236357"
