@@ -847,7 +847,10 @@ margin-bottom: unset !important;
     //clear cart if cart only has free products
     
     if(cartObject.item_count >0 && cartObject.items_subtotal_price === 0){
-      //(window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
+      let addonProducts = ((wowcart.cartItems || {}).items || []).filter(item=>item.product_type == 'Add-On' || item.product_type == 'Promotional' || item.product_type == 'Reward')
+     if((addonProducts||{}).length == (wowcart.cartItems || {}).item_count){
+          (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
+        }  
     }
     removeQuantitySelector();
     initOrGetLocsStorePickup();
@@ -860,7 +863,7 @@ const cartObject = items.detail || {};
    if(cartObject.item_count > 0){
       let addonProducts = ((wowcart.cartItems || {}).items || []).filter(item=>item.product_type == 'Add-On' || item.product_type == 'Promotional' || item.product_type == 'Reward')
         if((addonProducts||{}).length == (wowcart.cartItems || {}).item_count){
-          //(window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
+          (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
         }  
     }
   initOrGetLocsStorePickup();
