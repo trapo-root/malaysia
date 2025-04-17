@@ -93,13 +93,14 @@
         </div>
       </div>
       <div class="cart-section">
+        {% capture add_to_cart_label %}{% if product.tags contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
         {%  if product.type == 'TRAPO REFRESH PACKAGE' %}
           <button class="refresh-submit">
           <img
             class="cart-icon"
             src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/cart-svg_501d7f64-f263-476c-ab90-451c2a0c1063.svg?v=1736236357"
           >
-          Add to Cart
+          {% if product.available %}{{ add_to_cart_label }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}
         </button>
         {% else %}
         <button class="add-to-cart">
@@ -107,7 +108,7 @@
             class="cart-icon"
             src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/cart-svg_501d7f64-f263-476c-ab90-451c2a0c1063.svg?v=1736236357"
           >
-          Add to Cart
+          {% if product.available %}{{ add_to_cart_label }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}
         </button>
         {% endif %}
       </div>
