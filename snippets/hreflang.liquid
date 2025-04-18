@@ -1,0 +1,85 @@
+{%- comment %} --- Hreflang Tag Generation --- {%- endcomment -%}
+<!-- DEBUG: Hreflang Snippet Started -->
+{%- assign current_path = request.path | split: '?' | first -%}
+{%- assign is_root_path = false -%}
+{%- if current_path == '/' -%}
+  {%- assign is_root_path = true -%}
+  {%- assign current_path_for_url = '' -%}
+{%- else -%}
+  {%- assign current_path_for_url = current_path -%}
+{%- endif -%}
+
+{%- comment %} === Define Market Properties === {%- endcomment -%}
+
+{%- comment %} AU Market {%- endcomment -%}
+{%- assign market_au_hreflang = 'en-AU' -%}
+{%- assign market_au_base_url = 'https://shop.trapo.com' -%}
+{%- assign market_au_prefix = '' -%}
+
+{%- comment %} NZ Market {%- endcomment -%}
+{%- assign market_nz_hreflang = 'en-NZ' -%}
+{%- assign market_nz_base_url = 'https://shop.trapo.com' -%}
+{%- assign market_nz_prefix = '/en-nz' -%}
+
+{%- comment %} AE Market {%- endcomment -%}
+{%- assign market_ae_hreflang = 'en-AE' -%}
+{%- assign market_ae_base_url = 'https://shop.trapo.com' -%}
+{%- assign market_ae_prefix = '/en-uae' -%}
+
+{%- comment %} MY Market {%- endcomment -%}
+{%- assign market_my_hreflang = 'en-MY' -%}
+{%- assign market_my_base_url = 'https://my.trapo.asia' -%}
+{%- assign market_my_prefix = '' -%}
+
+{%- comment %} SG Market {%- endcomment -%}
+{%- assign market_sg_hreflang = 'en-SG' -%}
+{%- assign market_sg_base_url = 'https://sg.trapo.asia' -%}
+{%- assign market_sg_prefix = '' -%}
+
+{%- comment %} TH Market {%- endcomment -%}
+{%- assign market_th_hreflang = 'th-TH' -%}
+{%- assign market_th_base_url = 'https://th.trapo.asia' -%}
+{%- assign market_th_prefix = '' -%}
+
+{%- comment %} ID Market {%- endcomment -%}
+{%- assign market_id_hreflang = 'id-ID' -%}
+{%- assign market_id_base_url = 'https://id.trapo.asia' -%}
+{%- assign market_id_prefix = '' -%}
+
+
+{%- comment %} === Generate Hreflang Tags === {%- endcomment -%}
+
+{%- comment %} AU Market {%- endcomment -%}
+{%- assign market_au_url = market_au_base_url | append: market_au_prefix | append: current_path_for_url -%}
+<link rel="alternate" hreflang="{{ market_au_hreflang }}" href="{{ market_au_url }}" />
+
+{%- comment %} NZ Market {%- endcomment -%}
+{%- assign market_nz_url = market_nz_base_url | append: market_nz_prefix | append: current_path_for_url -%}
+<link rel="alternate" hreflang="{{ market_nz_hreflang }}" href="{{ market_nz_url }}" />
+
+{%- comment %} AE Market {%- endcomment -%}
+{%- assign market_ae_url = market_ae_base_url | append: market_ae_prefix | append: current_path_for_url -%}
+<link rel="alternate" hreflang="{{ market_ae_hreflang }}" href="{{ market_ae_url }}" />
+
+{%- comment %} MY Market {%- endcomment -%}
+{%- assign market_my_url = market_my_base_url | append: market_my_prefix | append: current_path_for_url -%}
+<link rel="alternate" hreflang="{{ market_my_hreflang }}" href="{{ market_my_url }}" />
+
+{%- comment %} SG Market {%- endcomment -%}
+{%- assign market_sg_url = market_sg_base_url | append: market_sg_prefix | append: current_path_for_url -%}
+<link rel="alternate" hreflang="{{ market_sg_hreflang }}" href="{{ market_sg_url }}" />
+
+{%- comment %} TH Market {%- endcomment -%}
+{%- assign market_th_url = market_th_base_url | append: market_th_prefix | append: current_path_for_url -%}
+<link rel="alternate" hreflang="{{ market_th_hreflang }}" href="{{ market_th_url }}" />
+
+{%- comment %} ID Market {%- endcomment -%}
+{%- assign market_id_url = market_id_base_url | append: market_id_prefix | append: current_path_for_url -%}
+<link rel="alternate" hreflang="{{ market_id_hreflang }}" href="{{ market_id_url }}" />
+
+
+{%- comment %} === Generate x-default Tag === {%- endcomment -%}
+{%- assign x_default_url = market_th_base_url | append: market_th_prefix | append: current_path_for_url -%}
+<link rel="alternate" hreflang="x-default" href="{{ x_default_url }}" />
+<!-- DEBUG: Hreflang Snippet Ended -->
+{%- comment %} --- End Hreflang Tag Generation --- {%- endcomment -%}
