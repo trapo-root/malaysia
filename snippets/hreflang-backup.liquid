@@ -1,0 +1,39 @@
+<!--  HREFLANGs  Starts  -->
+    {% if template contains 'index' %}
+      <link rel="alternate" href="https://my.trapo.asia" hreflang="en-MY" />
+      <link rel="alternate" href="https://my.trapo.asia" hreflang="x-default" />
+      <link rel="alternate" href="https://sg.trapo.asia" hreflang="en-SG" />
+      <link rel="alternate" href="https://th.trapo.asia" hreflang="th-TH" />
+      <link rel="alternate" href="https://id.trapo.asia" hreflang="id-ID" />
+      <link rel="alternate" href="https://shop.trapo.com" hreflang="en-AU" />
+      <link rel="alternate" href="https://shop.trapo.com/en-nz" hreflang="en-NZ" />
+      <link rel="alternate" href="https://shop.trapo.com/en-uae" hreflang="en-AE" />
+    {% endif %}
+    {% if handle contains 'collections' %}
+      {% if collection.template_suffix != 'only-my' %}
+      <!-- Collections Hreflang   -->
+        <link rel="alternate" hreflang="en-MY" href="https://my.trapo.asia{{ collection.url }}">
+        <link rel="alternate" hreflang="x-default" href="https://my.trapo.asia{{ collection.url }}">
+        <link rel="alternate" hreflang="en-SG" href="https://sg.trapo.asia{{ collection.url }}" /> 
+        <link rel="alternate" hreflang="th-TH" href="https://th.trapo.asia{{ collection.url }}" /> 
+        <link rel="alternate" hreflang="id-ID" href="https://id.trapo.asia{{ collection.url }}" />
+        <link rel="alternate" hreflang="en-AU" href="https://shop.trapo.com{{  collection.url }}"  />
+        <link rel="alternate" hreflang="en-NZ" href="https://shop.trapo.com/en-nz{{  collection.url }}" />
+        <link rel="alternate" hreflang="en-AE" href="https://shop.trapo.com/en-uae{{  collection.url }}" />
+      {% endif %}
+    {% endif %}
+    {% if handle contains 'products' %}
+      {% if product.tags != 'only-malaysia' %}
+      <!-- Product page Hreflang   -->
+        <link rel="alternate" hreflang="en-MY" href="https://my.trapo.asia{{ product.url }}">
+        <link rel="alternate" hreflang="x-default" href="https://my.trapo.asia{{ product.url }}">
+        <link rel="alternate" hreflang="en-SG" href="https://sg.trapo.asia{{ product.url }}" /> 
+        <link rel="alternate" hreflang="th-TH" href="https://th.trapo.asia{{ product.url }}" /> 
+        <link rel="alternate" hreflang="id-ID" href="https://id.trapo.asia{{ product.url }}" />
+        <link rel="alternate" hreflang="en-AU" href="https://shop.trapo.com{{  product.url }}"  />
+        <link rel="alternate" hreflang="en-NZ" href="https://shop.trapo.com/en-nz{{  product.url }}" />
+        <link rel="alternate" hreflang="en-AE" href="https://shop.trapo.com/en-uae{{  product.url }}" />
+      {% endif %}
+    {% endif %}
+ 
+    <!--  HREFLANGs  Ends  -->
