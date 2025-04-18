@@ -11,20 +11,10 @@
 
 {%- comment %} === Define Market Properties === {%- endcomment -%}
 
-{%- comment %} AU Market {%- endcomment -%}
+{%- comment %} AU Market (Represents shop.trapo.com group) {%- endcomment -%}
 {%- assign market_au_hreflang = 'en-AU' -%}
 {%- assign market_au_base_url = 'https://shop.trapo.com' -%}
 {%- assign market_au_prefix = '' -%}
-
-{%- comment %} NZ Market {%- endcomment -%}
-{%- assign market_nz_hreflang = 'en-NZ' -%}
-{%- assign market_nz_base_url = 'https://shop.trapo.com' -%}
-{%- assign market_nz_prefix = '/en-nz' -%}
-
-{%- comment %} AE Market {%- endcomment -%}
-{%- assign market_ae_hreflang = 'en-AE' -%}
-{%- assign market_ae_base_url = 'https://shop.trapo.com' -%}
-{%- assign market_ae_prefix = '/en-uae' -%}
 
 {%- comment %} MY Market {%- endcomment -%}
 {%- assign market_my_hreflang = 'en-MY' -%}
@@ -49,17 +39,9 @@
 
 {%- comment %} === Generate Hreflang Tags === {%- endcomment -%}
 
-{%- comment %} AU Market {%- endcomment -%}
+{%- comment %} AU Market (Represents shop.trapo.com group) {%- endcomment -%}
 {%- assign market_au_url = market_au_base_url | append: market_au_prefix | append: current_path_for_url -%}
 <link rel="alternate" hreflang="{{ market_au_hreflang }}" href="{{ market_au_url }}" />
-
-{%- comment %} NZ Market {%- endcomment -%}
-{%- assign market_nz_url = market_nz_base_url | append: market_nz_prefix | append: current_path_for_url -%}
-<link rel="alternate" hreflang="{{ market_nz_hreflang }}" href="{{ market_nz_url }}" />
-
-{%- comment %} AE Market {%- endcomment -%}
-{%- assign market_ae_url = market_ae_base_url | append: market_ae_prefix | append: current_path_for_url -%}
-<link rel="alternate" hreflang="{{ market_ae_hreflang }}" href="{{ market_ae_url }}" />
 
 {%- comment %} MY Market {%- endcomment -%}
 {%- assign market_my_url = market_my_base_url | append: market_my_prefix | append: current_path_for_url -%}
