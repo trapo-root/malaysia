@@ -1,6 +1,384 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+
+<div class="loyalty-outer">
+<section class="head-banner">
+  <div class="container">    
+    <div class="text-center">
+      <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/loyalty_logo__2025_1.png?v=1740975268" class="lazyload img-size">    
+    </div>
+     {% unless customer %}
+    <div class="call-to-action">    
+        <a href="/account/register" class="lion-action-button lion-action-button--primary lp-button">Sign up</a>
+        <a href="/account/login" class="lion-action-button lion-action-button--neutral lp-button">Log in</a>
+    </div>
+      {% endunless %}
+  </div>
+</section>
+<section class="join-now">
+  <div class="container-fluid text-center" style="background:#E82276;padding: 2rem 0"> 
+    <h1 class="section-title">JOIN NOW & START SAVING INSTANTLY!</h1>
+    <div class="col-md-12 col-12 text-center ctc">
+        <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/join-now-desk.png?v=1740976465" class="lazyload desktop" width="800">
+        <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/join-now-mobile.png?v=1740976276" class="lazyload img-size mobile">
+    </div>
+    <ul class="join-marks">
+      <li>
+        <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/check-mark.svg?v=1740977102" />
+        NO min spend
+      </li>
+      <li>
+        <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/check-mark.svg?v=1740977102" />
+        NO waiting for promos
+      </li>
+      <li>
+        <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/check-mark.svg?v=1740977102" />
+        Exclusive savings, always!
+      </li>
+    </ul>
+    <h1 class="section-title">Trapo Loyalty – More Savings, Every Day!</h1>
+  </div>
+</section>
+<section class="join-now-1">
+  <div class="container-fluid text-center" style="background:#125A9C;padding: 2rem 0"> 
+    <h1 class="section-title">Nice, I’m interested. What do I do now?</h1>
+    <p class="sub-title">Fill in your details and start earning points. Enjoy more perks as you purchase Trapo products.</p>
+    <div class="col-md-12 col-12 text-center ctc">
+        <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/earn-point-desk.png?v=1740977541" class="lazyload desktop">
+        <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/earn-point-mobile.png?v=1740977541" class="lazyload img-size mobile" width="100">
+    </div>
+  </div>
+</section>
+
+<section class="join-now-2">
+  <div class="container-fluid text-center" style="background:#003A70;padding: 2rem 0"> 
+    <h1 class="section-title">WANT TO EARN MORE WITHOUT SPENDING?</h1>
+    
+    <div class="col-md-12 col-12 text-center ctc">
+        <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/activities-desk.png?v=1740977808" class="lazyload desktop">
+        <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/activities-mobile.png?v=1740977808" class="lazyload img-size mobile">
+    </div>
+  </div>
+</section>
+
+<section class="tier">
+  <div class="container text-center" style="padding :3rem 0 2rem;">
+    <h1 class="section-title" style="color:#003A70">WANT TO EARN MORE WITHOUT SPENDING?</h1>
+    <p class="sub-title" style="color:#1B3D6D">Collect exclusive TRAPO car stickers to unlock awesome offline benefits!<br>Stickers are available with any purchase of TRAPO car mats.</p>
+      <div class="col-md-12 col-12 text-center ctc">
+        <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/shop-more-desk.png?v=1740979047" class="lazyload desktop" width="1000">
+        <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/shop-more-mobile.png?v=1740979047" class="lazyload img-size mobile">
+        <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/tier_desktop-new_fbf9d8a5-1534-4c93-a723-fdcade3b4956.png?v=1740979365" class="lazyload desktop" width="800">
+        <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/tier_mobile-new_e721850f-bdac-40b4-bc27-5c4a849baae0.png?v=1740979364" class="lazyload img-size mobile">
+      </div>
+  </div>
+</section>
+<!--<section class="redeem">
+  <div class="container-fluid text-center">
+      <h1 class="section-title" style="color:#003A70">GREAT! HOW DO I REDEEM POINTS?</h1>
+    <div class="container-fluid text-center" style="background: #EDEDED;padding: 2rem">
+      <div class="row cash text-center">
+        <div class="col-md-6 col-12">
+          <label>Desktop</label>
+          <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/desktop_redeem_cash.gif" class="lazyload img-size" width="300">
+        </div>
+        <div class="col-md-6 col-12">
+          <label>Mobile</label>
+          <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/mobile_redeem_cash.gif" class="lazyload img-size" width="300">
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid text-center" style="background: #DBDBDB;padding: 2rem">
+      <p class="redeem-txt">Redeem item</p>
+      <div class="row cash text-center">
+        <div class="col-md-6 col-12 ">     
+          <label>Desktop</label>
+          <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/desktop_redeem_items.gif" class="lazyload img-size" width="300">
+        </div>  
+        <div class="col-md-6 col-12 ">
+          <label>Mobile</label>
+          <img data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/mobile_redeem_items.gif" class="lazyload img-size" width="300">
+        </div>  
+      </div>
+    </div>
+  </div>
+</section>-->
+    {% unless customer %}
+<section class="break">
+  <div class="container text-center" style="padding: 3rem 0 1rem;">
+    <div class="row" style="margin: 0 0;">
+      <div class="col-md-12 col-12" style="line-height: 4rem">        
+          <p class="head">I'm a believer!</p>
+          <a href="/account/register" class="lion-action-button lion-action-button--primary lp-button" style="margin-right: unset">Sign up now</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endunless %}
+  </div>
+<style>
+*{
+  margin: 0 0;
+  padding: 0 0;
+}
+.container{
+  max-width: 100% !important;
+}
+  .loyalty-outer .container{
+    position: relative;
+    margin: 0 auto;
+    display: inherit;
   }
+div.container.banner{
+  padding: 0 0;
+}
+div.container{
+  padding: 30px 0px;
+} 
+h1.section-title{
+      color: #fff;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    font-style: italic;
+    font-size: 36px;
+  text-transform: uppercase;
+}
+  p.sub-title{
+    color: #fff;
+    letter-spacing: 0.19px;
+  }
+.head-banner{
+  background: url(https://cdn.shopify.com/s/files/1/0234/7089/9277/files/main-banner-loyalty-desktop.png?v=1740975464);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.head-banner .img-size{
+  width:25%;
+} 
+.head-banner .call-to-action{
+  padding: 2rem;
+  text-align: center !important;
+}
+.join-now ul.join-marks{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 30px 0;
+    gap: 15px;
+}
+ .join-now ul.join-marks li{
+   display: flex;
+    gap: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0;
+  }
+.head-banner .call-to-action a.lp-button, .break a.lp-button{
+  background-color: rgba(238, 42, 123, 1);
+  color: white !important;
+  padding: 10px 35px;
+  border-radius: 30px !important;
+  font-size: 16px !important;
+  width: 150px;
+  text-transform: inherit;
+  font-family: inherit;
+  font-weight:700;
+}
+.why-should-i-join .container-fluid .earn{padding: 0 24%}
+.why-should-i-join .container-fluid{max-width: 100% !important;}
+.why-should-i-join .white .head{color: white !important;font-size: 2rem;font-weight: 900;font-family: 'Roboto' !important;}
+  .container.content .text-center p.txt-para{
+  color: white !important;
+  padding: 10px !important;
+}
+.why-should-i-join .white .sub-head{color: white;font-size: 2rem;font-weight: 400}
+
+/* .why-should-i-join .earn{} */
+.why-should-i-join .earn .head{color: #003A70;font-size: 2rem;font-weight: 700;
+    letter-spacing: 0;
+    text-transform: inherit;}
+.why-should-i-join .earn p{
+  font-size: 15px;
+    text-align: justify;
+    margin: 0 0 15px;
+    font-style: normal;
+    line-height: 1.6em;
+    font-weight: 400!important;
+}
+.why-should-i-join .earn .sub-head{color: #003A70;font-size: 2rem;font-weight: 400}
+  
+.break .sub-head, .tier .sub-head, .redeem .sub-head{color: #003A70;font-size: 2rem;font-weight: 400}
+.break .head, .tier .head, .redeem .head{color: #003A70;padding: 0 0; margin: 0 0 !important; font-size: 2rem !important; font-family: 'Roboto' !important;}
+
+.activities .row{margin: 0 15%;}  
+.referrals .row{margin: 0 30%;}
+.redeem .cash{margin: 0 20%}
+  
+.activities .act, .referrals .ref{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0px;
+}
+.activities .act-img, .referrals .ref-img{
+  width: 100px;
+}
+.activities .txt-label{
+  font-size: 14px;
+  color: white;
+  padding :10px 0;
+}
+.activities .points{
+  color: white;
+  font-family: 'Roboto' !important;
+  font-size: 20px;
+  font-weight: 700;
+}
+.activities h1, .referrals h1{
+ font-size: 1.5rem; 
+}
+.referrals .txt-label{
+  font-size: 16px;
+  color: #003A70;
+  padding :10px 0;
+  font-weight: 200 !important;
+}
+.redeem .prod{
+  margin: 0 20%;
+  padding: 2rem 0;
+  justify-content: center;
+}
+.cash label{
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #E81F76;
+  text-align: center;
+  padding: 10px 0px;
+}
+.redeem-txt{
+  font-size: 1.5rem !important; 
+  font-weight: 900;
+  color:#E81F76;
+  font-family: 'Roboto' !important;
+}
+.redeem .container-fluid{
+  padding: 0 0;
+}
+.ctc{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.desktop{display: block}
+.mobile{display: none}
+.sub-head.sm-font{
+  font-size: 15px;
+    line-height: 10px;
+    font-weight: 700;
+    color: #000;
+  padding: 0 10px;
+}
+  h2.title{
+    font-weight:700 !important;
+  }
+  
+@media only screen and (max-width: 600px){
+  .container{
+    width: 100%;
+  }
+  .head-banner .call-to-action{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .why-should-i-join .container-fluid .earn{padding: 0 0}
+  .for-mobile{
+    width: 100%;
+    height: 50px;
+  }
+  .activities .row, .referrals .row, .redeem .prod, .redeem .cash{
+    margin: 0 0;
+  }  
+  .referrals .row{
+    display: flex;
+  }
+  .tier .sub-head{
+    line-height: 1.3;
+  }
+  .img-size{
+    width: 100%;
+  }
+  .img-prod{
+    width: 150px;
+  }
+  .img-bf{
+    width: 200px;
+  }
+  .redeem .container-fluid{
+    padding: unset;
+  }
+  .redeem .prod div.col-6{
+    padding: 8px;
+  }
+  .container.footer-menu-wrap {
+    padding: 10px;
+  }
+  .mobile{display: block}
+  .desktop{display: none !important;}
+}
+
+  .ex-img.desktop{
+    margin: auto;
+    width: 50%;
+  }
+
+  .ex-img.mobile{
+    margin: auto;
+    width: 85%;
+  }
+  .loyalty-outer{
+    margin:0px;
+  }
+
+  
+  @media(max-width:767px){
+  .head-banner{
+    background: url(https://cdn.shopify.com/s/files/1/0234/7089/9277/files/main-banner-loyalty-mobile.png?v=1740975460);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 175px;
+}
+    h1.section-title {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    font-style: italic;
+    font-size: 30px;
+    text-transform: uppercase;
+    line-height: normal;
+}
+    .join-now ul.join-marks {
+    display: grid;
+    }
+    .head-banner img.img-size {
+        width: 100%;
+    }
+    .join-now-1 img.img-size{
+      width: 75%;
+    }
+}
+</style>
+
+{% schema %}
+{
+"name": "Loyalty Program Update",
+"settings": [],
+"presets": [
+{
+"name": "Loyalty Program Update",
+"category": "Additional Sections"
+}
+]
+}
 {% endschema %}
