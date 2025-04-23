@@ -1042,7 +1042,7 @@ $(document).ready(function() {
     if (urlParams.get('s') === 'refer-friend') {
         var $section = $('#refer-friend');
         if ($section.length) {
-            var offset = $section.offset().top + 50; // 100px above the section
+            var offset = $section.offset().top + 10; // 100px above the section
             if (offset < 0) offset = 0; // Prevent negative scroll
             $('html, body').animate({
                 scrollTop: offset
