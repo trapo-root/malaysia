@@ -1037,3 +1037,16 @@ function fetchCarSizeData() {
 /** End Refresh Package Functionality **/
 
 
+$(document).ready(function() {
+    // Get the URL parameters
+    var urlParams = new URLSearchParams(window.location.search);
+    // Check if the 's' parameter is 'refer-friend'
+    if (urlParams.get('s') === 'refer-friend') {
+        // Scroll to the section with the ID 'refer-friend-section'
+        $('html, body').animate({
+            scrollTop: $('#refer-friend-section').offset().top
+        }, 500); // 500ms for smooth scroll
+    }
+});
+
+
