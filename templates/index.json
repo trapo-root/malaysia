@@ -50,6 +50,25 @@
             "mobile_image": "shopify://shop_images/mobile_loyalty_now.jpg"
           }
         },
+        "image_NYgbG4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2000x760_9cf14ce4-4f62-44f4-8c2d-708a226c9f54.jpg",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "shopify://collections/car-wipers",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original",
+            "mobile_image": "shopify://shop_images/1080x1080_3ac8d2c1-dbc6-487a-a54f-1c2f82c836fc.jpg"
+          }
+        },
         "image_KptQ6p": {
           "type": "image",
           "settings": {
@@ -67,25 +86,6 @@
             "text_align": "center",
             "caption_content_background": "original",
             "mobile_image": "shopify://shop_images/WebSlider---Exo-_truck-design_-02.jpg"
-          }
-        },
-        "image_NYgbG4": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Heat_Wiper-Web_e060588c-a4c7-4a73-882f-df56ba57d16e.jpg",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://collections/car-wipers",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/Heat_Wiper-Mob_b947315f-5129-41c3-8197-7d0203abfcee.jpg"
           }
         },
         "image_7z6gf8": {
@@ -232,8 +232,8 @@
       "block_order": [
         "image_MandM9",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2",
-        "image_KptQ6p",
         "image_NYgbG4",
+        "image_KptQ6p",
         "image_7z6gf8",
         "image_CJzXfp",
         "image_PyPQbh",
