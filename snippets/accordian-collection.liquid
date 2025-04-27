@@ -99,6 +99,29 @@
       </p>
     </div>
   </details>
+
+{% elsif collection.title == 'Car Dashcams' %}
+
+  <details class="collapsible-tab">
+    <summary class="collapsible-tab__heading" style="width:18%"><span><h2>FAQs About Dashcams</h2></span></summary>
+    <div class="collapsible-tab__text">
+      <h3 class="title"><strong>1. Are dashcams illegal in Malaysia?</strong></h3>
+      <p>No, dashcams are not illegal in Malaysia. In fact, they are encouraged as a way to protect yourself on the road. Just ensure the device is installed properly and does not obstruct your view while driving.</p>
+      <h3 class="title"><strong>2. What is a dashcam used for?</strong></h3>
+      <p>A dashcam records video footage while you're driving and sometimes while parked (if connected to a hardwire kit). It is commonly used to:</p>
+      <ul>
+        <li>Provide evidence in the event of an accident</li>
+<li>Record hit-and-run incidents</li>
+<li>Enhance vehicle security when parked</li>
+<li>Protect against road scams and false claims</li>
+      </ul>
+      <h3 class="title"><strong>3. Do dashcams use a lot of battery?</strong></h3>
+      <p>Not when installed with the right setup. Most dashcams use minimal power when running. If you use a proper hardwire kit like Trapo’s OBD Hardwire Kit, the power draw is controlled and includes a built-in cut-off to protect your car battery from draining.</p>
+      <h3 class="title"><strong>4. Is it worth having a dashcam?</strong></h3>
+      <p>Yes, it’s definitely worth it. A dashcam can help protect you in accidents, prevent disputes, and speed up insurance claims. In today’s traffic conditions, especially in Malaysia, it’s a smart and practical safety tool for every driver.</p>
+    </div>
+  </details>
+  
 {% endif %}
 
 <style>
@@ -106,6 +129,26 @@
     width:10%;
     text-transform: uppercase;
     border-bottom:0;
+  }
+  .collapsible-tab__heading h2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: .5rem 0;
+    color: #1b3d6d;
+    font-weight: 700;
+    width: auto;
+    text-transform: uppercase;
+    border-bottom: 0;
+    font-size: 15px;
+  }
+  .collapsible-tab__text h3.title{
+    font-size: .9rem !important;
+    line-height: 1.5;
+    text-align: justify;
+    margin: 0 0 15px;
+    font-style: normal;
   }
 
   @media screen and (max-width: 479px){
