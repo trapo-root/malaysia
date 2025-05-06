@@ -130,7 +130,7 @@
             </div>
             <div class="feature_item featured_on">
                 <h2 class="feature_title">Featured On</h2>
-                <div class="owl-carousel owl-theme">
+                <div class="owl-carousel">
                     <div class="item"><img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/div.pf-slide.png?v=1746500104"></div>
                     <div class="item"><img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/div.pf-slide_5.png?v=1746500151"></div>
                     <div class="item"><img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/div.pf-slide_2.png?v=1746500104"></div>
@@ -142,16 +142,28 @@
     </div>
 </div>
 <script>
-$(function() {
-  // Owl Carousel
-  var owl = $(".owl-carousel");
-  owl.owlCarousel({
-    items: 3,
-    margin: 10,
-    loop: true,
-    nav: true
-  });
-});
+$('.owl-carousel').owlCarousel({
+  loop: true,
+  margin: 10,
+  nav: true,
+  navText: [
+    "<i class='fa fa-caret-left'></i>",
+    "<i class='fa fa-caret-right'></i>"
+  ],
+  autoplay: true,
+  autoplayHoverPause: true,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+})
 
 </script>
 
