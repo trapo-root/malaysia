@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Create the fetch promise with cache-busting parameter in URL only
             const nocache = Date.now() + Math.floor(Math.random() * 10000);
-            const fetchPromise = fetch(`https://www.trapo.com/tracking-orders/trackk.php?nocache=${nocache}`, {
+            const fetchPromise = fetch(`https://www.trapo.com/tracking-orders/track.php?nocache=${nocache}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
