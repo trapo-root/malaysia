@@ -177,11 +177,13 @@ document.addEventListener('DOMContentLoaded', () => {
     async function logToDebugFile(message, level = 'info') {
         try {
             // Don't block the main flow with await
-            fetch('https://trapo.com/tracking-orders/track.php', {
+            fetch('https://www.trapo.com/tracking-orders/track.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
+                // Don't include credentials for logging requests
+                credentials: 'omit',
                 body: JSON.stringify({ 
                     message: message,
                     level: level,
@@ -204,13 +206,14 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Create the fetch promise with cache-busting parameter in URL only
             const nocache = Date.now() + Math.floor(Math.random() * 10000);
-            const fetchPromise = fetch(`https://trapo.com/tracking-orders/track.php?nocache=${nocache}`, {
+            const fetchPromise = fetch(`https://www.trapo.com/tracking-orders/trackk.php?nocache=${nocache}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ orderNumber }),
-                credentials: 'include'
+                // Change to 'same-origin' which is more compatible
+                credentials: 'omit'
             });
             
             // Race the fetch against the timeout
