@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function logToDebugFile(message, level = 'info') {
         try {
             // Don't block the main flow with await
-            fetch('https://www.trapo.com/tracking-orders/track.php', {
+            fetch('https://www.trapo.com/tracking-orders/trackk.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
