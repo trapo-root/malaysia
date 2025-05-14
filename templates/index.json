@@ -53,7 +53,7 @@
         "image_CJzXfp": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Grab_Wallet_Promo_Slider_Web.jpg",
+            "image": "shopify://shop_images/Grab_Wallet_Promo_-_EDM_Campaign_page_Slider_Web.webp",
             "pretext": "",
             "title": "",
             "subtitle": "",
@@ -66,7 +66,7 @@
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/Grab_Wallet_Promo_Slider_Mobile.jpg"
+            "mobile_image": "shopify://shop_images/Grab_Wallet_Promo_-_EDM_Campaign_page_Slider_Mobile.webp"
           }
         },
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2": {
