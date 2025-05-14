@@ -39,6 +39,23 @@
   </div>
 {% endif %}
 
+{% if page.handle == 'submission-success' %}
+  <div class="container">
+    <div class="claim-header">
+    <h3 class="main-title">We’re sending over your <br> confirmation e-mail!</h3>
+   
+    </div>
+
+    <div class="claim-middle">
+    <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/email_sent.gif?v=1747198307" class="scratch-gif" />
+    
+    <p class="sub-p">You may redeem your Gift at your chosen hub once you’ve received our e-mail.</p>
+    </div>
+
+    
+  </div>
+{% endif %}
+
 <style>
   .breadcrumb-container-page{
     display:none;
@@ -70,6 +87,11 @@
   p.claim-p{
     color: #1B3D6D;
     font-size: 14px;
+  }
+  p.submission-p{
+    color: #1B3D6D;
+    font-size: 14px;
+    font-weight:700;
   }
   img.prize-img{
     width: 55%;
