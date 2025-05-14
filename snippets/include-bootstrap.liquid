@@ -50,6 +50,9 @@
 %}
   {{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag }}
 {% endif %}
+{% if page.handle == 'spin-the-wheel' or page.handle == 'claim-your-prize' or page.handle == 'fill-in-form' or page.handle == 'submission-success' %}
+    {{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag }}
+  {% endif %}
 {% if template contains 'store-' or template contains 'daya-hub' or template contains 'trapo-kl-north' %}
   {{ 'bootstrap-5-1-3.css' | asset_url | stylesheet_tag }}
   {{ 'store-location.css' | asset_url | stylesheet_tag }}
