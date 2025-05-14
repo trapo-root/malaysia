@@ -8,6 +8,33 @@
   </div>
 {% endif %}
 
+{% if page.handle == 'claim-your-prize' %}
+  <div class="container">
+    <div class="claim-header">
+    <h3 class="main-title">Congratulations!</h3>
+    <h3 class="sub-title">You’ve unlocked</h3>
+    </div>
+
+    <div class="claim-middle">
+    <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/gift.gif?v=1747196787" />
+    <h3 class="sub-title">1x TRAPO Scratch & Win Card</h3>
+    <p class="claim-p">Head to a nearby Trapo Hub to redeem your card. Your prize awaits!</p>
+
+    <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/prize.png?v=1747196894" />
+    </div>
+
+    <div class="claim-bottom">
+      <h3 class="sub-title">Ready to claim?</h3>
+      <a href="/pages/fill-in-form" class="claim-btn">SUBMIT</a>
+    </div>
+  </div>
+{% endif %}
+
+{% if page.handle == 'fill-in-form' %}
+  <div class="container">
+  </div>
+{% endif %}
+
 <style>
   .breadcrumb-container-page{
     display:none;
