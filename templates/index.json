@@ -12,6 +12,25 @@
     "e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8": {
       "type": "slideshow",
       "blocks": {
+        "image_CJzXfp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Grab_Wallet_Promo_-_EDM_Campaign_page_Slider_Web.webp",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "shopify://collections/car-mats",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original",
+            "mobile_image": "shopify://shop_images/Grab_Wallet_Promo_-_EDM_Campaign_page_Slider_Mobile.webp"
+          }
+        },
         "image_MandM9": {
           "type": "image",
           "settings": {
@@ -50,25 +69,6 @@
             "mobile_image": "shopify://shop_images/Tesla_Model_Y_-_Juniper_mobile_1080x1080_ef5694d9-a871-4e75-b5b0-4d33976668f8.jpg"
           }
         },
-        "image_CJzXfp": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Grab_Wallet_Promo_-_EDM_Campaign_page_Slider_Web.webp",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://collections/car-mats",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/Grab_Wallet_Promo_-_EDM_Campaign_page_Slider_Mobile.webp"
-          }
-        },
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2": {
           "type": "image",
           "disabled": true,
@@ -92,7 +92,7 @@
         "image_NYgbG4": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/2000x760_9cf14ce4-4f62-44f4-8c2d-708a226c9f54.jpg",
+            "image": "shopify://shop_images/Heat_Wiper-Web_f0c8db3b-c01e-46b8-9dbd-aac6de675aa6.jpg",
             "pretext": "",
             "title": "",
             "subtitle": "",
@@ -229,9 +229,9 @@
         }
       },
       "block_order": [
+        "image_CJzXfp",
         "image_MandM9",
         "image_7z6gf8",
-        "image_CJzXfp",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2",
         "image_NYgbG4",
         "image_KptQ6p",
