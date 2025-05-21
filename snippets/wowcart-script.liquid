@@ -110,6 +110,14 @@ margin-bottom: unset !important;
   //Cart Loaded event
    document.addEventListener('WOWCART_LOADED', () => {
      console.log("This is inside THE WOW CART OPEN ------------>")
+
+     var imgUrl = "https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Store-Pickup-Banner.png";
+var $container = $('.wowcart_custom-placeholder');
+
+// Check if the image is already present
+if ($container.find('img[src="' + imgUrl + '"]').length === 0) {
+  $container.prepend('<img src="' + imgUrl + '" style="width: 100%;padding-top: 10px;">');
+}
      setTimeout(function () {
                 if ($(".dashcam-note").length == 0) {
               $('[data-product_type="TRAPO DASHCAM"] .wow-cart-product-price-block').append('<p class="dashcam-note" style="color: red;font-size: 11px;font-weight: 700;letter-spacing: 0.4px;padding-top: 2px;">NOTE : Choose Store Pickup for free installation</p>');
