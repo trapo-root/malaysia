@@ -275,6 +275,26 @@
               </lable>
             </div>
           </div>
+          <div class="type-outer" id="chroma-type" style="visibility: hidden;">
+            <input
+              type="radio"
+              class="product-type-radio"
+              name="properties[Type]"
+              value="Chroma"
+              {% if lastthird contains 'chroma' %}
+                checked
+              {% endif %}
+            >
+            <div
+              data-value="Chroma"
+              class="swatch-element-type {% if lastthird contains 'chroma' %}selected{% endif %}"
+              onclick="changeType(this)"
+            >
+              <lable>
+                <img src="{{ 'chroma.png' | asset_url }}" alt="Chroma">
+              </lable>
+            </div>
+          </div>
         </div>
       {% endif %}
 
