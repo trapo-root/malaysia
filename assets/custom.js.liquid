@@ -124,6 +124,16 @@ document.addEventListener('DOMContentLoaded', function() {
                           return false;
 		  });
 
+          var selectProductChromaTint = currentProductHandle.replaceAll(lastItem, "chroma" );
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductChromaTint + '.js') 
+                        .done(function(product) {
+			//console.log(product);
+           $('#chroma-type').css('visibility','visible');
+		  }).fail(function() {
+		   $('#chroma-type').hide();
+                          return false;
+		  });
+
          var selectProductQuickCoat = currentProductHandle.replaceAll(lastItem, "quik" );
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductQuickCoat + '.js') 
                         .done(function(product) {
@@ -262,6 +272,9 @@ var $product_img_cell = $(".variant_imgs_cell"),
     }
     else if(typeValue == 'Dfend'){
       var selectProductType = currentProductHandle.replaceAll(lastItem, "dfend" );
+    }
+    else if(typeValue == 'Chroma'){
+      var selectProductType = currentProductHandle.replaceAll(lastItem, "chroma" );
     }
     else if(typeValue == 'Quik'){
       var selectProductType = currentProductHandle.replaceAll(lastItem, "quik" );
