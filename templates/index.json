@@ -71,6 +71,7 @@
         },
         "image_CJzXfp": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Grab_Wallet_Promo_-_EDM_Campaign_page_Slider_Web.webp",
             "pretext": "",
