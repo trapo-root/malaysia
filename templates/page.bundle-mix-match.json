@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "page-template",
+      "type": "page-bundle-mix-match",
       "settings": {}
     }
   },
