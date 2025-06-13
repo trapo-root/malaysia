@@ -84,7 +84,7 @@
     <link rel="preload" href="{{ 'social_login.js' | asset_url }}" as="script">
 	<link rel="preload" href="{{ 'custom.js' | asset_url }}" as="script">
     
-    {% if template contains 'bundle' %} 
+    {% if template contains 'bundle' or template contains 'bundle-mix-match'  %}
       <link rel="preload" href="{{ 'bundle.js' | asset_url }}" as="script">
     {% endif %}
      
@@ -190,7 +190,7 @@
     <script src="{{ 'social_login.js' | asset_url }}" defer></script>
 	<script src="{{ 'custom.js' | asset_url }}" defer></script>
      
-    {% if template contains 'bundle' %}
+    {% if template contains 'bundle' or template contains 'bundle-mix-match'  %}
       <script src="{{ 'bundle.js' | asset_url }}" defer></script>
     {% endif %}
      
