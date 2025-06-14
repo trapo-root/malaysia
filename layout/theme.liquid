@@ -504,6 +504,12 @@
     </script>
   {% endif %}
 
+  {% if product.handle == 'mix-and-match' %}
+    <script>
+      window.location = '/pages/mix-and-match';
+    </script>
+  {% endif %}
+
   {% if template contains 'product' %}
     <style>
       #loyaltylion .lion-loyalty-widget_position_left {
