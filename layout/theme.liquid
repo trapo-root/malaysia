@@ -8,6 +8,12 @@
       window.location = '/pages/mix-and-match';
     </script>
   {% endif %}
+
+    {% if product.type == 'Promotional' or template  == 'cart' or product.tags contains 'pickup' %}
+    <script>
+      window.location = '/';
+    </script>
+  {% endif %}
    
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -504,11 +510,7 @@
   {% if template contains 'cart' %}
       {% include 'fatmedia-cart' %}
   {% endif %}
-  {% if product.type == 'Promotional' or template  == 'cart' or product.tags contains 'pickup' %}
-    <script>
-      window.location = '/';
-    </script>
-  {% endif %}
+  
 
   {% if template contains 'product' %}
     <style>
