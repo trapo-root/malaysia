@@ -162,6 +162,9 @@
                   {% elsif product.tags contains 'bundle-20' %}
                     <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
                     <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.80 | money }}</span>
+                  {% elsif product.tags contains 'bundle-25' %}
+                    <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
+                    <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.75 | money }}</span>
                   {% else %}
                     {% if selected_or_first_available_variant.compare_at_price > selected_or_first_available_variant.price %}
                     <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ selected_or_first_available_variant.compare_at_price | money }}</span>
