@@ -2,6 +2,12 @@
 <!DOCTYPE html>
 <html class="no-js no-touch" lang="{{ request.locale.iso_code }}">
   <head>
+
+    {% if product.handle == 'mix-and-match' %}
+    <script>
+      window.location = '/pages/mix-and-match';
+    </script>
+  {% endif %}
    
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -501,12 +507,6 @@
   {% if product.type == 'Promotional' or template  == 'cart' or product.tags contains 'pickup' %}
     <script>
       window.location = '/';
-    </script>
-  {% endif %}
-
-  {% if product.handle == 'mix-and-match' %}
-    <script>
-      window.location = '/pages/mix-and-match';
     </script>
   {% endif %}
 
