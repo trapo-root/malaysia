@@ -31,7 +31,7 @@
     <div id="results-output"></div>
   </div>
 
-  <p id="status">Loading wiper data...</p>
+  <!-- <p id="status">Loading wiper data...</p> -->
 </div>
 
 <script>
@@ -92,7 +92,7 @@
             }
 
             function displayWiperInfo(brand, model, year, info) {
-                resultsTitle.textContent = `Wiper Info for ${brand} ${model} (${year})`;
+                // resultsTitle.textContent = `Wiper Info for ${brand} ${model} (${year})`;
 
                 let frontHtml = '<div class="wiper-info"><h3>Front Wipers</h3>';
                 if (info.front && (info.front.left_size || info.front.right_size || info.front.clip)) {
@@ -214,6 +214,7 @@
             });
         });
 </script>
+
 <style>
   #wiper-size-finder-popup *,
   #wiper-size-finder-popup *::before,
