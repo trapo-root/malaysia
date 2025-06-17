@@ -1,4 +1,8 @@
+<div id="wiper-popup-overlay"></div>
+<a id="open-wiper-finder">Find my wiper size</a>
+
 <div id="wiper-size-finder-popup">
+  <span class="wiper-popup-close-button" id="close-wiper-popup">&times;</span>
   <h1>Wiper Size Finder</h1>
 
   <div class="selector-group">
@@ -42,6 +46,42 @@
 
             let wiperData = {};
 
+            const openWiperFinderLink = document.getElementById('open-wiper-finder');
+            const wiperFinderPopup = document.getElementById('wiper-size-finder-popup');
+            const closeWiperPopupButton = document.getElementById('close-wiper-popup');
+            const wiperPopupOverlay = document.getElementById('wiper-popup-overlay');
+
+            function showWiperPopup() {
+                if (wiperPopupOverlay) wiperPopupOverlay.style.display = 'block';
+                if (wiperFinderPopup) wiperFinderPopup.style.display = 'block';
+                // Optionally hide the link itself after clicking
+                // if (openWiperFinderLink) openWiperFinderLink.style.display = 'none'; 
+            }
+
+            function hideWiperPopup() {
+                if (wiperPopupOverlay) wiperPopupOverlay.style.display = 'none';
+                if (wiperFinderPopup) wiperFinderPopup.style.display = 'none';
+                // Optionally show the link again if it was hidden
+                // if (openWiperFinderLink) openWiperFinderLink.style.display = 'inline-block'; 
+            }
+
+            if (openWiperFinderLink && wiperFinderPopup && closeWiperPopupButton && wiperPopupOverlay) {
+                openWiperFinderLink.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default anchor behavior
+                    showWiperPopup();
+                });
+
+                closeWiperPopupButton.addEventListener('click', () => {
+                    hideWiperPopup();
+                });
+
+                wiperPopupOverlay.addEventListener('click', (event) => {
+                    if (event.target === wiperPopupOverlay) { // Ensure click is on overlay itself
+                        hideWiperPopup();
+                    }
+                });
+            }
+
             function resetSelect(selectElement, defaultOptionText) {
                 selectElement.innerHTML = '';
                 const defaultOption = document.createElement('option');
@@ -77,7 +117,7 @@
             }
 
             // Fetch and process the JSON data
-            fetch('https://trapo.com/search-wiper-size/wiper_info.json')
+            fetch('wiper_info.json')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
@@ -185,10 +225,58 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Apply base font to the popup container */
       background-color: #ffffff;
       padding: 30px;
+      padding-top: 40px; /* Make space for close button */
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      width: 100%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      width: 90%;
       max-width: 500px;
+      display: none; /* Initially hidden */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000; /* Ensure it's on top */
+  }
+
+  .wiper-popup-close-button {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #aaa;
+      cursor: pointer;
+      line-height: 1;
+  }
+
+  .wiper-popup-close-button:hover {
+      color: #333;
+  }
+
+  #wiper-popup-overlay {
+      display: none; /* Initially hidden */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      z-index: 999; /* Below popup, above other content */
+  }
+
+  #open-wiper-finder {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px; /* Add some space below the link */
+  }
+
+  #open-wiper-finder:hover {
+      background-color: #0056b3;
   }
 
   #wiper-size-finder-popup h1 {
