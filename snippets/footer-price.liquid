@@ -53,6 +53,23 @@
                   <span class="compare-price"></span>
                 {% endif %}
               </div>
+            {% elsif product.type == 'TRAPO XTREME' %}
+              <div class="price-wrapper">
+                <span class="member-label">MEMBER PRICE:</span>
+                {% if selected_variant.compare_at_price > selected_variant.price %}
+                  <span class="price">{{ selected_variant.price | money }}</span>
+                {% else %}
+                  <span class="price">{{ 20000 | money }}</span>
+                {% endif %}
+                {% if selected_variant.compare_at_price > selected_variant.price %}
+                  <span class="compare-price">{{ selected_variant.compare_at_price | money }}</span>
+                {% else %}
+                  <span class="compare-price">{{ selected_variant.price | money }}</span>
+                {% endif %}
+              </div>
+              <span class="non-member-price"
+                >NON-MEMBER: <span class="nm-price">{{ 20000 | money }}</span></span
+              >
 
             {% else %}
               <div class="price-wrapper">
@@ -96,29 +113,36 @@
       </div>
       <div class="cart-section">
         {% capture add_to_cart_label %}{% if product.tags contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
-        {%  if product.type == 'TRAPO REFRESH PACKAGE' %}
-          <button class="refresh-submit 
-            {% if product.available == false %}
-              disabled
-            {% endif %}">
-          <img
-            class="cart-icon"
-            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/cart-svg_501d7f64-f263-476c-ab90-451c2a0c1063.svg?v=1736236357"
+        {% if product.type == 'TRAPO REFRESH PACKAGE' %}
+          <button
+            class="
+              refresh-submit
+              {% if product.available == false %}
+                disabled
+              {% endif %}
+            "
           >
-          {% if product.available %}{{ add_to_cart_label }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}
-        </button>
+            <img
+              class="cart-icon"
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/cart-svg_501d7f64-f263-476c-ab90-451c2a0c1063.svg?v=1736236357"
+            >
+            {% if product.available %}{{ add_to_cart_label }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}
+          </button>
         {% else %}
-        <button class="add-to-cart
-           {% if product.available == false %}
-              disabled
-            {% endif %}
-          ">
-          <img
-            class="cart-icon"
-            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/cart-svg_501d7f64-f263-476c-ab90-451c2a0c1063.svg?v=1736236357"
+          <button
+            class="
+              add-to-cart
+              {% if product.available == false %}
+                 disabled
+               {% endif %}
+            "
           >
-          {% if product.available %}{{ add_to_cart_label }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}
-        </button>
+            <img
+              class="cart-icon"
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/cart-svg_501d7f64-f263-476c-ab90-451c2a0c1063.svg?v=1736236357"
+            >
+            {% if product.available %}{{ add_to_cart_label }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}
+          </button>
         {% endif %}
       </div>
     </div>
