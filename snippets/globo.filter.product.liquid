@@ -154,9 +154,12 @@
       
  
                   <div class="spf-product-card__price-wrapper {{ product.tags }} {{ product.type }}">
+
+                  {% if product.type == 'TRAPO XTREME' %}
+                    <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
+                    <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ 20000  | money }}</span>
                   
-                  
-                  {% if product.tags contains 'bundle-15' %}
+                  {% elsif product.tags contains 'bundle-15' %}
                     <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
                     <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.85 | money }}</span>
                   {% elsif product.tags contains 'bundle-20' %}
