@@ -92,6 +92,7 @@
         {% capture i %}{% cycle "1", "2" %}{% endcapture %}
         {{ 'product-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
       {% else %}
+        <!-- Image change on Based on Variant -->
         {% if product.handle == 'trapo-microfiber-cloth-series' %}
           {% render 'product-images-new',
             product: product,
