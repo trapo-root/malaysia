@@ -1,5 +1,5 @@
 <div class="search-container">
-  <form class="search-form">
+  <form class="search-form-new">
     <div class="form-group">
       <label for="brand-select">BRAND</label>
       <select id="brand-select" class="form-control" disabled>
@@ -185,7 +185,7 @@
                 });
 
                 // Form submission handler
-                document.querySelector('.search-form').addEventListener('submit', function(e) {
+                document.querySelector('.search-form-new').addEventListener('submit', function(e) {
                     e.preventDefault();
                     const selectedBrand = brandSelect.value;
                     const selectedModel = modelSelect.value;
@@ -223,10 +223,10 @@
   .search-container {
             background-color: transparent;
             width: 100%;
-            max-width: 1000px;
+            max-width: 100%;
         }
 
-        .search-form {
+        .search-form-new {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
@@ -305,7 +305,7 @@
         }
 
         @media (max-width: 768px) {
-            .search-form {
+            .search-form-new {
                 flex-direction: column;
                 gap: 15px;
             }
