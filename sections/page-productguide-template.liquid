@@ -213,8 +213,7 @@
   .page-guide .back-button {
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 20px;
       color: #1B3D6D;
       text-decoration: none;
       font-weight: bold;
@@ -226,6 +225,7 @@
       grid-template-columns: 1fr;
       gap: 20px;
       margin-bottom: 40px;
+    width: 100%;
   }
 
   .page-guide .guide-card {
@@ -339,7 +339,7 @@
       
       .page-guide .guide-cards {
           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          max-width: 1000px;
+          width: 100%;
           margin: 0 auto 40px;
           gap: 25px;
       }
