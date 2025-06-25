@@ -1,0 +1,184 @@
+<section class="page-guide">
+  <div class="purchase-container">
+    <div class="purchase-header">
+      <h1>What did you purchase?</h1>
+      <p class="subtitle">
+        Enhance your car's value and look with specialized exterior cleaning, polishing, and protection.
+      </p>
+    </div>
+
+    <div class="product-grid">
+      <a href="car-mat.html" class="product-card">
+        <div class="product-image" style="background-image: url('images/car-mat.png');">
+          <div class="product-label">Car Mat</div>
+        </div>
+      </a>
+
+      <a href="wiper.html" class="product-card">
+        <div class="product-image" style="background-image: url('images/wiper.png');">
+          <div class="product-label">Wiper</div>
+        </div>
+      </a>
+
+      <a href="car-care.html" class="product-card">
+        <div class="product-image" style="background-image: url('images/car-care.png');">
+          <div class="product-label">Car Care</div>
+        </div>
+      </a>
+
+      <a href="dashcam.html" class="product-card">
+        <div class="product-image" style="background-image: url('images/dashcam.png');">
+          <div class="product-label">Dashcam</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="purchase-footer">
+      <p class="help-text">
+        Need help? Tap the Whatsapp button to<br>
+        get in touch with our team.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+    /* Global Styles */
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+  }
+
+  body {
+      background-color: #000;
+      color: #fff;
+      line-height: 1.4;
+  }
+
+  .purchase-container {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 15px;
+  }
+
+  /* Header Styles */
+  .purchase-header {
+      text-align: center;
+      margin-bottom: 20px;
+      padding: 10px 0;
+  }
+
+  h1 {
+      font-size: 1.8rem;
+      color: #3a70b0;
+      margin-bottom: 10px;
+      font-weight: bold;
+  }
+
+  .subtitle {
+      font-size: 0.95rem;
+      color: #3a70b0;
+      margin: 0 auto;
+      line-height: 1.4;
+      opacity: 0.9;
+  }
+
+  /* Product Grid Styles */
+  .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+  }
+
+  .product-card {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      display: block;
+      text-decoration: none;
+      color: white;
+      transition: transform 0.2s ease-in-out;
+  }
+
+  .product-card:hover, .product-card:focus {
+      transform: scale(1.02);
+  }
+
+  .product-image {
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+  }
+
+  .product-image::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  }
+
+  .product-label {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+  }
+
+  /* Footer Styles */
+  .purchase-footer {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px 0;
+  }
+
+  .help-text {
+      color: #3a70b0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      opacity: 0.9;
+  }
+
+  /* For larger screens */
+  @media (min-width: 768px) {
+      .purchase-container {
+          max-width: 1000px;
+      }
+
+      h1 {
+          font-size: 2.2rem;
+      }
+
+      .subtitle {
+          font-size: 1.1rem;
+          max-width: 600px;
+          margin: 0 auto;
+      }
+
+      .product-grid {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          gap: 15px;
+      }
+
+      .product-card {
+          aspect-ratio: 4 / 3;
+      }
+
+      .product-label {
+          font-size: 1.4rem;
+      }
+  }
+</style>
