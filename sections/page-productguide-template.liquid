@@ -212,7 +212,7 @@
     </div>
 
     <div class="guide-content">
-      <div class="guide-cards">
+      <div class="guide-cards two-cards">
         <a
           href="/pages/car-care"
           target="_blank"
@@ -263,7 +263,7 @@
     </div>
 
     <div class="guide-content">
-      <div class="guide-cards">
+      <div class="guide-cards two-cards">
         <a
           href="javascript:void(0)"
           onclick="openVideoPopup('Uf1zIIbhOoE', 'Recycle Trapo Packaging')"
@@ -684,6 +684,12 @@
       .page-guide .guide-cards {
           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
           width: 100%;
+          margin: 0 auto 40px;
+          gap: 25px;
+      }
+    .page-guide .guide-cards.two-cards {
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          width: 65%;
           margin: 0 auto 40px;
           gap: 25px;
       }
