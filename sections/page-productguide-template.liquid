@@ -17,7 +17,7 @@
         </div>
       </a>
 
-      <a href="wiper.html" class="product-card">
+      <a href="javascript:void(0)" onclick="showCarWiperGuide()" class="product-card">
         <div
           class="product-image"
           style="background-image: url('https://cdn.shopify.com/s/files/1/0234/7089/9277/files/wiper.png?v=1750816329');"
@@ -26,7 +26,7 @@
         </div>
       </a>
 
-      <a href="car-care.html" class="product-card">
+      <a href="/pages/car-care" class="product-card">
         <div
           class="product-image"
           style="background-image: url('https://cdn.shopify.com/s/files/1/0234/7089/9277/files/car-care.png?v=1750816336');"
@@ -35,7 +35,7 @@
         </div>
       </a>
 
-      <a href="dashcam.html" class="product-card">
+      <a href="javascript:void(0)" onclick="showDashcamGuide()" class="product-card">
         <div
           class="product-image"
           style="background-image: url('https://cdn.shopify.com/s/files/1/0234/7089/9277/files/dashcam_6b45bc01-8639-4e64-a8cb-9ba63a2c5d02.png?v=1750816330');"
@@ -298,11 +298,27 @@
 <script>
   function showCarMatGuide() {
     document.getElementById('main-guide').style.display = 'none';
+    document.getElementById('car-wiper-guide').style.display = 'none';
+    document.getElementById('dashcam-guide').style.display = 'none';
     document.getElementById('car-mat-guide').style.display = 'block';
+  }
+  function showCarWiperGuide() {
+    document.getElementById('main-guide').style.display = 'none';
+    document.getElementById('car-wiper-guide').style.display = 'block';
+    document.getElementById('dashcam-guide').style.display = 'none';
+    document.getElementById('car-mat-guide').style.display = 'none';
+  }
+  function showDashcamGuide() {
+    document.getElementById('main-guide').style.display = 'none';
+    document.getElementById('car-wiper-guide').style.display = 'nonw';
+    document.getElementById('dashcam-guide').style.display = 'block';
+    document.getElementById('car-mat-guide').style.display = 'none';
   }
 
   function showMainGuide() {
     document.getElementById('car-mat-guide').style.display = 'none';
+    document.getElementById('car-wiper-guide').style.display = 'none';
+    document.getElementById('dashcam-guide').style.display = 'none';
     document.getElementById('main-guide').style.display = 'block';
   }
 
