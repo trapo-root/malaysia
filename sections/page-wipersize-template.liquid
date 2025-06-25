@@ -1,0 +1,191 @@
+<div class="container py-5">
+        <section class="wiper-selector-main">
+            <div class="wiper-title">
+                <h1 class="fw-bold mb-4">Wiper</h1>
+                <h2 class="mb-3">Check your car's wiper clip</h2>
+            </div>
+
+            <div class="wiper-instructions">
+                <h2 class="mb-4">How to manually inspect your wiper size and clip</h2>
+            
+                <div class="wiper-step">
+                    <p>Measure your wiper length with a measurement tape. Take note of its length in inch</p>
+                    <div class="wiper-image">
+                        <img src="images/measure-wiper.png" alt="Measuring wiper length" class="img-fluid rounded">
+                    </div>
+                </div>
+
+                <div class="wiper-step">
+                    <p>Take a closer look at your wiper arm and clip type</p>
+                    <div class="wiper-image">
+                        <img src="images/wiper-arm-clip.png" alt="Wiper arm and clip type" class="img-fluid rounded">
+                    </div>
+                </div>
+
+                <div class="wiper-step">
+                    <p>Identify your wiper arm type and match it with a suitable clip.<br>For example:</p>
+                    <div class="wiper-examples">
+                        <!-- First row of clip examples -->
+                        <div class="example-row">
+                            <div class="example-image">
+                                <img src="images/clip-example-1a.png" alt="Clip example 1" class="img-fluid rounded">
+                            </div>
+                            <div class="example-image">
+                                <img src="images/clip-example-1b.png" alt="Clip example 1 detail" class="img-fluid rounded">
+                            </div>
+                        </div>
+                        <!-- Second row of clip examples -->
+                        <div class="example-row">
+                            <div class="example-image">
+                                <img src="images/clip-example-2a.png" alt="Clip example 2" class="img-fluid rounded">
+                            </div>
+                            <div class="example-image">
+                                <img src="images/clip-example-2b.png" alt="Clip example 2 detail" class="img-fluid rounded">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wiper-clip-types">
+                    <div class="clip-type-image">
+                        <img src="images/clip-type-new.png" alt="Wiper Clip Types" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="wiper-help">
+                    <p>Need help? Tap the Whatsapp button to get in touch with our team.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <style>
+      /* Custom styles for Wiper Clip Selector */
+
+
+/* Title section */
+.wiper-selector-main .wiper-title {
+    margin-bottom: 2rem;
+}
+
+.wiper-selector-main .wiper-title h1 {
+    color: #0d3d81;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.wiper-selector-main .wiper-title h2 {
+    color: #0d3d81;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.wiper-selector-main .wiper-title p {
+    color: #6c757d;
+}
+
+/* Instructions section */
+.wiper-selector-main .wiper-instructions {
+    margin-bottom: 2rem;
+}
+
+.wiper-selector-main .wiper-instructions h2 {
+    color: #0d3d81;
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Step sections */
+.wiper-selector-main .wiper-step {
+    margin-bottom: 2rem;
+}
+
+.wiper-selector-main .wiper-step p {
+    margin-bottom: 1rem;
+}
+
+.wiper-selector-main .wiper-image {
+    margin-bottom: 1rem;
+}
+
+.wiper-selector-main .wiper-image img {
+    max-width: 400px;
+    border-radius: 0.375rem;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Examples section */
+.wiper-selector-main .wiper-examples {
+    margin-bottom: 1.5rem;
+}
+
+.wiper-selector-main .example-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.wiper-selector-main .example-image {
+    width: 40%;
+    max-width: 200px;
+}
+
+.wiper-selector-main .example-image img {
+    border-radius: 0.375rem;
+    width: 100%;
+}
+
+/* Clip types section */
+.wiper-selector-main .wiper-clip-types {
+    margin-bottom: 2rem;
+}
+
+.wiper-selector-main .clip-type-image img {
+    max-width: 700px;
+    width: 100%;
+    border-radius: 0.375rem;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Help section */
+.wiper-selector-main .wiper-help {
+    margin-top: 2rem;
+    color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .wiper-selector-main .wiper-title h1 {
+        font-size: 2rem;
+    }
+    
+    .wiper-selector-main .wiper-title h2 {
+        font-size: 1.25rem;
+    }
+    
+    .wiper-selector-main .wiper-instructions h2 {
+        font-size: 1.3rem;
+    }
+    
+    .wiper-selector-main .wiper-image img,
+    .wiper-selector-main .clip-type-image img {
+        max-width: 100%;
+    }
+    
+    .wiper-selector-main .example-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .wiper-selector-main .example-image {
+        width: 80%;
+        max-width: 300px;
+        margin-bottom: 1rem;
+    }
+}
+
+    </style>
