@@ -112,7 +112,7 @@
     display:none;
   }
 
-  .container {
+  .page-guide .container {
       width: 100%;
       max-width: 500px;
       margin: 0 auto;
@@ -120,20 +120,20 @@
   }
 
   /* Header Styles */
-  .purchase-header {
+  .page-guide .purchase-header {
       text-align: center;
       margin-bottom: 20px;
       padding: 10px 0;
   }
 
-  h1 {
+  .page-guide h1 {
       font-size: 1.8rem;
       color: #1B3D6D;
       margin-bottom: 10px;
       font-weight: bold;
   }
 
-  .subtitle {
+  .page-guide .subtitle {
       font-size: 0.95rem;
       color: #1B3D6D;
       margin: 0 auto;
@@ -142,13 +142,13 @@
   }
 
   /* Product Grid Styles */
-  .product-grid {
+  .page-guide .product-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
   }
 
-  .product-card {
+  .page-guide .product-card {
       position: relative;
       border-radius: 10px;
       overflow: hidden;
@@ -159,11 +159,11 @@
       transition: transform 0.2s ease-in-out;
   }
 
-  .product-card:hover, .product-card:focus {
+  .page-guide .product-card:hover, .page-guide .product-card:focus {
       transform: scale(1.02);
   }
 
-  .product-image {
+  .page-guide .product-image {
       height: 100%;
       width: 100%;
       background-size: cover;
@@ -173,7 +173,7 @@
       overflow: hidden;
   }
 
-  .product-image::before {
+  .page-guide .product-image::before {
       content: '';
       position: absolute;
       bottom: 0;
@@ -183,7 +183,7 @@
       background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
   }
 
-  .product-label {
+  .page-guide .product-label {
       position: absolute;
       bottom: 10px;
       left: 10px;
@@ -194,13 +194,13 @@
   }
 
   /* Footer Styles */
-  .purchase-footer {
+  .page-guide .purchase-footer {
       text-align: center;
       margin-top: 20px;
       padding: 15px 0;
   }
 
-  .help-text {
+  .page-guide .help-text {
       color: #1B3D6D;
       font-size: 0.9rem;
       line-height: 1.4;
@@ -208,12 +208,12 @@
   }
 
   /* Guide Detail Styles */
-  .guide-detail .purchase-header {
+  .page-guide .guide-detail .purchase-header {
       position: relative;
       padding-top: 20px;
   }
 
-  .back-button {
+  .page-guide .back-button {
       position: absolute;
       left: 0;
       top: 50%;
@@ -224,14 +224,14 @@
       font-size: 0.9rem;
   }
 
-  .guide-cards {
+  .page-guide .guide-cards {
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
       margin-bottom: 40px;
   }
 
-  .guide-card {
+  .page-guide .guide-card {
       background-color: white;
       border-radius: 15px;
       overflow: hidden;
@@ -241,23 +241,23 @@
       height: 100px;
   }
 
-  .guide-card:hover {
+  .page-guide .guide-card:hover {
       box-shadow: 0 6px 16px rgba(0,0,0,0.2);
   }
 
-  .guide-card-left {
+  .page-guide .guide-card-left {
       width: 100%;
       height: 100px;
       overflow: hidden;
       position: relative;
   }
 
-  .guide-card-left img {
+  .page-guide .guide-card-left img {
       width: 100%;
       height: 100%;
   }
 
-  .guide-card-right {
+  .page-guide .guide-card-right {
       flex: 1;
       padding: 15px 20px;
       display: flex;
@@ -265,40 +265,40 @@
       justify-content: center;
   }
 
-  .guide-tag {
+  .page-guide .guide-tag {
       color: #1B3D6D;
       font-size: 0.7rem;
       font-weight: bold;
       margin-bottom: 4px;
   }
 
-  .guide-title {
+  .page-guide .guide-title {
       color: #1B3D6D;
       font-size: 0.9rem;
       font-weight: 500;
       line-height: 1.2;
   }
 
-  .installation-promo {
+  .page-guide .installation-promo {
       text-align: center;
       padding: 30px 20px 50px;
       margin-bottom: 20px;
   }
 
-  .installation-promo h2 {
+  .page-guide .installation-promo h2 {
       color: #1B3D6D;
       font-size: 2rem;
       margin-bottom: 10px;
       font-weight: 600;
   }
 
-  .installation-promo p {
+  .page-guide .installation-promo p {
       color: #1B3D6D;
       margin-bottom: 25px;
       font-size: 1rem;
   }
 
-  .locate-button {
+  .page-guide .locate-button {
       display: inline-block;
       background-color: #E91E63;
       color: white;
@@ -313,51 +313,51 @@
 
   /* For larger screens */
   @media (min-width: 768px) {
-      .container {
+      .page-guide .container {
           max-width: 1000px;
       }
 
-      h1 {
+      .page-guide h1 {
           font-size: 2.2rem;
       }
 
-      .subtitle {
+      .page-guide .subtitle {
           font-size: 1.1rem;
           max-width: 600px;
           margin: 0 auto;
       }
 
-      .product-grid {
-          grid-template-columns: 1fr 1fr 1fr 1fr;
-          gap: 15px;
+      .page-guide .product-grid {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
       }
 
-      .product-card {
+      .page-guide .product-card {
           aspect-ratio: 4 / 3;
       }
 
-      .product-label {
+      .page-guide .product-label {
           font-size: 1.4rem;
       }
       
-      .guide-cards {
+      .page-guide .guide-cards {
           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
           max-width: 1000px;
           margin: 0 auto 40px;
           gap: 25px;
       }
       
-      .guide-card {
+      .page-guide .guide-card {
           width: 100%;
           height: 110px;
       }
       
-      .guide-card-left {
+      .page-guide .guide-card-left {
           width: 100%;
           height: 110px;
       }
       
-      .installation-promo h2 {
+      .page-guide .installation-promo h2 {
           font-size: 2.5rem;
       }
   }
