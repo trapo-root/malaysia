@@ -1,0 +1,444 @@
+<div class="search-container">
+  <form class="search-form">
+    <div class="form-group">
+      <label for="brand-select">BRAND</label>
+      <select id="brand-select" class="form-control" disabled>
+        <option value="">-- Select --</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="model-select">MODEL</label>
+      <select id="model-select" class="form-control" disabled>
+        <option value="">-- Select --</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="year-select">YEAR</label>
+      <select id="year-select" class="form-control" disabled>
+        <option value="">-- Select --</option>
+      </select>
+    </div>
+    <div class="search-btn-group">
+      <button type="submit" class="search-btn" disabled>SEARCH</button>
+    </div>
+  </form>
+
+  <div class="popup-overlay" id="popup-overlay" style="display: none;"></div>
+  <div class="popup-container" id="popup-container" style="display: none;">
+    <div class="popup-header">
+      <h2 class="popup-title" id="popup-title">Wiper Information</h2>
+      <button class="close-popup" id="close-popup">&times;</button>
+    </div>
+    <div id="popup-output"></div>
+  </div>
+
+  <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const brandSelect = document.getElementById('brand-select');
+                const modelSelect = document.getElementById('model-select');
+                const yearSelect = document.getElementById('year-select');
+                const popupOverlay = document.getElementById('popup-overlay');
+                const popupContainer = document.getElementById('popup-container');
+                const popupOutput = document.getElementById('popup-output');
+                const popupTitle = document.getElementById('popup-title');
+                const closePopup = document.getElementById('close-popup');
+                const searchBtn = document.querySelector('.search-btn');
+
+                let wiperData = {};
+
+                function resetSelect(selectElement, defaultOptionText) {
+                    selectElement.innerHTML = '';
+                    const defaultOption = document.createElement('option');
+                    defaultOption.value = '';
+                    defaultOption.textContent = defaultOptionText;
+                    selectElement.appendChild(defaultOption);
+                    selectElement.disabled = true;
+                }
+
+                function checkSearchButtonState() {
+                    const brandSelected = brandSelect.value !== '';
+                    const modelSelected = modelSelect.value !== '';
+                    const yearSelected = yearSelect.value !== '';
+                    
+                    searchBtn.disabled = !(brandSelected && modelSelected && yearSelected);
+                }
+
+                function displayWiperInfo(brand, model, year, info) {
+                    let html = '<div class="wiper-row">';
+                    
+                    // Front wiper section
+                    html += '<div class="wiper-section"><h3>Front Wipers</h3>';
+                    if (info.front && (info.front.left_size || info.front.right_size || info.front.clip)) {
+                        html += `<p><strong>Left:</strong> ${info.front.left_size || 'N/A'}</p>`;
+                        html += `<p><strong>Right:</strong> ${info.front.right_size || 'N/A'}</p>`;
+                        html += `<p><strong>Clip:</strong> ${info.front.clip || 'N/A'}</p>`;
+                    } else {
+                        html += '<p>No front wiper data available.</p>';
+                    }
+                    html += '</div>';
+
+                    // Rear wiper section
+                    html += '<div class="wiper-section"><h3>Rear Wiper</h3>';
+                    if (info.rear && (info.rear.size || info.rear.clip)) {
+                        html += `<p><strong>Size:</strong> ${info.rear.size || 'N/A'}</p>`;
+                        html += `<p><strong>Clip:</strong> ${info.rear.clip || 'N/A'}</p>`;
+                    } else {
+                        html += '<p>No rear wiper data available.</p>';
+                    }
+                    html += '</div>';
+                    
+                    html += '</div>';
+
+                    popupOutput.innerHTML = html;
+                    popupTitle.textContent = `${brand} ${model} (${year})`;
+                }
+
+                // Fetch and process the JSON data
+                fetch('https://trapo.com/search-wiper-size/wiper_info.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (Object.keys(data).length === 0) {
+                            throw new Error('Wiper data is empty or invalid.');
+                        }
+                        // Handle both root-level brands and brands nested under a "brands" key for backwards compatibility
+                        if (data.brands) {
+                            wiperData = data.brands;
+                        } else {
+                            wiperData = data;
+                        }
+                        populateBrandSelect();
+                    })
+                    .catch(error => {
+                        console.error('Failed to load wiper data:', error);
+                    });
+
+                function populateBrandSelect() {
+                    const brands = Object.keys(wiperData).sort();
+                    brands.forEach(brand => {
+                        const option = document.createElement('option');
+                        option.value = brand;
+                        option.textContent = brand;
+                        brandSelect.appendChild(option);
+                    });
+                    brandSelect.disabled = false;
+                }
+
+                brandSelect.addEventListener('change', () => {
+                    resetSelect(modelSelect, 'Select a Model');
+                    resetSelect(yearSelect, 'Select a Year');
+                    popupOverlay.style.display = 'none';
+                    popupContainer.style.display = 'none';
+                    checkSearchButtonState();
+
+                    const selectedBrand = brandSelect.value;
+                    if (selectedBrand) {
+                        if (wiperData[selectedBrand] && wiperData[selectedBrand].models) {
+                            const models = Object.keys(wiperData[selectedBrand].models).sort();
+                            models.forEach(model => {
+                                const option = document.createElement('option');
+                                option.value = model;
+                                option.textContent = model;
+                                modelSelect.appendChild(option);
+                            });
+                            modelSelect.disabled = false;
+                        } else {
+                            console.error(`No models found for brand: ${selectedBrand}`);
+                            modelSelect.disabled = true;
+                        }
+                    }
+                });
+
+                modelSelect.addEventListener('change', () => {
+                    resetSelect(yearSelect, 'Select a Year');
+                    popupOverlay.style.display = 'none';
+                    popupContainer.style.display = 'none';
+                    checkSearchButtonState();
+
+                    const selectedBrand = brandSelect.value;
+                    const selectedModel = modelSelect.value;
+                    if (selectedModel) {
+                        if (wiperData[selectedBrand] && wiperData[selectedBrand].models && wiperData[selectedBrand].models[selectedModel] && wiperData[selectedBrand].models[selectedModel].years) {
+                            const years = Object.keys(wiperData[selectedBrand].models[selectedModel].years).sort();
+                            years.forEach(year => {
+                                const option = document.createElement('option');
+                                option.value = year;
+                                option.textContent = year;
+                                yearSelect.appendChild(option);
+                            });
+                            yearSelect.disabled = false;
+                        } else {
+                            console.error(`No years found for model: ${selectedModel}`);
+                            yearSelect.disabled = true;
+                        }
+                    }
+                });
+
+                yearSelect.addEventListener('change', () => {
+                    popupOverlay.style.display = 'none';
+                    popupContainer.style.display = 'none';
+                    checkSearchButtonState();
+                });
+
+                // Form submission handler
+                document.querySelector('.search-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const selectedBrand = brandSelect.value;
+                    const selectedModel = modelSelect.value;
+                    const selectedYear = yearSelect.value;
+
+                    if (!selectedBrand || !selectedModel || !selectedYear) {
+                        alert('Please select all fields before searching.');
+                        return;
+                    }
+
+                    if (wiperData[selectedBrand] && wiperData[selectedBrand].models && wiperData[selectedBrand].models[selectedModel] && wiperData[selectedBrand].models[selectedModel].years && wiperData[selectedBrand].models[selectedModel].years[selectedYear]) {
+                        const wiperInfo = wiperData[selectedBrand].models[selectedModel].years[selectedYear];
+                        displayWiperInfo(selectedBrand, selectedModel, selectedYear, wiperInfo);
+                        popupOverlay.style.display = 'block';
+                        popupContainer.style.display = 'block';
+                    } else {
+                        alert('No wiper information found for the selected vehicle.');
+                    }
+                });
+
+                popupOverlay.addEventListener('click', () => {
+                    popupOverlay.style.display = 'none';
+                    popupContainer.style.display = 'none';
+                });
+
+                closePopup.addEventListener('click', () => {
+                    popupOverlay.style.display = 'none';
+                    popupContainer.style.display = 'none';
+                });
+            });
+  </script>
+</div>
+
+<style>
+  .search-container {
+            background-color: transparent;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .search-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .search-btn-group {
+            min-width: auto;
+            flex: 0 0 auto;
+            position: relative;
+    top: 21px;
+        }
+
+        .form-group label {
+            display: block;
+            text-transform: uppercase;
+            color: #777;
+            font-size: 12px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #333;
+            background-color: white;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23777' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px;
+            height: 45px;
+        }
+
+        .search-btn {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 200px;
+            text-transform: uppercase;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .search-btn:hover {
+            background-color: #d81b60;
+        }
+        
+        .search-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        .search-btn:disabled:hover {
+            background-color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .search-form {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .form-group {
+                width: 100%;
+            }
+            
+            .search-btn {
+                width: 100%;
+            }
+            
+            .search-btn-group {
+                width: 100%;
+            }
+        }
+        
+        /* Results container styles */
+        #results-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        
+        #results-title {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .wiper-info {
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .wiper-info h3 {
+            color: #e91e63;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .wiper-info p {
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        .wiper-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .wiper-section {
+            flex: 1;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            padding: 15px;
+        }
+        
+        .wiper-section h3 {
+            color: #e91e63;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .wiper-section p {
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        /* Popup styles */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        
+        .popup-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 400px;
+            width: 80%;
+            max-height: 60vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+        }
+        
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e91e63;
+            padding-bottom: 10px;
+        }
+        
+        .popup-title {
+            color: #333;
+            font-size: 20px;
+            margin: 0;
+        }
+        
+        .close-popup {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .close-popup:hover {
+            color: #e91e63;
+        }
+</style>
