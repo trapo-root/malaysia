@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-/*{
+{
   "sections": {
     "custom_html_NFBDRt": {
       "type": "custom-html",
@@ -39,17 +39,4 @@
     "custom_html_m6PLge",
     "main"
   ]
-}*/
-
-{
-  "sections": {
-    "main": {
-      "type": "page-template",
-      "settings": {}
-    }
-  },
-  "order": [
-    "main"
-  ]
 }
-
