@@ -264,6 +264,7 @@
 
 <script>
   /** Scented Page JS **/
+  $(document).ready(function() {
       // Initialize Slick Slider
       $('.vibe-slider').slick({
           dots: true,
@@ -304,6 +305,7 @@
           $('.vibe-card').removeClass('active');
           $('.vibe-card[data-slide="' + currentSlide + '"]').addClass('active');
       });
+   });
   
 </script>
 
