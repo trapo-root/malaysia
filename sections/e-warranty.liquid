@@ -34,19 +34,49 @@
   src="//latest.trapo.asia/resources/sharing/embed.js?sharing=lp-embed&domain=latest.trapo.asia&id=5FL1-9P9%2Fe-warranty%22"></script>
 </div>
 <script>
-setTimeout(function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const orderValue = urlParams.get('orderid');
-    const textBox = document.querySelector('#textbox-4') || 
+// Utility to get current time as a readable string
+function now() {
+    return new Date().toLocaleTimeString();
+}
+
+// Get query string parameter
+const urlParams = new URLSearchParams(window.location.search);
+const orderValue = urlParams.get('orderid');
+
+// Function to set and log the value
+function setOrderId() {
+    const textBox = document.querySelector('#textbox-4') ||
                     document.querySelector('input[type="text"]');
     if (textBox && orderValue) {
         textBox.value = orderValue;
-        console.log('query string value appended to text box');
+        console.log(`[${now()}] Query string value "${orderValue}" appended to text box`);
     } else {
-        console.log('query string value cannot be appended to text box');
+        console.log(`[${now()}] Query string value cannot be appended to text box`);
     }
-}, 3000); // 2000 ms = 2 seconds
+}
+
+// Listen for DOMContentLoaded to ensure the textbox exists
+window.addEventListener('DOMContentLoaded', setOrderId);
+
+// Listen for changes to the textbox value
+function monitorValueChange() {
+    const textBox = document.querySelector('#textbox-4') ||
+                    document.querySelector('input[type="text"]');
+    if (!textBox) return;
+
+    let lastValue = textBox.value;
+    textBox.addEventListener('input', function() {
+        if (textBox.value !== lastValue) {
+            console.log(`[${now()}] Text box value changed to "${textBox.value}"`);
+            lastValue = textBox.value;
+        }
+    });
+}
+
+// Start monitoring after DOM is ready
+window.addEventListener('DOMContentLoaded', monitorValueChange);
 </script>
+
 {% endif %}
 
 {% schema %}
