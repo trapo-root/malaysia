@@ -9,9 +9,14 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "scented-page-template",
-      "settings": {}
+    "custom_html_NFBDRt": {
+      "type": "custom-html",
+      "name": "Custom HTML",
+      "settings": {
+        "custom_html": "<iframe style=\"border-radius:12px\" data-src=\"https://open.spotify.com/embed/playlist/1Wj2SSiI4oksZfGs7347Na?utm_source=generator\" width=\"100%\" height=\"352\" frameborder=\"0\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>",
+        "css_class": "",
+        "custom_css": ""
+      }
     },
     "custom_html_m6PLge": {
       "type": "custom-html",
@@ -21,10 +26,15 @@
         "css_class": "",
         "custom_css": ""
       }
+    },
+    "main": {
+      "type": "scented-page-template",
+      "settings": {}
     }
   },
   "order": [
-    "main",
-    "custom_html_m6PLge"
+    "custom_html_NFBDRt",
+    "custom_html_m6PLge",
+    "main"
   ]
 }
