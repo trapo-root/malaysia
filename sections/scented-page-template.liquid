@@ -245,7 +245,7 @@
           <div class="slider-bottom-section" style="background-color: #CB908A">
             <p class="perfect-for-text">Perfect for: Someone graceful with a twist.</p>
 
-            <div class="spotify-embed">
+            <div class="spotify-embed" id="spotify-player">
               <iframe
                 style="border-radius:12px"
                 data-src="https://open.spotify.com/embed/playlist/1Wj2SSiI4oksZfGs7347Na?utm_source=generator"
@@ -267,6 +267,23 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const spotifyDiv = document.getElementById("spotify-player");
+    if (spotifyDiv) {
+      spotifyDiv.innerHTML = `<iframe
+                style="border-radius:12px"
+                data-src="https://open.spotify.com/embed/playlist/1Wj2SSiI4oksZfGs7347Na?utm_source=generator"
+                width="100%"
+                height="352"
+                frameBorder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>`;
+    }
+  });
+</script>
 <script>
   /** Scented Page JS **/
       // Initialize Slick Slider
