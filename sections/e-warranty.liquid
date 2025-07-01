@@ -86,7 +86,7 @@ initMonitoring();
 setInterval(initMonitoring, 1000);
 
 // Monitor form resets
-const form = document.querySelector('#lp-container');
+const form = document.querySelector('lp-container');
 if (form) {
     form.addEventListener('reset', () => {
         console.log(`[${now()}] FORM RESET DETECTED`);
