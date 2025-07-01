@@ -1065,3 +1065,50 @@ $(document).ready(function() {
 });
 
 
+/** Scented Page JS **/
+
+
+$(document).ready(function() {
+      // Initialize Slick Slider
+      $('.vibe-slider').slick({
+          dots: true,
+          arrows: false,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          adaptiveHeight: true,
+          customPaging: function(slider, i) {
+              return '<button type="button"></button>';
+          }
+      });
+
+      // Handle click on vibe cards
+      $('.vibe-card').on('click', function(e) {
+          e.preventDefault();
+
+          // Get the target slide index directly from data-slide attribute
+          var slideIndex = $(this).data('slide');
+
+          // Go to that slide
+          $('.vibe-slider').slick('slickGoTo', slideIndex);
+
+          // Scroll to the slider
+          $('html, body').animate({
+              scrollTop: $('.slider-container').offset().top - 20
+          }, 500);
+
+          // Update active vibe card
+          $('.vibe-card').removeClass('active');
+          $(this).addClass('active');
+      });
+
+      // Update active vibe card when slider changes
+      $('.vibe-slider').on('afterChange', function(event, slick, currentSlide){
+          // Update active vibe card based on slide index
+          $('.vibe-card').removeClass('active');
+          $('.vibe-card[data-slide="' + currentSlide + '"]').addClass('active');
+      });
+  });
+
+
