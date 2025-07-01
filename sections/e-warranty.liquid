@@ -37,7 +37,7 @@
 setTimeout(function() {
     const urlParams = new URLSearchParams(window.location.search);
     const orderValue = urlParams.get('orderid');
-    const textBox = document.querySelector('#textbox-4') || 
+    const textBox = document.querySelector('.ee_customedit>div>#textbox-4') || 
                     document.querySelector('input[type="text"]');
     if (textBox && orderValue) {
         textBox.value = orderValue;
