@@ -34,89 +34,67 @@
   src="//latest.trapo.asia/resources/sharing/embed.js?sharing=lp-embed&domain=latest.trapo.asia&id=5FL1-9P9%2Fe-warranty%22"></script>
 </div>
 <script>
-// Utility functions
 function now() {
     return new Date().toLocaleTimeString();
 }
 
-function getStackTrace() {
-    try {
-        throw new Error('Trace');
-    } catch (e) {
-        return e.stack || 'No stack trace available';
-    }
-}
+// Track if element gets replaced
+let currentElement = null;
+let observer = null;
 
-// Main monitoring function
-function monitorQueryStringBehavior() {
+function initMonitoring() {
     const urlParams = new URLSearchParams(window.location.search);
     const orderValue = urlParams.get('orderid');
-    
-    if (!orderValue) {
-        console.log(`[${now()}] No orderid found in query string`);
-        return;
-    }
+    if (!orderValue) return;
 
-    // Target element
     const textBox = document.querySelector('#textbox-4') || 
                     document.querySelector('input[type="text"]');
     
+    // Element replacement check
+    if (currentElement && currentElement !== textBox) {
+        console.log(`[${now()}] ELEMENT REPLACED! New element:`, textBox);
+    }
+    currentElement = textBox;
+
     if (!textBox) {
         console.log(`[${now()}] Text box not found`);
         return;
     }
 
-    // 1. Log initial state
-    console.log(`[${now()}] INITIAL STATE - Text box value: "${textBox.value}"`);
-
-    // 2. Set the value and log
+    // Set value
     textBox.value = orderValue;
-    console.log(`[${now()}] SET VALUE - Added "${orderValue}" to text box`);
-    console.log(`[${now()}] Stack trace:\n${getStackTrace()}`);
+    console.log(`[${now()}] SET VALUE - Added "${orderValue}"`);
 
-    // 3. Monitor for changes
-    let lastValue = orderValue;
+    // Clean up previous observer
+    if (observer) observer.disconnect();
     
-    // Observe DOM changes
-    const observer = new MutationObserver(mutations => {
+    // New mutation observer
+    observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             if (mutation.attributeName === 'value') {
-                console.log(`[${now()}] DOM MUTATION - Value changed to "${textBox.value}"`);
-                console.log(`[${now()}] Stack trace:\n${getStackTrace()}`);
-                lastValue = textBox.value;
+                console.log(`[${now()}] VALUE CHANGED: "${textBox.value}"`);
             }
         });
     });
-    
-    observer.observe(textBox, {
-        attributes: true,
-        attributeFilter: ['value']
-    });
-
-    // Observe JavaScript property changes
-    Object.defineProperty(textBox, 'value', {
-        set: function(newValue) {
-            console.log(`[${now()}] PROPERTY SET - Value changed from "${lastValue}" to "${newValue}"`);
-            console.log(`[${now()}] Stack trace:\n${getStackTrace()}`);
-            lastValue = newValue;
-            return newValue;
-        },
-        get: function() {
-            return lastValue;
-        },
-        configurable: true
-    });
-
-    // Observe input events
-    textBox.addEventListener('input', function(e) {
-        console.log(`[${now()}] INPUT EVENT - Value changed to "${textBox.value}"`);
-        console.log(`[${now()}] Stack trace:\n${getStackTrace()}`);
-    });
+    observer.observe(textBox, { attributes: true });
 }
 
-// Run when DOM is ready
-window.addEventListener('DOMContentLoaded', monitorQueryStringBehavior);
+// Initial setup
+initMonitoring();
+
+// Check for element replacement periodically
+setInterval(initMonitoring, 1000);
+
+// Monitor form resets
+const form = document.querySelector('form');
+if (form) {
+    form.addEventListener('reset', () => {
+        console.log(`[${now()}] FORM RESET DETECTED`);
+        console.trace();
+    });
+}
 </script>
+
 
 
 {% endif %}
