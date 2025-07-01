@@ -34,65 +34,18 @@
   src="//latest.trapo.asia/resources/sharing/embed.js?sharing=lp-embed&domain=latest.trapo.asia&id=5FL1-9P9%2Fe-warranty%22"></script>
 </div>
 <script>
-function now() {
-    return new Date().toLocaleTimeString();
-}
-
-// Track if element gets replaced
-let currentElement = null;
-let observer = null;
-
-function initMonitoring() {
+setTimeout(function() {
     const urlParams = new URLSearchParams(window.location.search);
     const orderValue = urlParams.get('orderid');
-    if (!orderValue) return;
-
     const textBox = document.querySelector('#textbox-4') || 
                     document.querySelector('input[type="text"]');
-    
-    // Element replacement check
-    if (currentElement && currentElement !== textBox) {
-        console.log(`[${now()}] ELEMENT REPLACED! New element:`, textBox);
+    if (textBox && orderValue) {
+        textBox.value = orderValue;
+        console.log('query string value appended to text box');
+    } else {
+        console.log('query string value cannot be appended to text box');
     }
-    currentElement = textBox;
-
-    if (!textBox) {
-        console.log(`[${now()}] Text box not found`);
-        return;
-    }
-
-    // Set value
-    textBox.value = orderValue;
-    console.log(`[${now()}] SET VALUE - Added "${orderValue}"`);
-
-    // Clean up previous observer
-    if (observer) observer.disconnect();
-    
-    // New mutation observer
-    observer = new MutationObserver(mutations => {
-        mutations.forEach(mutation => {
-            if (mutation.attributeName === 'value') {
-                console.log(`[${now()}] VALUE CHANGED: "${textBox.value}"`);
-            }
-        });
-    });
-    observer.observe(textBox, { attributes: true });
-}
-
-// Initial setup
-initMonitoring();
-
-// Check for element replacement periodically
-setInterval(initMonitoring, 1000);
-
-// Monitor form resets
-const form = document.querySelector('ee_dropzone');
-if (form) {
-    form.addEventListener('reset', () => {
-        console.log(`[${now()}] FORM RESET DETECTED`);
-        console.trace();
-    });
-}
+}, 5000); // 2000 ms = 2 seconds
 </script>
 
 
