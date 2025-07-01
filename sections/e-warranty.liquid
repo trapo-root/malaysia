@@ -34,24 +34,18 @@
   src="//latest.trapo.asia/resources/sharing/embed.js?sharing=lp-embed&domain=latest.trapo.asia&id=5FL1-9P9%2Fe-warranty%22"></script>
 </div>
 <script>
-function setOrderIdWhenReady() {
+setTimeout(function() {
     const urlParams = new URLSearchParams(window.location.search);
     const orderValue = urlParams.get('orderid');
-    if (!orderValue) return;
-
-    // Poll for the textbox every 100ms
-    const interval = setInterval(() => {
-        const textBox = document.querySelector('#textbox-4') || 
-                        document.querySelector('input[type="text"]');
-        if (textBox) {
-            textBox.value = orderValue;
-            console.log('query string value appended to text box');
-            clearInterval(interval);
-        }
-    }, 100);
-}
-// Run when DOM is ready
-document.addEventListener('DOMContentLoaded', setOrderIdWhenReady);
+    const textBox = document.querySelector('#textbox-4') || 
+                    document.querySelector('input[type="text"]');
+    if (textBox && orderValue) {
+        textBox.value = orderValue;
+        console.log('query string value appended to text box');
+    } else {
+        console.log('query string value cannot be appended to text box');
+    }
+}, 3000); // 2000 ms = 2 seconds
 </script>
 {% endif %}
 
