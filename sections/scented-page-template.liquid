@@ -258,53 +258,78 @@
   </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+<!-- Make sure jQuery is loaded first -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<!-- Then load Slick with defer attribute to ensure it loads completely -->
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+
+<!-- Initialize Slick only after everything is loaded -->
 <script>
-  /** Scented Page JS **/
-  $(document).ready(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    // Wait for jQuery to be fully loaded
+    if (typeof jQuery === 'undefined') {
+      console.error('jQuery is not loaded!');
+      return;
+    }
+    
+    // Function to check if Slick is loaded and initialize
+    function initSlickWhenReady() {
+      if (typeof jQuery.fn.slick === 'undefined') {
+        console.log('Slick not loaded yet, waiting...');
+        setTimeout(initSlickWhenReady, 100); // Check again in 100ms
+        return;
+      }
+      
+      console.log('Slick is loaded, initializing...');
+      
       // Initialize Slick Slider
-      $('.vibe-slider').slick({
-          dots: true,
-          arrows: false,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          adaptiveHeight: true,
-          customPaging: function(slider, i) {
-              return '<button type="button"></button>';
-          }
+      jQuery('.vibe-slider').slick({
+        dots: true,
+        arrows: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        adaptiveHeight: true,
+        customPaging: function(slider, i) {
+          return '<button type="button"></button>';
+        }
       });
-
+      
       // Handle click on vibe cards
-      $('.vibe-card').on('click', function(e) {
-          e.preventDefault();
-
-          // Get the target slide index directly from data-slide attribute
-          var slideIndex = $(this).data('slide');
-
-          // Go to that slide
-          $('.vibe-slider').slick('slickGoTo', slideIndex);
-
-          // Scroll to the slider
-          $('html, body').animate({
-              scrollTop: $('.slider-container').offset().top - 20
-          }, 500);
-
-          // Update active vibe card
-          $('.vibe-card').removeClass('active');
-          $(this).addClass('active');
+      jQuery('.vibe-card').on('click', function(e) {
+        e.preventDefault();
+        
+        // Get the target slide index directly from data-slide attribute
+        var slideIndex = jQuery(this).data('slide');
+        
+        // Go to that slide
+        jQuery('.vibe-slider').slick('slickGoTo', slideIndex);
+        
+        // Scroll to the slider
+        jQuery('html, body').animate({
+          scrollTop: jQuery('.slider-container').offset().top - 20
+        }, 500);
+        
+        // Update active vibe card
+        jQuery('.vibe-card').removeClass('active');
+        jQuery(this).addClass('active');
       });
-
+      
       // Update active vibe card when slider changes
-      $('.vibe-slider').on('afterChange', function(event, slick, currentSlide){
-          // Update active vibe card based on slide index
-          $('.vibe-card').removeClass('active');
-          $('.vibe-card[data-slide="' + currentSlide + '"]').addClass('active');
+      jQuery('.vibe-slider').on('afterChange', function(event, slick, currentSlide){
+        // Update active vibe card based on slide index
+        jQuery('.vibe-card').removeClass('active');
+        jQuery('.vibe-card[data-slide="' + currentSlide + '"]').addClass('active');
       });
-   });
-  
+    }
+    
+    // Start checking if Slick is loaded
+    initSlickWhenReady();
+  });
 </script>
 
 <style>
