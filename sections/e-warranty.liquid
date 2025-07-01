@@ -34,48 +34,90 @@
   src="//latest.trapo.asia/resources/sharing/embed.js?sharing=lp-embed&domain=latest.trapo.asia&id=5FL1-9P9%2Fe-warranty%22"></script>
 </div>
 <script>
-// Utility to get current time as a readable string
+// Utility functions
 function now() {
     return new Date().toLocaleTimeString();
 }
 
-// Get query string parameter
-const urlParams = new URLSearchParams(window.location.search);
-const orderValue = urlParams.get('orderid');
-
-// Function to set and log the value
-function setOrderId() {
-    const textBox = document.querySelector('#textbox-4') ||
-                    document.querySelector('input[type="text"]');
-    if (textBox && orderValue) {
-        textBox.value = orderValue;
-        console.log(`[${now()}] Query string value "${orderValue}" appended to text box`);
-    } else {
-        console.log(`[${now()}] Query string value cannot be appended to text box`);
+function getStackTrace() {
+    try {
+        throw new Error('Trace');
+    } catch (e) {
+        return e.stack || 'No stack trace available';
     }
 }
 
-// Listen for DOMContentLoaded to ensure the textbox exists
-window.addEventListener('DOMContentLoaded', setOrderId);
+// Main monitoring function
+function monitorQueryStringBehavior() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const orderValue = urlParams.get('orderid');
+    
+    if (!orderValue) {
+        console.log(`[${now()}] No orderid found in query string`);
+        return;
+    }
 
-// Listen for changes to the textbox value
-function monitorValueChange() {
-    const textBox = document.querySelector('#textbox-4') ||
+    // Target element
+    const textBox = document.querySelector('#textbox-4') || 
                     document.querySelector('input[type="text"]');
-    if (!textBox) return;
+    
+    if (!textBox) {
+        console.log(`[${now()}] Text box not found`);
+        return;
+    }
 
-    let lastValue = textBox.value;
-    textBox.addEventListener('input', function() {
-        if (textBox.value !== lastValue) {
-            console.log(`[${now()}] Text box value changed to "${textBox.value}"`);
-            lastValue = textBox.value;
-        }
+    // 1. Log initial state
+    console.log(`[${now()}] INITIAL STATE - Text box value: "${textBox.value}"`);
+
+    // 2. Set the value and log
+    textBox.value = orderValue;
+    console.log(`[${now()}] SET VALUE - Added "${orderValue}" to text box`);
+    console.log(`[${now()}] Stack trace:\n${getStackTrace()}`);
+
+    // 3. Monitor for changes
+    let lastValue = orderValue;
+    
+    // Observe DOM changes
+    const observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+            if (mutation.attributeName === 'value') {
+                console.log(`[${now()}] DOM MUTATION - Value changed to "${textBox.value}"`);
+                console.log(`[${now()}] Stack trace:\n${getStackTrace()}`);
+                lastValue = textBox.value;
+            }
+        });
+    });
+    
+    observer.observe(textBox, {
+        attributes: true,
+        attributeFilter: ['value']
+    });
+
+    // Observe JavaScript property changes
+    Object.defineProperty(textBox, 'value', {
+        set: function(newValue) {
+            console.log(`[${now()}] PROPERTY SET - Value changed from "${lastValue}" to "${newValue}"`);
+            console.log(`[${now()}] Stack trace:\n${getStackTrace()}`);
+            lastValue = newValue;
+            return newValue;
+        },
+        get: function() {
+            return lastValue;
+        },
+        configurable: true
+    });
+
+    // Observe input events
+    textBox.addEventListener('input', function(e) {
+        console.log(`[${now()}] INPUT EVENT - Value changed to "${textBox.value}"`);
+        console.log(`[${now()}] Stack trace:\n${getStackTrace()}`);
     });
 }
 
-// Start monitoring after DOM is ready
-window.addEventListener('DOMContentLoaded', monitorValueChange);
+// Run when DOM is ready
+window.addEventListener('DOMContentLoaded', monitorQueryStringBehavior);
 </script>
+
 
 {% endif %}
 
