@@ -70,7 +70,7 @@
 
   <!-- Slick Slider Section -->
   <div class="slider-container">
-    <div class="vibe-slider">
+    <div class="vibe-slider" style="display:none">
       <!-- Relaxing Vibe Slide -->
       <div id="vibe-relaxing" class="slider-slide relaxing-slide" style="background-color: #ACD2B9">
         <div class="slider-inner">
@@ -357,7 +357,7 @@
       // Handle click on vibe cards
       jQuery('.vibe-card').on('click', function(e) {
         e.preventDefault();
-
+        jQuery('.vibe-slider').show();
         // Get the target slide index directly from data-slide attribute
         var slideIndex = jQuery(this).data('slide');
 
