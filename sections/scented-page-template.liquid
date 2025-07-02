@@ -341,13 +341,14 @@
 
       // Initialize Slick Slider
       jQuery('.vibe-slider').slick({
-        dots: true,
+        dots: false,
         arrows: false,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         adaptiveHeight: true,
+        swipe: false,
         customPaging: function(slider, i) {
           return '<button type="button"></button>';
         }
