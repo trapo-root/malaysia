@@ -359,6 +359,10 @@
       jQuery('.explore-text').on('click', function(e) {
         e.preventDefault();
         jQuery('.vibe-section').show();
+        // Scroll to the slider
+        jQuery('html, body').animate({
+          scrollTop: jQuery('.vibe-section').offset().top - 20
+        }, 500);
       });
 
       // Handle click on vibe cards
