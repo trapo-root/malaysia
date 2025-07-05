@@ -1,14 +1,37 @@
-{% if template contains 'page' and page.handle == 'mr-diy-rear' or
-  collection.handle == 'trapo-diy' or
-  product.type contains 'REAR' or 
-  product.type == 'TRAPO x MRDIY' or
-  collection.handle == 'rear-products' or
-  collection.handle == 'trapo-hex-rear' or
-  collection.handle == 'trapo-classic-rear' or
-  handle contains '/pages/car-mats-v2' or 
-  handle contains '/pages/car-dashcams' or 
-  handle contains '/pages/car-hydrophobic-wiper'
-%}
-    <meta name="robots" content="noindex,nofollow" />
-{% endif %}
+{% comment %} Initialize noindex flag {% endcomment %}
 {% assign should_noindex = false %}
+
+{% comment %} Check for specific pages {% endcomment %}
+{% if template contains 'page' and page %}
+  {% if page.handle == 'mr-diy-rear' or 
+       page.handle == 'car-mats-v2' or 
+       page.handle == 'car-dashcams' or 
+       page.handle == 'car-hydrophobic-wiper' %}
+    {% assign should_noindex = true %}
+  {% endif %}
+{% endif %}
+
+{% comment %} Check for specific collections {% endcomment %}
+{% if template contains 'collection' and collection %}
+  {% if collection.handle == 'trapo-diy' or 
+       collection.handle == 'rear-products' or 
+       collection.handle == 'trapo-hex-rear' or 
+       collection.handle == 'trapo-classic-rear' %}
+    {% assign should_noindex = true %}
+  {% endif %}
+{% endif %}
+
+{% comment %} Check for specific product types {% endcomment %}
+{% if template contains 'product' and product %}
+  {% if product.type contains 'REAR' or 
+       product.type == 'TRAPO x MRDIY' %}
+    {% assign should_noindex = true %}
+  {% endif %}
+{% endif %}
+
+{% comment %} Apply meta robots tag {% endcomment %}
+{% if should_noindex %}
+  <meta name="robots" content="noindex, nofollow">
+{% else %}
+  <meta name="robots" content="index, follow">
+{% endif %}
