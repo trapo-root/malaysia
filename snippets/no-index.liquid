@@ -1,4 +1,4 @@
-{% if page.handle == 'mr-diy-rear' or
+{% if template contains 'page' and page.handle == 'mr-diy-rear' or
   collection.handle == 'trapo-diy' or
   product.type contains 'REAR' or 
   product.type == 'TRAPO x MRDIY' or
@@ -10,6 +10,5 @@
   handle contains '/pages/car-hydrophobic-wiper'
 %}
     <meta name="robots" content="noindex,nofollow" />
-{% else %}
-      <meta name="robots" content="index,follow">
 {% endif %}
+{% assign should_noindex = false %}
