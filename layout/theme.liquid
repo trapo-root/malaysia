@@ -60,9 +60,9 @@
     {% if page_description %}
       <meta name="description" content="{% if template contains 'search' %} {{ page_title }} - {{ shop.name }} {% else %}{{ page_description | escape }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags | escape }}.{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}.{% endif %}{% endif %}"/>
     {% endif %}
-    {% include 'deferjs' %}
+    {% render 'deferjs' %}
 
-    {%- include 'meta-hub' -%}
+    {%- render 'meta-hub' -%}
 
     {% if product.type == 'Promotional' %}
       <meta name="robots" content="noindex">
@@ -419,27 +419,27 @@
     {% sections 'header-group' %}
 
     {% if template contains "product" %}
-      {%- include 'announcement-banner' -%}
+      {%- render 'announcement-banner' -%}
     {% endif %}
 
     {% if template contains "page" %}
       <div class="container breadcrumb-container-page">
         <div class="sixteen columns">
-          {%- include 'page__breadcrumb' -%}
+          {%- render 'page__breadcrumb' -%}
         </div>
       </div>
     {% endif %}
     {% if template contains "blog" %}
       <div class="container breadcrumb-container-page">
         <div class="sixteen columns">
-          {%- include 'blog__breadcrumb' -%}
+          {%- render 'blog__breadcrumb' -%}
         </div>
       </div>
     {% endif %}
     {% if template contains "article" %}
       <div class="container breadcrumb-container-page">
         <div class="sixteen columns">
-          {%- include 'article__breadcrumb' -%}
+          {%- render 'article__breadcrumb' -%}
         </div>
       </div>
     {% endif %}
@@ -491,7 +491,7 @@
       </script>
 {% endunless %}
           {% endcomment %}
-    {% include 'globo.filter.action' %}
+    {% render 'globo.filter.action' %}
 
   {%- capture productTemplate -%}{% render 'globo.filter.product', themeTranslation: shop.metafields.globoFilter.themeTranslation.value[request.locale.iso_code] %}{%- endcapture -%}{%- unless productTemplate contains 'Liquid error' -%}<script id="gspfProduct" type="template/html">{{- productTemplate | replace: "script>", "scripttag>" -}}</script>{%- endunless -%} 
 {%- capture treeTemplate -%}{% render 'globo.filter.tree' %}{%- endcapture -%}{%- unless treeTemplate contains 'Liquid error' -%}<script id="gspfFilterTree" type="template/html">{{- treeTemplate | replace: "script>", "scripttag>" -}}</script>{%- endunless -%} 
