@@ -505,10 +505,10 @@
   {%- render 'campaign-logic' -%}
   <!-- Fatmedia Scripts -->
   {% if template contains 'product' %}
-      {% include 'fatmedia-product-page' %}
+      {% render 'fatmedia-product-page' %}
   {% endif %}
   {% if template contains 'cart' %}
-      {% include 'fatmedia-cart' %}
+      {% render 'fatmedia-cart' %}
   {% endif %}
   
 
