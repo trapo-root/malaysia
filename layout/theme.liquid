@@ -3,17 +3,21 @@
 <html class="no-js no-touch" lang="{{ request.locale.iso_code }}">
   <head>
 
-    {% if product.handle == 'mix-and-match' %}
-    <script>
-      window.location = '/pages/mix-and-match';
-    </script>
-  {% endif %}
+    {% if template contains 'product' and product.handle == 'mix-and-match-bundle' %}
+      <script>
+        window.location = '/pages/mix-and-match';
+      </script>
+    {% endif %}
 
-    {% if product.type == 'Promotional' or template  == 'cart' or product.tags contains 'pickup' %}
-    <script>
-      window.location = '/';
-    </script>
-  {% endif %}
+    {% if template contains 'product' and (product.type == 'Promotional' or product.tags contains 'pickup') %}
+      <script>
+        window.location = '/';
+      </script>
+    {% elsif template == 'cart' %}
+      <script>
+        window.location = '/';
+      </script>
+    {% endif %}
    
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
