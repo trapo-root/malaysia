@@ -97,11 +97,13 @@
 
             <div class="spotify-embed">
               <iframe
+                data-testid="embed-iframe"
                 style="border-radius:12px"
-                src="https://open.spotify.com/embed/playlist/3sNU0N6mJdETbAIcvjE3X3?utm_source=generator"
+                src="https://open.spotify.com/embed/playlist/3xIDdmKcws02R3rvHomknS?utm_source=generator"
                 width="100%"
                 height="352"
                 frameBorder="0"
+                allowfullscreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               ></iframe>
             </div>
@@ -354,7 +356,7 @@
         }
       });
 
-      
+
 
       jQuery('.cta-button').on('click', function(e) {
         window.location.href = '/pages/vibequiz';
@@ -365,7 +367,7 @@
       jQuery('.explore-text').on('click', function(e) {
         e.preventDefault();
         jQuery('.vibe-section').show();
-        
+
         // Scroll to the vibe section
         jQuery('html, body').animate({
           scrollTop: jQuery('.vibe-section').offset().top - 20
@@ -398,6 +400,51 @@
         jQuery('.vibe-card').removeClass('active');
         jQuery('.vibe-card[data-slide="' + currentSlide + '"]').addClass('active');
       });
+
+      // Check URL parameters for direct vibe access
+      function checkURLParameters() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const vibeParam = urlParams.get('vibe');
+
+        if (vibeParam) {
+          // Map vibe names to slide indices
+          const vibeMap = {
+            'relaxing': 0,
+            'magical': 1,
+            'cozy': 2,
+            'flirty': 3,
+            'party': 4,
+            'fancy': 5
+          };
+
+          const slideIndex = vibeMap[vibeParam.toLowerCase()];
+
+          if (slideIndex !== undefined) {
+            // Show the vibe section
+            jQuery('.vibe-section').show();
+
+            // Show the slider
+            jQuery('.vibe-slider').show();
+
+            // Go to the specific slide
+            jQuery('.vibe-slider').slick('slickGoTo', slideIndex);
+
+            // Update active vibe card
+            jQuery('.vibe-card').removeClass('active');
+            jQuery('.vibe-card[data-slide="' + slideIndex + '"]').addClass('active');
+
+            // Scroll to the slider with a slight delay to ensure everything is rendered
+            setTimeout(function() {
+              jQuery('html, body').animate({
+                scrollTop: jQuery('.slider-container').offset().top - 20
+              }, 800);
+            }, 300);
+          }
+        }
+      }
+
+      // Check URL parameters after slider is initialized
+      checkURLParameters();
     }
 
     // Start checking if Slick is loaded
