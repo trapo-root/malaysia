@@ -15,8 +15,27 @@
             >View Location</a
           >
         </div>
-
-        <div class="col-lg-3 col-3">
+        {% if product.tags contains 'trapo-ppf' or product.tags contains 'headlamp-ppf' or product.tags contains 'door-ppf'  %}
+          <div class="col-lg-3 col-3" style="position: relative;">
+            <img
+              class="lazyload"
+              data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/TD_Hub.png?v=1721795821"
+            >
+            <p class="l-title">
+              TRAPO <br>
+              Taman Daya JB Hub
+            </p>
+            <a
+              class="l-link"
+              href="https://www.google.com/maps?q=TRAPO+Taman+Daya+Hub+(Car+Mats+%26+Accessories),+TD+Central,+5F,+Jalan+Sagu+21,+Taman+Daya,+81100+Johor+Bahru,+Johor&ftid=0x31da6d9dc26cacb9:0x957492f0cdcb0e17&entry=gps&lucs=,94222349,47071704,47069508,94218635,94203019,47084304,94208458,94208447&g_ep=CAISDTYuMTE3LjEuNjI5MjAYACCenQoqSCw5NDIyMjM0OSw0NzA3MTcwNCw0NzA2OTUwOCw5NDIxODYzNSw5NDIwMzAxOSw0NzA4NDMwNCw5NDIwODQ1OCw5NDIwODQ0N0ICTVk%3D&g_st=com.alibaba.dingtalklite.ShareExtension"
+              >View Location</a
+            >
+            <div class="overlay-ppf">
+            <span class="overlayppf-text">Currently Not Available</span>
+        </div>
+          </div>
+        {% else %}
+          <div class="col-lg-3 col-3">
           <img
             class="lazyload"
             data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/TD_Hub.png?v=1721795821"
@@ -30,7 +49,9 @@
             href="https://www.google.com/maps?q=TRAPO+Taman+Daya+Hub+(Car+Mats+%26+Accessories),+TD+Central,+5F,+Jalan+Sagu+21,+Taman+Daya,+81100+Johor+Bahru,+Johor&ftid=0x31da6d9dc26cacb9:0x957492f0cdcb0e17&entry=gps&lucs=,94222349,47071704,47069508,94218635,94203019,47084304,94208458,94208447&g_ep=CAISDTYuMTE3LjEuNjI5MjAYACCenQoqSCw5NDIyMjM0OSw0NzA3MTcwNCw0NzA2OTUwOCw5NDIxODYzNSw5NDIwMzAxOSw0NzA4NDMwNCw5NDIwODQ1OCw5NDIwODQ0N0ICTVk%3D&g_st=com.alibaba.dingtalklite.ShareExtension"
             >View Location</a
           >
+          
         </div>
+        {% endif %}
         <div class="col-lg-3 col-3">
           <img
             class="lazyload"
@@ -63,3 +84,27 @@
         </div>
         
       </div>
+
+      <style>
+        .availabel_at-list .overlay-ppf {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 75%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            border-radius: 13px;
+        }
+
+         .availabel_at-list .overlayppf-text {
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            padding: 10px;
+        }
+      </style>
