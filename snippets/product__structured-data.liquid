@@ -18,7 +18,6 @@
 {% capture year_from_now %}
   {{ now[0] | plus: 1 }}-{{ now[1] }}-{{ now[2] | at_most: 28 }}
 {% endcapture %}
-{%- comment smartseo_integration_begin_meta_data -%}
 <script type="application/ld+json">
   {
     "@context": "http://schema.org/",
@@ -69,4 +68,3 @@
     {% endif %}
   }
 </script>
-{%- endcomment smartseo_integration_end_meta_data -%}
