@@ -93,7 +93,7 @@
         {{ 'product-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
       {% else %}
         <!-- Image change on Based on Variant -->
-        {% if product.handle == 'trapo-microfiber-cloth-series' %}
+        {% if product.handle == 'trapo-microfiber-cloth-series' or product.tags contains 'scented-stone' %}
           {% render 'product-images-new',
             product: product,
             gallery_thumbnails: gallery_thumbnails,
