@@ -291,7 +291,10 @@ const cartObject = items.detail || {};
         data: {
           items: [{
             id: variantId,
-            quantity: 1
+            quantity: 1,
+            properties: {
+              'Free_Item': 'Yes'
+            }
           }]
         },
         dataType: 'json',
