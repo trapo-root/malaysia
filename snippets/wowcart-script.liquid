@@ -1,45 +1,45 @@
 <style>
-  /*   hide quantity seelctor of promotional and addon type products */
-    #wow-cart-drawer-app .wow-cart-product-item[data-product_type="Add-On"] .wow-cart-quantity-box,
-  #wow-cart-drawer-app .wow-cart-product-item[data-product_type="Promotional"] .wow-cart-quantity-box {
-    display: none;
-  }
-    form#wowcart-cart-form{
-      margin-bottom:0
+    /*   hide quantity seelctor of promotional and addon type products */
+      #wow-cart-drawer-app .wow-cart-product-item[data-product_type="Add-On"] .wow-cart-quantity-box,
+    #wow-cart-drawer-app .wow-cart-product-item[data-product_type="Promotional"] .wow-cart-quantity-box {
+      display: none;
     }
-  #wow-cart-drawer-app .wow-cart-box-wrapper {
-        height: 100% !important;
+      form#wowcart-cart-form{
+        margin-bottom:0
+      }
+    #wow-cart-drawer-app .wow-cart-box-wrapper {
+          height: 100% !important;
+    }
+
+    #wow-cart-drawer-app .wowcart_custom-placeholder {
+
+      padding-left: 8px !important;
+      padding-right: 8px !important;
   }
 
-  #wow-cart-drawer-app .wowcart_custom-placeholder {
-   
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-}
+     .wow-cart-quantity__value {
+    margin: unset !important;
+  }
 
-   .wow-cart-quantity__value {
-  margin: unset !important;
-}
+  .wow-cart-fixed-form {
+  margin-bottom: unset !important;
+  }
 
-.wow-cart-fixed-form {
-margin-bottom: unset !important;
-}
+  .wow-cart-hide-item + .wowcart_custom-placeholder {
+    display: none !important;
+  }
 
-.wow-cart-hide-item + .wowcart_custom-placeholder {
-  display: none !important;
-}   
+     #wow-cart-drawer-app .wowcart-product-item__footer-content {
 
-   #wow-cart-drawer-app .wowcart-product-item__footer-content {
-    
-    max-width: fit-content !important;
-    flex-wrap: wrap !important;
-}
-   /* .wowcart-product-item__footer{
-     display:none !important;
-   } */
-   /* .wow-cart-product-item{
-     margin-bottom:10px !important;
-   } */
+      max-width: fit-content !important;
+      flex-wrap: wrap !important;
+  }
+     /* .wowcart-product-item__footer{
+       display:none !important;
+     } */
+     /* .wow-cart-product-item{
+       margin-bottom:10px !important;
+     } */
 </style>
 
 <script
@@ -157,276 +157,297 @@ if ($container.find('img[src="' + imgUrl + '"]').length === 0) {
   });
 
   
-  //Cart Updated event
-  document.addEventListener('CART_UPDATED', function(items) {
-      
-
-      //cart object
-        const cartObject = items.detail || {};
-
-   /* var cartSubtotal = cartObject.items_subtotal_price / 100;
-    const itemFree = cartObject.items.find(item => item.product_id == '7404443893837');
-
-    if (cartSubtotal >= 300 ) {
-        if (typeof itemFree === 'undefined' || itemFree === null) {
-            $.ajax({
-                type: "POST",
-                dataType: 'json',
-                url: '/cart/add.js',
-                data: {
-                    quantity: 1,
-                    id: 41516138299469
-                },
-                async: true
-            });
-        }
-    } else {
-        //console.log("Less than 150");
-        if (itemFree) {
-            $.ajax({
-                method: 'POST',
-                dataType: 'json',
-                url: '/cart/change.js',
-                data: {
-                    id: 41516138299469,
-                    quantity: 0
-                },
-                async: true
-            });
-        }
+document.addEventListener('WOWCART_PRODUCT_DELETED', function(items) { 
+const cartObject = items.detail || {};
+  console.log('Hii',cartObject);
+   if(cartObject.item_count > 0){
+      let addonProducts = ((wowcart.cartItems || {}).items || []).filter(item=>item.product_type == 'Add-On' || item.product_type == 'Promotional' || item.product_type == 'Reward')
+        if((addonProducts||{}).length == (wowcart.cartItems || {}).item_count){
+          (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
+        }  
     }
+  initOrGetLocsStorePickup();
+});
 
-    const itemTypes = [
-          'TRAPO CLASSIC',
-          'TRAPO ECO',
-          'TRAPO HEX',
-          'TRAPO HEX ULTIMATE',
-          'TRAPO XTREME'
-      ];
 
-    const foundItemTypes = cartObject.items.filter(item => itemTypes.includes(item.product_type));
-    const itemFree1 = cartObject.items.find(item => item.product_id == '7404443861069');
+  /**
+ * Trapo Auto-Add Boot Variant
+ * 
+ * This script automatically adds a free Boot variant to the cart when a Front+Rear variant is added.
+ * It also removes the Boot variant when the related Front+Rear variant is removed.
+ * It listens for the CART_UPDATED event and processes the cart items accordingly.
+ */
 
-    if (foundItemTypes.length > 0 ) {
-        if (typeof itemFree1 === 'undefined' || itemFree1 === null) {
-            $.ajax({
-                type: "POST",
-                dataType: 'json',
-                url: '/cart/add.js',
-                data: {
-                    quantity: 1,
-                    id: 41516138266701
-                },
-                async: true
-            });
-        }
-    } else {
-        //console.log("Less than 150");
-        if (itemFree1) {
-            $.ajax({
-                method: 'POST',
-                dataType: 'json',
-                url: '/cart/change.js',
-                data: {
-                    id: 41516138266701,
-                    quantity: 0
-                },
-                async: true
-            });
-        }
-    }*/
+(function() {
+  // Configuration
+  const DEBUG = true;
+  
+  // Store previous cart state to detect changes
+  let previousCartItems = [];
+  
+  // Helper function for logging
+  function log(message) {
+    if (DEBUG) {
+      console.log(`[Trapo Auto-Boot]: ${message}`);
+    }
+  }
 
-    /*const itemTypes = [
-          'TRAPO CLASSIC',
-          'TRAPO ECO',
-          'TRAPO HEX',
-          'TRAPO HEX ULTIMATE',
-          'TRAPO XTREME'
-      ];
-
-    const foundItemTypes = cartObject.items.filter(item => itemTypes.includes(item.product_type));
-    const itemFree1 = cartObject.items.find(item => item.product_id == '7403750719565');
-
-    if (foundItemTypes.length > 0 ) {
-        if (typeof itemFree1 === 'undefined' || itemFree1 === null) {
-            $.ajax({
-                type: "POST",
-                dataType: 'json',
-                url: '/cart/add.js',
-                data: {
-                    quantity: 1,
-                    id: 41514618552397
-                },
-                async: true
-            });
-        }
-    } else {
-        //console.log("Less than 150");
-        if (itemFree1) {
-            $.ajax({
-                method: 'POST',
-                dataType: 'json',
-                url: '/cart/change.js',
-                data: {
-                    id: 41514618552397,
-                    quantity: 0
-                },
-                async: true
-            });
-        }
-    }*/
-
-    /*console.log('Hi',cartObject);
-      const itemFree = cartObject.items.find(item => item.product_id == '7380875968589');
-      const giftCardSKUs = [
-          'CH-GIFT-001-50',
-          'CH-GIFT-002-50',
-          'CH-GIFT-003-50',
-          'CH-GIFT-004-50',
-          'CH-GIFT-001-100',
-          'CH-GIFT-002-100',
-          'CH-GIFT-003-100',
-          'CH-GIFT-004-100',
-          'CH-GIFT-001-150',
-          'CH-GIFT-002-150',
-          'CH-GIFT-003-150',
-          'CH-GIFT-004-150',
-          'CH-GIFT-005-100'
-      ];
-      
-      const foundGiftCards = cartObject.items.filter(item => giftCardSKUs.includes(item.sku));
-    console.log(foundGiftCards);
-     console.log(itemFree);
-     const totalQuantity = foundGiftCards.reduce((sum, item) => sum + item.quantity, 0);
-    console.log(totalQuantity);
-      if (foundGiftCards.length > 0) {
-        if (typeof itemFree === 'undefined' || itemFree === null) {
-          console.log('Free Item Added');
-              $.ajax({
-                  type: "POST",
-                  dataType: 'json',
-                  url: '/cart/add.js',
-                  data: {
-                      quantity: totalQuantity,
-                      id: 41444663787597
-                  },
-                  async: false
-              });
-          }
-        if(totalQuantity != itemFree.quantity ){
-          $.ajax({
-                      method: 'POST',
-                      dataType: 'json',
-                      url: '/cart/change.js',
-                      data: {
-                          id: 41444663787597,
-                          quantity: totalQuantity
-                      },
-                      async: false
-                  });
-        }
-        var qtyStr = '<p class="free-qty"><span>Qty:</span> '+totalQuantity+' </p>';
-        var elementsWithClass = $('.free-qty').length;
-        $('.free-qty').remove();
-          $('.slide-cart-product-item[data-handle="christmas-tote-bag"] .slide-cart-product-item__title').append(qtyStr);
-        
-      }else{
-        if (itemFree) {
-      $.ajax({
-                      method: 'POST',
-                      dataType: 'json',
-                      url: '/cart/change.js',
-                      data: {
-                          id: 41444663787597,
-                          quantity: 0
-                      },
-                      async: false
-                  });
-        }
-    }*/
-
-    // const giftCardSKUs = [
-    //       'CH-GIFT-001-50',
-    //       'CH-GIFT-002-50',
-    //       'CH-GIFT-003-50',
-    //       'CH-GIFT-004-50',
-    //       'CH-GIFT-001-100',
-    //       'CH-GIFT-002-100',
-    //       'CH-GIFT-003-100',
-    //       'CH-GIFT-004-100',
-    //       'CH-GIFT-001-150',
-    //       'CH-GIFT-002-150',
-    //       'CH-GIFT-003-150',
-    //       'CH-GIFT-004-150',
-    //       'CH-GIFT-005-100'
-    //   ];
-      
-    //   const foundGiftCards = cartObject.items.filter(item => giftCardSKUs.includes(item.sku));
-    // var cartSubtotal = cartObject.items_subtotal_price / 100;
-    // //console.log(cartSubtotal);
-    // const itemFree = cartObject.items.find(item => item.product_id == '7380875968589');
-    // //console.log(itemFree);
-    // if (cartSubtotal >= 300 || foundGiftCards.length > 0) {
-    //     //console.log("Greater than 150");
-    //     if (typeof itemFree === 'undefined' || itemFree === null) {
-    //         $.ajax({
-    //             type: "POST",
-    //             dataType: 'json',
-    //             url: '/cart/add.js',
-    //             data: {
-    //                 quantity: 1,
-    //                 id: 41444663787597
-    //             },
-    //             async: false
-    //         });
-    //     }
-    // } else {
-    //     //console.log("Less than 150");
-    //     if (itemFree) {
-    //         $.ajax({
-    //             method: 'POST',
-    //             dataType: 'json',
-    //             url: '/cart/change.js',
-    //             data: {
-    //                 id: 41444663787597,
-    //                 quantity: 0
-    //             },
-    //             async: false
-    //         });
-    //     }
-    // }
-      // console.log(foundGiftCards);
-      // const totalQuantity = foundGiftCards.reduce((sum, item) => sum + item.quantity, 0);
-      // console.log(totalQuantity);
-      // if (foundGiftCards.length > 0) {
-      //     if (typeof itemFree === 'undefined' || itemFree === null) {
-      //         $.ajax({
-      //             type: "POST",
-      //             dataType: 'json',
-      //             url: '/cart/add.js',
-      //             data: {
-      //                 quantity: totalQuantity,
-      //                 id: 41444663787597
-      //             },
-      //             async: false
-      //         });
-      //     } else {
-      //         //console.log("Less than 150");
-      //         if (itemFree) {
-      //             $.ajax({
-      //                 method: 'POST',
-      //                 dataType: 'json',
-      //                 url: '/cart/change.js',
-      //                 data: {
-      //                     id: 41444663787597,
-      //                     quantity: totalQuantity
-      //                 },
-      //                 async: false
-      //             });
-      //         }
-      //     }
-      // }
+  // Helper function to check if an item has Front+Rear package
+  function hasFrontRearPackage(item) {
+    // Check variant title
+    if (item.variant_title && item.variant_title.includes('Front + Rear')) {
+      return true;
+    }
     
+    // Check options with values
+    if (item.options_with_values) {
+      const packageOption = item.options_with_values.find(option => 
+        option.name === 'Packages' || option.name.toLowerCase().includes('package')
+      );
+      
+      if (packageOption && packageOption.value === 'Front + Rear') {
+        return true;
+      }
+    }
+    
+    return false;
+  }
+
+  // Helper function to check if an item is a Boot variant
+  function isBootVariant(item) {
+    // Check variant title
+    if (item.variant_title && item.variant_title.toLowerCase().includes('boot')) {
+      return true;
+    }
+    
+    // Check options with values
+    if (item.options_with_values) {
+      const packageOption = item.options_with_values.find(option => 
+        option.name === 'Packages' || option.name.toLowerCase().includes('package')
+      );
+      
+      if (packageOption && packageOption.value.toLowerCase().includes('boot')) {
+        return true;
+      }
+    }
+    
+    return false;
+  }
+
+  // Helper function to check if Boot variant is already in cart
+  function hasBootVariantInCart(cartItems, productId) {
+    return cartItems.some(item => {
+      // Check if item is from the same product
+      if (item.product_id !== productId) {
+        return false;
+      }
+      
+      return isBootVariant(item);
+    });
+  }
+
+  // Function to fetch product data
+  function fetchProductData(handle) {
+    return new Promise((resolve, reject) => {
+      jQuery.getJSON(`/products/${handle}.js`, data => {
+        resolve(data);
+      }).fail(error => {
+        reject(error);
+      });
+    });
+  }
+
+  // Function to find Boot variant from product data
+  function findBootVariant(productData) {
+    if (!productData || !productData.variants || !Array.isArray(productData.variants)) {
+      log('Invalid product data structure');
+      return null;
+    }
+    
+    // Look for Boot variant
+    return productData.variants.find(variant => {
+      // Check variant title
+      if (variant.title && variant.title.toLowerCase().includes('boot')) {
+        return true;
+      }
+      
+      // Check option values if available
+      if (variant.options && Array.isArray(variant.options)) {
+        return variant.options.some(option => 
+          typeof option === 'string' && option.toLowerCase().includes('boot')
+        );
+      }
+      
+      return false;
+    });
+  }
+
+  // Function to add Boot variant to cart
+  function addBootVariantToCart(variantId, productHandle) {
+    return new Promise((resolve, reject) => {
+      jQuery.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: {
+          items: [{
+            id: variantId,
+            quantity: 1,
+            properties: {
+              'Free_Item': 'Yes',
+              'Type': 'Classic'
+            }
+          }]
+        },
+        dataType: 'json',
+        success: function(data) {
+          log(`Successfully added Boot variant (${variantId}) to cart`);
+          resolve(data);
+        },
+        error: function(error) {
+          log(`Failed to add Boot variant: ${JSON.stringify(error)}`);
+          reject(error);
+        }
+      });
+    });
+  }
+
+  // Function to remove Boot variant from cart
+  function removeBootVariantFromCart(bootItem) {
+    return new Promise((resolve, reject) => {
+      jQuery.ajax({
+        type: 'POST',
+        url: '/cart/change.js',
+        data: {
+          id: bootItem.key,
+          quantity: 0
+        },
+        dataType: 'json',
+        success: function(data) {
+          log(`Successfully removed Boot variant (${bootItem.variant_id}) from cart`);
+          resolve(data);
+        },
+        error: function(error) {
+          log(`Failed to remove Boot variant: ${JSON.stringify(error)}`);
+          reject(error);
+        }
+      });
+    });
+  }
+
+  // Function to find related Boot variants for a product
+  function findRelatedBootVariants(cartItems, productId) {
+    return cartItems.filter(item => {
+      return item.product_id === productId && isBootVariant(item);
+    });
+  }
+
+  // Function to detect removed Front+Rear items
+  function detectRemovedFrontRearItems(currentItems, previousItems) {
+    const removedItems = [];
+    
+    // Check each previous item to see if it's no longer in the current items
+    previousItems.forEach(prevItem => {
+      if (hasFrontRearPackage(prevItem)) {
+        // Check if this Front+Rear item still exists in current cart
+        const stillExists = currentItems.some(currItem => 
+          currItem.variant_id === prevItem.variant_id && 
+          currItem.product_id === prevItem.product_id
+        );
+        
+        if (!stillExists) {
+          removedItems.push(prevItem);
+        }
+      }
+    });
+    
+    return removedItems;
+  }
+
+  // Main function to process cart and add Boot variant if needed
+  async function processCart(cartObject) {
+    try {
+      if (!cartObject || !cartObject.items || !Array.isArray(cartObject.items)) {
+        log('Invalid cart structure');
+        return;
+      }
+      
+      const currentItems = cartObject.items;
+      log(`Processing cart with ${currentItems.length} items`);
+      
+      // Check for removed Front+Rear items
+      const removedFrontRearItems = detectRemovedFrontRearItems(currentItems, previousCartItems);
+      
+      // Handle removed Front+Rear items first
+      for (const removedItem of removedFrontRearItems) {
+        log(`Front+Rear item removed: ${removedItem.product_id}`);
+        
+        // Find related Boot variants
+        const relatedBootVariants = findRelatedBootVariants(currentItems, removedItem.product_id);
+        
+        // Remove related Boot variants
+        for (const bootItem of relatedBootVariants) {
+          if (bootItem.properties && bootItem.properties.Free_Item === 'Yes') {
+            log(`Removing related Boot variant: ${bootItem.variant_id}`);
+            await removeBootVariantFromCart(bootItem);
+          }
+        }
+      }
+      
+      // Find items with Front+Rear package
+      const frontRearItems = currentItems.filter(hasFrontRearPackage);
+      
+      if (frontRearItems.length === 0) {
+        log('No Front+Rear items found in cart');
+      } else {
+        log(`Found ${frontRearItems.length} Front+Rear items`);
+        
+        // Process each Front+Rear item
+        for (const item of frontRearItems) {
+          const productId = item.product_id;
+          const productHandle = item.handle;
+          
+          // Skip if Boot variant is already in cart for this product
+          if (hasBootVariantInCart(currentItems, productId)) {
+            log(`Boot variant already in cart for product ${productId}`);
+            continue;
+          }
+          
+          log(`Fetching product data for ${productHandle}`);
+          
+          // Fetch product data
+          const productData = await fetchProductData(productHandle);
+          
+          // Find Boot variant
+          const bootVariant = findBootVariant(productData);
+          
+          if (!bootVariant) {
+            log(`No Boot variant found for product ${productId}`);
+            continue;
+          }
+          
+          log(`Found Boot variant: ${bootVariant.id}`);
+          
+          // Add Boot variant to cart
+          await addBootVariantToCart(bootVariant.id, productHandle);
+        }
+      }
+      
+      // Update previous cart items for next comparison
+      previousCartItems = JSON.parse(JSON.stringify(currentItems));
+      
+    } catch (error) {
+      log(`Error processing cart: ${error.message}`);
+    }
+  }
+
+  // Listen for CART_UPDATED event
+  document.addEventListener('CART_UPDATED', function(event) {
+    const cartObject = event.detail || {};
+
+    /*if ($('.product_form').hasClass('non-mpv-product')) {
+      processCart(cartObject);
+    }*/
+
     if(document.querySelector('.pickup-in-store-1')){
         if (!$('.pickup-in-store-1').hasClass("addedNote")) {
         $(".pickup-in-store-1 .wow-cart-product-price-block").append("<p class='pickup-note'>Note : Our staff will contact you once your item is available to pick up</p>");
@@ -445,17 +466,12 @@ if ($container.find('img[src="' + imgUrl + '"]').length === 0) {
     removeQuantitySelector();
     initOrGetLocsStorePickup();
   });
-
   
-document.addEventListener('WOWCART_PRODUCT_DELETED', function(items) { 
-const cartObject = items.detail || {};
-  console.log('Hii',cartObject);
-   if(cartObject.item_count > 0){
-      let addonProducts = ((wowcart.cartItems || {}).items || []).filter(item=>item.product_type == 'Add-On' || item.product_type == 'Promotional' || item.product_type == 'Reward')
-        if((addonProducts||{}).length == (wowcart.cartItems || {}).item_count){
-          (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
-        }  
-    }
-  initOrGetLocsStorePickup();
-});
+  // Initial check when script loads (if cart data is available)
+  if (window.cartObject) {
+    processCart(window.cartObject);
+  }
+  
+  log('Initialized');
+})();
 </script>
