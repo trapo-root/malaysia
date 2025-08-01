@@ -291,11 +291,7 @@ const cartObject = items.detail || {};
         data: {
           items: [{
             id: variantId,
-            quantity: 1,
-            properties: {
-              'Free_Item': 'Yes',
-              'Type': 'Classic'
-            }
+            quantity: 1
           }]
         },
         dataType: 'json',
@@ -444,9 +440,9 @@ const cartObject = items.detail || {};
   document.addEventListener('CART_UPDATED', function(event) {
     const cartObject = event.detail || {};
 
-    /*if ($('.product_form').hasClass('non-mpv-product')) {
+    if ($('.product_form').hasClass('non-mpv-product')) {
       processCart(cartObject);
-    }*/
+    }
 
     if(document.querySelector('.pickup-in-store-1')){
         if (!$('.pickup-in-store-1').hasClass("addedNote")) {
