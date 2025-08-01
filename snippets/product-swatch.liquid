@@ -41,11 +41,11 @@ Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
         {% endif %}
 
         {% if is_color %}
-          <label {% if variant.featured_image %}data-image="{{ variant.featured_image | product_img_url: '600x' }}"{% endif %} for="swatch-{{ option_index }}-{{ value | replace: ' ', '-' }}-{{ product.id }}{% if section.id %}-{{ section.id }}{% endif %}" style="background-image: url({{ value | handle | append: '.' | append: file_extension | asset_img_url: '50x' | prepend: 'https:' }}); background-color: {{ value | split: ' ' | last | handle }};">
+          <label class="{% if is_color %}b-rad-50{% endif %}" {% if variant.featured_image %}data-image="{{ variant.featured_image | product_img_url: '600x' }}"{% endif %} for="swatch-{{ option_index }}-{{ value | replace: ' ', '-' }}-{{ product.id }}{% if section.id %}-{{ section.id }}{% endif %}" style="background-image: url({{ value | handle | append: '.' | append: file_extension | asset_img_url: '50x' | prepend: 'https:' }}); background-color: {{ value | split: ' ' | last | handle }};">
             <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" aria-label="sold out" alt="sold out"/>
           </label>
         {% else %}
-          <label class="{% if is_color %}b-rad-50 color{% endif %}" {% if variant.featured_image %}data-image="{{ variant.featured_image | product_img_url: '600x' }}"{% endif %} for="swatch-{{ option_index }}-{{ value | replace: ' ', '-' }}-{{ product.id }}{% if section.id %}-{{ section.id }}{% endif %}">
+          <label class="{% if is_color %}b-rad-50{% endif %}" {% if variant.featured_image %}data-image="{{ variant.featured_image | product_img_url: '600x' }}"{% endif %} for="swatch-{{ option_index }}-{{ value | replace: ' ', '-' }}-{{ product.id }}{% if section.id %}-{{ section.id }}{% endif %}">
             {{ value }}
             {% comment %}{% if value == 'Front + Rear + Cabin' %}
               <span style="color: #ee2a7b;font-size: 0.65rem;display: block;line-height: normal;">(PROMO)</span>
