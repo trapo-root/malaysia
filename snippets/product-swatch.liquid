@@ -21,7 +21,14 @@ Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
 {% endfor %}
 
 <div class="swatch is-flex is-flex-wrap" data-option-index="{{ option_index }}">
-  <div class="option_title">{{ swatch }}</div>
+  <div class="option_title">
+    {% if swatch == 'Choose Your SD Card' %}
+      {{ swatch }} <span style="font-style: italic;font-size: 13px;color: red;letter-spacing: 0.5px;text-transform: none;">(FREE Until 31 Aug!) </span>
+    {% else %}
+      {{ swatch }}
+    {% endif %}
+
+  </div>
 
   {%- assign values = '' -%}
 
