@@ -14,7 +14,6 @@
       "blocks": {
         "image_jmDVDG": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/desktop_0a17c6fb-5fdb-454d-a85b-05e2a6fc8906.jpg",
             "pretext": "",
@@ -34,6 +33,7 @@
         },
         "image_ed7dnr": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Mid_Year_Clearance_June__Dekstop-StripBanner-1940x180.jpg",
             "pretext": "",
