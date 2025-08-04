@@ -443,9 +443,9 @@ const cartObject = items.detail || {};
   document.addEventListener('CART_UPDATED', function(event) {
     const cartObject = event.detail || {};
 
-   /* if ($('.product_form').hasClass('non-mpv-product')) {
+   if ($('.product_form').hasClass('non-mpv-product')) {
       processCart(cartObject);
-    }*/
+    }
 
     if(document.querySelector('.pickup-in-store-1')){
         if (!$('.pickup-in-store-1').hasClass("addedNote")) {
