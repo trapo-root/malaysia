@@ -12,6 +12,25 @@
     "e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8": {
       "type": "slideshow",
       "blocks": {
+        "image_7z6gf8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/WebSlider_desktop_2000x760_9c6a65d1-bb4e-44d8-afc5-6dc123298cb0.jpg",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "shopify://pages/launch-2025",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original",
+            "mobile_image": "shopify://shop_images/WebSlider_Mobile_1080x1080_34fe4971-5861-4276-8750-a48e4fc673a7.jpg"
+          }
+        },
         "image_yDRQaC": {
           "type": "image",
           "settings": {
@@ -127,26 +146,6 @@
             "mobile_image": "shopify://shop_images/WebSlider---Exo-_truck-design_-02.jpg"
           }
         },
-        "image_7z6gf8": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Tesla_Model_Y_-_Juniper_desktop_2000x760_7a6d026c-4239-46e2-bd4c-962d051f5116.jpg",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://products/tesla-model-y-juniper-2025-present-trapo-classic",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/Tesla_Model_Y_-_Juniper_mobile_1080x1080_ef5694d9-a871-4e75-b5b0-4d33976668f8.jpg"
-          }
-        },
         "image_PyPQbh": {
           "type": "image",
           "disabled": true,
@@ -229,13 +228,13 @@
         }
       },
       "block_order": [
+        "image_7z6gf8",
         "image_yDRQaC",
         "image_CJzXfp",
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2",
         "image_MandM9",
         "image_NYgbG4",
         "image_KptQ6p",
-        "image_7z6gf8",
         "image_PyPQbh",
         "image_HpKJyx",
         "image_DXyUMG",
