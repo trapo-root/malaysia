@@ -30,6 +30,9 @@
     recipient-form-{{ show_recipient_form }}
     quantity-box-{{ settings.display_product_quantity }}
     {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}
+     {% if product.tags contains 'non-mpv' %}
+     non-mpv-product
+    {% endif %}
   "
   id="product-form-{{ product.id }}"
   data-product-form
