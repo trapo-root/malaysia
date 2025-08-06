@@ -170,7 +170,7 @@ const cartObject = items.detail || {};
 });
 
 
-  /**
+/**
  * Trapo Auto-Add Boot Variant
  * 
  * This script automatically adds a free Boot variant to the cart when a Front+Rear variant is added.
@@ -178,7 +178,7 @@ const cartObject = items.detail || {};
  * It listens for the CART_UPDATED event and processes the cart items accordingly.
  */
 
-(function() {
+ (function() {
   // Configuration
   const DEBUG = true;
   
@@ -280,6 +280,85 @@ const cartObject = items.detail || {};
       
       return false;
     });
+  }
+
+  // Function to find Boot variant with color matching
+  function findBootVariantWithColorMatch(productData, frontRearItem) {
+    if (!productData || !productData.variants || !Array.isArray(productData.variants)) {
+      log('Invalid product data structure');
+      return null;
+    }
+    
+    // First, get all Boot variants
+    const bootVariants = productData.variants.filter(variant => {
+      // Check variant title
+      if (variant.title && variant.title.toLowerCase().includes('boot')) {
+        return true;
+      }
+      
+      // Check option values if available
+      if (variant.options && Array.isArray(variant.options)) {
+        return variant.options.some(option => 
+          typeof option === 'string' && option.toLowerCase().includes('boot')
+        );
+      }
+      
+      return false;
+    });
+    
+    if (bootVariants.length === 0) {
+      log('No Boot variants found');
+      return null;
+    }
+    
+    console.log('[Trapo Auto-Boot] Found Boot variants:', bootVariants);
+    
+    // Extract colors from Front+Rear item (option1 and option2)
+    let frontRearOption1 = null;
+    let frontRearOption2 = null;
+    
+    // Check options_with_values for the first two options (colors)
+    if (frontRearItem.options_with_values && frontRearItem.options_with_values.length >= 2) {
+      frontRearOption1 = frontRearItem.options_with_values[0]?.value;
+      frontRearOption2 = frontRearItem.options_with_values[1]?.value;
+    }
+    
+    console.log('[Trapo Auto-Boot] Front+Rear option1 (first color):', frontRearOption1);
+    console.log('[Trapo Auto-Boot] Front+Rear option2 (second color):', frontRearOption2);
+    
+    // If no colors found, return first Boot variant
+    if (!frontRearOption1 && !frontRearOption2) {
+      log('No colors found in Front+Rear item, returning first Boot variant');
+      return bootVariants[0];
+    }
+    
+    // Try to find matching Boot variant by exact color combination
+    const matchingBootVariant = bootVariants.find(variant => {
+      console.log(`[Trapo Auto-Boot] Checking Boot variant ${variant.id}:`, {
+        option1: variant.option1,
+        option2: variant.option2,
+        option3: variant.option3,
+        title: variant.title
+      });
+      
+      // Match option1 and option2 exactly
+      const option1Match = variant.option1 === frontRearOption1;
+      const option2Match = variant.option2 === frontRearOption2;
+      const isBootVariant = variant.option3 === 'Boot';
+      
+      console.log(`[Trapo Auto-Boot] Match check - Option1: ${option1Match}, Option2: ${option2Match}, IsBoot: ${isBootVariant}`);
+      
+      return option1Match && option2Match && isBootVariant;
+    });
+    
+    if (matchingBootVariant) {
+      console.log('[Trapo Auto-Boot] Found matching color Boot variant:', matchingBootVariant);
+      return matchingBootVariant;
+    }
+    
+    // If no exact match, return first Boot variant as fallback
+    log('No exact color match found, returning first Boot variant as fallback');
+    return bootVariants[0];
   }
 
   // Function to add Boot variant to cart
@@ -411,13 +490,38 @@ const cartObject = items.detail || {};
             continue;
           }
           
+          // Console log current Front+Rear item
+          console.log('[Trapo Auto-Boot] Current Front+Rear Item:', item);
+          console.log('[Trapo Auto-Boot] Item options_with_values:', item.options_with_values);
+          console.log('[Trapo Auto-Boot] Item variant_title:', item.variant_title);
+          
           log(`Fetching product data for ${productHandle}`);
           
           // Fetch product data
           const productData = await fetchProductData(productHandle);
           
-          // Find Boot variant
-          const bootVariant = findBootVariant(productData);
+          // Console log product data for debugging
+          console.log('[Trapo Auto-Boot] Product Data:', productData);
+          console.log('[Trapo Auto-Boot] Product Options:', productData.options);
+          console.log('[Trapo Auto-Boot] Product Variants:', productData.variants);
+          
+          // Log each variant details
+          if (productData.variants && Array.isArray(productData.variants)) {
+            productData.variants.forEach((variant, index) => {
+              console.log(`[Trapo Auto-Boot] Variant ${index + 1}:`, {
+                id: variant.id,
+                title: variant.title,
+                option1: variant.option1,
+                option2: variant.option2,
+                option3: variant.option3,
+                available: variant.available,
+                price: variant.price
+              });
+            });
+          }
+          
+          // Find Boot variant with color matching
+          const bootVariant = findBootVariantWithColorMatch(productData, item);
           
           if (!bootVariant) {
             log(`No Boot variant found for product ${productId}`);
