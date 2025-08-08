@@ -50,8 +50,8 @@
           Pre-Order
         </div>
       {% endif %}
-      {% if product.tags contains 'new' %}
-        <div class="preorder-badge" style="background-color:#EE2A7B">
+      {% if product.tags contains 'new' or product.handle == 'trapo-i-sight-s650-dashcam' %}
+        <div class="preorder-badge" style="background-color:#EE2A7B;{% if product.handle == 'trapo-dashcam-i-sight-s550-cabin-camera' %}display:none;{% endif %}" >
           NEW
         </div>
       {% endif %}
