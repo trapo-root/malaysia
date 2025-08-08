@@ -15,7 +15,7 @@
         "image_7z6gf8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/WebSlider_desktop_2000x760_9c6a65d1-bb4e-44d8-afc5-6dc123298cb0.jpg",
+            "image": "shopify://shop_images/WebSlider_--03.jpg",
             "pretext": "",
             "title": "",
             "subtitle": "",
@@ -28,7 +28,7 @@
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/WebSlider_Mobile_1080x1080_34fe4971-5861-4276-8750-a48e4fc673a7.jpg"
+            "mobile_image": "shopify://shop_images/WebSlider_--04.jpg"
           }
         },
         "image_CJzXfp": {
