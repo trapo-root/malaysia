@@ -119,7 +119,7 @@ We operate through my.trapo.asia (official e-commerce store) and a network of re
     Address: 2, Persiaran Midlands, Pulau Tikus, Georgetown, 10250 Pulau Pinang
     Hours: 9AM - 7PM (except public holidays)   
     6.12 Trapo Kuching Hub
-    Address: Sublot 5, Ground Floor, Lot 19398, Block 11, MTLD, Jalan Wan Alwi, Taman Wan Alwi, 93250 Kuching, Sarawak
+    Address: Sublot 5, Ground Floor, Lot 19398, Block 11, MTLD, Jalan Wan Alwi, Taman Wan Alwi, 93250 Kuching, Sarawak
     Hours: 9AM - 7PM (including public holidays)
 
 ## 7. Payment & Shipping
