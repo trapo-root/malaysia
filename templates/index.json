@@ -112,6 +112,26 @@
         "image_NYgbG4": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/2000x760-rainy.webp",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "shopify://collections/car-wipers",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original",
+            "mobile_image": "shopify://shop_images/1080x1080-rainy.webp"
+          }
+        },
+        "image_fcKWEg": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
             "image": "shopify://shop_images/Heat_Wiper-Web_f0c8db3b-c01e-46b8-9dbd-aac6de675aa6.jpg",
             "pretext": "",
             "title": "",
@@ -235,6 +255,7 @@
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2",
         "image_MandM9",
         "image_NYgbG4",
+        "image_fcKWEg",
         "image_KptQ6p",
         "image_PyPQbh",
         "image_HpKJyx",
