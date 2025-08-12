@@ -3,124 +3,124 @@ Trapo is a Malaysian automotive lifestyle brand offering high-quality car access
 We operate through my.trapo.asia (official e-commerce store) and a network of retail Trapo Hubs nationwide, where customers can purchase products, enjoy free installation, and book detailing services.
 
 ## 2. Product Categories & Details
-  ### 2.1 Car Mats
-    All Trapo car mats  are custom-fitted for over 1,200 car models, waterproof, easy to clean, and equipped with anti-slip technology. They are designed to enhance driving comfort while protecting the vehicle’s flooring.
-    URL: https://my.trapo.asia/collections/car-mats
-  ### Key Features for All Mats:
-    - Custom fit for exact car model.
-    - Waterproof & quick-dry.
-    - Easy to clean (just rinse and dry).
-    - Optional heel pad for added durability.
-    - Lifetime warranty against manufacturing defects.
-  ### Series:
-    2.1.1 Eco Mark IV: Affordable, durable, eco-friendly; made from recyclable materials; ideal for everyday use with basic comfort and grip features.
+ ### 2.1 Car Mats
+   All Trapo car mats  are custom-fitted for over 1,200 car models, waterproof, easy to clean, and equipped with anti-slip technology. They are designed to enhance driving comfort while protecting the vehicle’s flooring.
+   URL: https://my.trapo.asia/collections/car-mats
+ ### Key Features for All Mats:
+   - Custom fit for exact car model.
+   - Waterproof & quick-dry.
+   - Easy to clean (just rinse and dry).
+   - Optional heel pad for added durability.
+   - Lifetime warranty against manufacturing defects.
+ ### Series:
+   2.1.1 Eco Mark IV: Affordable, durable, eco-friendly; made from recyclable materials; ideal for everyday use with basic comfort and grip features.
 
-    2.1.2 Classic Mark V (Best Seller): Softer CloudFlex™ comfort; RealGrip™ 2.0 anti-slip; 15% better dirt absorption vs Mark IV; twice the durability.
-        
-    2.1.3 Hex(Most Durable): Ultra-durable material with advanced hexagonal structure for maximum dirt trapping; modern sleek design.
+   2.1.2 Classic Mark V (Best Seller): Softer CloudFlex™ comfort; RealGrip™ 2.0 anti-slip; 15% better dirt absorption vs Mark IV; twice the durability.
+      
+   2.1.3 Hex(Most Durable): Ultra-durable material with advanced hexagonal structure for maximum dirt trapping; modern sleek design.
 
-    2.1.4 Hex Ultimate (Most Premium): Advanced hexagonal structure; ultra-durable build; premium aesthetics with modern sleek design. [Clarify added premium features]
-    
-  ### 2.2 Windshield Wipers
-        Trapo Hydrophobic Silicone Wipers are designed to clear rain efficiently while coating the windshield with a water-beading layer for improved visibility.
-        URL: https://my.trapo.asia/collections/car-wipers
-        Features:
-        - Hydrophobic silicone blade for coating effect.
-        - Smooth, streak-free wipe.
-        - Long-lasting performance.
-        - Warranty covers the hydrophobic coating effect only.
-        
+   2.1.4 Hex Ultimate (Most Premium): Advanced hexagonal structure; ultra-durable build; premium aesthetics with modern sleek design. [Clarify added premium features]
+  
+ ### 2.2 Windshield Wipers
+       Trapo Hydrophobic Silicone Wipers are designed to clear rain efficiently while coating the windshield with a water-beading layer for improved visibility.
+       URL: https://my.trapo.asia/collections/car-wipers
+       Features:
+       - Hydrophobic silicone blade for coating effect.
+       - Smooth, streak-free wipe.
+       - Long-lasting performance.
+       - Warranty covers the hydrophobic coating effect only.
+      
 
-  ### 2.3 Dashcams
-    Trapo dashcams are designed for clear recording, reliable operation, and safety assistance.
-    URL: https://my.trapo.asia/collections/car-dash-cams
-    Models:
-        2.3.1. Trapo T550 i-Sight: 3-channel recording (front, rear, cabin); parking mode with motion detection & collision recording; built-in GPS, Wi-Fi, HD video.
-        2.3.2. Trapo S650 i-Sight: Dual-channel; 2K resolution; 60 FPS smooth video; ADAS with voice alerts; super capacitor battery for heat resistance; WDR for night vision.
+ ### 2.3 Dashcams
+   Trapo dashcams are designed for clear recording, reliable operation, and safety assistance.
+   URL: https://my.trapo.asia/collections/car-dash-cams
+   Models:
+       2.3.1. Trapo T550 i-Sight: 3-channel recording (front, rear, cabin); parking mode with motion detection & collision recording; built-in GPS, Wi-Fi, HD video.
+       2.3.2. Trapo S650 i-Sight: Dual-channel; 2K resolution; 60 FPS smooth video; ADAS with voice alerts; super capacitor battery for heat resistance; WDR for night vision.
 
-    2.4 Car Care Range (https://my.trapo.asia/collections/car-care)
-        ### DIY Car Care Products
-        2.4.1. Car shampoo with hydrophobic effect (e.g., Dirtoff).
-        2.4.2. Wheel and rim cleaner.
-        2.4.3. Plastic and leather care.
-        2.4.4. Rain repellent spray.
-        2.4.5. Interior cleaner.
-        2.4.7. Coating (https://my.trapo.asia/pages/trapo-car-coating): Ceramic coating for paint protection.
-        2.4.8. Paint Protection Film (PPF) (https://my.trapo.asia/pages/trapo-ppf): Gloss, Matte Clear, Gloss Black. Full-car PPF includes 3 years of free maintenance.
-        2.4.9. Tinting (https://my.trapo.asia/pages/trapo-car-tint): Heat-rejection window films for comfort and privacy.
-        2.4.10. Detailing: Full interior and exterior deep cleaning and preservation.
+   2.4 Car Care Range (https://my.trapo.asia/collections/car-care)
+       ### DIY Car Care Products
+       2.4.1. Car shampoo with hydrophobic effect (e.g., Dirtoff).
+       2.4.2. Wheel and rim cleaner.
+       2.4.3. Plastic and leather care.
+       2.4.4. Rain repellent spray.
+       2.4.5. Interior cleaner.
+       2.4.7. Coating (https://my.trapo.asia/pages/trapo-car-coating): Ceramic coating for paint protection.
+       2.4.8. Paint Protection Film (PPF) (https://my.trapo.asia/pages/trapo-ppf): Gloss, Matte Clear, Gloss Black. Full-car PPF includes 3 years of free maintenance.
+       2.4.9. Tinting (https://my.trapo.asia/pages/trapo-car-tint): Heat-rejection window films for comfort and privacy.
+       2.4.10. Detailing: Full interior and exterior deep cleaning and preservation.
 
-    2.5 Car Interior Accessories
-        2.5.1. Car interior products (https://my.trapo.asia/collections/car-interior) include seat covers, organizers, and comfort upgrades.
-        2.5.2. Trapo phone holders (https://my.trapo.asia/collections/car-phone-holders) offer secure, adjustable, and easy-to-use mounting solutions.
+   2.5 Car Interior Accessories
+       2.5.1. Car interior products (https://my.trapo.asia/collections/car-interior) include seat covers, organizers, and comfort upgrades.
+       2.5.2. Trapo phone holders (https://my.trapo.asia/collections/car-phone-holders) offer secure, adjustable, and easy-to-use mounting solutions.
 
 ## 3. Services & Customer Benefits
-    - Free Installation: Available for mats, wipers, and dashcams at any Trapo Hub.
-    - Free shipping for West Malaysia orders only. East Malaysia shipping is RM15.
-    - Custom Fit Guarantee: Every mat is made to fit the specific car model.
-    - Trade-In Program: Exchange old mats for discounts on new sets.
-    - Nationwide Hubs: Over 11 locations offering purchase, installation, and detailing.
+   - Free Installation: Available for mats, wipers, and dashcams at any Trapo Hub.
+   - Free shipping for West Malaysia orders only. East Malaysia shipping is RM15.
+   - Custom Fit Guarantee: Every mat is made to fit the specific car model.
+   - Trade-In Program: Exchange old mats for discounts on new sets.
+   - Nationwide Hubs: Over 11 locations offering purchase, installation, and detailing.
 
 ## 4. Warranty & Returns
-    4.1 Warranty Coverage:
-    - Car Mats: Lifetime warranty against manufacturing defects.
-    - Wipers: Covers loss of hydrophobic coating effect.
-    - Dashcams: 1-year manufacturing warranty.
-    - Coating & PPF: Coverage varies; ProShield includes scheduled maintenance visits.
-    4.2 Returns & Exchanges: 
-    - Items must be returned in original condition and packaging.
-    - Exchanges allowed for incorrect fit or defective products.
-    - Certain products (e.g., used car care liquids) are non-returnable.
-    - For more info on returns, visit https://my.trapo.asia/pages/return-exchange-policy
+   4.1 Warranty Coverage:
+   - Car Mats: Lifetime warranty against manufacturing defects.
+   - Wipers: Covers loss of hydrophobic coating effect.
+   - Dashcams: 1-year manufacturing warranty.
+   - Coating & PPF: Coverage varies; ProShield includes scheduled maintenance visits.
+   4.2 Returns & Exchanges:
+   - Items must be returned in original condition and packaging.
+   - Exchanges allowed for incorrect fit or defective products.
+   - Certain products (e.g., used car care liquids) are non-returnable.
+   - For more info on returns, visit https://my.trapo.asia/pages/return-exchange-policy
 
 ## 5. Promotions & Membership
-    5.1 Promotions 
-    - Trapo runs seasonal sales, bundle offers, and free gift campaigns. Terms vary and may include:
-    - Non-stackable discounts.
-    - Exclusion of certain products from promotion.
-    5.2 Loyalty Program:
-    - Free to join via my.trapo.asia.
-    - Earn points per purchase.
-    Points redeemable for discounts or exclusive services.
-    Exclusive monthly Loyalty Member’s Day promotions.
+   5.1 Promotions
+   - Trapo runs seasonal sales, bundle offers, and free gift campaigns. Terms vary and may include:
+   - Non-stackable discounts.
+   - Exclusion of certain products from promotion.
+   5.2 Loyalty Program:
+   - Free to join via my.trapo.asia.
+   - Earn points per purchase.
+   Points redeemable for discounts or exclusive services.
+   Exclusive monthly Loyalty Member’s Day promotions.
 
 ## 6. Store Locations & Hours
-    6.1 Trapo Glenmarie Hub
-    Address: 17-G, Jalan Penguasa A U1/53A, Temasya Glenmarie, 40150 Shah Alam, Selangor
-    Hours: 9AM - 7PM (except public holidays)
-    6.2 Trapo Cheras Hub
-    Address: No. 15, Jalan Jejaka 3, Taman Maluri, Cheras, 55100 Kuala Lumpur
-    Hours: 9AM - 7PM (except public holidays)
-    6.3 Trapo Mid Valley Kiosk
-    Address: SK-12, Level 2, Mid Valley Megamall, Lingkaran Syed Putra, 59200 Kuala Lumpur
-    Hours: 10AM - 10PM (including public holidays)
-    6.4 Trapo Bangsar Hub
-    Address: 75, Jalan Maarof, Bangsar, 59000 Kuala Lumpur
-    Hours: 9AM - 7PM (except public holidays)
-    6.5 Trapo 1 Utama Hub
-    Address: Lot S202D, Second Floor, 1 Utama Shopping Centre, S139, Lebuh Bandar Utama, 47800 Petaling Jaya, Selangor
-    Hours: 10AM - 10PM (including public holidays)
-    6.6 Trapo Balakong Hub
-    Address: 27-G Jalan Simfoni 1, Balakong, 43300 Seri Kembangan, Selangor
-    Hours: 9AM - 7PM (including public holidays)
-    6.7 Trapo KL North (Millennium Hub KL)**
-    Address: Lot 2097, Jalan 1/42, Off Jalan Kuching, 51200 Kuala Lumpur
-    Hours: 8:30 am–6:30 pm (Monday–Sunday)
-    6.8 Trapo Taman Daya Hub
-    Address: TD Central, 5F, Jalan Sagu 21, Taman Daya, 81100 Johor Bahru, Johor
-    Hours: 9AM - 7PM (except public holidays)
-    6.9 Trapo Mid Valley Southkey JB Hub**
-    Address: FK-02, First Floor, The Mall Midvalley Southkey, 80150 Johor Bahru, Johor
-    Hours: 10AM - 10PM (including public holidays) 
-    6.10 Trapo Melaka Raya Hub
-    Address: No. 177, Jalan Merdeka, Taman Melaka Raya, 75000 Melaka
-    Hours: 9AM - 7PM (except public holidays)
-    6.11 Trapo Pulau Tikus Hub
-    Address: 2, Persiaran Midlands, Pulau Tikus, Georgetown, 10250 Pulau Pinang
-    Hours: 9AM - 7PM (except public holidays)   
-    6.12 Trapo Kuching Hub
-    Address: Sublot 5, Ground Floor, Lot 19398, Block 11, MTLD, Jalan Wan Alwi, Taman Wan Alwi, 93250 Kuching, Sarawak
-    Hours: 9AM - 7PM (including public holidays)
+   6.1 Trapo Glenmarie Hub
+   Address: 17-G, Jalan Penguasa A U1/53A, Temasya Glenmarie, 40150 Shah Alam, Selangor
+   Hours: 9AM - 7PM (except public holidays)
+   6.2 Trapo Cheras Hub
+   Address: No. 15, Jalan Jejaka 3, Taman Maluri, Cheras, 55100 Kuala Lumpur
+   Hours: 9AM - 7PM (except public holidays)
+   6.3 Trapo Mid Valley Kiosk
+   Address: SK-12, Level 2, Mid Valley Megamall, Lingkaran Syed Putra, 59200 Kuala Lumpur
+   Hours: 10AM - 10PM (including public holidays)
+   6.4 Trapo Bangsar Hub
+   Address: 75, Jalan Maarof, Bangsar, 59000 Kuala Lumpur
+   Hours: 9AM - 7PM (except public holidays)
+   6.5 Trapo 1 Utama Hub
+   Address: Lot S202D, Second Floor, 1 Utama Shopping Centre, S139, Lebuh Bandar Utama, 47800 Petaling Jaya, Selangor
+   Hours: 10AM - 10PM (including public holidays)
+   6.6 Trapo Balakong Hub
+   Address: 27-G Jalan Simfoni 1, Balakong, 43300 Seri Kembangan, Selangor
+   Hours: 9AM - 7PM (including public holidays)
+   6.7 Trapo KL North (Millennium Hub KL)**
+   Address: Lot 2097, Jalan 1/42, Off Jalan Kuching, 51200 Kuala Lumpur
+   Hours: 8:30 am–6:30 pm (Monday–Sunday)
+   6.8 Trapo Taman Daya Hub
+   Address: TD Central, 5F, Jalan Sagu 21, Taman Daya, 81100 Johor Bahru, Johor
+   Hours: 9AM - 7PM (except public holidays)
+   6.9 Trapo Mid Valley Southkey JB Hub**
+   Address: FK-02, First Floor, The Mall Midvalley Southkey, 80150 Johor Bahru, Johor
+   Hours: 10AM - 10PM (including public holidays)
+   6.10 Trapo Melaka Raya Hub
+   Address: No. 177, Jalan Merdeka, Taman Melaka Raya, 75000 Melaka
+   Hours: 9AM - 7PM (except public holidays)
+   6.11 Trapo Pulau Tikus Hub
+   Address: 2, Persiaran Midlands, Pulau Tikus, Georgetown, 10250 Pulau Pinang
+   Hours: 9AM - 7PM (except public holidays)  
+   6.12 Trapo Kuching Hub
+   Address: Sublot 5, Ground Floor, Lot 19398, Block 11, MTLD, Jalan Wan Alwi, Taman Wan Alwi, 93250 Kuching, Sarawak
+   Hours: 9AM - 7PM (including public holidays)
 
 ## 7. Payment & Shipping
 Accepts major credit cards, FPX online banking, e-wallets, and Buy Now Pay Later options (e.g., Atome).
