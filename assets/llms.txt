@@ -87,40 +87,40 @@ We operate through my.trapo.asia (official e-commerce store) and a network of re
 ## 6. Store Locations & Hours
     6.1 Trapo Glenmarie Hub
     Address: 17‑G, Jalan Penguasa A U1/53A, Temasya Glenmarie, 40150 Shah Alam, Selangor
-    Hours: 9 am–7 pm (except public holidays)
+    Hours: 9AM - 7PM (except public holidays)
     6.2 Trapo Cheras Hub
     Address: No. 15, Jalan Jejaka 3, Taman Maluri, Cheras, 55100 Kuala Lumpur
-    Hours: 9 am–7 pm (except public holidays)
+    Hours: 9AM - 7PM (except public holidays)
     6.3 Trapo Mid Valley Kiosk
     Address: SK‑12, Level 2, Mid Valley Megamall, Lingkaran Syed Putra, 59200 Kuala Lumpur
-    Hours: 10 am–10 pm (including public holidays)
+    Hours: 10AM - 10PM (including public holidays)
     6.4 Trapo Bangsar Hub
     Address: 75, Jalan Maarof, Bangsar, 59000 Kuala Lumpur
-    Hours: 9 am–7 pm (except public holidays)
+    Hours: 9AM - 7PM (except public holidays)
     6.5 Trapo 1 Utama Hub
     Address: Lot S202D, Second Floor, 1 Utama Shopping Centre, S139, Lebuh Bandar Utama, 47800 Petaling Jaya, Selangor
-    Hours: 10 am–10 pm (including public holidays)
+    Hours: 10AM - 10PM (including public holidays)
     6.6 Trapo Balakong Hub
     Address: 27‑G Jalan Simfoni 1, Balakong, 43300 Seri Kembangan, Selangor
-    Hours: 9 am–7 pm (including public holidays)
+    Hours: 9AM - 7PM (including public holidays)
     6.7 Trapo KL North (Millennium Hub KL)**
     Address: Lot 2097, Jalan 1/42, Off Jalan Kuching, 51200 Kuala Lumpur
     Hours: 8:30 am–6:30 pm (Monday–Sunday)
     6.8 Trapo Taman Daya Hub
     Address: TD Central, 5F, Jalan Sagu 21, Taman Daya, 81100 Johor Bahru, Johor
-    Hours: 9 am–7 pm (except public holidays)
+    Hours: 9AM - 7PM (except public holidays)
     6.9 Trapo Mid Valley Southkey JB Hub**
     Address: FK‑02, First Floor, The Mall Midvalley Southkey, 80150 Johor Bahru, Johor
-    Hours: 10 am–10 pm (including public holidays) 
+    Hours: 10AM - 10PM (including public holidays) 
     6.10 Trapo Melaka Raya Hub
     Address: No. 177, Jalan Merdeka, Taman Melaka Raya, 75000 Melaka
-    Hours: 9 am–7 pm (except public holidays)
+    Hours: 9AM - 7PM (except public holidays)
     6.11 Trapo Pulau Tikus Hub
     Address: 2, Persiaran Midlands, Pulau Tikus, Georgetown, 10250 Pulau Pinang
-    Hours: 9 am–7 pm (except public holidays)   
+    Hours: 9AM - 7PM (except public holidays)   
     6.12 Trapo Kuching Hub
     Address: Sublot 5, Ground Floor, Lot 19398, Block 11, MTLD, Jalan Wan Alwi, Taman Wan Alwi, 93250 Kuching, Sarawak
-    Hours: 9 am–7 pm (including public holidays)
+    Hours: 9AM - 7PM (including public holidays)
 
 ## 7. Payment & Shipping
 Accepts major credit cards, FPX online banking, e-wallets, and Buy Now Pay Later options (e.g., Atome).
