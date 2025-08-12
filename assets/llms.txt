@@ -4,7 +4,7 @@ We operate through my.trapo.asia (official e-commerce store) and a network of re
 
 ## 2. Product Categories & Details
  ### 2.1 Car Mats
-   All Trapo car mats  are custom-fitted for over 1,200 car models, waterproof, easy to clean, and equipped with anti-slip technology. They are designed to enhance driving comfort while protecting the vehicle’s flooring.
+   All Trapo car mats are custom-fitted for over 1,200 car models, waterproof, easy to clean, and equipped with anti-slip technology. They are designed to enhance driving comfort while protecting the vehicle’s flooring.
    URL: https://my.trapo.asia/collections/car-mats
  ### Key Features for All Mats:
    - Custom fit for exact car model.
@@ -17,7 +17,7 @@ We operate through my.trapo.asia (official e-commerce store) and a network of re
 
    2.1.2 Classic Mark V (Best Seller): Softer CloudFlex™ comfort; RealGrip™ 2.0 anti-slip; 15% better dirt absorption vs Mark IV; twice the durability.
       
-   2.1.3 Hex(Most Durable): Ultra-durable material with advanced hexagonal structure for maximum dirt trapping; modern sleek design.
+   2.1.3 Hex (Most Durable): Ultra-durable material with advanced hexagonal structure for maximum dirt trapping; modern sleek design.
 
    2.1.4 Hex Ultimate (Most Premium): Advanced hexagonal structure; ultra-durable build; premium aesthetics with modern sleek design. [Clarify added premium features]
   
@@ -30,7 +30,6 @@ We operate through my.trapo.asia (official e-commerce store) and a network of re
        - Long-lasting performance.
        - Warranty covers the hydrophobic coating effect only.
       
-
  ### 2.3 Dashcams
    Trapo dashcams are designed for clear recording, reliable operation, and safety assistance.
    URL: https://my.trapo.asia/collections/car-dash-cams
@@ -81,33 +80,33 @@ We operate through my.trapo.asia (official e-commerce store) and a network of re
    5.2 Loyalty Program:
    - Free to join via my.trapo.asia.
    - Earn points per purchase.
-   Points redeemable for discounts or exclusive services.
-   Exclusive monthly Loyalty Member’s Day promotions.
+   - Points redeemable for discounts or exclusive services.
+   - Exclusive monthly Loyalty Member’s Day promotions.
 
 ## 6. Store Locations & Hours
    6.1 Trapo Glenmarie Hub
    Address: 17-G, Jalan Penguasa A U1/53A, Temasya Glenmarie, 40150 Shah Alam, Selangor
    Hours: 9AM - 7PM (except public holidays)
    6.2 Trapo Cheras Hub
-   Address: No. 15, Jalan Jejaka 3, Taman Maluri, Cheras, 55100 Kuala Lumpur
+   Address: No. 15, Jalan Jejaka 3, Taman Maluri, Cheras, 55100 Kuala Lumpur
    Hours: 9AM - 7PM (except public holidays)
    6.3 Trapo Mid Valley Kiosk
-   Address: SK-12, Level 2, Mid Valley Megamall, Lingkaran Syed Putra, 59200 Kuala Lumpur
+   Address: SK-12, Level 2, Mid Valley Megamall, Lingkaran Syed Putra, 59200 Kuala Lumpur
    Hours: 10AM - 10PM (including public holidays)
    6.4 Trapo Bangsar Hub
    Address: 75, Jalan Maarof, Bangsar, 59000 Kuala Lumpur
    Hours: 9AM - 7PM (except public holidays)
    6.5 Trapo 1 Utama Hub
-   Address: Lot S202D, Second Floor, 1 Utama Shopping Centre, S139, Lebuh Bandar Utama, 47800 Petaling Jaya, Selangor
+   Address: Lot S202D, Second Floor, 1 Utama Shopping Centre, S139, Lebuh Bandar Utama, 47800 Petaling Jaya, Selangor
    Hours: 10AM - 10PM (including public holidays)
    6.6 Trapo Balakong Hub
-   Address: 27-G Jalan Simfoni 1, Balakong, 43300 Seri Kembangan, Selangor
+   Address: 27-G Jalan Simfoni 1, Balakong, 43300 Seri Kembangan, Selangor
    Hours: 9AM - 7PM (including public holidays)
    6.7 Trapo KL North (Millennium Hub KL)**
-   Address: Lot 2097, Jalan 1/42, Off Jalan Kuching, 51200 Kuala Lumpur
+   Address: Lot 2097, Jalan 1/42, Off Jalan Kuching, 51200 Kuala Lumpur
    Hours: 8:30AM - 6:30PM (Monday–Sunday)
    6.8 Trapo Taman Daya Hub
-   Address: TD Central, 5F, Jalan Sagu 21, Taman Daya, 81100 Johor Bahru, Johor
+   Address: TD Central, 5F, Jalan Sagu 21, Taman Daya, 81100 Johor Bahru, Johor
    Hours: 9AM - 7PM (except public holidays)
    6.9 Trapo Mid Valley Southkey JB Hub**
    Address: FK-02, First Floor, The Mall Midvalley Southkey, 80150 Johor Bahru, Johor
@@ -119,7 +118,7 @@ We operate through my.trapo.asia (official e-commerce store) and a network of re
    Address: 2, Persiaran Midlands, Pulau Tikus, Georgetown, 10250 Pulau Pinang
    Hours: 9AM - 7PM (except public holidays)  
    6.12 Trapo Kuching Hub
-   Address: Sublot 5, Ground Floor, Lot 19398, Block 11, MTLD, Jalan Wan Alwi, Taman Wan Alwi, 93250 Kuching, Sarawak
+   Address: Sublot 5, Ground Floor, Lot 19398, Block 11, MTLD, Jalan Wan Alwi, Taman Wan Alwi, 93250 Kuching, Sarawak
    Hours: 9AM - 7PM (including public holidays)
 
 ## 7. Payment & Shipping
