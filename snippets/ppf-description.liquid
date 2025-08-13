@@ -100,6 +100,13 @@
   </div>
 </section>
 
+<section class="ppf-var">
+<img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/desktop_ppf_variant.jpg?v=1755067937" alt="PPF Variant" class="hero-bg-image hero-bg-desktop">
+<img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/mobile_ppf_variant.jpg?v=1755067932" alt="PPF Variant" class="hero-bg-image hero-bg-mobile">
+
+</section>
+
+
 <section class="warranty_coverage">
   <div class="sec_heading">
       <h2 class="sec_title">warranty coverage</h2>
@@ -185,6 +192,23 @@
   </ul>
 </section>
 <style>
+  .ppf-var{
+    margin:10px;
+  }
+
+  /* Hide desktop image on mobile */
+        @media (max-width: 768px) {
+            .hero-bg-desktop {
+                display: none;
+            }
+        }
+
+        /* Hide mobile image on desktop */
+        @media (min-width: 769px) {
+            .hero-bg-mobile {
+                display: none;
+            }
+        }
 
   .best_for_sec{
     background-color: #F8F8F8;
@@ -617,22 +641,6 @@
     padding:25px 0
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </style>
 
 
