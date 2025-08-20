@@ -888,6 +888,21 @@ const cartObject = items.detail || {};
   // Listen for CART_UPDATED event
   document.addEventListener('CART_UPDATED', function(event) {
     const cartObject = event.detail || {};
+/*
+    // Check if we should process boot variants (only for non-mpv-product)
+    const shouldProcessBootVariants = $('.product_form').hasClass('non-mpv-product');
+    
+    // Check if we should process scented stone products (always check)
+    const hasScentedStoneProducts = cartObject.items && cartObject.items.some(item => 
+      isScentedStoneStarterKit(item) || isScentedStoneRefill(item)
+    );
+    
+    if (shouldProcessBootVariants || hasScentedStoneProducts) {
+      console.log('[Trapo Auto-Boot] CART_UPDATED event triggered, processing cart...');
+      processCart(cartObject, shouldProcessBootVariants);
+    } else {
+      console.log('[Trapo Auto-Boot] CART_UPDATED event triggered, but no relevant products found');
+    }*/
 
     if(document.querySelector('.pickup-in-store-1')){
         if (!$('.pickup-in-store-1').hasClass("addedNote")) {
@@ -907,6 +922,11 @@ const cartObject = items.detail || {};
     removeQuantitySelector();
     initOrGetLocsStorePickup();
   });
+  /*
+  // Initial check when script loads (if cart data is available)
+  if (window.cartObject) {
+    processCart(window.cartObject);
+  }*/
   
   log('Initialized');
 })();
