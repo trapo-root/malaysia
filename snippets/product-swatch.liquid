@@ -22,7 +22,7 @@
 
 <div class="swatch is-flex is-flex-wrap" data-option-index="{{ option_index }}">
   {% comment %} <br/> <a style="font-size: 13px;color: #e12c7b;letter-spacing: 0.5px;text-transform: none;text-decoration: underline" href="/pages/vibequiz">Take the quiz</a><span style="font-size:13px;color:#808080;letter-spacing:0.5px;text-transform:none;font-weight: 500">&nbsp;to know your vibe!</span> {% endcomment %}
-  {% if product.handle contains 'trapo-starter-kit' %}
+  {% if product.handle contains 'trapo-starter-kit' or product.handle contains 'trapo-scented-stone-refill'%}
     <div class="option_title">
       {% if swatch == 'Type' %}
         {{ swatch }}
