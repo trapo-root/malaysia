@@ -21,33 +21,18 @@
 {% endfor %}
 
 <div class="swatch is-flex is-flex-wrap" data-option-index="{{ option_index }}">
-  {% comment %} <br/> <a style="font-size: 13px;color: #e12c7b;letter-spacing: 0.5px;text-transform: none;text-decoration: underline" href="/pages/vibequiz">Take the quiz</a><span style="font-size:13px;color:#808080;letter-spacing:0.5px;text-transform:none;font-weight: 500">&nbsp;to know your vibe!</span> {% endcomment %}
-  {% if product.handle contains 'trapo-starter-kit' or product.handle contains 'trapo-scented-stone-refill'%}
-    <div class="option_title">
-      {% if swatch == 'Type' %}
-        {{ swatch }}
-        <br>
-        <a
-          style="font-size: 13px;color: #e12c7b;letter-spacing: 0.5px;text-transform: none;text-decoration: underline"
-          href="/pages/vibequiz"
-          >Take the quiz</a
-        ><span style="font-size:13px;color:#808080;letter-spacing:0.5px;text-transform:none;font-weight: 500"
-          >&nbsp;to know your vibe!</span
-        >
-      {% endif %}
-    </div>
-  {% else %}
-    <div class="option_title">
-      {% if swatch == 'Choose Your SD Card' %}
-        {{ swatch }}
-        <span style="font-style: italic;font-size: 13px;color: red;letter-spacing: 0.5px;text-transform: none;"
-          >(FREE Until 31 Aug!)
-        </span>
-      {% else %}
-        {{ swatch }}
-      {% endif %}
-    </div>
-  {% endif %}
+  <div class="option_title">
+    {% if product.handle contains 'trapo-starter-kit' or product.handle contains 'trapo-scented-stone-refill' and swatch == 'Type' %}
+      {{ swatch }}<br>
+      <a class="vibe-quiz-link" href="/pages/vibequiz">Take the quiz</a>
+      <span class="vibe-quiz-desc">&nbsp;to know your vibe!</span>
+    {% elsif swatch == 'Choose Your SD Card' %}
+      {{ swatch }}
+      <span class="sdcard-promo">(FREE Until 31 Aug!)</span>
+    {% else %}
+      {{ swatch }}
+    {% endif %}
+  </div>
   {%- assign values = '' -%}
 
   {% for variant in product.variants %}
@@ -115,3 +100,26 @@
     {% endunless %}
   {% endfor %}
 </div>
+<style>
+  .vibe-quiz-link {
+  font-size: 13px;
+  color: #e12c7b;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  text-decoration: underline;
+}
+.vibe-quiz-desc {
+  font-size:13px;
+  color:#808080;
+  letter-spacing:0.5px;
+  text-transform:none;
+  font-weight: 500;
+}
+.sdcard-promo {
+  font-style: italic;
+  font-size: 13px;
+  color: red;
+  letter-spacing: 0.5px;
+  text-transform: none;
+}
+</style>
