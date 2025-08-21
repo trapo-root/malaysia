@@ -1,5 +1,5 @@
 {% comment %}
-Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
+  Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
 {% endcomment %}
 
 {%- assign file_extension = 'png' -%}
@@ -21,15 +21,33 @@ Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
 {% endfor %}
 
 <div class="swatch is-flex is-flex-wrap" data-option-index="{{ option_index }}">
-  <div class="option_title">
-    {% if swatch == 'Choose Your SD Card' %}
-      {{ swatch }} <span style="font-style: italic;font-size: 13px;color: red;letter-spacing: 0.5px;text-transform: none;">(FREE Until 31 Aug!) </span>
-    {% else %}
-      {{ swatch }}
-    {% endif %}
-
-  </div>
-
+  {% comment %} <br/> <a style="font-size: 13px;color: #e12c7b;letter-spacing: 0.5px;text-transform: none;text-decoration: underline" href="/pages/vibequiz">Take the quiz</a><span style="font-size:13px;color:#808080;letter-spacing:0.5px;text-transform:none;font-weight: 500">&nbsp;to know your vibe!</span> {% endcomment %}
+  {% if product.handle contains 'trapo-starter-kit' %}
+    <div class="option_title">
+      {% if swatch == 'Type' %}
+        {{ swatch }}
+        <br>
+        <a
+          style="font-size: 13px;color: #e12c7b;letter-spacing: 0.5px;text-transform: none;text-decoration: underline"
+          href="/pages/vibequiz"
+          >Take the quiz</a
+        ><span style="font-size:13px;color:#808080;letter-spacing:0.5px;text-transform:none;font-weight: 500"
+          >&nbsp;to know your vibe!</span
+        >
+      {% endif %}
+    </div>
+  {% else %}
+    <div class="option_title">
+      {% if swatch == 'Choose Your SD Card' %}
+        {{ swatch }}
+        <span style="font-style: italic;font-size: 13px;color: red;letter-spacing: 0.5px;text-transform: none;"
+          >(FREE Until 31 Aug!)
+        </span>
+      {% else %}
+        {{ swatch }}
+      {% endif %}
+    </div>
+  {% endif %}
   {%- assign values = '' -%}
 
   {% for variant in product.variants %}
@@ -40,24 +58,57 @@ Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
       {%- assign values = values | append: ',' | append: value -%}
       {%- assign values = values | split: ',' -%}
 
-      <input class="swatch_alt_val" id="swatch-{{ option_index }}-{{ value | replace: ' ', '-' }}-{{ product.id }}{% if section.id %}-{{ section.id }}{% endif %}" type="radio" name="option-{{ option_index }}" aria-label="{{ value | escape }}" tabindex="0" value="{{ value | escape }}"{% if forloop.first %} checked{% endif %} />
+      <input
+        class="swatch_alt_val"
+        id="swatch-{{ option_index }}-{{ value | replace: ' ', '-' }}-{{ product.id }}{% if section.id %}-{{ section.id }}{% endif %}"
+        type="radio"
+        name="option-{{ option_index }}"
+        aria-label="{{ value | escape }}"
+        tabindex="0"
+        value="{{ value | escape }}"
+        {% if forloop.first %}
+          checked
+        {% endif %}
+      >
 
-      <div tabindex="0"  value="{{ value | escape }}" data-value="{{ value | escape }}" data-id="{{ variant.id }}" class="swatch-element {% if is_color %}b-rad-50 color{% endif %} {{ value | handle }}-swatch {% if variant.available %}available{% else %}soldout{% endif %}" onclick="changeSwatch(this)">
+      <div
+        tabindex="0"
+        value="{{ value | escape }}"
+        data-value="{{ value | escape }}"
+        data-id="{{ variant.id }}"
+        class="swatch-element {% if is_color %}b-rad-50 color{% endif %} {{ value | handle }}-swatch {% if variant.available %}available{% else %}soldout{% endif %}"
+        onclick="changeSwatch(this)"
+      >
         {% if is_color %}
           <div class="tooltip">{{ value }}</div>
         {% endif %}
 
         {% if is_color %}
-          <label class="{% if is_color %}b-rad-50{% endif %}" {% if variant.featured_image %}data-image="{{ variant.featured_image | product_img_url: '600x' }}"{% endif %} for="swatch-{{ option_index }}-{{ value | replace: ' ', '-' }}-{{ product.id }}{% if section.id %}-{{ section.id }}{% endif %}" style="background-image: url({{ value | handle | append: '.' | append: file_extension | asset_img_url: '50x' | prepend: 'https:' }}); background-color: {{ value | split: ' ' | last | handle }};">
-            <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" aria-label="sold out" alt="sold out"/>
+          <label
+            class="{% if is_color %}b-rad-50{% endif %}"
+            {% if variant.featured_image %}
+              data-image="{{ variant.featured_image | product_img_url: '600x' }}"
+            {% endif %}
+            for="swatch-{{ option_index }}-{{ value | replace: ' ', '-' }}-{{ product.id }}{% if section.id %}-{{ section.id }}{% endif %}"
+            style="background-image: url({{ value | handle | append: '.' | append: file_extension | asset_img_url: '50x' | prepend: 'https:' }}); background-color: {{ value | split: ' ' | last | handle }};"
+          >
+            <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" aria-label="sold out" alt="sold out">
           </label>
         {% else %}
-          <label class="{% if is_color %}b-rad-50{% endif %}" {% if variant.featured_image %}data-image="{{ variant.featured_image | product_img_url: '600x' }}"{% endif %} for="swatch-{{ option_index }}-{{ value | replace: ' ', '-' }}-{{ product.id }}{% if section.id %}-{{ section.id }}{% endif %}">
+          <label
+            class="{% if is_color %}b-rad-50{% endif %}"
+            {% if variant.featured_image %}
+              data-image="{{ variant.featured_image | product_img_url: '600x' }}"
+            {% endif %}
+            for="swatch-{{ option_index }}-{{ value | replace: ' ', '-' }}-{{ product.id }}{% if section.id %}-{{ section.id }}{% endif %}"
+          >
             {{ value }}
-            {% comment %}{% if value == 'Front + Rear + Cabin' %}
-              <span style="color: #ee2a7b;font-size: 0.65rem;display: block;line-height: normal;">(PROMO)</span>
-            {% endif %}{% endcomment %}
-            <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" aria-label="sold out" alt="sold out"/>
+            {% comment %}
+              {% if value == 'Front + Rear + Cabin' %}
+                <span style="color: #ee2a7b;font-size: 0.65rem;display: block;line-height: normal;">(PROMO)</span>
+              {% endif %}
+            {% endcomment %}
+            <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" aria-label="sold out" alt="sold out">
           </label>
         {% endif %}
       </div>
