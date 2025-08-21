@@ -24,7 +24,7 @@ Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
   <div class="option_title">
     {% if swatch == 'Choose Your SD Card' %}
       {{ swatch }} <span style="font-style: italic;font-size: 13px;color: red;letter-spacing: 0.5px;text-transform: none;">(FREE Until 31 Aug!) </span>
-    {% else if swatch == 'Type'%}
+    {% else if product.handle contains 'trapo-starter-kit'%}
       {{ swatch }}<br/> <a style="font-size: 13px;color: #e12c7b;letter-spacing: 0.5px;text-transform: none;text-decoration: underline" href="/pages/vibequiz">Take the quiz</a><span style="font-size:13px;color:#808080;letter-spacing:0.5px;text-transform:none;font-weight: 500">&nbsp;to know your vibe!</span>
     {% else %}
       {{ swatch }}
