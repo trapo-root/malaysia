@@ -52,35 +52,80 @@
     font-style: normal;
 
   } 
-  .shopify-section--header{
-    display:none !important
-  }
   .smart_safe {
-    background: linear-gradient(180deg, #358D3F 0%, #216F3A 100%);
-    color: #fff;
-}
-.smart_safe .container{
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    display:block
-}
-.smart_safe img{
-    width: 100%;
-    display: block;
-}
-.smart_safe h2{
-    color: #fff;
-    margin: 0
-}
-@media(min-width:768px){
-    .mobile_view{
-      display: none !important  
-    }
-}
-@media(max-width:767px){
-    .desktop_view{
-        display: none !important
-    }
-}
+      background: linear-gradient(180deg, #358D3F 0%, #216F3A 100%);
+      color: #fff;
+      padding-top: 50px;
+  }
+  .smart_safe .container{
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: block ;
+      text-align: center
+  }
+  .smart_safe img{
+      width: 100%;
+      display: block;
+  }
+  .smart_safe h2{
+      color: #fff;
+      margin: 0;
+      font-family: 'fontjekregular' !important;
+      font-size: 60px;
+      line-height: 1;
+      margin-top: 10px;
+  }
+  .smart_safe h2 span{
+      display: block;margin-top: -10px;
+      font-size: 75px;
+  }
+  .smart_safe .heading{
+      text-align: center
+  }
+  .smart_safe .acent{
+      letter-spacing: 2px;
+      font-size: 20px;
+  }
+  .smart_safe_slider_wrap{
+      padding-top: 14px;
+      position: relative;
+      margin-top: 30px;
+  }
+  .smart_safe_slider_wrap:before{
+      content: '';
+      background-image: url('https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1014.png?v=1756400050');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 360px;
+      height: 36px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translatex(-50%)
+  }
+  .smart_safe_slider_wrap .slick-arrow{
+      background-color: transparent;
+      position: absolute;
+      top: 50%;
+      transform: translatey(-50%);
+      z-index: 9
+  }
+  .smart_safe_slider_wrap .slick-prev{
+      left: 24px;
+  }
+  .smart_safe_slider_wrap .slick-next{
+      right: 24px;
+  }
+  @media(min-width:768px){
+      .mobile_view{
+        display: none !important  
+      }
+  }
+  @media(max-width:767px){
+      .desktop_view{
+          display: none !important
+      }
+  }
 </style>
