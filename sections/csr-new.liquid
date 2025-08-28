@@ -1,12 +1,4 @@
-<!-- Slick CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
 
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Slick JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
 <div class="smart_safe">
   <div class="smart_heading">
@@ -14,18 +6,10 @@
     <h2>Smart. Safe.<br>Sustainable.</h2>
   </div>
   <div class="smart_safe_slider_wrap">
-    <div><img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1023.png?v=1756398232"></div>
+    <div>
+      <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1023.png?v=1756398232" class="desktop_view">
+      <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1023.png?v=1756398232" class="mobile_view">
+    </div>
   </div>
 </div>
 
-<script>
-  $(document).ready(function(){
-    $('.smart_safe_slider_wrap').slick({
-      slidesToShow: 3,
-      dots: true,
-      centerMode: true,
-      infinite: true,
-      arrows: true
-    });
-  });
-</script>
