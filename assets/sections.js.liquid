@@ -619,6 +619,23 @@ window.cart = {
 ==============================================================================*/
 window.selectCallback = function (variant, selector, $element) {
 
+  // Configuration
+  const baseUrl = '/pages/ready-stock';
+  const readyStockId = 'ready-stock';
+  
+  // Check if variant has SKU
+  if (variant && variant.sku) {
+    // Build new URL with SKU parameter
+    const newUrl = `${baseUrl}?sku=${encodeURIComponent(variant.sku)}`;
+    
+    // Update the ready stock anchor tag using jQuery
+    $('#' + readyStockId).attr('href', newUrl);
+    
+    console.log('Ready stock URL updated:', newUrl);
+  } else {
+    console.warn('No SKU found in variant');
+  }
+
   //console.log(variant);
   $('span.savings').remove();
   if (variant.compare_at_price > variant.price) {
