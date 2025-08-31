@@ -30,53 +30,105 @@
         <div class="item">
           <div class="img_wrap">
             <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1004.png?v=1756400580" />
-            <span class="dot dot_1"></span>
-            <span class="dot dot_2"></span>
-            <span class="dot dot_3"></span>
-            <span class="dot dot_4"></span>
-            <span class="dot dot_5"></span>
+            <span class="dot dot_1" data-popup="popup1"></span>
+            <span class="dot dot_2" data-popup="popup2"></span>
+            <span class="dot dot_3" data-popup="popup3"></span>
+            <span class="dot dot_4" data-popup="popup4"></span>
+            <span class="dot dot_5" data-popup="popup5"></span>
           </div>
           <span>Our Car Mats</span>
         </div>
         <div class="item">
           <div class="img_wrap">
             <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1032.png?v=1756400580  " />
-            <span class="dot dot_6"></span>
+            <span class="dot dot_6" data-popup="popup6"></span>
           </div>
           <span>Car Mat Packaging</span>
         </div>
         <div class="item">
           <div class="img_wrap">
             <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1033.png?v=1756400580"/>
-            <span class="dot dot_7"></span>
+            <span class="dot dot_7" data-popup="popup7"></span>
           </div>
           <span>Wiper Packaging</span>
         </div>
         <div class="item">
           <div class="img_wrap">
             <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Ellipse_24.png?v=1756400771"/>
-            <span class="dot dot_8"></span>
+            <span class="dot dot_8" data-popup="popup8"></span>
           </div>  
           <span>Car Mat<br>Trade-In</span>
         </div>
         <div class="item">
           <div class="img_wrap">
             <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Ellipse_23.png?v=1756400771"/>
-            <span class="dot dot_9"></span>
+            <span class="dot dot_9" data-popup="popup9"></span>
           </div>
           <span>Wiper<br>Refills</span>
         </div>
         <div class="item">
           <div class="img_wrap">
             <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Ellipse_25.png?v=1756400771"/>
-            <span class="dot dot_10"></span>
+            <span class="dot dot_10" data-popup="popup10"></span>
           </div>
           <span>Dashcam<br>Recycle</span>
         </div>
       </div>
+      <!-- Popup 1 -->
+      <div id="popup1" class="popup hidden">
+        <span class="close" data-target="popup1">&times;</span>
+        <img src="https://via.placeholder.com/300x150?text=Dot+1" alt="Dot 1">
+        <h2>Dot One</h2>
+        <p>This is the first dot's popup description.</p>
+        <button onclick="alert('You clicked Dot 1')">Learn More 1</button>
+      </div>
+
+      <!-- Popup 2 -->
+      <div id="popup2" class="popup hidden">
+        <span class="close" data-target="popup2">&times;</span>
+        <img src="https://via.placeholder.com/300x150?text=Dot+2" alt="Dot 2">
+        <h2>Dot Two</h2>
+        <p>This popup belongs to dot two. More details here.</p>
+        <button onclick="alert('You clicked Dot 2')">Learn More 2</button>
+      </div>
+
+      <!-- Popup 3 -->
+      <div id="popup3" class="popup hidden">
+        <span class="close" data-target="popup3">&times;</span>
+        <img src="https://via.placeholder.com/300x150?text=Dot+3" alt="Dot 3">
+        <h2>Dot Three</h2>
+        <p>Here's some content for the third dot's popup.</p>
+        <button onclick="alert('You clicked Dot 3')">Learn More 3</button>
+      </div>
+
+      <div id="popup4" class="popup hidden">
+        <span class="close" data-target="popup3">&times;</span>
+        <img src="https://via.placeholder.com/300x150?text=Dot+3" alt="Dot 3">
+        <h2>Dot Three</h2>
+        <p>Here's some content for the third dot's popup.</p>
+        <button onclick="alert('You clicked Dot 3')">Learn More 3</button>
+      </div>
     </div>
   </div>
 </div>
+<script>
+  // Open popup
+document.querySelectorAll('.dot').forEach(dot => {
+  dot.addEventListener('click', () => {
+    const popupId = dot.getAttribute('data-popup');
+    document.getElementById(popupId).classList.remove('hidden');
+  });
+});
+
+// Close popup
+document.querySelectorAll('.close').forEach(closeBtn => {
+  closeBtn.addEventListener('click', () => {
+    const targetId = closeBtn.getAttribute('data-target');
+    document.getElementById(targetId).classList.add('hidden');
+  });
+});
+
+  </script>
 <div class="better_from_wallet">
   <div class="small_container">
     <div class="smart_heading">
@@ -382,6 +434,33 @@ display:none !important
       top: 40px;
       right: 150px;
   }
+  .towards_becoming .small_container{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px
+}
+.towards_becoming .sec_heading h2{
+      font-family: 'fontjekregular' !important;;
+      line-height: 67px;
+      font-size: 51px;
+      margin: 0 0 18px;
+    
+}
+.towards_becoming .sec_heading h2 span{
+    color: #E82276
+}
+.towards_becoming .sec_heading .acent{
+    color: #003A70;
+    font-size: 19px;
+    line-height: 27px;
+    margin-bottom: 60px;
+    display: block;
+}
   @media(min-width:768px){
       .mobile_view{
         display: none !important  
