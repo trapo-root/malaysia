@@ -326,30 +326,23 @@ class ReadyStockDisplay {
   getWhatsAppURL(locationName) {
     // Location-specific WhatsApp mapping
     const whatsappMapping = {
-      'BANGSAR': 'https://wa.me/60123456789',
-      'BALAKONG': 'https://wa.me/60123456789',
-      '1 UTAMA': 'https://wa.me/60123456789',
-      'PENANG': 'https://wa.me/60123456789',
-      'KLANG': 'https://wa.me/60123456789',
-      'SUBANG': 'https://wa.me/60123456789',
-      'SETAPAK': 'https://wa.me/60123456789',
-      'AMPANG': 'https://wa.me/60123456789',
-      'PUCHONG': 'https://wa.me/60123456789',
-      'SHAH ALAM': 'https://wa.me/60123456789',
-      'PETALING JAYA': 'https://wa.me/60123456789',
-      'KUALA LUMPUR': 'https://wa.me/60123456789',
-      'SEREMBAN': 'https://wa.me/60123456789',
-      'MELAKA': 'https://wa.me/60123456789',
-      'JOHOR BAHRU': 'https://wa.me/60123456789',
-      'CHERAS': 'https://wa.me/60123456789',
-      'KUCHING': 'https://wa.me/60123456789',
-      'GLENMARIE': 'https://wa.me/60123456789',
-      'MVKL': 'https://wa.me/60123456789',
-      'KL NORTH': 'https://wa.me/60123456789'
+      'BANGSAR': 'https://wa.me/60106694870?text=Welcome%20to%20Trapo%20Bangsar!%0A',
+      'BALAKONG': 'https://api.whatsapp.com/send?phone=601136608700',
+      '1 UTAMA': 'https://api.whatsapp.com/send/?phone=60167047870&text&type=phone_number&app_absent=0',
+      'PENANG': 'https://wa.me/+60146928700?text=Hello,%20I%20need%20help!%0A',
+      'KLANG': '#',
+      'MELAKA': 'https://wa.me/60102553870?text=Welcome%20to%20Trapo%20Melaka%20Raya!%0A',
+      'MVKL': 'https://wa.me/60126388252?text=Welcome%20to%20Trapo%20Mid%20Valley%20Megamall!%0A',
+      'CHERAS': 'https://wa.me/60126388295?text=Welcome%20to%20Trapo%20Cheras!%0A',
+      'KUCHING': 'https://api.whatsapp.com/send?phone=60167398700',
+      'GLENMARIE': 'https://wa.me/60108871870?text=Welcome%20to%20Trapo%20Glenmarie!%0A',
+      'KL NORTH': 'tel:+0125854870',
+      'TD JB':'https://wa.link/y0c2yw',
+      'MV JB':'https://api.whatsapp.com/send?phone=60166018700&text=Hi%20Trapo%20Mid%20Valley%20South%20Key!'
     };
 
     // Return location-specific URL or default
-    return whatsappMapping[locationName] || 'https://wa.me/60123456789';
+    return whatsappMapping[locationName] || '#';
   }
 
   /**
