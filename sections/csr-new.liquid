@@ -67,19 +67,19 @@
       </div>
       <h2 class="sec_title">How we recycle Trapo Car Mats?</h2>
       <div class="recycle_slider_desktop">
-        <div class="item">
+        <div class="slick-slideshow__slide">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1016.png?v=1756648579" />
         </div>
-        <div class="item">
+        <div class="slick-slideshow__slide">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1018.png?v=1756648579" />
         </div>
-        <div class="item">
+        <div class="slick-slideshow__slide">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1017.png?v=1756648579"/>
         </div>
-        <div class="item">
+        <div class="slick-slideshow__slide">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1019.png?v=1756648579"/>
         </div>
-        <div class="item">
+        <div class="slick-slideshow__slide">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1020.png?v=1756648578"/>
         </div>
       </div>
@@ -109,13 +109,36 @@ $('.smart_safe_slider_wrap').slick({
 });
 </script>
 <script>
-$('.recycle_slider_desktop').slick({
-  dots: false,
-  slidesToShow: 2.5,
-  slidesToScroll: 1,
-  arrows: false // Optional, for navigation
-});
+    var $carousel = $('.recycle_slider_desktop');
 
+    var settings = {
+      dots: false,
+      arrows: false,
+      slide: '.slick-slideshow__slide',
+      slidesToShow: 2,
+      centerMode: true,
+      centerPadding: '60px',
+    };
+
+    function setSlideVisibility() {
+      //Find the visible slides i.e. where aria-hidden="false"
+      var visibleSlides = $carousel.find('.slick-slideshow__slide[aria-hidden="false"]');
+      //Make sure all of the visible slides have an opacity of 1
+      $(visibleSlides).each(function() {
+        $(this).css('opacity', 1);
+      });
+
+      //Set the opacity of the first and last partial slides.
+      $(visibleSlides).first().prev().css('opacity', 0);
+    }
+
+    $carousel.slick(settings);
+    $carousel.slick('slickGoTo', 1);
+    setSlideVisibility();
+
+    $carousel.on('afterChange', function() {
+      setSlideVisibility();
+    });
   </script>
 <style>
  .shopify-section--header{
