@@ -100,12 +100,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap" rel="stylesheet">
 
 <script>
-
-  $('.recycle_slider_desktop').slick({
+  $('.smart_safe_slider_wrap').slick({
     dots: false,
-    item:2,
-    arrow:false
+    item:1,
+    prevArrow:"<button type='button' class='slick-prev pull-left'><img src='https://cdn.shopify.com/s/files/1/0234/7089/9277/files/btn_right_fde85769-4956-4557-9841-dc84c5925da7.png?v=1756399608' /></button>",
+    nextArrow:"<button type='button' class='slick-next pull-right'><img src='https://cdn.shopify.com/s/files/1/0234/7089/9277/files/btn_right_1.png?v=1756399608'/></button>"
 });
+ $(".recycle_slider_desktop").slick({
+   slidesToShow: 3,
+   infinite:false,
+   slidesToScroll: 1,
+   autoplay: true,
+   autoplaySpeed: 2000
+    dots: false,
+    arrows: false
+  });
 </script>
 
 <style>
