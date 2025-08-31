@@ -143,21 +143,34 @@
 }
 </style>
 <script>
-  // Open popup
+// Open popup
 document.querySelectorAll('.dot').forEach(dot => {
-  dot.addEventListener('click', () => {
+  dot.addEventListener('click', (e) => {
     const popupId = dot.getAttribute('data-popup');
-    document.getElementById(popupId).classList.remove('hidden');
+    const popup = document.getElementById(popupId);
+    popup.classList.remove('hidden');
   });
 });
 
-// Close popup
+// Close popup when clicking close button
 document.querySelectorAll('.close').forEach(closeBtn => {
-  closeBtn.addEventListener('click', () => {
+  closeBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent bubbling to document
     const targetId = closeBtn.getAttribute('data-target');
     document.getElementById(targetId).classList.add('hidden');
   });
 });
+
+// Close popup when clicking outside
+document.addEventListener('click', function (event) {
+  document.querySelectorAll('.popup').forEach(popup => {
+    // If popup is visible and click is outside of it
+    if (!popup.classList.contains('hidden') && !popup.contains(event.target) && !event.target.classList.contains('dot')) {
+      popup.classList.add('hidden');
+    }
+  });
+});
+
 
   </script>
 <div class="better_from_wallet">
