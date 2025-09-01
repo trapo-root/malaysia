@@ -164,8 +164,8 @@
               
             {% if value == 'Front + Rear' %}
               {% if product.tags contains 'non-mpv' %}
-              {% comment %} <span>(Free Boot Mat)</span> {% endcomment %}
-              {% else %}
+              {% comment %} <span>(Free Boot Mat)</span>
+              {% else %} {% endcomment %}
                 <span>(Most Popular)</span>
               {% endif %}
             {% elsif value == 'All Included' %}
