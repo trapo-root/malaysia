@@ -722,7 +722,7 @@
 
             getStockStatusText(quantity) {
                 if (quantity <= 0) return 'OUT OF STOCK';
-                if (quantity < 5) return 'LIMITED STOCK';
+                if (quantity < 2) return 'LIMITED STOCK';
                 return 'AVAILABLE';
             }
 
