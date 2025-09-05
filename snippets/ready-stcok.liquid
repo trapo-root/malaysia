@@ -1,0 +1,764 @@
+
+    <style>
+
+        /* Modal overlay */
+        #stock-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            backdrop-filter: blur(2px);
+        }
+
+        #stock-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Modal content */
+        #stock-modal .modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 700px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Close button */
+        #stock-modal .modal-rclose {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            z-index: 10;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.2s ease;
+        }
+
+        #stock-modal .modal-rclose:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        /* Ready stock section styling */
+        .container.breadcrumb-container-page {
+            display: none;
+        }
+
+        .highlignt_sec {
+            margin: 0;
+            padding: 20px 0;
+        }
+
+        .sec_header_2 {
+            text-align: center;
+            background: linear-gradient(180deg, rgba(222, 222, 222, 0) 35.15%, rgba(222, 222, 222, 0.7) 100%);
+            margin-bottom: 0px;
+        }
+
+        .sec_header_2 .title {
+            width: fit-content;
+            margin: 0 auto;
+            position: relative;
+            z-index: 9;
+            padding: 0;
+            padding-inline: 60px;
+            font-size: 20px;
+            color: #fff;
+            text-transform: uppercase;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            letter-spacing: 3px;
+            width: 300px;
+            justify-content: center;
+        }
+
+        .sec_header_2 .title:before {
+            height: 45px;
+            content: '';
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-image: url(https://cdn.shopify.com/s/files/1/0234/7089/9277/files/title_bg.svg?v=1725982901);
+            z-index: -1;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 260px;
+        }
+
+        .sec_header_2 .title span {
+            margin-bottom: -6px;
+        }
+
+        .visit-hub-text {
+            text-align: center;
+            font-size: 14px;
+            color: #1B3D6D;
+            margin: 15px 0;
+            font-weight: 400;
+        }
+
+        .ready-stock-container {
+            max-width: 850px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        /* Main container styling */
+        .ready-stock-display {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0;
+            background: transparent;
+        }
+
+        /* Hide the stock title to match screenshot */
+        .stock-title {
+            display: none;
+        }
+
+        /* Stock locations container */
+        .stock-locations {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        /* Loading state */
+        .ready-stock-loading {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            color: #6c757d;
+            justify-content: center;
+            margin-top:15px;
+        }
+
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e9ecef;
+            border-top: 2px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Individual location - Card-based design */
+        .stock-location {
+            margin: 0 0 16px 0;
+            padding: 20px 24px;
+            background: #F8F8F8;
+            border: 1px solid #F8F8F8;
+            border-radius: 12px;
+            box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+            transition: none;
+        }
+
+        /* Location header */
+        .location-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .location-name {
+            font-weight: 600;
+            font-size: 18px;
+            color: #1B3D6D;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1.2;
+            text-align: left;
+        }
+
+        .whatsapp-icon {
+            display: inline-block;
+            margin-left: 0;
+            vertical-align: middle;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .whatsapp-icon:hover {
+            opacity: 0.8;
+        }
+
+        .whatsapp-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Stock status badges */
+        .stock-status-badge {
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            text-align: right;
+            padding-right: 0px;
+            padding-top:0px;
+            padding-bottom:0px;
+        }
+
+        .stock-status-badge.available {
+            color: #003A70;
+        }
+
+        .stock-status-badge.limited-stock {
+            color: #E82276;
+        }
+
+        .stock-status-badge.out-of-stock {
+            color: #808080;
+        }
+
+        /* Get More Info link */
+        .get-more-info {
+            display: inline-block;
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: #E82276;
+            text-decoration: underline;
+            font-weight: 500;
+            text-transform:uppercase;
+        }
+
+        /* Store hours */
+        .store-hours {
+            font-size: 14px;
+            color: #414042;
+            margin-top: 2px;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        /* Hide stock summary and updated timestamp */
+        .stock-summary,
+        .stock-updated {
+            display: none;
+        }
+
+        /* No stock message */
+        .no-stock-message {
+            text-align: center;
+            padding: 0px 20px;
+            background: #fff;
+            margin-top:20px;
+        }
+
+        .no-stock-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .no-stock-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+
+        .no-stock-subtext {
+            font-size: 14px;
+            color: #6c757d;
+            line-height: 1.4;
+        }
+
+
+        /* Error state */
+        .ready-stock-error {
+            text-align: center;
+            padding: 30px 20px;
+            color: #dc3545;
+            background: #f8d7da;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            #stock-modal .modal-content {
+                width: 95%;
+                margin: 10px;
+                max-width: calc(100vw - 20px);
+            }
+            
+            .ready-stock-container {
+                max-width: none;
+                padding: 0 10px;
+            }
+            
+            .ready-stock-display {
+                max-width: none;
+            }
+            
+            .location-header {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .stock-location {
+                padding: 16px;
+                margin: 0 0 12px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #stock-modal .modal-content {
+                width: 98%;
+                margin: 5px;
+                max-width: calc(100vw - 10px);
+            }
+            
+            .ready-stock-container {
+                padding: 0 10px;
+            }
+            
+            .stock-location {
+                padding: 14px;
+            }
+            
+            .location-name {
+                font-size: 15px;
+            }
+        }
+    </style>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="stock-modal">
+        <div class="modal-content">
+            <a class="modal-rclose" id="close-rmodal">&times;</a>
+            
+            <!-- Ready Stock Section -->
+            <section class="highlignt_sec">
+                <div class="sec_header_2">
+                    <h4 class="title"><span>READY STOCK</span></h4>
+                </div>
+                <div class="container">
+                    <div class="ready-stock-container" id="ready-stock-container">
+                        <!-- Stock information will be loaded here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Ready Stock Popup System
+         * Handles popup display and AJAX stock data fetching
+         */
+        class ReadyStockPopup {
+            constructor() {
+                this.config = {
+                    apiUrl: 'https://script.google.com/macros/s/AKfycby52A3fITTxGprRLryJxNKMnJ0ur3c7DqlhiG9ehw_q4dfRBZuc2OY-WpGF2UvBYQtA/exec',
+                    cacheTimeout: 300000, // 5 minutes
+                    retryAttempts: 3,
+                    retryDelay: 1000,
+                    enableDebug: true
+                };
+                
+                this.cache = new Map();
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.log('Ready Stock Popup initialized');
+            }
+
+            setupEventListeners() {
+                // Handle ready stock link clicks
+                document.addEventListener('click', (e) => {
+                    if (e.target.matches('#ready-stock, [data-rsku]')) {
+                        e.preventDefault();
+                        const sku = e.target.dataset.sku || e.target.getAttribute('data-rsku');
+                        if (sku) {
+                            this.openPopup(sku);
+                        } else {
+                            this.log('No SKU found in clicked element');
+                        }
+                    }
+                });
+
+                // Handle modal close
+                document.getElementById('close-rmodal').addEventListener('click', () => {
+                    this.closeRPopup();
+                });
+
+                // Handle overlay click to close
+                document.getElementById('stock-modal').addEventListener('click', (e) => {
+                    if (e.target.id === 'stock-modal') {
+                        this.closeRPopup();
+                    }
+                });
+
+                // Handle escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        this.closeRPopup();
+                    }
+                });
+            }
+
+            async openPopup(sku) {
+                this.log(`Opening popup for SKU: ${sku}`);
+                
+                // Show modal
+                const modal = document.getElementById('stock-modal');
+                const container = document.getElementById('ready-stock-container');
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+                
+                // Show loading state
+                this.showLoading(container);
+                
+                try {
+                    // Fetch stock data
+                    const stockData = await this.fetchStockData(sku);
+                    this.displayStockData(stockData, container);
+                } catch (error) {
+                    this.log(`Error loading stock data: ${error.message}`);
+                    this.showError(container);
+                }
+            }
+
+            closeRPopup() {
+                const modal = document.getElementById('stock-modal');
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scroll
+                this.log('Popup closed');
+            }
+
+            async fetchStockData(sku) {
+                const cacheKey = `stock_${sku}`;
+                
+                // Check cache first
+                if (this.cache.has(cacheKey)) {
+                    const cached = this.cache.get(cacheKey);
+                    if (Date.now() - cached.timestamp < this.config.cacheTimeout) {
+                        this.log('Using cached stock data');
+                        return cached.data;
+                    }
+                }
+
+                // Fetch from API with retry logic
+                let lastError;
+                for (let attempt = 1; attempt <= this.config.retryAttempts; attempt++) {
+                    try {
+                        this.log(`Fetching stock data (attempt ${attempt})`);
+                        
+                        const url = `${this.config.apiUrl}?action=getStock&sku=${encodeURIComponent(sku)}`;
+                        const response = await fetch(url, {
+                            method: 'GET',
+                            headers: {
+                                'Accept': 'application/json',
+                            }
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                        }
+
+                        const data = await response.json();
+                        
+                        if (data.error) {
+                            throw new Error(data.error);
+                        }
+
+                        // Client-side filtering to remove "Compile" location
+                        if (data.success && data.data && Array.isArray(data.data)) {
+                            data.data = data.data.filter(item => {
+                                const location = item.location ? item.location.toLowerCase() : '';
+                                return location !== 'compile' && !location.includes('compile');
+                            });
+                            
+                            // Update totals after filtering
+                            data.locations = data.data.map(item => item.location);
+                            data.totalQuantity = data.data.reduce((sum, item) => sum + (item.quantity || 0), 0);
+                            data.found = data.data.length > 0;
+                            
+                            this.log(`Client-side filtering applied: ${data.data.length} locations after removing Compile`);
+                        }
+
+                        // Cache the result
+                        this.cache.set(cacheKey, {
+                            data: data,
+                            timestamp: Date.now()
+                        });
+
+                        return data;
+
+                    } catch (error) {
+                        lastError = error;
+                        this.log(`Attempt ${attempt} failed: ${error.message}`);
+                        
+                        if (attempt < this.config.retryAttempts) {
+                            await this.delay(this.config.retryDelay * attempt);
+                        }
+                    }
+                }
+
+                throw lastError;
+            }
+
+            displayStockData(stockData, container) {
+                if (!stockData.success) {
+                    this.showError(container);
+                    return;
+                }
+
+                const html = this.generateStockHTML(stockData);
+                container.innerHTML = html;
+                container.classList.add('stock-loaded');
+            }
+
+            generateStockHTML(stockData) {
+                let html = `
+                    <div class="ready-stock-display">
+                        <div class="stock-locations">
+                `;
+
+                const allLocations = this.getAllLocationsWithStock(stockData);
+                
+                if (allLocations.length === 0 || !stockData.found) {
+                    // No stock available message
+                    html += `
+                        <div class="no-stock-message">
+                            <div class="no-stock-icon">📦</div>
+                            <div class="no-stock-text">Ready stock is not available for this specific variant</div>
+                            <div class="no-stock-subtext">Please check back later or contact us for availability</div>
+                        </div>
+                    `;
+                } else {
+                    // Add visit-hub-text only when stock is available
+                    html += `<div class="visit-hub-text">Visit our hub for more info:</div>`;
+                    
+                    allLocations.forEach(locationData => {
+                        const displayName = this.getLocationDisplayName(locationData.location);
+                        const storeHours = this.getStoreHours(locationData.location);
+                        
+                        html += `
+                            <div class="stock-location" data-location="${locationData.location}">
+                                <div class="location-header">
+                                    <span class="location-name">
+                                        ${displayName}
+                                    </span>
+                                    <span class="stock-status-badge ${this.getStockStatusClass(locationData.quantity)}">
+                                        ${this.getStockStatusText(locationData.quantity)}
+                                    </span>
+                                </div>
+                                <a href="${this.getMoreInfoURL(locationData.location)}" target="_blank" class="get-more-info">Get More Info</a>
+                                <div class="store-hours">
+                                    <a href="${this.getWhatsAppURL(locationData.location)}" target="_blank" class="whatsapp-icon">
+                                        <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/whatsapp.png?v=1756654009" alt="WhatsApp" width="20" height="20">
+                                    </a>
+                                    Store hours: ${storeHours}
+                                </div>
+                            </div>
+                        `;
+                    });
+                }
+
+                html += `
+                        </div>
+                    </div>
+                `;
+
+                return html;
+            }
+
+            getAllLocationsWithStock(stockData) {
+                const locationMap = new Map();
+                
+                if (stockData.data && Array.isArray(stockData.data)) {
+                    stockData.data.forEach(stock => {
+                        locationMap.set(stock.location, {
+                            location: stock.location,
+                            quantity: stock.quantity || 0,
+                            hasStock: stock.quantity > 0
+                        });
+                    });
+                }
+
+                return Array.from(locationMap.values()).sort((a, b) => {
+                    if (a.quantity > 0 && b.quantity === 0) return -1;
+                    if (a.quantity === 0 && b.quantity > 0) return 1;
+                    return a.location.localeCompare(b.location);
+                });
+            }
+
+            getLocationDisplayName(locationKey) {
+                const locationMapping = {
+                    'BANGSAR': 'Trapo Bangsar Hub',
+                    'BALAKONG': 'Trapo Balakong Hub',
+                    '1 UTAMA': 'Trapo 1 Utama Hub',
+                    'PENANG': 'Trapo Pulau Tikus Hub',
+                    'MELAKA': 'Trapo Melaka Raya Hub',
+                    'MVKL': 'Trapo Mid Valley KL',
+                    'CHERAS': 'Trapo Cheras Hub',
+                    'KUCHING': 'Trapo Kuching Hub',
+                    'GLENMARIE': 'Trapo Glenmarie Hub',
+                    'KL NORTH': 'Trapo KL North (Milennium Hub)',
+                    'TD JB': 'Trapo Taman Daya Hub (JB)',
+                    'MV JB': 'Trapo Mid Valley Southkey (JB)'
+                };
+
+                return locationMapping[locationKey] || locationKey;
+            }
+
+            getStoreHours(locationKey) {
+                const storeHoursMapping = {
+                    'BANGSAR': '10:00 AM - 10:00 PM',
+                    'BALAKONG': '9:00 AM - 7:00 PM',
+                    '1 UTAMA': '10:00 AM - 10:00 PM',
+                    'PENANG': '9:00 AM - 7:00 PM',
+                    'MELAKA': '8:00 AM - 8:00 PM',
+                    'MVKL': '10:00 AM - 10:00 PM',
+                    'CHERAS': '9:00 AM - 7:00 PM',
+                    'KUCHING': '9:00 AM - 7:00 PM',
+                    'GLENMARIE': '9:00 AM - 7:00 PM',
+                    'KL NORTH': '8:30 AM - 6:30 PM',
+                    'TD JB': '9:00 AM - 7:00 PM',
+                    'MV JB': '10:00 AM - 10:00 PM'
+                };
+
+                return storeHoursMapping[locationKey] || '9:00 AM - 7:00 PM';
+            }
+
+            getMoreInfoURL(locationName) {
+                const moreInfoMapping = {
+                    'BANGSAR': 'https://my.trapo.asia/pages/trapo-bangsar-hub',
+                    'BALAKONG': 'https://my.trapo.asia/pages/trapo-balakong',
+                    '1 UTAMA': 'https://my.trapo.asia/pages/trapo-1-utama',
+                    'PENANG': 'https://my.trapo.asia/pages/trapo-pulau-tikus',
+                    'MELAKA': 'https://my.trapo.asia/pages/trapo-melaka-raya-hub',
+                    'MVKL': 'https://my.trapo.asia/pages/trapo-mid-valley-kiosk',
+                    'CHERAS': 'https://my.trapo.asia/pages/trapo-cheras-hub',
+                    'KUCHING': 'https://my.trapo.asia/pages/trapo-kuching',
+                    'GLENMARIE': 'https://my.trapo.asia/pages/trapo-glenmarie-hub',
+                    'KL NORTH': 'https://my.trapo.asia/pages/trapo-kl-north',
+                    'TD JB': 'https://my.trapo.asia/pages/taman-daya-hub',
+                    'MV JB': 'https://my.trapo.asia/pages/trapo-mid-valley-southkey-jb-hub'
+                };
+
+                return moreInfoMapping[locationName] || 'https://trapo.com.my/pages/store-locator';
+            }
+
+            getWhatsAppURL(locationName) {
+                const whatsappMapping = {
+                    'BANGSAR': 'https://wa.me/60106694870?text=Welcome%20to%20Trapo%20Bangsar!%0A',
+                    'BALAKONG': 'https://api.whatsapp.com/send?phone=601136608700',
+                    '1 UTAMA': 'https://api.whatsapp.com/send/?phone=60167047870&text&type=phone_number&app_absent=0',
+                    'PENANG': 'https://wa.me/+60146928700?text=Hello,%20I%20need%20help!%0A',
+                    'KLANG': '#',
+                    'MELAKA': 'https://wa.me/60102553870?text=Welcome%20to%20Trapo%20Melaka%20Raya!%0A',
+                    'MVKL': 'https://wa.me/60126388252?text=Welcome%20to%20Trapo%20Mid%20Valley%20Megamall!%0A',
+                    'CHERAS': 'https://wa.me/60126388295?text=Welcome%20to%20Trapo%20Cheras!%0A',
+                    'KUCHING': 'https://api.whatsapp.com/send?phone=60167398700',
+                    'GLENMARIE': 'https://wa.me/60108871870?text=Welcome%20to%20Trapo%20Glenmarie!%0A',
+                    'KL NORTH': 'tel:+0125854870',
+                    'TD JB': 'https://wa.link/y0c2yw',
+                    'MV JB': 'https://api.whatsapp.com/send?phone=60166018700&text=Hi%20Trapo%20Mid%20Valley%20South%20Key!'
+                };
+
+                return whatsappMapping[locationName] || '#';
+            }
+
+            getStockStatusClass(quantity) {
+                if (quantity <= 0) return 'out-of-stock';
+                if (quantity < 5) return 'limited-stock';
+                return 'available';
+            }
+
+            getStockStatusText(quantity) {
+                if (quantity <= 0) return 'OUT OF STOCK';
+                if (quantity < 5) return 'LIMITED STOCK';
+                return 'AVAILABLE';
+            }
+
+            showLoading(container) {
+                container.innerHTML = `
+                    <div class="ready-stock-loading">
+                        <div class="loading-spinner"></div>
+                        <span>Loading stock information...</span>
+                    </div>
+                `;
+                container.classList.add('loading');
+            }
+
+            showError(container) {
+                container.innerHTML = `
+                    <div class="ready-stock-error">
+                        <span>⚠️ Unable to load stock information</span>
+                    </div>
+                `;
+                container.classList.add('error');
+            }
+
+            delay(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            log(message) {
+                if (this.config.enableDebug) {
+                    console.log(`[ReadyStockPopup] ${message}`);
+                }
+            }
+        }
+
+        // Initialize the popup system
+        document.addEventListener('DOMContentLoaded', () => {
+            window.readyStockPopup = new ReadyStockPopup();
+        });
+    </script>
+
