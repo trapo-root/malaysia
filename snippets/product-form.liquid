@@ -104,6 +104,7 @@
         or product.type == 'TRAPO HEX ULTIMATE REAR'
         or product.type == 'TRAPO TEST'
       %}
+        {% render 'ready-stock' %}
         {% assign producthandle = product.handle | split: '-' %}
 
   
@@ -126,6 +127,12 @@
           </div>
           {% endcomment %}
         </div>
+
+        <div class="main-trialmat""> 
+            <div class="trial-url"> 
+              <p><a href="javascript:void(0)" class="banner-url" id="ready-stock" data-rsku="">Check Ready Stock!</a></p>
+            </div>
+            </div>
 
         <div class="product-type-list">
           <div class="type-outer" id="classic-type" style="visibility: hidden;">
