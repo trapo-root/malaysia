@@ -619,19 +619,14 @@ window.cart = {
 ==============================================================================*/
 window.selectCallback = function (variant, selector, $element) {
 
-  // Configuration
-  const baseUrl = '/pages/ready-stock';
   const readyStockId = 'ready-stock';
-  
-  // Check if variant has SKU
+
+  // Check if variant has SKU and update data-sku attribute
   if (variant && variant.sku) {
-    // Build new URL with SKU parameter
-    const newUrl = `${baseUrl}?sku=${encodeURIComponent(variant.sku)}`;
+    // Update the data-sku attribute for popup functionality
+    $('#' + readyStockId).attr('data-rsku', variant.sku);
     
-    // Update the ready stock anchor tag using jQuery
-    $('#' + readyStockId).attr('href', newUrl);
-    
-    console.log('Ready stock URL updated:', newUrl);
+    console.log('Ready stock SKU updated:', variant.sku);
   } else {
     console.warn('No SKU found in variant');
   }
