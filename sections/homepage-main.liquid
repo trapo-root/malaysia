@@ -795,6 +795,14 @@
 
 
 <style>
+  @font-face {
+    font-family: 'fontjekregular';
+    src: url('https://cdn.shopify.com/s/files/1/0234/7089/9277/files/fontjek-webfont.woff2?v=1683571516') format('woff2'),
+         url('https://cdn.shopify.com/s/files/1/0234/7089/9277/files/fontjek-webfont.woff?v=1683571516') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+  } 
     .search-model {
     width: 100%;
     height: 235px;
@@ -1208,14 +1216,21 @@
       color: #fff;
       margin: 0 0 20px;
       line-height: 67px;
+      font-family: 'fontjekregular' !important;
     }
 
     .new_car .content p {
       font-size: 19px;
       line-height: 27px;
       color: #fff;
-      max-width: 387px;
+      max-width: 525px;
       margin-bottom: 100px
+    }
+    .new_car .content p.new_car_sub{
+      font-size: 20px;
+      line-height: 27px;
+      color: #fff;
+      margin-bottom: 0;
     }
 
     .new_car .container {
