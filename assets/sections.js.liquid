@@ -750,6 +750,10 @@ var productType = $(".product_form ").data('product-type');
     }
   }
   else if(productType == 'TRAPO ECO' ){
+    var ecoPrice = selectedVarPrice * 0.82;
+      var finalVarEco = window.Shopify.formatMoney(ecoPrice, $('body').data('money-format'));
+      $(".member-price .price").html(finalVarEco);
+      $(".member-price .compare-price").html(selectedVarPrice);
     }
   else if(productType == 'TRAPO ACCESSORIES BUNDLE' ){
     }
