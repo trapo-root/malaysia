@@ -33,6 +33,13 @@
                 <span class="price">{{ bundle_price | money }}</span>
                 <span class="compare-price">{{ selected_variant.price | money }}</span>
               </div>
+            {% elsif product.type == 'TRAPO ECO' %}
+              <div class="price-wrapper">
+                <span class="member-label">PRICE:</span>
+                  {% assign eco_price = selected_variant.price | times: 0.88 %}
+                <span class="price">{{ eco_price | money }}</span>
+                <span class="compare-price">{{ selected_variant.price | money }}</span>
+              </div>
             {% elsif product.type == 'TRAPO REFRESH PACKAGE' %}
               <div class="price-wrapper">
                 <span class="member-label">PRICE:</span>
