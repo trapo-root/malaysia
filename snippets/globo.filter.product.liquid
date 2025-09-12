@@ -164,7 +164,7 @@
                   {% if product.type == 'TRAPO XTREME' %}
                     <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
                     <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ 200 | money }}</span>
-                  {% if product.type == 'TRAPO ECO' %}
+                  {% elsif product.type == 'TRAPO ECO' %}
                     <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
                     <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.82 | money }}</span>
                   
