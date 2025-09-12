@@ -36,7 +36,7 @@
             {% elsif product.type == 'TRAPO ECO' %}
               <div class="price-wrapper">
                 <span class="member-label">PRICE:</span>
-                  {% assign eco_price = selected_variant.price | times: 0.88 %}
+                  {% assign eco_price = selected_variant.price | times: 0.82 %}
                 <span class="price">{{ eco_price | money }}</span>
                 <span class="compare-price">{{ selected_variant.price | money }}</span>
               </div>
