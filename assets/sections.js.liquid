@@ -753,7 +753,7 @@ var productType = $(".product_form ").data('product-type');
     var ecoPrice = selectedVarPrice * 0.82;
       var finalVarEco = window.Shopify.formatMoney(ecoPrice, $('body').data('money-format'));
       $(".member-price .price").html(finalVarEco);
-      var finalVarCmp = window.Shopify.formatMoney(selectedVarCmp, $('body').data('money-format'));
+      var finalVarCmp = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
       $(".member-price .compare-price").html(finalVarCmp);
     }
   else if(productType == 'TRAPO ACCESSORIES BUNDLE' ){
