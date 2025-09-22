@@ -33,6 +33,7 @@
         },
         "image_CJzXfp": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Grab_Wallet_Promo_-_MERDEKA_Slider_Web.webp",
             "pretext": "",
