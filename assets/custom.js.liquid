@@ -97,7 +97,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		  });
 
 	 
-		 var selectProductUltimate = currentProductHandle.replaceAll(lastItem, "hex-ultimate" );
+		 //var selectProductUltimate = currentProductHandle.replaceAll(lastItem, "hex-ultimate" );
+     var selectProductUltimate = currentProductHandle.replace(/hex-ultimate$/, lastItem);
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductUltimate + '.js')
                         .done(function(product) {
 			//console.log(product);
