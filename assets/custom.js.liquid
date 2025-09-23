@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		}else{
 		  var lastItem = currentProductHandle.split("-").pop();
 		}
-		console.log(lastItem);
+		//console.log(lastItem);
 
        var selectProductClassic = currentProductHandle.replaceAll(lastItem, "classic" );
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductClassic + '.js')
