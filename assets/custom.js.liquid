@@ -52,7 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 		//console.log(lastItem);
 
-       var selectProductClassic = currentProductHandle.replaceAll(lastItem, "classic" );
+      // var selectProductClassic = currentProductHandle.replaceAll(lastItem, "classic" );
+       var selectProductClassic = currentProductHandle.replace(/classic$/, lastItem);
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductClassic + '.js')
 			//console.log(product);
             .done(function(product) {
