@@ -63,6 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		  });
 
      var selectProductEco = currentProductHandle.replaceAll(lastItem, "eco" );
+     var updated = "jaecoo-j7-ckd-2024-present-trapo-eco".replace(/eco$/, "classic");
+     console.log(updated);
+
    
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductEco + '.js') 
           .done(function(product) {
