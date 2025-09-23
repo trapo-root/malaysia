@@ -756,6 +756,13 @@ var productType = $(".product_form ").data('product-type');
       var finalVarCmp = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
       $(".member-price .compare-price").html(finalVarCmp);
     }
+  else if(productHandle == 'trapo-quik-shield-car-coating' ){
+    var coatingPrice = 39900;
+      var finalVarCoating = window.Shopify.formatMoney(coatingPrice, $('body').data('money-format'));
+      $(".member-price .price").html(finalVarCoating);
+      var finalVarCmp = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
+      $(".member-price .compare-price").html(finalVarCmp);
+    }
   else if(productType == 'TRAPO ACCESSORIES BUNDLE' ){
     }
   else if(productType == 'PACKAGE MAT' ){
