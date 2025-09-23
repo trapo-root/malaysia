@@ -62,11 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
            return false;
 		  });
 
-     var selectProductEco = currentProductHandle.replaceAll(lastItem, "eco" );
-     var updated = currentProductHandle.replace(/eco$/, "classic");
-     console.log("Hi",updated);
-
-   
+     //var selectProductEco = currentProductHandle.replaceAll(lastItem, "eco" );
+     var selectProductEco = currentProductHandle.replace(/eco$/, lastItem);
+     
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductEco + '.js') 
           .done(function(product) {
            $('#eco-type').css('visibility','visible');
