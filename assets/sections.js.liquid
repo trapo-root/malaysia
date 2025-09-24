@@ -728,12 +728,12 @@ window.selectCallback = function (variant, selector, $element) {
   }
   }*/
 
-  /* New Footer Price Logic*/
+ /* New Footer Price Logic*/
 
-  console.log(variant);
   var selectedVarPrice = variant.price;
   var selectedVarCmp = variant.compare_at_price;
- 
+  var productMpv = $(".product_form ").data('product-mpv');
+  
 var productType = $(".product_form ").data('product-type');
   if(productType =='Gift Card'){
     if (selectedVarCmp !== null){
@@ -750,12 +750,21 @@ var productType = $(".product_form ").data('product-type');
     }
   }
   else if(productType == 'TRAPO ECO' ){
-    var ecoPrice = selectedVarPrice * 0.82;
-      var finalVarEco = window.Shopify.formatMoney(ecoPrice, $('body').data('money-format'));
-      $(".member-price .price").html(finalVarEco);
-      var finalVarCmp = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
-      $(".member-price .compare-price").html(finalVarCmp);
+    if(productMpv == 'yes'){
+      var memberPrice = selectedVarPrice * 0.92;
+      var finalMembVarMember = window.Shopify.formatMoney(memberPrice, $('body').data('money-format'));
+      $(".member-price .price").html(finalMembVarMember);
+      var finalVarPrice = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
+      $(".member-price .non-member-price .nm-price").html(finalVarPrice);
+    }else if(productMpv == 'no'){
+      var ecoPrice = selectedVarPrice * 0.82;
+        var finalVarEco = window.Shopify.formatMoney(ecoPrice, $('body').data('money-format'));
+        $(".member-price .price").html(finalVarEco);
+        var finalVarCmp = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
+        $(".member-price .compare-price").html(finalVarCmp);
+      }
     }
+    
   else if(productHandle == 'trapo-quik-shield-car-coating' ){
     var coatingPrice = 39900;
       var finalVarCoating = window.Shopify.formatMoney(coatingPrice, $('body').data('money-format'));
