@@ -46,12 +46,12 @@
             {% elsif product.type == 'TRAPO ECO' %}
               {% if product.tags contains 'non-mpv' %}
                 <div class="price-wrapper">
-                <span class="member-label">PRICE:</span>
-                  {% assign eco_price = selected_variant.price | times: 0.82 %}
-                <span class="price">{{ eco_price | money }}</span>
-                <span class="compare-price">{{ selected_variant.price | money }}</span>
-              </div>
-            {% elsif product.tags contains 'isMPV' %}
+                  <span class="member-label">PRICE:</span>
+                    {% assign eco_price = selected_variant.price | times: 0.82 %}
+                  <span class="price">{{ eco_price | money }}</span>
+                  <span class="compare-price">{{ selected_variant.price | money }}</span>
+                </div>
+              {% elsif product.tags contains 'isMPV' %}
                 <div class="price-wrapper">
                   <span class="member-label">MEMBER PRICE:</span>
                   {% if selected_variant.compare_at_price > selected_variant.price %}
@@ -69,7 +69,7 @@
                 <span class="non-member-price"
                   >NON-MEMBER: <span class="nm-price">{{ selected_variant.price | money }}</span></span
                 >
-              {%endif %}
+                {% endif %}
             {% elsif product.type == 'TRAPO REFRESH PACKAGE' %}
               <div class="price-wrapper">
                 <span class="member-label">PRICE:</span>
