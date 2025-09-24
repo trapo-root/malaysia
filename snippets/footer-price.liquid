@@ -44,12 +44,32 @@
                 <span class="compare-price">{{ selected_variant.price | money }}</span>
               </div>
             {% elsif product.type == 'TRAPO ECO' %}
-              <div class="price-wrapper">
+              {% if product.tags contains 'non-mpv' %}
+                <div class="price-wrapper">
                 <span class="member-label">PRICE:</span>
                   {% assign eco_price = selected_variant.price | times: 0.82 %}
                 <span class="price">{{ eco_price | money }}</span>
                 <span class="compare-price">{{ selected_variant.price | money }}</span>
               </div>
+            {% elsif product.tags contains 'isMPV' %}
+                <div class="price-wrapper">
+                  <span class="member-label">MEMBER PRICE:</span>
+                  {% if selected_variant.compare_at_price > selected_variant.price %}
+                    <span class="price">{{ selected_variant.price | money }}</span>
+                  {% else %}
+                    {% assign eco_price = selected_variant.price | times: 0.92 %}
+                    <span class="price">{{ eco_price | money }}</span>
+                  {% endif %}
+                  {% if selected_variant.compare_at_price > selected_variant.price %}
+                    <span class="compare-price">{{ selected_variant.compare_at_price | money }}</span>
+                  {% else %}
+                    <span class="compare-price">{{ selected_variant.price | money }}</span>
+                  {% endif %}
+                </div>
+                <span class="non-member-price"
+                  >NON-MEMBER: <span class="nm-price">{{ selected_variant.price | money }}</span></span
+                >
+              {%endif %}
             {% elsif product.type == 'TRAPO REFRESH PACKAGE' %}
               <div class="price-wrapper">
                 <span class="member-label">PRICE:</span>
