@@ -153,7 +153,15 @@
         {% endif %}
         {% if is_package %}
           <p class="swatch-package-title">
-            {{ value }}
+            {% if product.type == 'TRAPO ECO' %}
+              {% if value == 'All Included + Sidestep' %}
+                All Included + Free Sidestep
+              {% else %}
+                {{ value }}
+              {% endif %}
+            {% else %}
+              {{ value }}
+            {% endif %}
             {% if product.type == 'TRAPO HEX' %}
             {% if value == 'Front + Rear' %}
               <span style='font-size:10px !important'>(Upgrade <strong>+RM100</strong> For Ultimate)</span>
