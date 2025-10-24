@@ -167,6 +167,18 @@
                   {% elsif product.type == 'TRAPO ECO' %}
                     <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
                     <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.82 | money }}</span>
+                  {% elsif product.type == 'TRAPO ECO III' %}
+                    <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
+                    <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.50 | money }}</span>
+                  {% elsif product.type == 'TRAPO ECO II' %}
+                    <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
+                    <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.30 | money }}</span>
+                  {% elsif product.type == 'TRAPO CLASSIC MARK IV' %}
+                    <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
+                    <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.50 | money }}</span>
+                  {% elsif product.type == 'TRAPO CLASSIC MARK III' %}
+                    <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
+                    <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | times: 0.30 | money }}</span>
                   
                   {% elsif product.tags contains 'bundle-15' %}
                     <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
