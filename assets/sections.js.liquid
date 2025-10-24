@@ -764,6 +764,34 @@ var productType = $(".product_form ").data('product-type');
         $(".member-price .compare-price").html(finalVarCmp);
       }
     }
+  else if(productType == 'TRAPO ECO III' ){
+    var ecoPrice = selectedVarPrice * 0.50;
+        var finalVarEco = window.Shopify.formatMoney(ecoPrice, $('body').data('money-format'));
+        $(".member-price .price").html(finalVarEco);
+        var finalVarCmp = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
+        $(".member-price .compare-price").html(finalVarCmp);
+  }
+  else if(productType == 'TRAPO ECO II' ){
+    var ecoPrice = selectedVarPrice * 0.30;
+        var finalVarEco = window.Shopify.formatMoney(ecoPrice, $('body').data('money-format'));
+        $(".member-price .price").html(finalVarEco);
+        var finalVarCmp = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
+        $(".member-price .compare-price").html(finalVarCmp);
+  }
+  else if(productType == 'TRAPO CLASSIC MARK IV' ){
+    var ecoPrice = selectedVarPrice * 0.50;
+        var finalVarEco = window.Shopify.formatMoney(ecoPrice, $('body').data('money-format'));
+        $(".member-price .price").html(finalVarEco);
+        var finalVarCmp = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
+        $(".member-price .compare-price").html(finalVarCmp);
+  }
+  else if(productType == 'TRAPO CLASSIC MARK III' ){
+    var ecoPrice = selectedVarPrice * 0.30;
+        var finalVarEco = window.Shopify.formatMoney(ecoPrice, $('body').data('money-format'));
+        $(".member-price .price").html(finalVarEco);
+        var finalVarCmp = window.Shopify.formatMoney(selectedVarPrice, $('body').data('money-format'));
+        $(".member-price .compare-price").html(finalVarCmp);
+  }
     
   else if(productHandle == 'trapo-quik-shield-car-coating' ){
     var coatingPrice = 39900;
