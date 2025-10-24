@@ -70,6 +70,39 @@
                   >NON-MEMBER: <span class="nm-price">{{ selected_variant.price | money }}</span></span
                 >
                 {% endif %}
+
+            {% elsif product.type == 'TRAPO ECO III' %}
+                <div class="price-wrapper">
+                  <span class="member-label">PRICE:</span>
+                    {% assign eco_price = selected_variant.price | times: 0.50 %}
+                  <span class="price">{{ eco_price | money }}</span>
+                  <span class="compare-price">{{ selected_variant.price | money }}</span>
+                </div>
+            
+            {% elsif product.type == 'TRAPO ECO II' %}
+                <div class="price-wrapper">
+                  <span class="member-label">PRICE:</span>
+                    {% assign eco_price = selected_variant.price | times: 0.30 %}
+                  <span class="price">{{ eco_price | money }}</span>
+                  <span class="compare-price">{{ selected_variant.price | money }}</span>
+                </div>
+
+            {% elsif product.type == 'TRAPO CLASSIC MARK IV' %}
+                <div class="price-wrapper">
+                  <span class="member-label">PRICE:</span>
+                    {% assign eco_price = selected_variant.price | times: 0.50 %}
+                  <span class="price">{{ eco_price | money }}</span>
+                  <span class="compare-price">{{ selected_variant.price | money }}</span>
+                </div>
+
+            {% elsif product.type == 'TRAPO CLASSIC MARK III' %}
+                <div class="price-wrapper">
+                  <span class="member-label">PRICE:</span>
+                    {% assign eco_price = selected_variant.price | times: 0.30 %}
+                  <span class="price">{{ eco_price | money }}</span>
+                  <span class="compare-price">{{ selected_variant.price | money }}</span>
+                </div>
+
             {% elsif product.type == 'TRAPO REFRESH PACKAGE' %}
               <div class="price-wrapper">
                 <span class="member-label">PRICE:</span>
