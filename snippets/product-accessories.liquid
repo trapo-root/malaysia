@@ -50,9 +50,7 @@
 
 {% comment %} HTML markup {% endcomment %}
 
-{% if product != blank and context == 'product' %}
   {% render 'product__structured-data', product: product %}
-{% endif %}
 
 <div class="product-main product-{{ product.id }}">
   <div
