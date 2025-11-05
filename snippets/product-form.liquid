@@ -136,26 +136,6 @@
             </div>
 
         <div class="product-type-list">
-          <div class="type-outer" id="classic-type" style="visibility: hidden;">
-            <input
-              type="radio"
-              class="product-type-radio"
-              name="properties[Type]"
-              value="Classic"
-              {% if producthandle.last == 'classic' %}
-                checked
-              {% endif %}
-            >
-            <div
-              data-value="Classic"
-              class="swatch-element-type"
-              onclick="{% if producthandle.last == 'classic' %}changeImage(this){% else %}changeType(this){% endif %}"
-            >
-              <lable>
-                <img src="{{ 'btn_classic.png' | asset_url }}" alt="Classic">
-              </lable>
-            </div>
-          </div>
           <div class="type-outer" id="eco-type" style="visibility: hidden;">
             <input
               type="radio"
@@ -176,6 +156,28 @@
               </lable>
             </div>
           </div>
+          
+          <div class="type-outer" id="classic-type" style="visibility: hidden;">
+            <input
+              type="radio"
+              class="product-type-radio"
+              name="properties[Type]"
+              value="Classic"
+              {% if producthandle.last == 'classic' %}
+                checked
+              {% endif %}
+            >
+            <div
+              data-value="Classic"
+              class="swatch-element-type"
+              onclick="{% if producthandle.last == 'classic' %}changeImage(this){% else %}changeType(this){% endif %}"
+            >
+              <lable>
+                <img src="{{ 'btn_classic.png' | asset_url }}" alt="Classic">
+              </lable>
+            </div>
+          </div>
+          
           <div class="type-outer" id="hex-type" style="visibility: hidden;">
             <input
               type="radio"
