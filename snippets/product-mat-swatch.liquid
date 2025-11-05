@@ -153,7 +153,7 @@
         {% endif %}
         {% if is_package %}
           <p class="swatch-package-title">
-            {% if product.type == 'TRAPO ECO' %}
+            {% if product.tags contains 'isMPV' %}
               {% if value == 'All Included + Sidestep' %}
                 All Included + Free Sidestep
               {% else %}
