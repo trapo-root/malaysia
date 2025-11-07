@@ -252,7 +252,7 @@
         {% assign producthandle = product.handle | split: '-' %}
         {% assign lastthird = producthandle | slice: -3 %}
         
-         <p class="txt-choose-cmb">Choose a variant</p>
+          <div class="new-steps"> <span class="new-step-2">Variant</span></div>
 
         <div class="product-type-list tint-type" style="margin-bottom:0">
           <div class="type-outer" id="crystal-type" style="visibility: hidden;">
@@ -321,9 +321,7 @@
       {% if product.tags contains 'trapo-coating' %}
         {% assign producthandle = product.handle | split: '-' %}
         {% assign lastfourth = producthandle | slice: -4 %}
-        
-         <p class="txt-choose-cmb">Choose a variant</p>
-         >
+
          <div class="new-steps"> <span class="new-step-2">Variant</span></div>
 
         <div class="product-type-list" style="margin-bottom:0">
