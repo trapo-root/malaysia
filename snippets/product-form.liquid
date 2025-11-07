@@ -365,6 +365,28 @@
               </lable>
             </div>
           </div>
+
+          <div class="type-outer" id="diamond-type" style="visibility: hidden;">
+            <input
+              type="radio"
+              class="product-type-radio"
+              name="properties[Type]"
+              value="Diamond"
+              {% if lastfourth contains 'diamond' %}
+                checked
+              {% endif %}
+            >
+            <div
+              data-value="Diamond"
+              class="swatch-element-type {% if lastfourth contains 'pro' %}selected{% endif %}"
+              onclick="changeType(this)"
+            >
+              <lable>
+                <img src="{{ 'diamond-coat.png' | asset_url }}" alt="Diamond">
+              </lable>
+            </div>
+          </div>
+          
         </div>
       {% endif %}
 
