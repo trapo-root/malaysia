@@ -43,6 +43,15 @@
           <div class="product-label">Dashcam</div>
         </div>
       </a>
+
+      <a href="javascript:void(0)" onclick="showDetailingGuide()" class="product-card">
+        <div
+          class="product-image"
+          style="background-image: url('https://cdn.shopify.com/s/files/1/0234/7089/9277/files/car-detail-guide.png?v=1762505170');"
+        >
+          <div class="product-label">Car Detailing</div>
+        </div>
+      </a>
     </div>
 
     <div class="purchase-footer">
@@ -308,6 +317,63 @@
   </div>
 </section>
 
+<!-- Dashcam Guide Detail Section -->
+<section class="guide-detail page-guide" id="detailing-guide" style="display: none;">
+  <div class="container">
+    <div class="purchase-header">
+      <div class="header-content">
+        <a href="javascript:void(0)" onclick="showMainGuide()" class="back-button">&lt; BACK</a>
+        <h1>Dashcam</h1>
+      </div>
+    </div>
+
+    <div class="guide-content">
+      <div class="guide-cards two-cards">
+        <a
+          href="javascript:void(0)"
+          onclick="openVideoPopup('Uf1zIIbhOoE', 'Recycle Trapo Packaging')"
+          class="guide-card"
+        >
+          <div class="guide-card-left">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/install-dashcam.png?v=1750904802"
+              alt="Install Trapo Dashcam"
+            >
+          </div>
+          <div class="guide-card-right">
+            <div class="guide-tag">HOW TO</div>
+            <div class="guide-title">Install Trapo Dashcam</div>
+          </div>
+        </a>
+
+        <a
+          href="javascript:void(0)"
+          onclick="openVideoPopup('Uf1zIIbhOoE', 'Install Trapo Car Mat')"
+          class="guide-card"
+        >
+          <div class="guide-card-left">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/connect-trapo-app.png?v=1750904807"
+              alt="Connect with Trapo App"
+            >
+          </div>
+          <div class="guide-card-right">
+            <div class="guide-tag">HOW TO</div>
+            <div class="guide-title">Connect with Trapo App</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="installation-promo">
+        <h2>Get FREE installation service!</h2>
+        <p>Drop by a Trapo Hub today.</p>
+        <a href="/pages/location" class="locate-button">LOCATE US</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- YouTube Video Popup -->
 <div id="video-popup" class="video-popup">
   <div class="video-popup-content">
@@ -335,6 +401,7 @@
     document.getElementById('car-wiper-guide').style.display = 'none';
     document.getElementById('car-care-guide').style.display = 'none';
     document.getElementById('dashcam-guide').style.display = 'none';
+    document.getElementById('detailing-guide').style.display = 'none';
     document.getElementById('car-mat-guide').style.display = 'block';
   }
   function showCarWiperGuide() {
@@ -342,6 +409,7 @@
     document.getElementById('car-wiper-guide').style.display = 'block';
     document.getElementById('car-care-guide').style.display = 'none';
     document.getElementById('dashcam-guide').style.display = 'none';
+    document.getElementById('detailing-guide').style.display = 'none';
     document.getElementById('car-mat-guide').style.display = 'none';
   }
   function showCarCareGuide() {
@@ -349,6 +417,7 @@
     document.getElementById('car-wiper-guide').style.display = 'none';
     document.getElementById('car-care-guide').style.display = 'block';
     document.getElementById('dashcam-guide').style.display = 'none';
+    document.getElementById('detailing-guide').style.display = 'none';
     document.getElementById('car-mat-guide').style.display = 'none';
   }
   function showDashcamGuide() {
@@ -356,8 +425,20 @@
     document.getElementById('car-wiper-guide').style.display = 'none';
     document.getElementById('car-care-guide').style.display = 'none';
     document.getElementById('dashcam-guide').style.display = 'block';
+    document.getElementById('detailing-guide').style.display = 'none';
     document.getElementById('car-mat-guide').style.display = 'none';
   }
+
+  function showDetailingGuide() {
+    document.getElementById('main-guide').style.display = 'none';
+    document.getElementById('car-wiper-guide').style.display = 'none';
+    document.getElementById('car-care-guide').style.display = 'none';
+    document.getElementById('dashcam-guide').style.display = 'none';
+    document.getElementById('detailing-guide').style.display = 'block';
+    document.getElementById('car-mat-guide').style.display = 'none';
+  }
+
+  
 
   function showMainGuide() {
     document.getElementById('car-mat-guide').style.display = 'none';
