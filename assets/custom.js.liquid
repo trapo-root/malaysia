@@ -157,6 +157,16 @@ document.addEventListener('DOMContentLoaded', function() {
 		   $('#pro-type').hide();
                           return false;
 		  });
+
+      var selectProductProCoat = currentProductHandle.replaceAll(lastItem, "diamond" );
+		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductProCoat + '.js') 
+                        .done(function(product) {
+			//console.log(product);
+           $('#diamond-type').css('visibility','visible');
+		  }).fail(function() {
+		   $('#diamond-type').hide();
+                          return false;
+		  });
    }
    
   });
@@ -290,6 +300,9 @@ var $product_img_cell = $(".variant_imgs_cell"),
     }
     else if(typeValue == 'Pro'){
       var selectProductType = currentProductHandle.replaceAll(lastItem, "pro" );
+    }
+    else if(typeValue == 'Diamond'){
+      var selectProductType = currentProductHandle.replaceAll(lastItem, "diamond" );
     }
 
     window.location.href = "/products/"+selectProductType;
