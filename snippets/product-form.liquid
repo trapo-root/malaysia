@@ -1072,3 +1072,12 @@
   </p>
 </div>{% endcomment %}
 <!-- End BNPL Icons -->
+
+
+{% if product.tags contains 'isMPV' %}
+  <style>
+  .swatch .swatch-element.package.all-included-sidestep-swatch{
+    display:none;
+  }
+</style>
+{% endif %}
