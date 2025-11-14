@@ -72,12 +72,12 @@
         "image_yDRQaC": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Mid_Year_Clearance_June__Slider-Desktop.jpg",
+            "image": "shopify://shop_images/Website_Page_-_Homepage_banner-05_1afdd4cb-cf26-4f8e-8e6b-a76249759da4.jpg",
             "pretext": "",
             "title": "",
             "subtitle": "",
             "button1": "",
-            "button1_link": "shopify://collections/clearance",
+            "button1_link": "shopify://products/trapo-i-sight-s650-dashcam",
             "button1_style": "global-button--banner",
             "button2": "",
             "button2_link": "",
@@ -85,7 +85,7 @@
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/Mid_Year_Clearance_June__Slider-Mobile.jpg"
+            "mobile_image": "shopify://shop_images/Website_Page_-_Homepage_banner-06_5cf28870-62c5-4785-a160-54ccc3c51b43.jpg"
           }
         },
         "template--14805644968013__e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8-image-2": {
