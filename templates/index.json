@@ -53,7 +53,7 @@
         "image_CJzXfp": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Website_Page_-_Homepage_banner-03.jpg",
+            "image": "shopify://shop_images/webbanner-wiper18-banner-03.jpg",
             "pretext": "",
             "title": "",
             "subtitle": "",
@@ -66,7 +66,7 @@
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/Website_Page_-_Homepage_banner-04.jpg"
+            "mobile_image": "shopify://shop_images/phonebanner-wiper18-banner-03.jpg"
           }
         },
         "image_yDRQaC": {
