@@ -4,8 +4,8 @@
       <thead>
         <th></th>
         <th>
-          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/tint-logo-crystal-1.svg?v=1737380689" class="desk_img" alt="">
-          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/tint-logo-crystal-mob-1.svg?v=1737380689" class="mobile_img" alt="">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/crystal-desk-logo-new.png?v=1762765854" class="desk_img" alt="">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/crystal-mob-logo.png?v=1762765743" class="mobile_img" alt="">
         </th>
         <th class="bg-active">
           <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/tint-logo-dfend-1.svg?v=1737380693" class="desk_img" alt="">
@@ -68,7 +68,7 @@
           </td>
           <td class="col_2" style="color: #1B3D6D;">≥99%</td>
           <td class="col_3 bg-active">≥99%</td>
-          <td class="col_3">≥99%</td>
+          <td class="col_3" style="color: #1B3D6D;">≥99%</td>
         </tr>
         <tr>
           <td class="col_1">
@@ -211,200 +211,360 @@
 </section>
 
 <style>
-  .tint_table .container_md{
-                max-width: 1000px;
+  .tint_table {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .tint_table .container_md {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .tint_table table {
+            margin: 0 auto;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .bg-active {
+            background: linear-gradient(270deg, #0D527C 0%, #049FBB 75%);
+        }
+
+        .col_3.bg-active {
+            color: #fff;
+        }
+
+        .tint_table table:not(#customer-orders):not(#order-details) th,
+        .tint_table table:not(#customer-orders):not(#order-details) td {
+            padding: 20px;
+        }
+
+        .tint_table thead tr th {
+            background-color: transparent !important;
+            vertical-align: middle;
+        }
+
+        .tint_table tbody tr:nth-child(odd) {
+            background-color: #F8F8F8;
+        }
+
+        .tint_table th,
+        .tint_table tr,
+        .tint_table td {
+            border: 0 !important;
+        }
+
+        .tint_table th img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+        }
+
+        .tint_table .desk_img {
+            display: block;
+        }
+
+        .tint_table .mobile_img {
+            display: none;
+        }
+
+        .tint_table .col_1 {
+            width: 30% !important;
+        }
+
+        .tint_table .col_1 div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #808080;
+        }
+
+        .tint_table .col_1 div span {
+            font-weight: 500;
+        }
+
+        .tint_table .col_1 div img {
+            width: 21px;
+            cursor: pointer;
+        }
+
+        .tint_table td {
+            text-align: center;
+            font-size: 18px;
+            color: #808080;
+            line-height: 19px;
+            padding: 30px !important;
+            min-width: 180px;
+            font-weight: 500;
+        }
+
+        .tint_table .col_2 {
+            border-inline: 1px solid #DEDEDE !important;
+        }
+
+        /* Modal Styles */
+        .tint_table .modal-content h2 {
+            font-size: 20px;
+            line-height: 21px;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .tint_table .modal-content p {
+            font-size: 16px;
+            line-height: 24px;
+            color: #fff;
+        }
+
+        .tint_table .modal {
+            position: fixed;
+            z-index: 10000;
+            top: 0;
+            left: 0;
+            visibility: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+        .tint_table .modal-overlay {
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: hsla(0, 0%, 0%, 0.5);
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s linear 0.3s, opacity 0.3s;
+        }
+
+        .tint_table .modal.is-visible .modal-overlay {
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0s;
+        }
+
+        .tint_table .modal-wrapper {
+            position: fixed;
+            z-index: 9999;
+            top: 50%;
+            left: 50%;
+            width: calc(100% - 30px);
+            background-color: #E82276;
+            box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.25);
+            border-radius: 12px;
+            overflow: hidden;
+            transform: translate(-50%, -50%);
+            max-width: 500px;
+        }
+
+        .tint_table .modal-transition {
+            transition: all 0.3s 0.12s;
+            opacity: 0;
+        }
+
+        .tint_table .modal.is-visible .modal-transition {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .tint_table .modal-header,
+        .tint_table .modal-content {
+            background-color: #E82276;
+            text-align: center;
+            padding: 15px 20px 20px;
+            border: 0;
+        }
+
+        .tint_table .modal-header {
+            position: relative;
+            background-color: #E82276;
+            border-bottom: 0;
+        }
+
+        .tint_table .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 0;
+            color: #aaa;
+            background: none;
+            border: 0;
+            z-index: 999;
+            cursor: pointer;
+        }
+
+        .tint_table .modal-close:hover {
+            color: #777;
+        }
+
+        .tint_table .modal-close img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .tint_table .modal-heading {
+            font-size: 1.125em;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .tint_table .modal-content > *:first-child {
+            margin-top: 0;
+        }
+
+        .tint_table .modal-content > *:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tablet Styles */
+        @media(max-width: 1024px) {
+            .tint_table td {
+                padding: 20px !important;
+                font-size: 16px;
+            }
+
+            .tint_table th img {
+                max-width: 150px;
+            }
+        }
+
+        /* Mobile Styles */
+        @media(max-width: 767px) {
+            .tint_table {
                 width: 100%;
+                overflow-x: visible;
+            }
+
+            .tint_table .container_md {
+                padding: 0 10px;
+            }
+
+            .tint_table table {
+                width: 100%;
+                table-layout: fixed;
+            }
+
+            .tint_table .desk_img {
+                display: none;
+            }
+
+            .tint_table .mobile_img {
+                display: block;
                 margin: 0 auto;
             }
-  .tint_table table{
-     margin: 0 auto;
-  }
-  .bg-active{
-    background: linear-gradient(270deg, #0D527C 0%, #049FBB 75%);
-  }
-  .col_3.bg-active{
-    color:#fff;
-  }
-  .tint_table table:not(#customer-orders):not(#order-details) th, .tint_table table:not(#customer-orders):not(#order-details) td{
-    padding: 20px;
-  }
-            .tint_table thead tr th{
-                background-color: transparent !important
+
+            .tint_table th {
+                padding: 10px 5px !important;
             }
-            .tint_table tbody tr:nth-child(odd){
-                background-color: #F8F8F8;
-            }
-            .tint_table th,
-            .tint_table tr,
-            .tint_table td{
-                border: 0 !important;
-            }
-            .tint_table th img{
+
+            .tint_table th img {
+                max-width: 60px;
                 width: 100%;
             }
-            .tint_table .col_1{
-                width: 30% !important;
+
+            .tint_table .col_1 {
+                width: 35% !important;
+                padding: 10px 8px !important;
             }
-            .tint_table .col_1 div{
+
+            .tint_table .col_1 div {
                 display: flex;
+                flex-direction: row;
                 align-items: center;
                 justify-content: space-between;
-                color: #808080
+                gap: 5px;
             }
-            .tint_table .col_1 div img{
-                width: 21px;
+
+            .tint_table .col_1 div span {
+                font-size: 11px;
+                line-height: 1.3;
             }
-            .tint_table td{
-                text-align: center;
-                font-size: 18px;
-                color: #808080;
-                line-height: 19px;
-                padding: 30px !important;
-              min-width:180px
+
+            .tint_table .col_1 div img {
+                width: 16px;
+                flex-shrink: 0;
             }
-            .tint_table .col_2 {
-    border-inline: 1px solid #DEDEDE !important;
-}
-  .tint_table .modal-content h2{
-                font-size:20px;
-                line-height:21px;
-                letter-spacing:2px;
-                color:#fff;
-              }
-              .tint_table .modal-content p{
-                font-size:16px;
-                line-linehgt:24px;
-                color:#fff;
-              }
-              .tint_table .modal {
-                position: absolute;
-                z-index: 10000; /* 1 */
-                top: 0;
-                left: 0;
-                visibility: hidden;
+
+            .tint_table td {
+                font-size: 11px;
+                padding: 10px 5px !important;
+                min-width: auto;
+                width: auto;
+                line-height: 1.3;
+            }
+
+            .tint_table .col_2,
+            .tint_table .col_3 {
+                border-inline: 0;
+                width: 21.66%;
+            }
+
+            .tint_table table:not(#customer-orders):not(#order-details) th,
+            .tint_table table:not(#customer-orders):not(#order-details) td {
+                padding: 10px 5px;
+            }
+
+            .tint_table .modal-wrapper {
+                width: calc(100% - 30px);
+                max-width: 400px;
+            }
+
+            .tint_table .modal-content {
+                margin: 0 auto;
                 width: 100%;
-                height: 100%;
-              }
-
-              .tint_table .modal-overlay {
-                position: fixed;
-                z-index: 10;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: hsla(0, 0%, 0%, 0.5);
-                visibility: hidden;
-                opacity: 0;
-                transition: visibility 0s linear 0.3s, opacity 0.3s;
-              }
-
-              .tint_table .modal.is-visible .modal-overlay {
-                opacity: 1;
-                visibility: visible;
-                transition-delay: 0s;
-              }
-
-              .tint_table .modal-wrapper {
-      position: fixed;
-      z-index: 9999;
-      top: 20%;
-      left: 50%;
-      width: calc(100% - 30px);
-      background-color: #E82276;
-      box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.25);
-      border-radius: 12px;
-      overflow: hidden;
-      transform: translate(-50%, -20%);
-      max-width: 500px;
-  }
-
-            .tint_table .modal-transition {
-              transition: all 0.3s 0.12s;
-              opacity: 0;
+                padding: 15px;
             }
 
-            .tint_table .modal.is-visible .modal-transition {
-              opacity: 1;
-              visibility: visible;
+            .tint_table .modal-content h2 {
+                font-size: 16px;
+                line-height: 20px;
             }
 
-              .tint_table .modal-header,
-              .tint_table .modal-content {
-                background-color: #E82276;
-                  text-align: center;
-                  padding: 15px 20px 20px;
-                  border: 0;
-              }
+            .tint_table .modal-content p {
+                font-size: 13px;
+                line-height: 20px;
+            }
+        }
 
-              .tint_table .modal-header {
-                position: relative;
-                background-color: #E82276;
-                border-bottom: 0;
-              }
+        /* Extra Small Mobile */
+        @media(max-width: 480px) {
+            .tint_table .col_1 {
+                width: 38% !important;
+            }
 
-              .tint_table .modal-close {
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                padding: 0;
-                color: #aaa;
-                background: none;
-                border: 0;
-                  z-index: 999
-              }
+            .tint_table .col_1 div span {
+                font-size: 10px;
+            }
 
-              .tint_table .modal-close:hover {
-                color: #777;
-              }
+            .tint_table .col_1 div img {
+                width: 14px;
+            }
 
-              .tint_table .modal-heading {
-                font-size: 1.125em;
-                margin: 0;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-              }
+            .tint_table td {
+                font-size: 10px;
+                padding: 8px 3px !important;
+            }
 
-              .tint_table .modal-content > *:first-child {
-                margin-top: 0;
-              }
+            .tint_table th {
+                padding: 8px 3px !important;
+            }
 
-              .tint_table .modal-content > *:last-child {
-                margin-bottom: 0;
-              }
-  @media(max-width:1024px){
-    .tint_table td{
-                    padding: 20px !important
-                }
-  }
-  @media(max-width:767px){
-    .tint_table {
-                    width: calc(100% - 20px);
-                    margin: 0 auto;
-                }
-                .tint_table .col_1 {
-                    min-width: 125px;
-        padding: 10px !important;
-                }
-    .tint_table td{
-      font-size:14px;
-    }
-    .tint_table .col_2 {
-    border-inline: 0;
-    padding: 10px !important;
-    min-width: 105px;
-}
-    .tint_table .col_3 {
-    border-inline: 0;
-    padding: 10px !important;
-    min-width: 105px;
-}
-        .tint_table .modal-content {
-        margin: 0 auto;
-        width: 100%;
-    }
+            .tint_table th img {
+                max-width: 50px;
+            }
 
-  }
+            .tint_table .col_2,
+            .tint_table .col_3 {
+                width: 20.66%;
+            }
+        }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
