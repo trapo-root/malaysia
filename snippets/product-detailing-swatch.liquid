@@ -35,7 +35,12 @@ Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
   </div>
   
   {% else %}
-    <div class="option_title">{{ swatch }}</div>
+    
+    <div class="new-steps" style="margin-top:1rem;margin-bottom:10px;">
+    <span class="new-step-2"
+      >{{ swatch }}
+    </span>
+  </div>
   {% endif %}
 
 <div class="swatch is-flex is-flex-wrap" data-option-index="{{ option_index }}">
