@@ -9,7 +9,7 @@
         <a href="https://www.google.com/maps/place/Trapo+Bangsar+Hub/@3.1310563,101.663889,15z/data=!4m6!3m5!1s0x31cc4929b4ce44b1:0xfd55544ae91447c3!8m2!3d3.1310563!4d101.6726438!15sCgV0cmFwbyIDiAEBkgEVY2FyX2FjY2Vzc29yaWVzX3N0b3Jl?shorturl=1">View location</a>
       </div>
       {% if product.tags contains 'trapo-ppf' or product.tags contains 'headlamp-ppf' or product.tags contains 'door-ppf'  %}
-      <div class="availabel_at_item">
+      <div class="availabel_at_item overlay-yes">
         <img class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/taman-daya-hub.png?v=1750992619"/>
         <strong>TRAPO<br> Taman Daya JB Hub</strong>
         <a href="https://www.google.com/maps?q=TRAPO+Taman+Daya+Hub+(Car+Mats+%26+Accessories),+TD+Central,+5F,+Jalan+Sagu+21,+Taman+Daya,+81100+Johor+Bahru,+Johor&ftid=0x31da6d9dc26cacb9:0x957492f0cdcb0e17&entry=gps&lucs=,94222349,47071704,47069508,94218635,94203019,47084304,94208458,94208447&g_ep=CAISDTYuMTE3LjEuNjI5MjAYACCenQoqSCw5NDIyMjM0OSw0NzA3MTcwNCw0NzA2OTUwOCw5NDIxODYzNSw5NDIwMzAxOSw0NzA4NDMwNCw5NDIwODQ1OCw5NDIwODQ0N0ICTVk%3D&g_st=com.alibaba.dingtalklite.ShareExtension">View location</a>
@@ -89,7 +89,29 @@
         }
   @media (max-width: 767px){
     .availabel_at-list .overlay-ppf {
-    height: 65%;
+    height: 174px;
     }
   }
 </style>
+<script>
+
+function setOverlayHeights() {
+  document.querySelectorAll('.overlay-yes').forEach(function(item) {
+    var img = item.querySelector('img');
+    var overlay = item.querySelector('.overlay-ppf');
+    if (img && overlay && img.offsetHeight > 0) {
+      overlay.style.height = img.offsetHeight + 'px';
+    }
+  });
+}
+
+// Initial set in case some images are already loaded
+window.addEventListener('load', setOverlayHeights);
+
+// Listen for lazy-loaded images
+document.addEventListener('lazyloaded', setOverlayHeights);
+
+// Also, run after a short delay as a fail-safe (some lazyload scripts trigger render after scroll)
+setTimeout(setOverlayHeights, 1000);
+
+</script>
