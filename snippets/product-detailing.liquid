@@ -687,18 +687,22 @@
 {% if product.tags contains 'trapo-coating' %}
   {% if product.handle == 'trapo-quik-shield-car-coating' %}
     <div class="sixteen columns">
-    {% render 'coating-description' %}
+    {% render 'quik-coating-description' %}
   </div>
   {% elsif product.handle == 'trapo-pro-shield-car-coating' %}
   <div class="sixteen columns">
     {% render 'pro-coating-description' %}
+  </div>
+  {% elsif product.handle == 'trapo-diamond-shield-car-coating' %}
+  <div class="sixteen columns">
+    {% render 'diamond-coating-description' %}
   </div>
   {% endif %}
   
 {% elsif product.tags contains 'trapo-tint' %}
   {% if product.handle == 'trapo-crystal-window-tint' %}
     <div class="sixteen columns">
-    {% render 'tint-description' %}
+    {% render 'crystal-tint-description' %}
   </div>
   {% elsif product.handle == 'trapo-dfend-window-tint' %}
   <div class="sixteen columns">
@@ -710,21 +714,15 @@
   </div>
   {% endif %}
 {% elsif product.tags contains 'trapo-ppf' %}
-  <div class="sixteen columns">
-    {% render 'ppf-description' %}
-  </div>
-{% elsif product.tags contains 'headlamp-ppf' %}
-  <div class="sixteen columns">
-    {% render 'headlamp-ppf-description' %}
-  </div>
-{% elsif product.tags contains 'trapo-watermark-removal' %}
-  <div class="sixteen columns">
-    {% render 'watermark-removal-description' %}
-  </div>
-{% elsif product.tags contains 'door-ppf' %}
-  <div class="sixteen columns">
-    {% render 'door-protection-ppf' %}
-  </div>
+  {% if product.handle == 'trapo-ppf-paint-protection-film' or product.handle == 'trapo-ppf-paint-protection-film-new' %}
+    <div class="sixteen columns">
+      {% render 'ppf-description' %}
+    </div>
+  {% elsif product.handle == 'trapo-ppf-alacarte' %}
+    <div class="sixteen columns">
+      {% render 'ppf-alacarte-description' %}
+    </div>
+  {% endif %}
 {% endif %}
 
 <div class="sixteen columns">
