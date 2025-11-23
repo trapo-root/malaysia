@@ -9,6 +9,12 @@
       </script>
     {% endif %}
 
+    {% if product.handle == 'trapo-headlamp-ppf' or product.handle == 'trapo-door-protection-combo-ppf' %}
+      <script>
+        window.location = '/';
+      </script>
+    {% endif %}
+
     {% if template contains 'product' and (product.type == 'Promotional' or product.tags contains 'pickup') %}
       <script>
         window.location = '/';
