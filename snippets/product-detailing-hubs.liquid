@@ -36,12 +36,21 @@
         <strong>TRAPO<br> Glenmarie Hub</strong>
         <a href="https://www.google.com/maps/place/TRAPO+Glenmarie+Hub/@3.0879705,101.5782913,15z/data=!4m5!3m4!1s0x0:0xe04a194044664a7!8m2!3d3.0879705!4d101.5782913">View location</a>
       </div>
+      {% if page.handle == 'trapo-car-tint' or page.handle == 'trapo-car-coating' %}
+        <div class="availabel_at_item">
+        <img class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/penand-hub-new.png?v=1764307168"/>
+        <strong>TRAPO<br>
+            Penang Hub</strong>
+        <a href="https://goo.gl/maps/WbMyBWAxoGyBSFEbA">View location</a>
+      </div>
+      {% else %}
     <div class="availabel_at_item">
         <img class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/george_town_new.png?v=1750991984"/>
         <strong>Proton CS Prima 3S<br>
             Georgetown</strong>
         <a href="https://maps.app.goo.gl/F8Wot9pdATB69tLQ6">View location</a>
       </div>
+    {% endif %}
   </div>
 </section>
 <style>
