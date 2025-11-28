@@ -83,6 +83,23 @@
             >View Location</a
           >
         </div>
+        {% if page.handle == 'trapo-car-tint' or page.handle == 'trapo-car-coating' %}
+        <div class="col-lg-2 col-6 location-item">
+          <img
+            class="lazyload"
+            data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/penand-hub-new.png?v=1764307168"
+          >
+          <p class="l-title">
+            TRAPO<br>
+            Penang Hub
+          </p>
+          <a
+            class="l-link"
+            href="https://goo.gl/maps/WbMyBWAxoGyBSFEbA"
+            >View Location</a
+          >
+        </div>
+      {% else %}
         <div class="col-lg-2 col-6 location-item">
           <img
             class="lazyload"
@@ -98,6 +115,7 @@
             >View Location</a
           >
         </div>
+      {% endif %}
         
       </div>
 
