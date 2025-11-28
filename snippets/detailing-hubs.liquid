@@ -100,7 +100,27 @@
           >
         </div>
       {% else %}
-        <div class="col-lg-2 col-6 location-item">
+        {% if page.handle == 'trapo-ppf'  %}
+          <div class="col-lg-2 col-6 location-item" style="position: relative;">
+          <img
+            class="lazyload"
+            data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/george_town_new.png?v=1750991984"
+          >
+          <p class="l-title">
+            Proton CS Prima 3S<br>
+            Georgetown
+          </p>
+          <a
+            class="l-link"
+            href="https://maps.app.goo.gl/F8Wot9pdATB69tLQ6"
+            >View Location</a
+          >
+            <div class="overlay-ppf">
+            <span class="overlayppf-text">Currently Not Available</span>
+        </div>
+        </div>
+        {% else %}
+        <div class="col-lg-2 col-6 location-item" >
           <img
             class="lazyload"
             data-src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/george_town_new.png?v=1750991984"
@@ -115,6 +135,7 @@
             >View Location</a
           >
         </div>
+        {% endif %}
       {% endif %}
         
       </div>
