@@ -301,6 +301,16 @@
         "type": "shopify://apps/impact-com/blocks/consent_mode/adac1a7f-d17f-4936-8a12-45628cdd8add",
         "disabled": false,
         "settings": {}
+      },
+      "10482958812443994587": {
+        "type": "shopify://apps/bik/blocks/bikScripts/4ee0506d-3abc-448e-9d32-1ea2950714ec",
+        "disabled": false,
+        "settings": {}
+      },
+      "2519459661274782089": {
+        "type": "shopify://apps/bik/blocks/bikTracker/4ee0506d-3abc-448e-9d32-1ea2950714ec",
+        "disabled": true,
+        "settings": {}
       }
     }
   }
