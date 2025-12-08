@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "page-template",
+      "type": "page-carmat-guide-template",
       "settings": {}
     }
   },
