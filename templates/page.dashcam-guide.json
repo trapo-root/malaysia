@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "page-template",
+      "type": "page-dashcam-guide-template",
       "settings": {}
     }
   },
