@@ -1,86 +1,99 @@
 <div class="container py-5 wiper-size">
+  <a href="/pages/wiper-guide" class="back-button" style="display: block; width: fit-content; margin-bottom: 5px;">&lt; BACK</a>
   <section class="wiper-selector-main">
     <div class="wiper-title">
-      <h1 class="fw-bold mb-4">Wiper</h1>
-      <h2 class="mb-3">Check your car's wiper clip</h2>
+      <h1 class=" ">Wiper size & clip guide</h1>
+      <h2 class="mb-3">Select your car model:</h2>
       {% render 'search-wiper-size-new' %}
     </div>
 
+    <div class="do_you_know_outer">
+        <div class="do_you_know_wrap">
+            <div class="do_you_know_img">
+                <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/150248014_1_2x_007ef294-c124-4cc4-b9eb-984b4190eb61.png?v=1764675377" alt="" />
+            </div>  
+          <div class="do_you_know_detail">
+            <h2>Get FREE installation services!</h2>
+            <span>Drop by a Trapo Hub today.</span>
+            <a href="#" class="btn btn--secondary">LOCATE US </a>
+          </div>
+        </div>
+      <style>
+        .do_you_know_outer .container{ max-width: 1046px; width: 100%; margin: 80px auto 0;padding-inline:23px}
+        .do_you_know_outer .do_you_know_wrap{ background-color: #1B3D6D; filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); color: #fff; display: grid; gap:100px; grid-template-columns:271px auto; padding-inline:71px 61px; border-radius: 18px; align-items: center; width:100%;margin-block: 60px 69px;}
+        .do_you_know_outer .do_you_know_wrap img{ width: 100%; display: block;padding-bottom:28px;}
+        .do_you_know_outer .do_you_know_wrap h2{ margin: 0 0 13px; color: inherit; font-size: 32px; line-height: 30px; letter-spacing: 2px; font-weight: 600;max-width:440px }
+        .do_you_know_outer .do_you_know_wrap span{ font-size: 16px; line-height: 24px; margin-bottom: 34px; display: block; }
+        .do_you_know_outer .do_you_know_wrap a { color: #fff; padding: 16px 35px; font-size: 14px; font-weight: 600; text-transform: uppercase; line-height: 17px; border-radius: 50px; background-color: #E82276; max-width: 240px; width: 100%; display: block; text-align: center; }
+      @media(max-width:1024px){
+        .do_you_know_outer .do_you_know_wrap{ padding-inline:40px }
+        .do_you_know_outer .do_you_know_wrap h2{ font-size: 24px; }
+        .do_you_know_outer .do_you_know_wrap span{ margin-bottom: 30px }
+      }
+      @media(max-width:767px){
+        .do_you_know_outer .do_you_know_wrap{ grid-template-columns: 1fr; padding-inline:21px; text-align: center; padding-bottom: 28px;gap:31px;margin-top:50px}
+        .do_you_know_outer .do_you_know_wrap h2{ font-size: 20px; line-height: 21px;max-width:300px;margin-inline:auto}
+        .do_you_know_outer .do_you_know_wrap .do_you_know_img{ order: -1; max-width: 157px; margin: 0 auto; }
+        .do_you_know_outer .container { margin: 34px auto 0; }
+        .do_you_know_outer .do_you_know_wrap a{margin:auto}
+        .do_you_know_outer .do_you_know_wrap img{padding-bottom:0;}
+      }
+      </style>
+    </div>
+
     <div class="wiper-instructions">
-      <h2 class="mb-4">How to manually inspect your wiper size and clip</h2>
-
-      <div class="wiper-step">
-        <p>Measure your wiper length with a measurement tape. Take note of its length in inch</p>
+      <h2 class="">How to manually inspect your wiper size and clip</h2>
+      <p>Measure your wiper length with a measurement tape. Take note of its length in inch. Take a closer look at your wiper arm and clip type</p>
+      <div class="wiper_step_1">
         <div class="wiper-image">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/measure-wiper.png?v=1750833141"
-            alt="Measuring wiper length"
-            class="img-fluid rounded"
-          >
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/measure-wiper.png?v=1750833141" alt="Measuring wiper length" class="img-fluid rounded" >
         </div>
-      </div>
-
-      <div class="wiper-step">
-        <p>Take a closer look at your wiper arm and clip type</p>
         <div class="wiper-image">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/wiper-arm-clip-new.png?v=1750834003"
-            alt="Wiper arm and clip type"
-            class="img-fluid rounded"
-          >
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/wiper-arm-clip-new.png?v=1750834003" alt="Wiper arm and clip type" class="img-fluid rounded" >
         </div>
       </div>
-
-      <div class="wiper-step">
-        <p>
-          Identify your wiper arm type and match it with a suitable clip.<br>
-          For example:
-        </p>
-        <div class="wiper-examples">
-          <!-- First row of clip examples -->
-          <div class="example-row">
-            <div class="example-image">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/clip-example-1a-new.png"
-                alt="Clip example 1"
-                class="img-fluid rounded"
-              >
-            </div>
-            <div class="example-image">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/clip-example-1b-new.png"
-                alt="Clip example 1 detail"
-                class="img-fluid rounded"
-              >
-            </div>
-          </div>
-          <!-- Second row of clip examples -->
-          <div class="example-row">
-            <div class="example-image">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/clip-example-2a-new.png"
-                alt="Clip example 2"
-                class="img-fluid rounded"
-              >
-            </div>
-            <div class="example-image">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/clip-example-2b-new.png"
-                alt="Clip example 2 detail"
-                class="img-fluid rounded"
-              >
-            </div>
-          </div>
+      <div class="wiper_step_2_text ">
+        <p>Identify your wiper arm type and match it with a suitable clip. For example:</p>
+      </div>
+      <div class="wiper_step_2">
+        <div>
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/clip-example-1a-new.png" alt="Clip example 1" class="img-fluid rounded" >
+        </div>
+        <div class="div_1">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/clip-example-1b-new.png" alt="Clip example 1 detail" class="img-fluid rounded" >
+        </div>
+        <div class="div_2">
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/clip-example-2a-new.png" alt="Clip example 2" class="img-fluid rounded" >
+        </div>
+        <div>
+          <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/clip-example-2b-new.png" alt="Clip example 2 detail" class="img-fluid rounded" >
         </div>
       </div>
-
+      
       <div class="wiper-clip-types">
+        <h2 class="">Video tutorials</h2>
+        <strong>Front wiper::</strong>
         <div class="clip-type-image">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/clip-type-new.png"
-            alt="Wiper Clip Types"
-            class="img-fluid rounded"
-          >
+          <a href="https://drive.google.com/drive/folders/1YNy1ab-CJNS0XN5IaHYq0Dlf8ntnQNOP">
+            <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1292.png?v=1764685248" alt="" class="img-fluid rounded descktop_view" >
+            <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Frame_850.png?v=1764685247" alt="" class="img-fluid rounded mobile_view" >
+          </a>
+        </div>
+        <strong>Front wiper::</strong>
+        <span>Type-C:</span>
+        <div class="clip-type-image">
+          <a href="https://drive.google.com/drive/folders/1wFa1_u-YmcNy3KGL73CYN1hDs4WHboIE">
+            <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1293.png?v=1764685247" alt="" class="img-fluid rounded descktop_view" >
+            <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Frame_851.png?v=1764685247" alt="" class="img-fluid rounded mobile_view" >
+          </a>
+        </div>
+        <strong>Front wiper::</strong>
+        <span>Type-D:</span>
+        <div class="clip-type-image">
+          <a href="https://drive.google.com/drive/folders/10x4b07xOcrdJpEXSNTQy9i2hRI8ArI98">
+            <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Group_1294.png?v=1764685248" alt="" class="img-fluid rounded descktop_view" >
+            <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/Frame_852.png?v=1764685247" alt="" class="img-fluid rounded mobile_view" >
+          </a>
         </div>
       </div>
       <div class="wiper-help">
@@ -94,100 +107,17 @@
         /* Custom styles for Wiper Clip Selector */
   .wiper-size.container{
     display:block;
-        text-align: center;
+        max-width:1047px;
+        padding-inline:20px;
   }
   .breadcrumb-container-page{
       display:none;
     }
 
-  /* Title section */
-  .wiper-selector-main .wiper-title {
-      margin-bottom: 2rem;
-  }
-
-  .wiper-selector-main .wiper-title h1 {
-      color: #16406D;
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-  }
-
-  .wiper-selector-main .wiper-title h2,.wiper-instructions h2{
-      color: #16406D;
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-    font-weight:600;
-  }
-
-  .wiper-selector-main .wiper-title p {
-      color: #1B3D6D;
-  }
-
-  /* Instructions section */
-  .wiper-selector-main .wiper-instructions {
-      margin-bottom: 2rem;
-  }
-
-  .wiper-selector-main .wiper-instructions h2 {
-      color: #16406D;
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-  }
-
-  /* Step sections */
-  .wiper-selector-main .wiper-step {
-      margin-bottom: 2rem;
-  }
-
-  .wiper-selector-main .wiper-step p,.wiper-help p {
-      margin-bottom: 1rem;
-    color:#1B3D6D;
-  }
-
-  .wiper-selector-main .wiper-image {
-      margin-bottom: 1rem;
-  }
-
-  .wiper-selector-main .wiper-image img {
-      max-width: 400px;
-      border-radius: 0.375rem;
-      margin: 0 auto;
-      display: block;
-  }
-
-  /* Examples section */
-  .wiper-selector-main .wiper-examples {
-      margin-bottom: 1.5rem;
-  }
-
-  .wiper-selector-main .example-row {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-  }
-
-  .wiper-selector-main .example-image {
-      width: 40%;
-      max-width: 200px;
-  }
-
-  .wiper-selector-main .example-image img {
-      border-radius: 0.375rem;
-      width: 100%;
-  }
 
   /* Clip types section */
   .wiper-selector-main .wiper-clip-types {
       margin-bottom: 2rem;
-  }
-
-  .wiper-selector-main .clip-type-image img {
-      max-width: 700px;
-      width: 100%;
-      border-radius: 0.375rem;
-      margin: 0 auto;
-      display: block;
   }
 
   /* Help section */
@@ -195,36 +125,49 @@
       margin-top: 2rem;
       color: #666;
   }
+.wiper-title { text-align: left; }
+.wiper-title h1{ font-size: 48px; font-weight: 600; line-height: 67px; letter-spacing: 2px; margin: 0;padding:0; }
+.wiper-title h2{ font-size: 19px; line-height: 27px; margin-bottom: 42px; }
+.wiper_step_1{ display: grid; grid-template-columns: 40.5% auto; gap:15px; margin-bottom: 30px; }
+.wiper_step_1 img{ width: 100%; display: block; height: 100%; object-fit: cover }
+.wiper-instructions p{ font-size: 19px; line-height: 27px; color: #1B3D6D; margin-bottom: 25px; }
+.wiper-instructions h2{ font-size: 28px; line-height: 21px; font-weight: 700; margin: 0 0 20px; }
+.wiper_step_2{ display: flex; gap:10px; margin-bottom: 70px; }
+.wiper_step_2 .div_1{ padding-right: 15px }
+.wiper_step_2 .div_2{ padding-left: 15px } 
+.wiper-clip-types { font-size: 19px; line-height: 27px; color: #1B3D6D; }
+.wiper-clip-types h2+ strong{ margin-bottom: 42px; }
+.wiper-clip-types strong { margin-top: 30px; display: block; }
+.wiper-clip-types  span{ display: block; margin-block:15px 30px; }
+.clip-type-image{ margin-bottom: 49px; }
+.clip-type-image img{ width: 100%; display: block; }
+.wiper_step_2 img{ display: block; width: 100%; }
 
-  /* Responsive adjustments */
-  @media (max-width: 767px) {
-      .wiper-selector-main .wiper-title h1 {
-          font-size: 2rem;
-        margin-bottom:0;
-      }
 
-      .wiper-selector-main .wiper-title h2 {
-          font-size: 1.25rem;
-        margin-top:0;
-      }
+@media(min-width:768px){
+  .mobile_view{ display:none !important}
+}
+@media(max-width:767px){
+  .descktop_view{ display:none !important}
+    .wiper-instructions h2{ font-size: 23px; line-height: 23px; }
+    .wiper-instructions p{ font-size: 16px; line-height: 24px; }
+    .wiper_step_1{ grid-template-columns: 1fr; margin: 0 }
+    .wiper_step_2{ display: grid; grid-template-columns: 1fr 1fr; gap:7px; margin: 0 0 24px; }
+    .wiper_step_2 > div{ padding: 0 !important }
+    .descktop_view{ display: none }
+    .wiper-clip-types{ margin-top: 30px }
+    .wiper-instructions .wiper-clip-types h2{ margin: 0 }
+    .wiper-clip-types h2+ strong{ margin-bottom: 11px; }
+    .wiper-clip-types strong{ margin-top: 12px; font-size: 16px; line-height: 24px; }
+    .wiper-clip-types{ font-size: 16px; line-height: 24px; }
+    .wiper-clip-types  span { display: block; margin-block: 8px 11px; }
+    .clip-type-image { margin-bottom: 32px; }
+    .wiper_step_2_text{margin-top:24px;}
+    .wiper-selector-main .form-control{ margin: 0 }
+    .wiper-title h1 { font-size: 23px; line-height: 24px; letter-spacing: 1px; margin-bottom:16px; }
+    .wiper-title h2 { font-size: 16px; line-height: 24px; margin: 0; }
+}
 
-      .wiper-selector-main .wiper-instructions h2 {
-          font-size: 1.25rem;
-      }
 
-      .wiper-selector-main .wiper-image img,
-      .wiper-selector-main .clip-type-image img {
-          max-width: 100%;
-      }
 
-      .wiper-selector-main .example-row {
-          margin-bottom:0;
-      }
-
-      .wiper-selector-main .example-image {
-          width: 80%;
-          max-width: 300px;
-          margin-bottom: 0.5rem;
-      }
-  }
 </style>
