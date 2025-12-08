@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "page-template",
+      "type": "page-detailing-guide-template",
       "settings": {}
     }
   },
