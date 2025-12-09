@@ -309,7 +309,7 @@
       },
       "10482958812443994587": {
         "type": "shopify://apps/bik/blocks/bikScripts/4ee0506d-3abc-448e-9d32-1ea2950714ec",
-        "disabled": true,
+        "disabled": false,
         "settings": {}
       }
     }
