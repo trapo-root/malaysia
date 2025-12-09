@@ -510,7 +510,7 @@
 {%- capture paginationTemplate -%}{% render 'globo.filter.pagination' %}{%- endcapture -%}{%- unless paginationTemplate contains 'Liquid error' -%}<script id="gspfPagination" type="template/html">{{- paginationTemplate | replace: "script>", "scripttag>" -}}</script>{%- endunless -%} 
 {%- capture YMMTemplate -%}{% render 'globo.filter.form' %}{%- endcapture -%}{%- unless YMMTemplate contains 'Liquid error' -%}<script id="gspfForm" type="template/html">{{- YMMTemplate | replace: "script>", "scripttag>" -}}</script>{%- endunless -%}
   
-  </body>
+</body>
 
   {%- render 'campaign-logic' -%}
   <!-- Fatmedia Scripts -->
@@ -522,103 +522,98 @@
   {% endif %}
   
 
-  {% if template contains 'product' %}
-    <style>
-      #loyaltylion .lion-loyalty-widget_position_left {
-    	bottom: 66px !important;
-        right: 0;
-        left:auto;
+{% if template contains 'product' %}
+<style>
+  #loyaltylion .lion-loyalty-widget_position_left {
+    bottom: 66px !important;
+    right: 0;
+    left: auto;
+  }
+
+  #loyaltylion .lion-loyalty-widget_position_left .lion-loyalty-widget__body > span:last-of-type {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: 10px !important;
+  }
+
+  .bik-widget__outer-wrapper > #bik-widget-root-dotjV0zIT3ecDVUh3kFb > #bik-wa-dotjV0zIT3ecDVUh3kFb-cta {
+    bottom: 105px !important;
+    right: 20px !important;
+  }
+
+  .free_instalation_bdga {
+    margin: 0 auto;
+    top: -35px;
+    position: relative;
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .free_instalation_bdga span:last-child {
+    font-size: 11px;
+  }
+
+  .product-text {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    .free_instalation_bdga {
+      top: -29px !important;
+      grid-template-columns: 1.5fr 1fr;
     }
-      #loyaltylion .lion-loyalty-widget_position_left .lion-loyalty-widget__body>span:last-of-type {
-          border-top-right-radius: 0 !important;
-          border-bottom-right-radius: 0 !important;
-          border-top-left-radius: 10px !important;
-      }
-      .lp-whatsapp-icon-bar {
-          position: fixed;
-          bottom: 105px;
-          right: 30px;
-          z-index: 999;
-      }
-        .lp-whatsapp-icon-bar img{
-          width: 55px;
-        }
-      .free_instalation_bdga{
-        margin: 0 auto;
-        top: -35px;
-        position: relative;
-        grid-template-columns: 1.5fr 1fr;
-      }
-      .free_instalation_bdga span:last-child{
-        font-size:11px;
-      }
-      .product-text{
-        display:none;
-      }
-      @media (max-width: 767px){
-        .free_instalation_bdga {
-        top: -29px !important;
-        grid-template-columns: 1.5fr 1fr;
+
+    .free_instalation_bdga span:first-child {
+      font-size: 11px;
+      padding: 6px 5px;
     }
-        .free_instalation_bdga span:first-child {
-        font-size: 11px;
-        padding: 6px 5px;
+
+    .free_instalation_bdga span:last-child {
+      font-size: 8px;
+      min-height: auto;
+      justify-content: flex-start;
     }
-        .free_instalation_bdga span:last-child {
-        font-size: 8px;
-        min-height: auto;
-        justify-content: flex-start;
+
+    .free_instalation_bdga span:last-child img {
+      display: block;
     }
-            .free_instalation_bdga span:last-child img {
-        display: block;
+
+    #loyaltylion .lion-loyalty-widget_position_left {
+      bottom: 85px !important;
     }
-        #loyaltylion .lion-loyalty-widget_position_left {
-    bottom: 85px !important;
-        }
-        .lp-whatsapp-icon-bar {
-          bottom: 120px;
-          right: 10px;
-      }
-        .lp-whatsapp-icon-bar img {
-    width: 40px;
-}
-            .free_instalation_bdga span:last-child {
-        padding: 6px 5px;
+    .bik-widget__outer-wrapper > #bik-widget-root-dotjV0zIT3ecDVUh3kFb > #bik-wa-dotjV0zIT3ecDVUh3kFb-cta{
+      bottom: 120px !important;
+      right: 20px !important
     }
-      }
-      </style>
-  {% else %}
-    <style>
-      #loyaltylion .lion-loyalty-widget_position_left {
-        bottom: 0;
-        right: 0;
-        left:auto;
-      }
-      #loyaltylion .lion-loyalty-widget_position_left .lion-loyalty-widget__body>span:last-of-type {
-          border-top-right-radius: 0 !important;
-          border-bottom-right-radius: 0 !important;
-          border-top-left-radius: 10px !important;
-      }
-      .lp-whatsapp-icon-bar {
-          position: fixed;
-          bottom: 40px;
-          right: 30px;
-          z-index: 999;
-      }
-        .lp-whatsapp-icon-bar img{
-          width: 55px;
-        }
-      @media (max-width: 767px){
-        .lp-whatsapp-icon-bar {
-          bottom: 35px;
-          right: 10px;
-      }
-        .lp-whatsapp-icon-bar img {
-    width: 40px;
-}
-      }
-    </style>
-  {% endif %}
+    .free_instalation_bdga span:last-child {
+      padding: 6px 5px;
+    }
+  }
+</style>
+{% else %}
+<style>
+  #loyaltylion .lion-loyalty-widget_position_left {
+    bottom: 0;
+    right: 0;
+    left: auto;
+  }
+
+  #loyaltylion .lion-loyalty-widget_position_left .lion-loyalty-widget__body > span:last-of-type {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: 10px !important;
+  }
+  .bik-widget__outer-wrapper > #bik-widget-root-dotjV0zIT3ecDVUh3kFb > #bik-wa-dotjV0zIT3ecDVUh3kFb-cta{
+    bottom: 40px !important;
+    right: 20px !important
+  }
+  @media (max-width: 767px) {
+    .bik-widget__outer-wrapper > #bik-widget-root-dotjV0zIT3ecDVUh3kFb > #bik-wa-dotjV0zIT3ecDVUh3kFb-cta{
+      bottom: 35px !important;
+      right: 20px !important
+    }
+  }
+</style>
+{% endif %}
   
 </html>
 {% endcapture %}
