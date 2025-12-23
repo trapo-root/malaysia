@@ -763,11 +763,11 @@
 
 {% if product.type == 'WIPER' %}
   {% if product.tags contains 'wiper-rear' %}
-  <div class="sixteen columns">
+  <div class="wiper_description_outer">
     {% render 'rear-description' %}
   </div>
 {% else %}
-  <div class="sixteen columns">
+  <div class="wiper_description_outer">
     {% render 'wiper-description' %}
   </div>
   {% endif %}
