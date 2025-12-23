@@ -131,6 +131,15 @@
         "custom_css": ""
       }
     },
+    "custom_liquid_BbV9rc": {
+      "type": "custom-liquid",
+      "name": "Custom liquid",
+      "settings": {
+        "custom_liquid": "{% render 'dashcam-new' %}",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
     "slideshow_J6kWp8": {
       "type": "slideshow",
       "blocks": {
@@ -191,6 +200,7 @@
     "custom_liquid_qJbHex",
     "slideshow_J6kWp8",
     "80a86057-b696-402d-8105-99f9e7f65aef",
+    "custom_liquid_BbV9rc",
     "03d27038-e514-46e3-bb8f-318975a5cf00"
   ]
 }
