@@ -171,6 +171,7 @@
     },
     "80a86057-b696-402d-8105-99f9e7f65aef": {
       "type": "product-description",
+      "disabled": true,
       "settings": {
         "desc_text": "<p>{{ product.metafields.custom.accessories_description.value }}</p>"
       }
@@ -179,7 +180,7 @@
       "type": "custom-liquid",
       "name": "Custom liquid",
       "settings": {
-        "custom_liquid": "",
+        "custom_liquid": "{% render 'dashcam-new' %}",
         "css_class": "",
         "custom_css": ""
       }
