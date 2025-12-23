@@ -124,18 +124,10 @@
     },
     "custom_liquid_qJbHex": {
       "type": "custom-liquid",
+      "disabled": true,
       "name": "Custom liquid",
       "settings": {
         "custom_liquid": "{% if product.handle == 'trapo-i-sight-s650-dashcam' %}\n<div class=\"video\">\n    <div class=\"wrapper\">\n      <div data-embed=\"rNWCaehZn6s\" class=\"youtube\" style=\"margin-bottom: 0;\">\n        <div class=\"play-button\"></div>\n      </div>\n    </div>\n  </div>\n{% elsif product.handle == 'trapo-dashcam-i-sight-s550' %}\n<div class=\"video\">\n    <div class=\"wrapper\">\n      <div data-embed=\"rzJy36TFL9E\" class=\"youtube\" style=\"margin-bottom: 0;\">\n        <div class=\"play-button\"></div>\n      </div>\n    </div>\n  </div>\n{% endif %}",
-        "css_class": "",
-        "custom_css": ""
-      }
-    },
-    "custom_liquid_BbV9rc": {
-      "type": "custom-liquid",
-      "name": "Custom liquid",
-      "settings": {
-        "custom_liquid": "{% render 'dashcam-new' %}",
         "css_class": "",
         "custom_css": ""
       }
@@ -182,6 +174,15 @@
       "type": "product-description",
       "settings": {
         "desc_text": "<p>{{ product.metafields.custom.accessories_description.value }}</p>"
+      }
+    },
+    "custom_liquid_BbV9rc": {
+      "type": "custom-liquid",
+      "name": "Custom liquid",
+      "settings": {
+        "custom_liquid": "{% render 'dashcam-new' %}",
+        "css_class": "",
+        "custom_css": ""
       }
     },
     "03d27038-e514-46e3-bb8f-318975a5cf00": {
