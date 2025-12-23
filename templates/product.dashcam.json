@@ -179,7 +179,7 @@
       "type": "custom-liquid",
       "name": "Custom liquid",
       "settings": {
-        "custom_liquid": "{% render 'dashcam-new' %}",
+        "custom_liquid": "",
         "css_class": "",
         "custom_css": ""
       }
