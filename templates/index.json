@@ -14,14 +14,13 @@
       "blocks": {
         "image_7z6gf8": {
           "type": "image",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Slider-Web_desktop_2000x760_938aa613-de58-4cb0-8de3-05530a221277.jpg",
+            "image": "shopify://shop_images/WhatsApp_Image_2025-12-05_at_2.42.15_PM_9cd8e5d7-51fb-4c35-a8db-03c432a2919a.jpg",
             "pretext": "",
             "title": "",
             "subtitle": "",
             "button1": "",
-            "button1_link": "shopify://products/proton-emas-5-2025-present-trapo-classic",
+            "button1_link": "shopify://pages/zeekr-x-trapo",
             "button1_style": "global-button--banner",
             "button2": "",
             "button2_link": "",
@@ -29,7 +28,7 @@
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/Slider-Web_mobile_1080x1080_83b5902b-7eb9-4e0d-8139-5773c997330d.jpg"
+            "mobile_image": "shopify://shop_images/WhatsApp_Image_2025-12-05_at_2.42.15_PM_9cd8e5d7-51fb-4c35-a8db-03c432a2919a.jpg"
           }
         },
         "image_9TiKqe": {
