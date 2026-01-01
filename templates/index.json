@@ -12,25 +12,6 @@
     "e9b4f8b6-7e66-4bea-b19f-b3bdba7c0bc8": {
       "type": "slideshow",
       "blocks": {
-        "image_7z6gf8": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/WhatsApp_Image_2025-12-05_at_2.42.15_PM_9cd8e5d7-51fb-4c35-a8db-03c432a2919a.jpg",
-            "pretext": "",
-            "title": "",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "shopify://pages/zeekr-x-trapo",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/WhatsApp_Image_2025-12-05_at_2.42.14_PM_ade27b6f-13e6-4c4e-82f6-5c2234a36eb2.jpg"
-          }
-        },
         "image_9TiKqe": {
           "type": "image",
           "settings": {
@@ -269,7 +250,6 @@
         }
       },
       "block_order": [
-        "image_7z6gf8",
         "image_9TiKqe",
         "image_CJzXfp",
         "image_yDRQaC",
