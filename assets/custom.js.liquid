@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 		//console.log(lastItem);
 
-      // var selectProductClassic = currentProductHandle.replaceAll(lastItem, "classic" );
-       var selectProductClassic = currentProductHandle.replace(/classic$/, lastItem);
+      var selectProductClassic = currentProductHandle.replaceAll(lastItem, "classic" );
+       //var selectProductClassic = currentProductHandle.replace(/classic$/, lastItem);
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductClassic + '.js')
 			//console.log(product);
             .done(function(product) {
@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
            return false;
 		  });
 
-     //var selectProductEco = currentProductHandle.replaceAll(lastItem, "eco" );
-     var selectProductEco = currentProductHandle.replace(/eco$/, lastItem);
+     var selectProductEco = currentProductHandle.replaceAll(lastItem, "eco" );
+     //var selectProductEco = currentProductHandle.replace(/eco$/, lastItem);
      
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductEco + '.js') 
           .done(function(product) {
@@ -74,8 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
 		  });
 
-   //var selectProductHex = currentProductHandle.replaceAll(lastItem, "hex" );
-   var selectProductHex = currentProductHandle.replace(/hex$/, lastItem);
+   var selectProductHex = currentProductHandle.replaceAll(lastItem, "hex" );
+   //var selectProductHex = currentProductHandle.replace(/hex$/, lastItem);
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductHex + '.js')
             .done(function(product) {
 			//console.log(product);
@@ -97,8 +97,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		  });
 
 	 
-		 //var selectProductUltimate = currentProductHandle.replaceAll(lastItem, "hex-ultimate" );
-     var selectProductUltimate = currentProductHandle.replace(/hex-ultimate$/, lastItem);
+		 var selectProductUltimate = currentProductHandle.replaceAll(lastItem, "hex-ultimate" );
+     //var selectProductUltimate = currentProductHandle.replace(/hex-ultimate$/, lastItem);
 		 jQuery.getJSON(window.Shopify.routes.root + 'products/' + selectProductUltimate + '.js')
                         .done(function(product) {
 			//console.log(product);
