@@ -149,7 +149,7 @@
             <div
               data-value="Eco"
               class="swatch-element-type {% if producthandle.last == 'eco' %}selected{% endif %}"
-              onclick="changeType(this)"
+              onclick="{% if producthandle.last == 'eco' %}changeImage(this){% else %}changeType(this){% endif %}"
             >
               <lable>
                 <img src="{{ 'btn_eco.png' | asset_url }}" alt="Eco">
@@ -170,7 +170,7 @@
             <div
               data-value="Classic"
               class="swatch-element-type"
-              onclick="{% if producthandle.last == 'classic' %}changeImage(this){% else %}changeType(this){% endif %}"
+              onclick="changeType(this)"
             >
               <lable>
                 <img src="{{ 'btn_classic.png' | asset_url }}" alt="Classic">
