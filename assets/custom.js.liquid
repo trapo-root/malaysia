@@ -217,10 +217,10 @@ var $product_img_cell = $(".variant_imgs_cell"),
                 $(this).remove();
                 for (var r = 0; r < $product_img_cell_array.length; r++) {
                     var a = $product_img_cell_array[r].attr("data-title");
-                    (t != a && "main_image" != a && "main_image_eco" != a) || $("#productImg .flickity-slider").append($product_img_cell_array[r]);
+                    (t != a && "main_image" != a && "main_image_classic" != a) || $("#productImg .flickity-slider").append($product_img_cell_array[r]);
                 }
             });
-          if(lastItem == 'classic'){
+          if(lastItem == 'eco'){
             $('.swatch-element-type.selected').removeClass('selected');
             (a = r ? 2 : 0);
           }else{
