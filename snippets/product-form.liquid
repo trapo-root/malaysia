@@ -1081,3 +1081,11 @@
   }
 </style>
 {% endif %}
+
+{% if product.type == 'TRAPO HEX' or product.type == 'TRAPO HEX ULTIMATE' %}
+  <style>
+  .swatch .swatch-element.package.all-included-sidestep-swatch{
+    display:none;
+  }
+</style>
+{% endif %}
