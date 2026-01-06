@@ -159,6 +159,12 @@
               {% else %}
                 {{ value }}
               {% endif %}
+            {% elsif product.type == 'TRAPO HEX' or product.type == 'TRAPO HEX ULTIMATE'  %}
+              {% if value == 'All Included' %}
+                All Included + Free Sidestep
+              {% else %}
+                {{ value }}
+              {% endif %}
             {% else %}
               {{ value }}
             {% endif %}
