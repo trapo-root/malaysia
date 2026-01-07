@@ -49,7 +49,7 @@
   data-product-id="{{ product.id }}"
   data-product-handle="{{ product.handle }}"
   data-product-type="{{ product.type }}"
-  data-product-mpv="{% if product.tags contains 'isMPV' %}yes{% else %}no{% endif %}"
+  data-product-mpv="{% if product.tags contains 'isMPV' or product.tags contains 'mpv'  %}yes{% else %}no{% endif %}"
 >
   {% form 'product', product %}
     {% if product.type == 'OFFLINE SERVICE' %}
