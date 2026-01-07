@@ -1074,13 +1074,13 @@
 <!-- End BNPL Icons -->
 
 
-{% comment %}{% if product.tags contains 'isMPV' %}
+{% if product.tags contains 'isMPV' %}
   <style>
-  .swatch .swatch-element.package.all-included-sidestep-swatch{
+  .swatch .swatch-element.package.all-included-swatch{
     display:none;
   }
 </style>
-{% endif %}{% endcomment %}
+{% endif %}
 
 {% if product.type == 'TRAPO HEX' or product.type == 'TRAPO HEX ULTIMATE' %}
   <style>
