@@ -153,13 +153,13 @@
         {% endif %}
         {% if is_package %}
           <p class="swatch-package-title">
-            {% comment %}{% if product.tags contains 'isMPV' %}
-              {% if value == 'All Included' %}
+          {% if product.tags contains 'isMPV' %}
+              {% if value == 'All Included + Sidestep' %}
                 All Included + Free Sidestep
               {% else %}
                 {{ value }}
-              {% endif %}{% endcomment %}
-            {% if product.type == 'TRAPO HEX' or product.type == 'TRAPO HEX ULTIMATE'  %}
+              {% endif %}
+          {% elsif product.type == 'TRAPO HEX' or product.type == 'TRAPO HEX ULTIMATE'  %}
               {% if value == 'All Included + Sidestep' %}
                 All Included + Free Sidestep
               {% else %}
