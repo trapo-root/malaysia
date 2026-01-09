@@ -15,7 +15,6 @@
     },
     "blog_posts_VNKn9d": {
       "type": "blog-posts",
-      "disabled": true,
       "name": "Blog posts",
       "settings": {
         "title": "List of Collaboration",
