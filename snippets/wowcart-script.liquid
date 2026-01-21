@@ -168,146 +168,149 @@ const cartObject = items.detail || {};
   initOrGetLocsStorePickup();
 });
 
+(function () {
+    // Listen for CART_UPDATED event
+    document.addEventListener('CART_UPDATED', function (event) {
+        const cartObject = event.detail || {};
+        console.log('Hii', cartObject);
 
-
-(function() {
-  // Listen for CART_UPDATED event
-  document.addEventListener('CART_UPDATED', function(event) {
-    const cartObject = event.detail || {};
-    console.log('Hii', cartObject);
-
-    // --- EXISTING LOGIC STARTS ---
-    if (document.querySelector('.pickup-in-store-1')) {
-      if (!$('.pickup-in-store-1').hasClass("addedNote")) {
-        $(".pickup-in-store-1 .wow-cart-product-price-block").append("<p class='pickup-note'>Note : Our staff will contact you once your item is available to pick up</p>");
-      }
-      $('.pickup-in-store-1').addClass('addedNote');
-    }
-
-    //clear cart if cart only has free products
-    if (cartObject.item_count > 0 && cartObject.items_subtotal_price === 0) {
-      let addonProducts = ((window.wowcart || {}).cartItems || {}).items || [];
-      // Fallback if window.wowcart isn't populated as expected, try using cartObject if possible
-      // But sticking to provided logic strictness:
-      if (!addonProducts.length && cartObject.items) {
-          addonProducts = cartObject.items;
-      }
-      
-      addonProducts = addonProducts.filter(item => item.product_type == 'Add-On' || item.product_type == 'Promotional' || item.product_type == 'Reward');
-      
-      // Careful with the original logic referring to 'wowcart', keeping it safe
-      const currentCount = (window.wowcart || {}).item_count || cartObject.item_count;
-      
-      if ((addonProducts || {}).length == currentCount) {
-        (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
-      }
-    }
-    removeQuantitySelector();
-    initOrGetLocsStorePickup();
-    // --- EXISTING LOGIC ENDS ---
-
-    // ---------------------------------------------------------
-    // NEW FREE GIFT LOGIC START
-    // ---------------------------------------------------------
-    
-    try {
-        const items = cartObject.items || [];
-        
-        // Gift Variant IDs
-        const GIFT_IDS = {
-            GIFT_1: 42418196643917,
-            GIFT_2: 42612581498957,
-            GIFT_3: 41705709830221
-        };
-
-        // Initialize required quantities
-        let requiredQty = {
-            [GIFT_IDS.GIFT_1]: 0,
-            [GIFT_IDS.GIFT_2]: 0,
-            [GIFT_IDS.GIFT_3]: 0
-        };
-
-        // Scan items to calculate required gifts
-        items.forEach(item => {
-            const productType = (item.product_type || '').toUpperCase();
-            const variantOptions = item.variant_options || [];
-            const thirdOption = variantOptions[2] || ''; // Index 2 is the 3rd option
-            const quantity = item.quantity || 0;
-
-            // Condition A: WIPER
-            if (productType === 'WIPER') {
-                requiredQty[GIFT_IDS.GIFT_1] += quantity;
+        // --- EXISTING LOGIC STARTS ---
+        if (document.querySelector('.pickup-in-store-1')) {
+            if (!$('.pickup-in-store-1').hasClass("addedNote")) {
+                $(".pickup-in-store-1 .wow-cart-product-price-block").append("<p class='pickup-note'>Note : Our staff will contact you once your item is available to pick up</p>");
             }
-
-            // Condition B: TRAPO CLASSIC + Front + Rear
-            else if (productType === 'TRAPO CLASSIC' && thirdOption === 'Front + Rear') {
-                requiredQty[GIFT_IDS.GIFT_1] += quantity;
-            }
-
-            // Condition C: TRAPO CLASSIC + All Included
-            else if (productType === 'TRAPO CLASSIC' && thirdOption === 'All Included') {
-                requiredQty[GIFT_IDS.GIFT_1] += quantity;
-                requiredQty[GIFT_IDS.GIFT_2] += quantity;
-            }
-
-            // Condition D: TRAPO HEX + All Included
-            else if (productType === 'TRAPO HEX' && thirdOption === 'All Included') {
-                requiredQty[GIFT_IDS.GIFT_1] += quantity;
-                requiredQty[GIFT_IDS.GIFT_2] += quantity;
-                requiredQty[GIFT_IDS.GIFT_3] += quantity;
-            }
-        });
-
-        // Current quantities in cart
-        let currentQty = {
-            [GIFT_IDS.GIFT_1]: 0,
-            [GIFT_IDS.GIFT_2]: 0,
-            [GIFT_IDS.GIFT_3]: 0
-        };
-
-        items.forEach(item => {
-            if (requiredQty.hasOwnProperty(item.variant_id)) {
-                currentQty[item.variant_id] = item.quantity;
-            }
-        });
-
-        // Determine if updates are needed
-        let updates = {};
-        let needsUpdate = false;
-
-        for (const [id, qty] of Object.entries(requiredQty)) {
-            if (currentQty[id] !== qty) {
-                updates[id] = qty;
-                needsUpdate = true;
-            }
+            $('.pickup-in-store-1').addClass('addedNote');
         }
 
-        // Perform update if needed
-        if (needsUpdate) {
-            console.log('Free Gift Logic: Updating cart', updates);
-            
-            fetch('/cart/update.js', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ updates: updates })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Cart updated successfully', data);
-                // Note: The /cart/update.js call might trigger CART_UPDATED again depending on the theme implementation.
-                // Our logic is idempotent (checks state first), so infinite loops are prevented.
-            })
-            .catch(error => {
-                console.error('Error updating cart for free gifts:', error);
+        //clear cart if cart only has free products
+        if (cartObject.item_count > 0 && cartObject.items_subtotal_price === 0) {
+            let addonProducts = ((window.wowcart || {}).cartItems || {}).items || [];
+            // Fallback if window.wowcart isn't populated as expected, try using cartObject if possible
+            // But sticking to provided logic strictness:
+            if (!addonProducts.length && cartObject.items) {
+                addonProducts = cartObject.items;
+            }
+
+            addonProducts = addonProducts.filter(item => item.product_type == 'Add-On' || item.product_type == 'Promotional' || item.product_type == 'Reward');
+
+            // Careful with the original logic referring to 'wowcart', keeping it safe
+            const currentCount = (window.wowcart || {}).item_count || cartObject.item_count;
+
+            if ((addonProducts || {}).length == currentCount) {
+                (window.wowcart || {}).clearCart && (window.wowcart || {}).clearCart();
+            }
+        }
+        removeQuantitySelector();
+        initOrGetLocsStorePickup();
+        // --- EXISTING LOGIC ENDS ---
+
+        // ---------------------------------------------------------
+        // NEW FREE GIFT LOGIC START
+        // ---------------------------------------------------------
+
+        try {
+            const items = cartObject.items || [];
+
+            // Gift Variant IDs
+            const GIFT_IDS = {
+                GIFT_1: 42418196643917,
+                GIFT_2: 42612581498957,
+                GIFT_3: 41705709830221,
+                GIFT_WIPER: 42612577173581
+            };
+
+            // Initialize required quantities
+            let requiredQty = {
+                [GIFT_IDS.GIFT_1]: 0,
+                [GIFT_IDS.GIFT_2]: 0,
+                [GIFT_IDS.GIFT_3]: 0,
+                [GIFT_IDS.GIFT_WIPER]: 0
+            };
+
+            // Scan items to calculate required gifts
+            items.forEach(item => {
+                const productType = (item.product_type || '').toUpperCase();
+                const variantOptions = item.variant_options || [];
+                const thirdOption = variantOptions[2] || ''; // Index 2 is the 3rd option
+                const quantity = item.quantity || 0;
+
+                // Condition A: WIPER
+                if (productType === 'WIPER') {
+                    requiredQty[GIFT_IDS.GIFT_WIPER] += quantity;
+                }
+
+                // Condition B: TRAPO CLASSIC + Front + Rear
+                else if (productType === 'TRAPO CLASSIC' && thirdOption === 'Front + Rear') {
+                    requiredQty[GIFT_IDS.GIFT_1] += quantity;
+                }
+
+                // Condition C: TRAPO CLASSIC + All Included
+                else if (productType === 'TRAPO CLASSIC' && thirdOption === 'All Included') {
+                    requiredQty[GIFT_IDS.GIFT_1] += quantity;
+                    requiredQty[GIFT_IDS.GIFT_2] += quantity;
+                }
+
+                // Condition D: TRAPO HEX + All Included
+                else if (productType === 'TRAPO HEX' && thirdOption === 'All Included') {
+                    requiredQty[GIFT_IDS.GIFT_1] += quantity;
+                    requiredQty[GIFT_IDS.GIFT_2] += quantity;
+                    requiredQty[GIFT_IDS.GIFT_3] += quantity;
+                }
             });
+
+            // Current quantities in cart
+            let currentQty = {
+                [GIFT_IDS.GIFT_1]: 0,
+                [GIFT_IDS.GIFT_2]: 0,
+                [GIFT_IDS.GIFT_3]: 0,
+                [GIFT_IDS.GIFT_WIPER]: 0
+            };
+
+            items.forEach(item => {
+                if (requiredQty.hasOwnProperty(item.variant_id)) {
+                    currentQty[item.variant_id] = item.quantity;
+                }
+            });
+
+            // Determine if updates are needed
+            let updates = {};
+            let needsUpdate = false;
+
+            for (const [id, qty] of Object.entries(requiredQty)) {
+                if (currentQty[id] !== qty) {
+                    updates[id] = qty;
+                    needsUpdate = true;
+                }
+            }
+
+            // Perform update if needed
+            if (needsUpdate) {
+                console.log('Free Gift Logic: Updating cart', updates);
+
+                fetch('/cart/update.js', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ updates: updates })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Cart updated successfully', data);
+                        // Note: The /cart/update.js call might trigger CART_UPDATED again depending on the theme implementation.
+                        // Our logic is idempotent (checks state first), so infinite loops are prevented.
+                    })
+                    .catch(error => {
+                        console.error('Error updating cart for free gifts:', error);
+                    });
+            }
+
+        } catch (e) {
+            console.error('Error in Free Gift Logic:', e);
         }
 
-    } catch (e) {
-        console.error('Error in Free Gift Logic:', e);
-    }
-
-  });
+    });
+    
 })();
+
 </script>
