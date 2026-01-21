@@ -1,5 +1,9 @@
 {% assign selected_variant = product.selected_or_first_available_variant %}
-{% assign member_price = selected_variant.price | times: 0.92 %}
+{% if product.type == 'WIPER' %}
+  {% assign member_price = selected_variant.price | times: 0.80 %}
+{% else %}
+  {% assign member_price = selected_variant.price | times: 0.92 %}
+{% endif %}
 <section class="footer-pricing">
   <div class="container-sec">
     <div class="pricing-bar">
