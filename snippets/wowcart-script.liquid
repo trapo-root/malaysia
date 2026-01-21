@@ -168,6 +168,8 @@ const cartObject = items.detail || {};
   initOrGetLocsStorePickup();
 });
 
+
+
 (function () {
     // Listen for CART_UPDATED event
     document.addEventListener('CART_UPDATED', function (event) {
@@ -250,7 +252,12 @@ const cartObject = items.detail || {};
                     requiredQty[GIFT_IDS.GIFT_2] += quantity;
                 }
 
-                // Condition D: TRAPO HEX + All Included
+                // Condition D: TRAPO HEX + Front + Rear
+                else if (productType === 'TRAPO HEX' && thirdOption === 'Front + Rear') {
+                    requiredQty[GIFT_IDS.GIFT_1] += quantity;
+                }
+
+                // Condition E: TRAPO HEX + All Included
                 else if (productType === 'TRAPO HEX' && thirdOption === 'All Included') {
                     requiredQty[GIFT_IDS.GIFT_1] += quantity;
                     requiredQty[GIFT_IDS.GIFT_2] += quantity;
@@ -310,7 +317,7 @@ const cartObject = items.detail || {};
         }
 
     });
-    
 })();
+
 
 </script>
