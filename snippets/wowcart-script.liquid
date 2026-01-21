@@ -218,7 +218,8 @@ const cartObject = items.detail || {};
                 GIFT_1: 42612577173581,
                 GIFT_2: 42612581498957,
                 GIFT_3: 41705709830221,
-                GIFT_WIPER: 42418196643917
+                GIFT_WIPER: 42418196643917,
+                GIFT_4: 42612646707277
             };
 
             // Initialize required quantities
@@ -226,7 +227,8 @@ const cartObject = items.detail || {};
                 [GIFT_IDS.GIFT_1]: 0,
                 [GIFT_IDS.GIFT_2]: 0,
                 [GIFT_IDS.GIFT_3]: 0,
-                [GIFT_IDS.GIFT_WIPER]: 0
+                [GIFT_IDS.GIFT_WIPER]: 0,
+                [GIFT_IDS.GIFT_4]: 0
             };
 
             // Scan items to calculate required gifts
@@ -262,6 +264,7 @@ const cartObject = items.detail || {};
                     requiredQty[GIFT_IDS.GIFT_1] += quantity;
                     requiredQty[GIFT_IDS.GIFT_2] += quantity;
                     requiredQty[GIFT_IDS.GIFT_3] += quantity;
+                    requiredQty[GIFT_IDS.GIFT_4] += quantity;
                 }
             });
 
@@ -270,7 +273,8 @@ const cartObject = items.detail || {};
                 [GIFT_IDS.GIFT_1]: 0,
                 [GIFT_IDS.GIFT_2]: 0,
                 [GIFT_IDS.GIFT_3]: 0,
-                [GIFT_IDS.GIFT_WIPER]: 0
+                [GIFT_IDS.GIFT_WIPER]: 0,
+                [GIFT_IDS.GIFT_4]: 0
             };
 
             items.forEach(item => {
@@ -318,6 +322,5 @@ const cartObject = items.detail || {};
 
     });
 })();
-
 
 </script>
