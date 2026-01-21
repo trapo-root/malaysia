@@ -159,7 +159,6 @@ if ($container.find('img[src="' + imgUrl + '"]').length === 0) {
   
 document.addEventListener('WOWCART_PRODUCT_DELETED', function(items) { 
 const cartObject = items.detail || {};
-  console.log('Hii',cartObject);
    if(cartObject.item_count > 0){
       let addonProducts = ((wowcart.cartItems || {}).items || []).filter(item=>item.product_type == 'Add-On' || item.product_type == 'Promotional' || item.product_type == 'Reward')
         if((addonProducts||{}).length == (wowcart.cartItems || {}).item_count){
@@ -176,7 +175,7 @@ const cartObject = items.detail || {};
   // Listen for CART_UPDATED event
   document.addEventListener('CART_UPDATED', function(event) {
     const cartObject = event.detail || {};
-
+    console.log('Hii',cartObject);
     if(document.querySelector('.pickup-in-store-1')){
         if (!$('.pickup-in-store-1').hasClass("addedNote")) {
         $(".pickup-in-store-1 .wow-cart-product-price-block").append("<p class='pickup-note'>Note : Our staff will contact you once your item is available to pick up</p>");
