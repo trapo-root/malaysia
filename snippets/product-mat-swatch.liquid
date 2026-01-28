@@ -25,10 +25,11 @@
 {% endfor %}
 
 {%- assign downcased_swatch = swatch | downcase -%}
-
-{% if downcased_swatch contains 'base colour' or downcased_swatch contains 'base color' %}
+{% if downcased_swatch contains 'base colour' or downcased_swatch contains 'base color' or downcased_swatch contains 'trapo scented stone type' %}
   {% if product.type == 'TRAPO REFRESH PACKAGE' %}
     <p class="txt-choose-cmb">Choose your car mat colour combination</p>
+  {% elsif product.type == 'TRAPO CNY REFRESH PACKAGE' %}
+    <p class="txt-choose-cmb">Choose your scented stone type</p>
    {% elsif product.type == 'PACKAGE MAT' %}
     <p class="txt-choose-cmb">Choose your car mat colour combination</p>
   {% else %}
@@ -40,7 +41,7 @@
    {% render 'trial-mat-url' %}
 {% endif %}
 
-{% if downcased_swatch contains 'base colour' or downcased_swatch contains 'base color' %}
+{% if downcased_swatch contains 'base colour' or downcased_swatch contains 'base color' or downcased_swatch contains 'trapo scented stone type' %}
   <div class="color-option">
   {% endif %}
 
@@ -49,7 +50,7 @@
     <div class="option_title color-title">Base</div>
   {% elsif downcased_swatch contains 'lining colour' or downcased_swatch contains 'lining color' %}
     <div class="option_title color-title">Lining</div>
-  {% elsif swatch == 'Packages' %}
+  {% elsif swatch == 'Packages' or downcased_swatch contains 'trapo scented stone type' %}
 
   {% else %}
     <div class="option_title">
@@ -156,12 +157,16 @@
           {% if product.tags contains 'isMPV' %}
               {% if value == 'All Included + Sidestep' %}
                 All Included + Free Sidestep
+              {% elsif product.tags contains 'no-sidestep' %}
+                {{ value }}
               {% else %}
                 {{ value }}
               {% endif %}
           {% elsif product.type == 'TRAPO HEX' or product.type == 'TRAPO HEX ULTIMATE'  %}
               {% if value == 'All Included + Sidestep' %}
                 All Included + Free Sidestep
+              {% elsif product.tags contains 'no-sidestep' %}
+                {{ value }}
               {% else %}
                 {{ value }}
               {% endif %}
@@ -192,6 +197,6 @@
     {% endunless %}
   {% endfor %}
 </div>
-    {% if downcased_swatch == 'lining colour' or downcased_swatch == 'lining color' %}
+    {% if downcased_swatch == 'lining colour' or downcased_swatch == 'lining color' or downcased_swatch contains 'trapo scented stone type' %}
       </div>
     {% endif %}

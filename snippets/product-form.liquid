@@ -87,6 +87,11 @@
       </select>
     </div>
 
+    {% if product.type == 'TRAPO CNY REFRESH PACKAGE' %}
+        <p class="txt-choose-cmb">Choose your car model</p> 
+        {% render 'cny-refresh-drop' %}
+    {% endif %}
+
     {% if settings.product_form_style == 'radio'
       and product.variants.size > 1
       or settings.product_form_style == 'radio'
@@ -247,6 +252,7 @@
         <p class="txt-choose-cmb">Choose your car model</p> 
         {% render 'refresh-drop' %}
       {% endif %}
+      
 
       {% if product.tags contains 'trapo-tint' %}
         {% assign producthandle = product.handle | split: '-' %}
@@ -409,12 +415,13 @@
         or product.type == 'TRAPO ECO II'
         or product.type == 'TRAPO HEX ULTIMATE II'
         or product.type == 'TRAPO TEST'
-        or product.type == 'TRAPO REFRESH PACKAGE' 
+        or product.type == 'TRAPO REFRESH PACKAGE'
+        or product.type == 'TRAPO CNY REFRESH PACKAGE'
         or product.type == 'PACKAGE MAT' 
          or product.type == 'TRAPO ECO III' 
         or product.type == 'TRAPO CLASSIC MARK IV' 
       %}
-        <div class="swatch_options swatch_mat">
+      <div class="swatch_options swatch_mat">
           {% for option in product.options %}
             {% render 'product-mat-swatch', option: option, product: product %}
           {% endfor %}
@@ -983,10 +990,19 @@
         {% comment %}Inject @pixelunion/pxs-gift-card-recipient-form/recipient-form end{% endcomment %}
       {% endif %}
 
-      {%  if product.type == 'TRAPO REFRESH PACKAGE' %}
+      {% if product.type == 'TRAPO REFRESH PACKAGE' %}
         <p class="refresh-error" style="color: red;"></p>
         <div class="purchase-details__buttons purchase-details__spb--false"> 
           <button type="button" name="add" class="add_to_cart global-button global-button--primary refresh-submit" data-label="Add to Cart"> 
+            <span class="text add-cart-text">Add to Cart</span> 
+            <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark"> <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
+            </svg>
+          </button> 
+        </div>
+      {% elsif product.type == 'TRAPO CNY REFRESH PACKAGE' %}
+        <p class="refresh-error" style="color: red;"></p>
+        <div class="purchase-details__buttons purchase-details__spb--false"> 
+          <button type="button" name="add" class="add_to_cart global-button global-button--primary cny-refresh-submit" data-label="Add to Cart"> 
             <span class="text add-cart-text">Add to Cart</span> 
             <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark"> <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
             </svg>
@@ -1075,17 +1091,32 @@
 
 
 {% if product.tags contains 'isMPV' %}
+  {% if product.tags contains 'no-sidestep' %}
   <style>
-  .swatch .swatch-element.package.all-included-swatch{
-    display:none;
-  }
-</style>
+    .swatch .swatch-element.package.all-included-swatch{
+      display:block;
+    }
+  </style>
+{% else %}
+  <style>
+    .swatch .swatch-element.package.all-included-swatch{
+      display:none;
+    }
+  </style>
+{% endif %}
 {% endif %}
 
 {% if product.type == 'TRAPO HEX' or product.type == 'TRAPO HEX ULTIMATE' %}
+  {% if product.tags contains 'no-sidestep' %}
   <style>
+  [data-product-mpv="yes"] .swatch .swatch-element.package.all-included-swatch{
+    display:block;
+  }
+</style>
+{% else %}
+   <style>
   [data-product-mpv="yes"] .swatch .swatch-element.package.all-included-swatch{
     display:none;
   }
-</style>
+  {% endif %}
 {% endif %}
