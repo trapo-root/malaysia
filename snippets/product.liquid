@@ -720,8 +720,9 @@
       </div>
     {% endif %}
   </div>
+  {{ product.type }}
 </div>
-{{ product.type }}
+
 {% if product.type == 'TRAPO CLASSIC' or product.type == 'TRAPO CLASSIC REAR' or product.type == 'TRAPO TEST' %}
   <div class="sixteen columns">
     {% render 'classic-description-new' %}
