@@ -52,7 +52,6 @@
 
 
   {% render 'product__structured-data', product: product %}
-Hiiii
 
 <div class="product-main product-{{ product.id }}">
   <div
@@ -722,7 +721,7 @@ Hiiii
     {% endif %}
   </div>
 </div>
-
+{{ product.type }}
 {% if product.type == 'TRAPO CLASSIC' or product.type == 'TRAPO CLASSIC REAR' or product.type == 'TRAPO TEST' %}
   <div class="sixteen columns">
     {% render 'classic-description-new' %}
