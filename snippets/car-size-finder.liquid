@@ -116,12 +116,25 @@ document.addEventListener('DOMContentLoaded', function() {
     select.disabled = false;
   }
 
-  function updateSizeResult(size) {
+  function updateSizeResult(carInfo) {
     const sizeResult = document.getElementById('size-result');
-    sizeResult.textContent = size ? `Your car size is: ${size}` : '';
+    if (carInfo) {
+      sizeResult.innerHTML = `
+        <div class="result-item">
+          <span class="result-label">Car Size:</span>
+          <span class="result-value">${carInfo.size}</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Roof Type:</span>
+          <span class="result-value">${carInfo.roof_type_tint || 'N/A'}</span>
+        </div>
+      `;
+    } else {
+      sizeResult.innerHTML = '';
+    }
   }
 
-  fetch('https://cdn.shopify.com/s/files/1/0332/5801/2811/files/car_tags.json')
+  fetch('https://cdn.shopify.com/s/files/1/0234/7089/9277/files/car_tags_new.json?v=1770267418')
     .then(response => response.json())
     .then(data => {
       carData = data.brands;
@@ -134,11 +147,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (brand && carData[brand]) {
       populateSelect('model-select', Object.keys(carData[brand].models));
       document.getElementById('year-select').disabled = true;
-      updateSizeResult('');
+      document.getElementById('year-select').innerHTML = '<option value="">Select year</option>';
+      updateSizeResult(null);
     } else {
       document.getElementById('model-select').disabled = true;
+      document.getElementById('model-select').innerHTML = '<option value="">Select model</option>';
       document.getElementById('year-select').disabled = true;
-      updateSizeResult('');
+      document.getElementById('year-select').innerHTML = '<option value="">Select year</option>';
+      updateSizeResult(null);
     }
   });
 
@@ -147,10 +163,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const model = this.value;
     if (brand && model && carData[brand].models[model]) {
       populateSelect('year-select', Object.keys(carData[brand].models[model].years));
-      updateSizeResult('');
+      updateSizeResult(null);
     } else {
       document.getElementById('year-select').disabled = true;
-      updateSizeResult('');
+      document.getElementById('year-select').innerHTML = '<option value="">Select year</option>';
+      updateSizeResult(null);
     }
   });
 
@@ -159,10 +176,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const model = document.getElementById('model-select').value;
     const year = this.value;
     if (brand && model && year && carData[brand].models[model].years[year]) {
-      const size = carData[brand].models[model].years[year];
-      updateSizeResult(size);
+      const carInfo = carData[brand].models[model].years[year];
+      updateSizeResult(carInfo);
     } else {
-      updateSizeResult('');
+      updateSizeResult(null);
     }
   });
 });
