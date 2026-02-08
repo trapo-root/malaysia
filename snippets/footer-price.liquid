@@ -66,8 +66,6 @@
                   {% endif %}
                   {% if selected_variant.compare_at_price > selected_variant.price %}
                     <span class="compare-price">{{ selected_variant.compare_at_price | money }}</span>
-                  {% else %}
-                    <span class="compare-price">{{ selected_variant.price | money }}</span>
                   {% endif %}
                 </div>
                 <span class="non-member-price"
