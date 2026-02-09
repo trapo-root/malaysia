@@ -25,7 +25,7 @@
   {% assign product_exists = all_products[new_handle] %}
 
   {% if product_exists %}
-    <div class="main-trialmat">
+    {% comment %}<div class="main-trialmat">
       <div class="trial-url">
         <p>Bought Trapo Trial Mats? 
           <span class="info-icon">?</span> 
@@ -44,7 +44,7 @@
         <span class="info-icon">i</span>
         What's Trial Mats?
       </div>{% endcomment %}
-    </div>
+    </div>{% endcomment %}
 
     <style>
 .main-trialmat{
