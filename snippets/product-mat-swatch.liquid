@@ -157,7 +157,7 @@
           {% if product.tags contains 'isMPV' %}
               {% if value == 'All Included + Sidestep' %}
                 All Included + Free Sidestep
-              {% elsif product.tags contains 'no-sidestep' %}
+              {% elsif product.tags contains 'no-sidestep' and value == 'All Included + Sidestep' %}
                 {{ value }}
               {% else %}
                 {{ value }}
