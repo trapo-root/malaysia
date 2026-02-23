@@ -106,6 +106,7 @@
 
 {% elsif collection.title == 'Dashcams' %}
 
+  <div class="dashcam-faq">
   <h3>FAQs About Dashcams</h3>
 
   <details class="collapsible-tab">
@@ -141,7 +142,7 @@
       <p>Yes, it’s definitely worth it. A dashcam can help protect you in accidents, prevent disputes, and speed up insurance claims. In today’s traffic conditions, especially in Malaysia, it’s a smart and practical safety tool for every driver.</p>
     </div>
   </details>
-
+</div>
   
 {% endif %}
 
@@ -150,6 +151,9 @@
     width:10%;
     text-transform: uppercase;
     border-bottom:0;
+  }
+  .dashcam-faq .collapsible-tab__heading{
+    width:auto;
   }
   .collapsible-tab__heading h2{
     display: flex;
