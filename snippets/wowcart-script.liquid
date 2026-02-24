@@ -169,8 +169,28 @@ const cartObject = items.detail || {};
 });
 
 
-
 (function () {
+
+    // =============================================================
+    // FREE GIFT FEATURE CONFIGURATION
+    // =============================================================
+    // Set to `false` to disable the free gift logic entirely.
+    // Can also be toggled at runtime via:
+    //   window.FREE_GIFT_ENABLED = false;  // disable
+    //   window.FREE_GIFT_ENABLED = true;   // enable
+    // =============================================================
+    var FREE_GIFT_DEFAULT = false; // default state: enabled
+
+    // Expose the flag globally so it can be toggled from outside
+    if (typeof window.FREE_GIFT_ENABLED === 'undefined') {
+        window.FREE_GIFT_ENABLED = FREE_GIFT_DEFAULT;
+    }
+
+    // Helper to check if the free gift feature is active
+    function isFreeGiftEnabled() {
+        return !!window.FREE_GIFT_ENABLED;
+    }
+
     // Listen for CART_UPDATED event
     document.addEventListener('CART_UPDATED', function (event) {
         const cartObject = event.detail || {};
@@ -179,23 +199,27 @@ const cartObject = items.detail || {};
         // --- EXISTING LOGIC STARTS ---
         if (document.querySelector('.pickup-in-store-1')) {
             if (!$('.pickup-in-store-1').hasClass("addedNote")) {
-                $(".pickup-in-store-1 .wow-cart-product-price-block").append("<p class='pickup-note'>Note : Our staff will contact you once your item is available to pick up</p>");
+                $(".pickup-in-store-1 .wow-cart-product-price-block").append(
+                    "<p class='pickup-note'>Note : Our staff will contact you once your item is available to pick up</p>"
+                );
             }
             $('.pickup-in-store-1').addClass('addedNote');
         }
 
-        //clear cart if cart only has free products
+        // Clear cart if cart only has free products
         if (cartObject.item_count > 0 && cartObject.items_subtotal_price === 0) {
             let addonProducts = ((window.wowcart || {}).cartItems || {}).items || [];
-            // Fallback if window.wowcart isn't populated as expected, try using cartObject if possible
-            // But sticking to provided logic strictness:
             if (!addonProducts.length && cartObject.items) {
                 addonProducts = cartObject.items;
             }
 
-            addonProducts = addonProducts.filter(item => item.product_type == 'Add-On' || item.product_type == 'Promotional' || item.product_type == 'Reward');
+            addonProducts = addonProducts.filter(
+                item =>
+                    item.product_type == 'Add-On' ||
+                    item.product_type == 'Promotional' ||
+                    item.product_type == 'Reward'
+            );
 
-            // Careful with the original logic referring to 'wowcart', keeping it safe
             const currentCount = (window.wowcart || {}).item_count || cartObject.item_count;
 
             if ((addonProducts || {}).length == currentCount) {
@@ -207,19 +231,24 @@ const cartObject = items.detail || {};
         // --- EXISTING LOGIC ENDS ---
 
         // ---------------------------------------------------------
-        // NEW FREE GIFT LOGIC START
+        // FREE GIFT LOGIC (with enable/disable check)
         // ---------------------------------------------------------
+
+        if (!isFreeGiftEnabled()) {
+            console.log('Free Gift Logic: DISABLED — skipping.');
+            return; // exits early, gift logic does NOT run
+        }
 
         try {
             const items = cartObject.items || [];
 
             // Gift Variant IDs
             const GIFT_IDS = {
-                GIFT_1: 426125771735811,
-                GIFT_2: 426125814989571,
-                GIFT_3: 417057098302211,
-                GIFT_WIPER: 424181966439171,
-                GIFT_4: 426126467072771
+                GIFT_1: 42612577173581,
+                GIFT_2: 42612581498957,
+                GIFT_3: 41705709830221,
+                GIFT_WIPER: 42418196643917,
+                GIFT_4: 42612646707277
             };
 
             // Initialize required quantities
@@ -235,7 +264,7 @@ const cartObject = items.detail || {};
             items.forEach(item => {
                 const productType = (item.product_type || '').toUpperCase();
                 const variantOptions = item.variant_options || [];
-                const thirdOption = variantOptions[2] || ''; // Index 2 is the 3rd option
+                const thirdOption = variantOptions[2] || ''; // Index 2 = 3rd option
                 const quantity = item.quantity || 0;
 
                 // Condition A: WIPER
@@ -308,8 +337,6 @@ const cartObject = items.detail || {};
                     .then(response => response.json())
                     .then(data => {
                         console.log('Cart updated successfully', data);
-                        // Note: The /cart/update.js call might trigger CART_UPDATED again depending on the theme implementation.
-                        // Our logic is idempotent (checks state first), so infinite loops are prevented.
                     })
                     .catch(error => {
                         console.error('Error updating cart for free gifts:', error);
@@ -322,5 +349,6 @@ const cartObject = items.detail || {};
 
     });
 })();
+
 
 </script>
