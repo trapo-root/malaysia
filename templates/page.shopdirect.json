@@ -12,29 +12,9 @@
     "main": {
       "type": "page-shopdirect-template",
       "settings": {}
-    },
-    "blog_posts_VNKn9d": {
-      "type": "blog-posts",
-      "disabled": true,
-      "name": "Blog posts",
-      "settings": {
-        "title": "List of Collaboration",
-        "blog_widget_select": "collaboration",
-        "home_page_articles": 3,
-        "blog_tags": false,
-        "blog_author": false,
-        "read_time": true,
-        "blog_date": true,
-        "blog_comment_count": true,
-        "read_more_link": true,
-        "excerpt_display": "full_excerpt",
-        "css_class": "",
-        "custom_css": ""
-      }
     }
   },
   "order": [
-    "main",
-    "blog_posts_VNKn9d"
+    "main"
   ]
 }
