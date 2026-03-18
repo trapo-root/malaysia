@@ -52,7 +52,7 @@
     <!-- Promo Section -->
     <section class="promo-section">
         <div class="promo-content">
-            <div class="promo-banner">
+            <div class="promo-header">
                 <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/promo-banner.png" alt="Unlock Your Driving Experience">
             </div>
             
@@ -66,28 +66,38 @@
             <p class="promo-conditions">NO MIN. SPEND | NO DISCOUNT CAP</p>
             
             <div class="shop-now-container">
-                <a href="#">
-                    <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/shop-now.png" alt="Shop Now" class="shop-now-img">
-                </a>
+                <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/shop-now.png" alt="Shop Now" class="shop-now-img">
             </div>
         </div>
         
         <div class="country-selector">
             <p class="country-label">CHOOSE YOUR COUNTRY:</p>
             <div class="country-buttons">
-                <button class="country-btn active">
+                <a href="/pages/shopdirect" class="country-btn active">
                     <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/flag-my.png" alt="Malaysia Flag">
                     <span>Malaysia</span>
-                </button>
-                <button class="country-btn">
+                </a>
+                <a href="https://sg.trapo.asia/pages/shopdirect" class="country-btn" target="_blank">
                     <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/flag-sg.png" alt="Singapore Flag">
                     <span>Singapore</span>
-                </button>
+                </a>
             </div>
         </div>
     </section>
 
     <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
 
 /* Hero Section */
 .hero-section {
@@ -218,13 +228,13 @@
     text-align: center;
 }
 
-.promo-banner {
+.promo-header {
     width: 100%;
     max-width: 300px;
     margin-bottom: 20px;
 }
 
-.promo-banner img {
+.promo-header img {
     width: 100%;
     height: auto;
     display: block;
@@ -259,11 +269,6 @@
 .shop-now-img {
     max-width: 180px;
     height: auto;
-    transition: transform 0.2s ease;
-}
-
-.shop-now-container a:hover .shop-now-img {
-    transform: scale(1.05);
 }
 
 .country-selector {
@@ -293,9 +298,9 @@
     border: none;
     border-radius: 8px;
     padding: 10px 15px;
-    cursor: pointer;
     min-width: 84px;
     transition: transform 0.2s ease;
+    text-decoration: none;
 }
 
 .country-btn:hover {
@@ -367,7 +372,7 @@
         gap: 15px;
     }
 
-    .promo-banner {
+    .promo-header {
         max-width: 500px;
         margin-bottom: 15px;
     }
@@ -435,7 +440,7 @@
         line-height: 28px;
     }
 
-    .promo-banner {
+    .promo-header {
         max-width: 650px;
     }
 
@@ -456,6 +461,5 @@
         min-width: 140px;
     }
 }
-
 
     </style>
