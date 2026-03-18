@@ -1,7 +1,10 @@
 <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-image">
-            <img src="images/hero-slider.png" alt="Shop Direct Best Value">
+            <picture>
+                <source media="(min-width: 768px)" srcset="images/hero-desktop.png">
+                <img src="images/hero-mobile.png" alt="Shop Direct Best Value">
+            </picture>
         </div>
         <div class="hero-tagline">
             <p>Authentic quality. Direct from source</p>
@@ -105,7 +108,7 @@
 
 .hero-tagline {
     background-color: #0056b9;
-    padding: 0 20px 40px;
+    padding: 20px 20px 50px;
     text-align: center;
 }
 
@@ -115,6 +118,7 @@
     font-weight: 700;
     letter-spacing: 0.5px;
     line-height: 24px;
+    margin: 0;
 }
 
 /* Why Buy Section */
@@ -318,7 +322,9 @@
 /* Desktop Styles */
 @media (min-width: 768px) {
     .hero-tagline p {
-        font-size: 24px;
+        font-size: 20px;
+        letter-spacing: 0.75px;
+        line-height: 30px;
     }
 
     .section-title {
@@ -402,7 +408,9 @@
 /* Large Desktop */
 @media (min-width: 1200px) {
     .hero-tagline p {
-        font-size: 28px;
+        font-size: 24px;
+        letter-spacing: 1px;
+        line-height: 35px;
     }
 
     .section-title {
@@ -448,5 +456,6 @@
         min-width: 140px;
     }
 }
+
 
     </style>
