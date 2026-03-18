@@ -1,0 +1,452 @@
+<!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-image">
+            <img src="images/hero-slider.png" alt="Shop Direct Best Value">
+        </div>
+        <div class="hero-tagline">
+            <p>Authentic quality. Direct from source</p>
+        </div>
+    </section>
+
+    <!-- Why Buy Section -->
+    <section class="why-buy-section">
+        <h2 class="section-title">WHY BUY FROM TRAPO</h2>
+        
+        <div class="benefits-container">
+            <!-- Best Discount -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="images/discount-icon.png" alt="Best Discount">
+                </div>
+                <h3 class="benefit-title">BEST DISCOUNT</h3>
+                <p class="benefit-desc">Exclusive pricing for direct web customers</p>
+            </div>
+            
+            <!-- Free Shipping -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="images/shipping-icon.png" alt="Free Shipping">
+                </div>
+                <h3 class="benefit-title">FREE SHIPPING</h3>
+                <p class="benefit-desc">On every order. No hidden fees at all.</p>
+            </div>
+            
+            <!-- Loyalty Rewards -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="images/gift-icon.png" alt="Loyalty Rewards">
+                </div>
+                <h3 class="benefit-title">LOYALTY REWARDS</h3>
+                <p class="benefit-desc">Earn points with every purchase</p>
+            </div>
+        </div>
+        
+        <div class="free-banner">
+            <span>Free</span>
+        </div>
+    </section>
+
+    <!-- Promo Section -->
+    <section class="promo-section">
+        <div class="promo-content">
+            <div class="promo-banner">
+                <img src="images/promo-banner.png" alt="Unlock Your Driving Experience">
+            </div>
+            
+            <div class="promo-discount">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="images/unlock-promo-desktop.png">
+                    <img src="images/unlock-promo-mobile.png" alt="20% OFF - CODE TRAPO20">
+                </picture>
+            </div>
+            
+            <p class="promo-conditions">NO MIN. SPEND | NO DISCOUNT CAP</p>
+            
+            <div class="shop-now-container">
+                <a href="#">
+                    <img src="images/shop-now.png" alt="Shop Now" class="shop-now-img">
+                </a>
+            </div>
+        </div>
+        
+        <div class="country-selector">
+            <p class="country-label">CHOOSE YOUR COUNTRY:</p>
+            <div class="country-buttons">
+                <button class="country-btn active">
+                    <img src="images/flag-my.png" alt="Malaysia Flag">
+                    <span>Malaysia</span>
+                </button>
+                <button class="country-btn">
+                    <img src="images/flag-sg.png" alt="Singapore Flag">
+                    <span>Singapore</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <style>
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    background-color: #0056b9;
+}
+
+.hero-image {
+    width: 100%;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-tagline {
+    background-color: #0056b9;
+    padding: 0 20px 40px;
+    text-align: center;
+}
+
+.hero-tagline p {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+}
+
+/* Why Buy Section */
+.why-buy-section {
+    background-color: #ffffff;
+    padding: 40px 20px 60px;
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    color: #0155b8;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    line-height: 28px;
+    margin-bottom: 40px;
+}
+
+.benefits-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.benefit-card {
+    text-align: center;
+    max-width: 365px;
+}
+
+.benefit-icon {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.benefit-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.benefit-title {
+    color: #0155b8;
+    font-size: 17.5px;
+    font-weight: 700;
+    letter-spacing: 0.525px;
+    line-height: 35px;
+    margin-bottom: 10px;
+}
+
+.benefit-desc {
+    color: #0155b8;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.48px;
+    line-height: 23px;
+}
+
+.free-banner {
+    position: absolute;
+    top: 0;
+    right: -100px;
+    background-color: #ee2a7b;
+    padding: 10px 30px;
+    border-radius: 0 0 20px 20px;
+    transform: rotate(45deg);
+    display: none;
+}
+
+.free-banner span {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Promo Section */
+.promo-section {
+    background-color: #0056b9;
+    padding: 40px 20px 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.promo-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.promo-banner {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.promo-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.promo-discount {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 15px;
+}
+
+.promo-discount img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.promo-conditions {
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 24px;
+    margin-bottom: 25px;
+}
+
+.shop-now-container {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.shop-now-img {
+    max-width: 180px;
+    height: auto;
+    transition: transform 0.2s ease;
+}
+
+.shop-now-container a:hover .shop-now-img {
+    transform: scale(1.05);
+}
+
+.country-selector {
+    text-align: center;
+}
+
+.country-label {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.country-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.country-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fbb615;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    min-width: 84px;
+    transition: transform 0.2s ease;
+}
+
+.country-btn:hover {
+    transform: scale(1.05);
+}
+
+.country-btn.active {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.country-btn img {
+    width: 38px;
+    height: 31px;
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+
+.country-btn span {
+    color: #1b3d6d;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .hero-tagline p {
+        font-size: 24px;
+    }
+
+    .section-title {
+        font-size: 28px;
+        letter-spacing: 8px;
+    }
+
+    .benefits-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 60px;
+    }
+
+    .benefit-card {
+        flex: 1;
+        max-width: 350px;
+    }
+
+    .benefit-icon {
+        width: 200px;
+        height: 200px;
+    }
+
+    .benefit-title {
+        font-size: 20px;
+    }
+
+    .benefit-desc {
+        font-size: 18px;
+    }
+
+    .promo-section {
+        padding: 60px 40px 80px;
+    }
+
+    .promo-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .promo-banner {
+        max-width: 500px;
+        margin-bottom: 15px;
+    }
+
+    .promo-discount {
+        max-width: 600px;
+        margin-bottom: 10px;
+    }
+
+    .promo-conditions {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .shop-now-img {
+        max-width: 250px;
+    }
+
+    .country-label {
+        font-size: 14px;
+    }
+
+    .country-btn {
+        min-width: 120px;
+        padding: 15px 20px;
+    }
+
+    .country-btn img {
+        width: 50px;
+        height: 40px;
+    }
+
+    .country-btn span {
+        font-size: 14px;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+    .hero-tagline p {
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .benefits-container {
+        gap: 80px;
+    }
+
+    .benefit-icon {
+        width: 250px;
+        height: 200px;
+    }
+
+    .benefit-title {
+        font-size: 24px;
+    }
+
+    .benefit-desc {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .promo-banner {
+        max-width: 650px;
+    }
+
+    .promo-discount {
+        max-width: 800px;
+    }
+
+    .promo-conditions {
+        font-size: 16px;
+        letter-spacing: 3px;
+    }
+
+    .shop-now-img {
+        max-width: 300px;
+    }
+
+    .country-btn {
+        min-width: 140px;
+    }
+}
+
+    </style>
