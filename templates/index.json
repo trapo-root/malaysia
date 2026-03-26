@@ -34,6 +34,7 @@
         },
         "image_AHiUwg": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/20260312-115117.jpg",
             "pretext": "",
