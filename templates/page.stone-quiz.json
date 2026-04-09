@@ -31,10 +31,27 @@
         "css_class": "",
         "custom_css": ""
       }
+    },
+    "17757266956cf8e06b": {
+      "type": "apps",
+      "blocks": {
+        "quiz_quiz_BC7fBq": {
+          "type": "shopify://apps/quiz/blocks/quiz/019cd8a7-6749-787d-8c22-84ccb0edccdd",
+          "settings": {
+            "quiz_handle": "find-your-perfect-product",
+            "app_url": "https://apps.trapo.com"
+          }
+        }
+      },
+      "block_order": [
+        "quiz_quiz_BC7fBq"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "blog_posts_VNKn9d"
+    "blog_posts_VNKn9d",
+    "17757266956cf8e06b"
   ]
 }
