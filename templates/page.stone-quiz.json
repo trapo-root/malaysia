@@ -46,11 +46,21 @@
         "quiz_quiz_JEFgj6"
       ],
       "settings": {}
+    },
+    "custom_html_TxrWaW": {
+      "type": "custom-html",
+      "name": "Custom HTML",
+      "settings": {
+        "custom_html": "<iframe src=\"https://apps.trapo.com/quiz/pujan?shop=trapomy.myshopify.com\" width=\"100%\" height=\"750\" frameborder=\"0\" scrolling=\"no\" allow=\"clipboard-write\" title=\"Interactive Quiz\" style=\"border:none;overflow:hidden;display:block;\"></iframe>",
+        "css_class": "",
+        "custom_css": ""
+      }
     }
   },
   "order": [
     "main",
     "blog_posts_VNKn9d",
-    "17757506576d4a1276"
+    "17757506576d4a1276",
+    "custom_html_TxrWaW"
   ]
 }
