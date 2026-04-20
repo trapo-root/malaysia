@@ -27,7 +27,8 @@
             "button2_style": "global-button--banner",
             "text_position": "center",
             "text_align": "center",
-            "caption_content_background": "original"
+            "caption_content_background": "original",
+            "mobile_image": "shopify://shop_images/roro_mobile.jpg"
           }
         },
         "image_YndP6g": {
