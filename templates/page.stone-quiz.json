@@ -31,36 +31,10 @@
         "css_class": "",
         "custom_css": ""
       }
-    },
-    "17757506576d4a1276": {
-      "type": "apps",
-      "blocks": {
-        "quiz_quiz_JEFgj6": {
-          "type": "shopify://apps/quiz/blocks/quiz/019cd8a7-6749-787d-8c22-84ccb0edccdd",
-          "settings": {
-            "quiz_handle": "set-the-tone"
-          }
-        }
-      },
-      "block_order": [
-        "quiz_quiz_JEFgj6"
-      ],
-      "settings": {}
-    },
-    "custom_html_TxrWaW": {
-      "type": "custom-html",
-      "name": "Custom HTML",
-      "settings": {
-        "custom_html": "<iframe src=\"https://apps.trapo.com/quiz/pujan?shop=trapomy.myshopify.com\" width=\"100%\" height=\"750\" frameborder=\"0\" scrolling=\"no\" allow=\"clipboard-write\" title=\"Interactive Quiz\" style=\"border:none;overflow:hidden;display:block;\"></iframe>",
-        "css_class": "",
-        "custom_css": ""
-      }
     }
   },
   "order": [
     "main",
-    "blog_posts_VNKn9d",
-    "17757506576d4a1276",
-    "custom_html_TxrWaW"
+    "blog_posts_VNKn9d"
   ]
 }
