@@ -31,10 +31,20 @@
         "css_class": "",
         "custom_css": ""
       }
+    },
+    "custom_html_YEYjj8": {
+      "type": "custom-html",
+      "name": "Custom HTML",
+      "settings": {
+        "custom_html": "<iframe src=\"https://apps.trapo.com/quiz/set-the-tone?shop=trapomy.myshopify.com\" width=\"100%\" height=\"750\" frameborder=\"0\" scrolling=\"no\" allow=\"clipboard-write\" title=\"Interactive Quiz\" style=\"border:none;overflow:hidden;display:block;\"></iframe>",
+        "css_class": "",
+        "custom_css": ""
+      }
     }
   },
   "order": [
     "main",
-    "blog_posts_VNKn9d"
+    "blog_posts_VNKn9d",
+    "custom_html_YEYjj8"
   ]
 }
