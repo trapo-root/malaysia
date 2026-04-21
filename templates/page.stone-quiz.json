@@ -31,10 +31,26 @@
         "css_class": "",
         "custom_css": ""
       }
+    },
+    "177677381527f2d817": {
+      "type": "apps",
+      "blocks": {
+        "quiz_quiz_8ddXCB": {
+          "type": "shopify://apps/quiz/blocks/quiz/019cd8a7-6749-787d-8c22-84ccb0edccdd",
+          "settings": {
+            "quiz_handle": "set-the-tone"
+          }
+        }
+      },
+      "block_order": [
+        "quiz_quiz_8ddXCB"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "blog_posts_VNKn9d"
+    "blog_posts_VNKn9d",
+    "177677381527f2d817"
   ]
 }
