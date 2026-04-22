@@ -20,13 +20,18 @@
   {% endif %}
 {% endfor %}
 
+{% if product.handle contains 'exclusive-package-2-buy-free-scented-tag'%} 
+ <a class="vibe-quiz-link" href="/pages/personality-match">Click here</a>
+      <span class="vibe-quiz-desc">&nbsp;to know your Pesonality !</span>
+{% endif %}
+
 <div class="swatch is-flex is-flex-wrap" data-option-index="{{ option_index }}">
   <div class="option_title">
     {% if product.handle contains 'trapo-starter-kit' or product.handle contains 'trapo-scented-stone-refill' and swatch == 'Type' %}
       {{ swatch }}<br>
       <a class="vibe-quiz-link" href="/pages/vibequiz">Take the quiz</a>
       <span class="vibe-quiz-desc">&nbsp;to know your vibe!</span>
-      {% elsif product.handle contains 'trapo-scented-tag' or product.handle contains 'exclusive-package-2-buy-free-scented-tag' %}
+      {% elsif product.handle contains 'trapo-scented-tag'  %}
       {{ swatch }}<br>
       <a class="vibe-quiz-link" href="/pages/personality-match">Click here</a>
       <span class="vibe-quiz-desc">&nbsp;to know your Pesonality !</span>
