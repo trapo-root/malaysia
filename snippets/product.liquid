@@ -190,7 +190,10 @@
                   </a>
                 </h2>
               {% endif %}
-
+{% if product.handle contains 'exclusive-package-2-buy-free-scented-tag'%} 
+ <a class="vibe-quiz-link" href="/pages/personality-match">Click here</a>
+      <span class="vibe-quiz-desc">&nbsp;to know your Pesonality !</span>
+{% endif %}
               <div class="product-rating">{{ product.metafields.okendo.ProductListingSnippet }}</div>
             {% when 'price' %}
               {% if onboarding %}
