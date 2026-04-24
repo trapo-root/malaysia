@@ -628,7 +628,16 @@
   }
 </style>
 {% endif %}
-  
+  <script>
+    window.addEventListener("message", function(e) {
+      if (!e.data || e.data.type !== "TRAPO_QUIZ_CTA") return;
+      fetch("/cart/update.json", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ attributes: { quiz_session_id: e.data.sessionId } })
+      });
+    });
+  </script>
 </html>
 {% endcapture %}
 {% assign content = content | replace_first: '<!DOCTYPE', '!DOCTYPE' | split: ' <' %}
