@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "page-template",
+      "type": "page-quiz-template",
       "settings": {}
     },
     "blog_posts_VNKn9d": {
