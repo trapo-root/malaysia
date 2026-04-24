@@ -349,7 +349,7 @@ var $product_img_cell = $(".variant_imgs_cell"),
                 $(this).remove();
                 for (var tr = 0; tr < $product_img_cell_array.length; tr++) {
                     var a = $product_img_cell_array[tr].attr("data-title");
-                    (t != a && "main_image" != a && "main_image_classic" != a) || $("#productImg .flickity-slider").append($product_img_cell_array[tr]);
+                    (t != a && "main_image" != a && "main_image_classic" != a  && "main_image_hex" != a) || $("#productImg .flickity-slider").append($product_img_cell_array[tr]);
                 }
             }),
             (a = tr ? 1 : 0),
