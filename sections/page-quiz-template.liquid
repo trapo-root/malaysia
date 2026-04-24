@@ -1,0 +1,306 @@
+{% if customer %}
+  <style>
+    main h1:not(#quiz-kit-content h1),
+    #main h1:not(#quiz-kit-content h1),
+    #MainContent h1:not(#quiz-kit-content h1),
+    main h2:not(#quiz-kit-content h2),
+    #main h2:not(#quiz-kit-content h2),
+    #MainContent h2:not(#quiz-kit-content h2) {
+      display: none;
+    }
+    .quiz-kit-section,
+    .quiz-kit-section *:not(#quiz-kit-content *) {
+      padding: 0;
+      max-width: 100%;
+      width: 100%;
+      margin: 0;
+      margin-inline-start: 0;
+      margin-inline-end: 0;
+      left: 0;
+      right: 0;
+    }
+    #quiz-kit-app-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 700px;
+    }
+    @keyframes animation-loading-line {
+      0% { background-position: -200px 0; }
+      100% { background-position: calc(200px + 100%) 0; }
+    }
+    .quiz-kit-app-boxes { display: flex; margin-top: 50px; }
+    .quiz-kit-app-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 30px;
+    }
+    .quiz-kit-app-line {
+      position: relative;
+      width: 200px;
+      max-width: 100%;
+      height: 10px;
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      margin-bottom: 10px;
+    }
+    .quiz-kit-app-line-loading {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      background-color: #f2f2f2;
+      background-image: linear-gradient(90deg, #f2f2f2, #f6f6f6, #f2f2f2);
+      background-size: 200px 100%;
+      background-repeat: no-repeat;
+      border-radius: 4px;
+      display: inline-block;
+      line-height: 1;
+      width: 100%;
+      animation: animation-loading-line 1.2s ease-in-out infinite;
+    }
+    .quiz-kit-app-line-loading--dark {
+      background-color: #d9d9d9;
+      background-image: linear-gradient(90deg, #d9d9d9, #e8e8e8, #d9d9d9);
+    }
+    .quiz-kit-app-line--long { width: 400px; background-color: #d9d9d9; }
+    .quiz-kit-app-line--tall { width: 256px; height: 256px; margin-bottom: 20px; }
+    .quiz-kit-app-line--dark { background-color: #d9d9d9; }
+    .quiz-kit-app-line--small { width: 100px; }
+    @media screen and (max-width: 1300px) {
+      .quiz-kit-app-box:nth-child(3),
+      .quiz-kit-app-box:nth-child(4) { display: none; }
+    }
+    @media screen and (max-width: 767px) {
+      #quiz-kit-app-wrapper { min-height: 350px; }
+      .quiz-kit-app-box:nth-child(2) { display: none; }
+      .quiz-kit-app-line { max-width: 335px; }
+      .quiz-kit-app-line--tall { height: 156px; }
+      .quiz-kit-app-boxes { margin-top: 30px; }
+    }
+  </style>
+
+  <div id="quiz-kit-app-wrapper" data-quiz-kit-key="emoZAIhXVkf">
+    <div class="quiz-kit-app-line quiz-kit-app-line--long">
+      <span class="quiz-kit-app-line-loading quiz-kit-app-line-loading--dark"></span>
+    </div>
+    <div class="quiz-kit-app-line">
+      <span class="quiz-kit-app-line-loading"></span>
+    </div>
+    <div class="quiz-kit-app-boxes">
+      {% for i in (1..4) %}
+        <div class="quiz-kit-app-box">
+          <div class="quiz-kit-app-line quiz-kit-app-line--tall">
+            <span class="quiz-kit-app-line-loading"></span>
+          </div>
+          <div class="quiz-kit-app-line quiz-kit-app-line--dark">
+            <span class="quiz-kit-app-line-loading quiz-kit-app-line-loading--dark"></span>
+          </div>
+          <div class="quiz-kit-app-line quiz-kit-app-line--small">
+            <span class="quiz-kit-app-line-loading"></span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script>
+    if (!window.quizKitScriptLoaded) {
+      window.quizKitScriptLoaded = true;
+      var script = document.createElement('script');
+      script.defer = true;
+      script.setAttribute('src', 'https://d38jc50suw8dg3.cloudfront.net/current/static/bundle.min.js');
+      document.head.appendChild(script);
+      var appStyles = document.createElement('link');
+      appStyles.type = 'text/css';
+      appStyles.rel = 'stylesheet';
+      appStyles.href = 'https://d38jc50suw8dg3.cloudfront.net/current/static/main.min.css';
+      appStyles.media = 'print';
+      appStyles.onload = function () { this.media = 'all'; };
+      document.head.appendChild(appStyles);
+    }
+  </script>
+{% else %}
+  <style>
+    #qkg-login-wrapper.qkg-login-wrapper {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 70vh !important;
+      padding: 40px 16px !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      text-align: center !important;
+      margin: 0 !important;
+    }
+    #qkg-login-wrapper.qkg-login-wrapper *,
+    #qkg-login-wrapper.qkg-login-wrapper *::before,
+    #qkg-login-wrapper.qkg-login-wrapper *::after {
+      box-sizing: border-box !important;
+      float: none !important;
+    }
+    #qkg-login-wrapper .qkg-card {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      padding: 40px 28px !important;
+      width: 100% !important;
+      max-width: 440px !important;
+      margin: 0 auto !important;
+      background: #ffffff !important;
+      border: 1px solid #f4d6e4 !important;
+      border-radius: 12px !important;
+      box-shadow: 0 8px 28px rgba(216, 36, 119, 0.12) !important;
+      box-sizing: border-box !important;
+      position: relative !important;
+      left: auto !important;
+      right: auto !important;
+      float: none !important;
+    }
+    #qkg-login-wrapper .qkg-icon {
+      width: 56px !important;
+      height: 56px !important;
+      min-width: 56px !important;
+      min-height: 56px !important;
+      max-width: 56px !important;
+      max-height: 56px !important;
+      border-radius: 50% !important;
+      background: rgba(216, 36, 119, 0.12) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin: 0 auto 18px auto !important;
+      padding: 0 !important;
+      color: #d82477 !important;
+      flex-shrink: 0 !important;
+      flex-grow: 0 !important;
+      align-self: center !important;
+      line-height: 1 !important;
+      overflow: hidden !important;
+    }
+    #qkg-login-wrapper .qkg-icon svg {
+      width: 24px !important;
+      height: 24px !important;
+      min-width: 24px !important;
+      min-height: 24px !important;
+      max-width: 24px !important;
+      max-height: 24px !important;
+      display: block !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      flex-shrink: 0 !important;
+    }
+    #qkg-login-wrapper .qkg-title {
+      margin: 0 0 10px 0 !important;
+      padding: 0 !important;
+      font-size: 1.4rem !important;
+      font-weight: 700 !important;
+      color: #111 !important;
+      line-height: 1.3 !important;
+      text-align: center !important;
+      width: 100% !important;
+      align-self: center !important;
+      display: block !important;
+    }
+    #qkg-login-wrapper .qkg-desc {
+      margin: 0 auto 24px auto !important;
+      padding: 0 !important;
+      color: #666 !important;
+      font-size: 0.95rem !important;
+      line-height: 1.55 !important;
+      max-width: 340px !important;
+      text-align: center !important;
+      width: 100% !important;
+      align-self: center !important;
+      display: block !important;
+    }
+    #qkg-login-wrapper .qkg-actions {
+      display: flex !important;
+      gap: 12px !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: 100% !important;
+      margin: 0 auto !important;
+      padding: 0 !important;
+      text-align: center !important;
+      align-self: center !important;
+    }
+    #qkg-login-wrapper .qkg-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 12px 24px !important;
+      flex: 0 1 auto !important;
+      min-width: 130px !important;
+      border-radius: 6px !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      font-size: 0.9rem !important;
+      line-height: 1.2 !important;
+      border: 1px solid transparent !important;
+      cursor: pointer !important;
+      white-space: nowrap !important;
+      box-sizing: border-box !important;
+      text-align: center !important;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+    }
+    #qkg-login-wrapper .qkg-btn--primary {
+      background: #d82477 !important;
+      color: #fff !important;
+      border-color: #d82477 !important;
+    }
+    #qkg-login-wrapper .qkg-btn--primary:hover {
+      background: #b81d63 !important;
+      border-color: #b81d63 !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 6px 16px rgba(216, 36, 119, 0.3) !important;
+    }
+    #qkg-login-wrapper .qkg-btn--secondary {
+      background: transparent !important;
+      color: #d82477 !important;
+      border-color: #d82477 !important;
+    }
+    #qkg-login-wrapper .qkg-btn--secondary:hover {
+      background: rgba(216, 36, 119, 0.08) !important;
+      transform: translateY(-1px) !important;
+    }
+    @media screen and (max-width: 600px) {
+      #qkg-login-wrapper .qkg-card { padding: 32px 20px !important; }
+      #qkg-login-wrapper .qkg-title { font-size: 1.2rem !important; }
+      #qkg-login-wrapper .qkg-desc { font-size: 0.9rem !important; }
+    }
+    @media screen and (max-width: 420px) {
+      #qkg-login-wrapper.qkg-login-wrapper { min-height: 55vh !important; padding: 24px 12px !important; }
+      #qkg-login-wrapper .qkg-actions { flex-direction: column !important; }
+      #qkg-login-wrapper .qkg-btn { width: 100% !important; min-width: 0 !important; }
+    }
+    @media (hover: none) {
+      #qkg-login-wrapper .qkg-btn:hover { transform: none !important; box-shadow: none !important; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #qkg-login-wrapper .qkg-btn { transition: none !important; }
+      #qkg-login-wrapper .qkg-btn:hover { transform: none !important; }
+    }
+  </style>
+  <div id="qkg-login-wrapper" class="qkg-login-wrapper">
+    <div class="qkg-card">
+      <div class="qkg-icon" aria-hidden="true" style="width:56px;height:56px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;display:block;">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </div>
+      <h2 class="qkg-title" style="text-align:center;">Members Only</h2>
+      <p class="qkg-desc" style="text-align:center;">Please log in to your account to take the quiz and discover your personalized recommendations.</p>
+      <div class="qkg-actions">
+        <a class="qkg-btn qkg-btn--primary" href="{{ routes.account_login_url }}?return_url={{ request.path | url_encode }}">Log in</a>
+        <a class="qkg-btn qkg-btn--secondary" href="{{ routes.account_register_url }}">Create account</a>
+      </div>
+    </div>
+  </div>
+{% endif %}
