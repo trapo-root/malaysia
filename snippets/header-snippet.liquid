@@ -547,40 +547,42 @@
                         <span class="most_label" style="background:#ee2a7b;">NEW</span>
                       </a>
 
-                      <ul class="sub_menu_2 " style="display: none;">
-                        <li>
+                      <ul class="sub_menu_2 grid_sub_menu grid_menu" style="display: none;">
+                        <li class="sub_menu_li">
                           <a
-                            class="nav__link"
                             href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-scented-tag"
+                            data-product="scented-tag"
                             >Scented Tag
                             <span class="most_label" style="background:#ee2a7b;">NEW</span>
                           </a>
                         </li>
-                        <li class="scent-stone-group">
-                          <span class="scent-stone-heading">Scented Stone</span>
-                          <ul class="scent-stone-children">
-                            <li>
-                              <a
-                                href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-starter-kit"
-                                data-product="scented-stone"
-                                >- Starter Kit
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-style-ring"
-                                data-product="scented-stone"
-                                >- Style Ring
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-scented-stone"
-                                data-product="scented-stone"
-                                >- Scented Stone Refill
-                              </a>
-                            </li>
-                          </ul>
+                        <li class="sub_menu_li">
+                          <a
+                            href="#"
+                            data-product="scented-stone"
+                            >Scented Stone</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-starter-kit"
+                            data-product="scented-stone"
+                            >Starter Kit</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-style-ring"
+                            data-product="scented-stone"
+                            >Style Ring</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-scented-stone"
+                            data-product="scented-stone"
+                            >Scented Stone Refill</a
+                          >
                         </li>
                       </ul>
                     </div>
@@ -917,38 +919,41 @@
                       </a>
 
                       <ul class="sub_menu_2 grid_sub_menu grid_menu" style="display: none !important;">
-                        <li>
+                        <li class="sub_menu_li">
                           <a
                             class="nav__link"
                             href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-scented-tag"
                             >Scented Tag<span class="most_label" style="background:#ee2a7b;">NEW</span>
                           </a>
                         </li>
-                        <li class="scent-stone-group">
-                          <span class="scent-stone-heading nav__link">Scented Stone</span>
-                          <ul class="scent-stone-children">
-                            <li>
-                              <a
-                                class="nav__link"
-                                href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-starter-kit"
-                                >- Starter Kit
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                class="nav__link"
-                                href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-style-ring"
-                                >- Style Ring
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                class="nav__link"
-                                href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-scented-stone"
-                                >- Scented Stone Refill
-                              </a>
-                            </li>
-                          </ul>
+                        <li class="sub_menu_li">
+                          <a
+                            class="nav__link"
+                            href="#"
+                            data-product="scented-stone"
+                            >Scented Stone</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-starter-kit"
+                            >Starter Kit</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-style-ring"
+                            >Style Ring</a
+                          >
+                        </li>
+                        <li class="sub_li">
+                          <a
+                            class="nav__link"
+                            href="{% if shop.locale == 'ms' %}/ms{% endif %}/products/trapo-scented-stone"
+                            >Scented Stone Refill</a
+                          >
                         </li>
                       </ul>
                     </div>
@@ -2419,18 +2424,4 @@
           }
     	}
 
-    /* Scent Series → Scented Stone sub-group */
-    .scent-stone-group { list-style: none; }
-    .scent-stone-heading {
-      display: block;
-      cursor: default;
-      font-weight: 600;
-      pointer-events: none;
-    }
-    .scent-stone-children {
-      list-style: none;
-      margin: 4px 0 0 0;
-      padding-left: 14px;
-    }
-    .scent-stone-children li { margin: 2px 0; }
 </style>
