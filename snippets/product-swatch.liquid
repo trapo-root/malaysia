@@ -20,17 +20,22 @@
   {% endif %}
 {% endfor %}
 
-
 <div class="swatch is-flex is-flex-wrap" data-option-index="{{ option_index }}">
   <div class="option_title">
-    {% if product.handle contains 'trapo-starter-kit' or product.handle contains 'trapo-scented-stone-refill' and swatch == 'Type' %}
-      {{ swatch }}<br>
+    {% if product.handle contains 'trapo-starter-kit'
+      or product.handle contains 'trapo-scented-stone-refill'
+      and swatch == 'Type'
+    %}
+      {{ swatch -}}
+      <br>
       <a class="vibe-quiz-link" href="/pages/vibequiz">Take the quiz</a>
       <span class="vibe-quiz-desc">&nbsp;to know your vibe!</span>
-      {% elsif product.handle contains 'trapo-scented-tag' or product.handle contains 'new-launch-item' %}
-      {{ swatch }}<br>
-      <a class="vibe-quiz-link" href="/pages/personality-match">Click here</a>
-      <span class="vibe-quiz-desc">&nbsp;to know your Pesonality !</span>
+    {% elsif product.handle contains 'trapo-scented-tag' and swatch == 'Type' %}
+      {{ swatch -}}
+      <br>
+      <a href="/pages/personality-match">
+        <img src="https://cdn.shopify.com/s/files/1/0234/7089/9277/files/scented-tag-quiz-stripe.webp?v=1777113844">
+      </a>
     {% elsif swatch == 'Choose Your SD Card' %}
       {{ swatch }}
       {% comment %}<span class="sdcard-promo">(FREE Until 31 Aug!)</span>{% endcomment %}
@@ -40,6 +45,14 @@
   </div>
   {%- assign values = '' -%}
 
+  {% if product.handle contains 'trapo-scented-tag' and swatch == 'Type' %}
+    {% render 'scented-tag-thumnails',
+      product: product,
+      option: product.options_with_values[option_index],
+      section: section,
+      product_form_id: 'product-form-' | append: product.id
+    %}
+  {% else %}
   {% for variant in product.variants %}
     {%- assign value = variant.options[option_index] | escape -%}
 
@@ -104,27 +117,28 @@
       </div>
     {% endunless %}
   {% endfor %}
+  {% endif %}
 </div>
 <style>
-  .vibe-quiz-link {
-  font-size: 13px;
-  color: #e12c7b;
-  letter-spacing: 0.5px;
-  text-transform: none;
-  text-decoration: underline;
-}
-.vibe-quiz-desc {
-  font-size:13px;
-  color:#808080;
-  letter-spacing:0.5px;
-  text-transform:none;
-  font-weight: 500;
-}
-.sdcard-promo {
-  font-style: italic;
-  font-size: 13px;
-  color: red;
-  letter-spacing: 0.5px;
-  text-transform: none;
-}
+    .vibe-quiz-link {
+    font-size: 13px;
+    color: #e12c7b;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    text-decoration: underline;
+  }
+  .vibe-quiz-desc {
+    font-size:13px;
+    color:#808080;
+    letter-spacing:0.5px;
+    text-transform:none;
+    font-weight: 500;
+  }
+  .sdcard-promo {
+    font-style: italic;
+    font-size: 13px;
+    color: red;
+    letter-spacing: 0.5px;
+    text-transform: none;
+  }
 </style>
