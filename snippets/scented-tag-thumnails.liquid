@@ -1,0 +1,205 @@
+<div class="scent-thumb-options">
+  {% assign option_position = option.position %}
+
+  {% for value in option.values %}
+    {% assign matched_variant = nil %}
+
+    {% for variant in product.variants %}
+      {% case option_position %}
+        {% when 1 %}
+          {% if variant.option1 == value %}
+            {% assign matched_variant = variant %}
+            {% break %}
+          {% endif %}
+        {% when 2 %}
+          {% if variant.option2 == value %}
+            {% assign matched_variant = variant %}
+            {% break %}
+          {% endif %}
+        {% when 3 %}
+          {% if variant.option3 == value %}
+            {% assign matched_variant = variant %}
+            {% break %}
+          {% endif %}
+      {% endcase %}
+    {% endfor %}
+
+    <input
+      class="scent-thumb-radio"
+      type="radio"
+      id="type-{{ section.id }}-{{ forloop.index }}"
+      name="options[{{ option.name }}]"
+      value="{{ value | escape }}"
+      form="{{ product_form_id }}"
+      {% if option.selected_value == value %}checked{% endif %}
+    >
+
+    <label
+      class="scent-thumb-label"
+      for="type-{{ section.id }}-{{ forloop.index }}"
+      data-tooltip="{{ value | escape }}"
+    >
+      {% if matched_variant and matched_variant.featured_image %}
+        <img
+          src="{{ matched_variant.featured_image | image_url: width: 200 }}"
+          alt="{{ value | escape }}"
+          width="80"
+          height="80"
+          loading="lazy"
+        >
+      {% endif %}
+    </label>
+  {% endfor %}
+</div>
+
+<style>
+  .scent-thumb-options {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 110px));
+    gap: 12px;
+    margin-top: 12px;
+    justify-content: start;
+  }
+  .scent-thumb-radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+  }
+  .scent-thumb-label {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 6px;
+    background: #fff;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .scent-thumb-label img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  .scent-thumb-label:hover {
+    border-color: #ee2a7b;
+    transform: translateY(-1px);
+  }
+  .scent-thumb-radio:checked + .scent-thumb-label {
+    border-color: #ee2a7b;
+    box-shadow: 0 0 0 1px #ee2a7b inset;
+  }
+  .scent-thumb-radio:focus-visible + .scent-thumb-label {
+    outline: 2px solid #ee2a7b;
+    outline-offset: 2px;
+  }
+
+  /* Tooltip */
+  .scent-thumb-label::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    margin-left: -80px; /* half of max-width to center; clamped by viewport on mobile */
+    transform: translateY(4px);
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 6px 8px;
+    border-radius: 4px;
+    white-space: normal;
+    width: max-content;
+    max-width: 160px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+  }
+  .scent-thumb-label:hover::after,
+  .scent-thumb-radio:checked + .scent-thumb-label::after,
+  .scent-thumb-radio:focus-visible + .scent-thumb-label::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 767px) {
+    .scent-thumb-options { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .scent-thumb-label::after { font-size: 10px; padding: 4px 6px; max-width: 130px; }
+  }
+
+  /* Keep edge-column tooltips inside the viewport.
+     DOM is input,label,input,label,... so labels are at even nth-child.
+     Desktop (4 cols): leftmost labels = 8n+2, rightmost = 8n. */
+  .scent-thumb-options > .scent-thumb-label:nth-child(8n + 2)::after {
+    left: 0;
+    margin-left: 0;
+  }
+  .scent-thumb-options > .scent-thumb-label:nth-child(8n)::after {
+    left: auto;
+    right: 0;
+    margin-left: 0;
+  }
+
+  /* Mobile (3 cols): override with 6n pattern. */
+  @media (max-width: 767px) {
+    .scent-thumb-options > .scent-thumb-label::after { left: 50%; right: auto; margin-left: -65px; }
+    .scent-thumb-options > .scent-thumb-label:nth-child(6n + 2)::after {
+      left: 0;
+      margin-left: 0;
+    }
+    .scent-thumb-options > .scent-thumb-label:nth-child(6n)::after {
+      left: auto;
+      right: 0;
+      margin-left: 0;
+    }
+  }
+</style>
+
+<script>
+  // Undo the mobile DOM shuffle that custom.js performs theme-wide.
+  // custom.js (jQuery) prepends .product-block--title into .product__images
+  // and nests price/text/badges inside it. For trapo-scented-tag we want
+  // the standard layout: title stays in the right column above the form.
+  (function () {
+    function restore() {
+      if (typeof window.jQuery === 'undefined') {
+        return setTimeout(restore, 50);
+      }
+      var $ = window.jQuery;
+      $(function () {
+        // Run after custom.js's own ready callback fires.
+        setTimeout(function () {
+          if (!window.matchMedia('(max-width: 767px)').matches) return;
+          var $details = $('.product__details').first();
+          var $images = $('.product__images').first();
+          if (!$details.length || !$images.length) return;
+
+          var $title = $images.find('> .product-block--title');
+          if (!$title.length) return; // already correct
+
+          // Un-nest siblings that were stuffed into the title block.
+          var $price = $title.find('> .product-block--price');
+          var $text = $price.find('> .product-block--text');
+          var $badges = $title.find('> .price-ui-badges');
+
+          // Move title back to top of details column.
+          $title.prependTo($details);
+          // Restore the original sibling order: badges, then title, then price (with text after).
+          if ($badges.length) $badges.insertBefore($title);
+          if ($price.length) $price.insertAfter($title);
+          if ($text.length && $price.length) $text.insertAfter($price);
+        }, 0);
+      });
+    }
+    restore();
+  })();
+</script>
