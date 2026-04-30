@@ -47,7 +47,7 @@
 >
 
  function removeQuantitySelector(){
-      const product_types =['Add-On','Promotional'];
+      const product_types =['Add-On','Promotional','Car Air Freshner'];
       
           (product_types || []).forEach(type => {
           Array.from(document.querySelectorAll(`#wow-cart-drawer-app .wow-cart-product-item[data-product_type="${type}"] .wow-cart-quantity-box`) || []).forEach(ele => {
