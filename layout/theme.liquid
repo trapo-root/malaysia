@@ -15,7 +15,7 @@
       </script>
     {% endif %}
 
-    {% if template contains 'product' and (product.type == 'Promotional' or product.tags contains 'pickup') %}
+    {% if product.type == 'Promotional' or product.tags contains 'pickup' %}
       <script>
         window.location = '/';
       </script>
