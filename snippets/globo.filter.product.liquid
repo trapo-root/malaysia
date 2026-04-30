@@ -176,7 +176,7 @@
                   {% elsif product.type == 'WIPER' %}
                     <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
                     <span class="spf-product-card__saleprice{% unless currencyFormat contains 'money' %} money{% endunless %}"> 
-                        {{ product_price | times: 0.70 | money }}
+                        {{ product_price | times: 0.80 | money }}
                      </span>
                   {% elsif product.type == 'TRAPO ECO III' %}
                     <span class="spf-product-card__oldprice{% unless currencyFormat contains 'money' %} money{% endunless %}">{{ product_price | money }}</span>
