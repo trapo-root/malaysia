@@ -15,12 +15,12 @@
         "image_UnFka7": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Dekstop-StripBanner-1940x180_c769db51-5cf4-4d6e-b06a-79b95bd84433.png",
+            "image": "shopify://shop_images/B3F1_Tag_1940x180_382f30ba-4e66-49f8-ac1d-9a037be5e8be.webp",
             "pretext": "",
             "title": "",
             "subtitle": "",
             "button1": "",
-            "button1_link": "shopify://pages/launch-2025",
+            "button1_link": "shopify://products/trapo-scented-tag",
             "button1_style": "global-button--banner",
             "button2": "",
             "button2_link": "",
@@ -28,7 +28,7 @@
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/Mobile-StripBanner-600x150_2a125804-194e-4cc8-b7f5-76567a3fa454.png"
+            "mobile_image": "shopify://shop_images/B3F1_Tag_600x150_a7d19240-37cc-4288-94f1-0ab53155b98e.webp"
           }
         },
         "image_jmDVDG": {
