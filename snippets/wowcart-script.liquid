@@ -203,15 +203,39 @@ const cartObject = items.detail || {};
     }
 
     // =============================================================
+    //  CONFIGURATION — SCENTED TAG (Buy 3 Free 1)
+    // =============================================================
+    //  Free 1x Scented Tag when cart has >= 3 paid Scented Tags
+    //  Main Product ID : 7762141773901
+    //  Free Gift Product ID : 7779846357069
+    //
+    //  Runtime:
+    //    window.SCENTED_TAG_GIFT_ENABLED = false;  // disable
+    //    window.SCENTED_TAG_GIFT_ENABLED = true;   // enable
+    // =============================================================
+
+    var SCENTED_TAG_GIFT_DEFAULT = true;
+
+    if (typeof window.SCENTED_TAG_GIFT_ENABLED === 'undefined') {
+        window.SCENTED_TAG_GIFT_ENABLED = SCENTED_TAG_GIFT_DEFAULT;
+    }
+
+    // =============================================================
     //  GIFT VARIANT IDS
     // =============================================================
     var GIFT_WIPER_VARIANT_ID = 42418196643917;
     var GWP_VARIANT_ID = 42907597176909;  // 150ML Plastiguard
     var MIN_SPEND_CENTS = 10000;           // RM100
 
+    // Scented Tag IDs
+    var SCENTED_TAG_MAIN_PRODUCT_ID = 7762141773901;
+    var SCENTED_TAG_GIFT_PRODUCT_ID = 7779846357069;
+    var SCENTED_TAG_MIN_QTY = 3;
+
     // Helpers
     function isWiperGiftEnabled() { return !!window.FREE_GIFT_WIPER_ENABLED; }
     function isGWPMinSpendEnabled() { return !!window.GWP_MIN_SPEND_ENABLED; }
+    function isScentedTagGiftEnabled() { return !!window.SCENTED_TAG_GIFT_ENABLED; }
 
     // =============================================================
     //  FREE GIFT LOGIC — Wiper gift
@@ -220,7 +244,14 @@ const cartObject = items.detail || {};
         var requiredQty = 0;
 
         if (isWiperGiftEnabled()) {
+            var EXCLUDED_VARIANT_IDS = {};
+            EXCLUDED_VARIANT_IDS[GIFT_WIPER_VARIANT_ID] = true;
+            EXCLUDED_VARIANT_IDS[GWP_VARIANT_ID] = true;
+
             items.forEach(function (item) {
+                if (EXCLUDED_VARIANT_IDS[item.variant_id]) return;
+                if (item.product_id === SCENTED_TAG_GIFT_PRODUCT_ID) return;
+
                 var productType = (item.product_type || '').toUpperCase();
                 var quantity = item.quantity || 0;
 
@@ -231,6 +262,41 @@ const cartObject = items.detail || {};
         }
 
         return requiredQty;
+    }
+
+    // =============================================================
+    //  SCENTED TAG GIFT LOGIC — Buy 3 Free 1
+    // =============================================================
+    function calculateScentedTagGiftUpdates(items) {
+        if (!isScentedTagGiftEnabled()) {
+            return { removeVariants: {} };
+        }
+
+        var paidQty = 0;
+        var freeGiftVariants = {};
+
+        items.forEach(function (item) {
+            if (item.product_id === SCENTED_TAG_MAIN_PRODUCT_ID) {
+                paidQty += (item.quantity || 0);
+            }
+            if (item.product_id === SCENTED_TAG_GIFT_PRODUCT_ID) {
+                freeGiftVariants[item.variant_id] = item.quantity || 0;
+            }
+        });
+
+        var removeVariants = {};
+        if (paidQty < SCENTED_TAG_MIN_QTY) {
+            for (var vid in freeGiftVariants) {
+                if (freeGiftVariants[vid] > 0) {
+                    removeVariants[vid] = 0;
+                }
+            }
+        }
+
+        return {
+            paidQty: paidQty,
+            removeVariants: removeVariants
+        };
     }
 
     // =============================================================
@@ -248,9 +314,11 @@ const cartObject = items.detail || {};
         var qualifyingSubtotal = 0;
 
         items.forEach(function (item) {
-            if (!EXCLUDED_VARIANT_IDS[item.variant_id]) {
-                qualifyingSubtotal += (item.final_line_price || item.line_price || 0);
-            }
+            if (EXCLUDED_VARIANT_IDS[item.variant_id]) return;
+            if (item.product_id === SCENTED_TAG_GIFT_PRODUCT_ID) return;
+            if ((item.product_type || '').toUpperCase() === 'WIPER') return;
+
+            qualifyingSubtotal += (item.final_line_price || item.line_price || 0);
         });
 
         return {
@@ -263,7 +331,7 @@ const cartObject = items.detail || {};
     // =============================================================
     //  SINGLE CART UPDATE — merge all gift changes into one fetch
     // =============================================================
-    function applyGiftUpdates(items, wiperQty, gwpResult) {
+    function applyGiftUpdates(items, wiperQty, gwpResult, scentedTagResult) {
         var currentQty = {};
         items.forEach(function (item) {
             if (item.variant_id === GIFT_WIPER_VARIANT_ID || item.variant_id === GWP_VARIANT_ID) {
@@ -285,6 +353,13 @@ const cartObject = items.detail || {};
                 updates[variantId] = required;
                 needsUpdate = true;
             }
+        }
+
+        // Scented Tag: merge removals
+        var scentedRemovals = (scentedTagResult || {}).removeVariants || {};
+        for (var sVid in scentedRemovals) {
+            updates[sVid] = 0;
+            needsUpdate = true;
         }
 
         if (needsUpdate) {
@@ -360,8 +435,17 @@ const cartObject = items.detail || {};
                 console.log('GWP Min Spend Logic: DISABLED — skipping.');
             }
 
-            // 3. Merge and apply in a single fetch
-            applyGiftUpdates(items, wiperQty, gwpResult);
+            // 3. Calculate Scented Tag Buy 3 Free 1
+            var scentedTagResult = calculateScentedTagGiftUpdates(items);
+
+            if (!isScentedTagGiftEnabled()) {
+                console.log('Scented Tag Gift Logic: DISABLED — skipping.');
+            } else if (scentedTagResult.paidQty < SCENTED_TAG_MIN_QTY && Object.keys(scentedTagResult.removeVariants).length) {
+                console.log('Scented Tag Gift Logic: Paid qty ' + scentedTagResult.paidQty + ' < ' + SCENTED_TAG_MIN_QTY + ' — removing free gifts.');
+            }
+
+            // 4. Merge and apply in a single fetch
+            applyGiftUpdates(items, wiperQty, gwpResult, scentedTagResult);
 
         } catch (e) {
             console.error('Error in Cart Gift Logic:', e);
@@ -369,6 +453,7 @@ const cartObject = items.detail || {};
     });
 
 })();
+
 
 
 </script>
