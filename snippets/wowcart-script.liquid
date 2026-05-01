@@ -196,7 +196,7 @@ const cartObject = items.detail || {};
     //    window.GWP_MIN_SPEND_ENABLED = true;   // enable
     // =============================================================
 
-    var GWP_MIN_SPEND_DEFAULT = false;
+    var GWP_MIN_SPEND_DEFAULT = true;
 
     if (typeof window.GWP_MIN_SPEND_ENABLED === 'undefined') {
         window.GWP_MIN_SPEND_ENABLED = GWP_MIN_SPEND_DEFAULT;
@@ -231,6 +231,7 @@ const cartObject = items.detail || {};
     var SCENTED_TAG_MAIN_PRODUCT_ID = 7762141773901;
     var SCENTED_TAG_GIFT_PRODUCT_ID = 7779846357069;
     var SCENTED_TAG_MIN_QTY = 3;
+    var SCENTED_TAG_SKIP_REMOVAL_CENTS = 30000;  // RM300 — keep free gift if cart >= this
 
     // Helpers
     function isWiperGiftEnabled() { return !!window.FREE_GIFT_WIPER_ENABLED; }
@@ -272,8 +273,13 @@ const cartObject = items.detail || {};
             return { removeVariants: {} };
         }
 
+        var EXCLUDED_VARIANT_IDS = {};
+        EXCLUDED_VARIANT_IDS[GIFT_WIPER_VARIANT_ID] = true;
+        EXCLUDED_VARIANT_IDS[GWP_VARIANT_ID] = true;
+
         var paidQty = 0;
         var freeGiftVariants = {};
+        var qualifyingSubtotal = 0;
 
         items.forEach(function (item) {
             if (item.product_id === SCENTED_TAG_MAIN_PRODUCT_ID) {
@@ -282,10 +288,22 @@ const cartObject = items.detail || {};
             if (item.product_id === SCENTED_TAG_GIFT_PRODUCT_ID) {
                 freeGiftVariants[item.variant_id] = item.quantity || 0;
             }
+            // Calculate qualifying subtotal (exclude all gift variants)
+            if (!EXCLUDED_VARIANT_IDS[item.variant_id] &&
+                item.product_id !== SCENTED_TAG_GIFT_PRODUCT_ID &&
+                (item.product_type || '').toUpperCase() !== 'WIPER') {
+                qualifyingSubtotal += (item.final_line_price || item.line_price || 0);
+            }
         });
 
+        var totalFreeGiftQty = 0;
+        for (var fvid in freeGiftVariants) {
+            totalFreeGiftQty += freeGiftVariants[fvid];
+        }
+
         var removeVariants = {};
-        if (paidQty < SCENTED_TAG_MIN_QTY) {
+        // Only remove free gift if paid qty < 3 AND cart subtotal < RM300 AND free gift qty is not exactly 1
+        if (paidQty < SCENTED_TAG_MIN_QTY && qualifyingSubtotal < SCENTED_TAG_SKIP_REMOVAL_CENTS && totalFreeGiftQty !== 1) {
             for (var vid in freeGiftVariants) {
                 if (freeGiftVariants[vid] > 0) {
                     removeVariants[vid] = 0;
@@ -295,6 +313,7 @@ const cartObject = items.detail || {};
 
         return {
             paidQty: paidQty,
+            qualifyingSubtotal: qualifyingSubtotal,
             removeVariants: removeVariants
         };
     }
@@ -453,7 +472,6 @@ const cartObject = items.detail || {};
     });
 
 })();
-
 
 
 </script>
