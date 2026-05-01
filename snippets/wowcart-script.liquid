@@ -196,7 +196,7 @@ const cartObject = items.detail || {};
     //    window.GWP_MIN_SPEND_ENABLED = true;   // enable
     // =============================================================
 
-    var GWP_MIN_SPEND_DEFAULT = false;
+    var GWP_MIN_SPEND_DEFAULT = true;
 
     if (typeof window.GWP_MIN_SPEND_ENABLED === 'undefined') {
         window.GWP_MIN_SPEND_ENABLED = GWP_MIN_SPEND_DEFAULT;
@@ -301,9 +301,18 @@ const cartObject = items.detail || {};
             totalFreeGiftQty += freeGiftVariants[fvid];
         }
 
+        // If cart has only 1 item and it's the free scented tag, don't remove
+        if (items.length === 1 && totalFreeGiftQty === 1) {
+            return {
+                paidQty: paidQty,
+                qualifyingSubtotal: qualifyingSubtotal,
+                removeVariants: {}
+            };
+        }
+
         var removeVariants = {};
-        // Only remove free gift if paid qty < 3 AND cart subtotal < RM300 AND free gift qty is not exactly 1
-        if (paidQty < SCENTED_TAG_MIN_QTY && qualifyingSubtotal < SCENTED_TAG_SKIP_REMOVAL_CENTS && totalFreeGiftQty !== 1) {
+        // Remove free gift if paid qty < 3 AND cart subtotal < RM300
+        if (paidQty < SCENTED_TAG_MIN_QTY && qualifyingSubtotal < SCENTED_TAG_SKIP_REMOVAL_CENTS) {
             for (var vid in freeGiftVariants) {
                 if (freeGiftVariants[vid] > 0) {
                     removeVariants[vid] = 0;
@@ -472,6 +481,7 @@ const cartObject = items.detail || {};
     });
 
 })();
+
 
 
 </script>
