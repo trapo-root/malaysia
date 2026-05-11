@@ -639,7 +639,7 @@
     });
   </script>
   <span class="test_trapo"></span>
-{% if product.handle == 'trapo-scented-tag' or product.handle == 'trapo-scented-tag' %}
+{% if product.handle == 'trapo-scent-pod' or product.handle == 'trapo-scented-tag' %}
 <script>
   var _scentPod = {
     variantImageMap: {
@@ -662,11 +662,23 @@
       }
     }
 
-    imageUpdater = function() {
-      setTimeout(goToVariantImage, 100);
-    };
+    // Override main JS functions
+    imageUpdater    = function() { setTimeout(goToVariantImage, 200); };
     imageUpdaterNew = imageUpdater;
 
+    // Also catch thumbnail swatch clicks directly (for Scented Tag image swatches)
+    var _lastId = null;
+    $(document).on('click', '.swatch-element, .variant_imgs_cell, [onclick]', function() {
+      setTimeout(function() {
+        var vid = parseInt($('.product_form [name="id"]').val());
+        if (vid && vid !== _lastId) {
+          _lastId = vid;
+          goToVariantImage();
+        }
+      }, 700);
+    });
+
+    // Initial load
     setTimeout(goToVariantImage, 500);
   });
 </script>
