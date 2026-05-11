@@ -666,19 +666,16 @@
     imageUpdater    = function() { setTimeout(goToVariantImage, 200); };
     imageUpdaterNew = imageUpdater;
 
-    // Also catch thumbnail swatch clicks directly (for Scented Tag image swatches)
-    var _lastId = null;
-    $(document).on('click', '.swatch-element, .variant_imgs_cell, [onclick]', function() {
-      setTimeout(function() {
-        var vid = parseInt($('.product_form [name="id"]').val());
-        if (vid && vid !== _lastId) {
-          _lastId = vid;
-          goToVariantImage();
-        }
-      }, 700);
-    });
+    // Watch for Shopify URL variant change (fires on every swatch click)
+    var _lastUrl = window.location.href;
+    setInterval(function() {
+      if (window.location.href !== _lastUrl) {
+        _lastUrl = window.location.href;
+        setTimeout(goToVariantImage, 200);
+      }
+    }, 300);
 
-    // Initial load
+    // Initial page load
     setTimeout(goToVariantImage, 500);
   });
 </script>
