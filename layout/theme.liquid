@@ -638,6 +638,40 @@
       });
     });
   </script>
+  {% if product.handle == 'trapo-scent-pod' %}
+    <script>
+      var _scentPod = {
+        variantImageMap: {
+          {% for variant in product.variants %}
+            {% if variant.featured_image %}{{ variant.id }}: {{ variant.featured_image.id }},{% endif %}
+          {% endfor %}
+        },
+        imageIndexMap: {
+          {% for image in product.images %}{{ image.id }}: {{ forloop.index0 }},{% endfor %}
+        }
+      };
+
+      $(document).ready(function() {
+
+        function goToVariantImage() {
+          var variantId = parseInt($('.product_form [name="id"]').val());
+          var imageId = _scentPod.variantImageMap[variantId];
+          if (imageId !== undefined && _scentPod.imageIndexMap[imageId] !== undefined) {
+            $("#productImg").flickity("select", _scentPod.imageIndexMap[imageId], false, true);
+          }
+        }
+
+        // Override imageUpdater — navigate only, NO destroy/reinit
+        imageUpdater = function() {
+          setTimeout(goToVariantImage, 100);
+        };
+        imageUpdaterNew = imageUpdater;
+
+        // Navigate to correct image on initial page load
+        setTimeout(goToVariantImage, 500);
+      });
+    </script>
+  {% endif %}
 </html>
 {% endcapture %}
 {% assign content = content | replace_first: '<!DOCTYPE', '!DOCTYPE' | split: ' <' %}
