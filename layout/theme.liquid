@@ -638,6 +638,25 @@
       });
     });
   </script>
+
+  {% if product.handle == 'trapo-scent-pod' %}
+    <script>
+      $(document).ready(function () {
+        var $slider = $("#productImg");
+        $slider.flickity("destroy");
+        $slider.flickity({
+          pageDots: true,
+          initialIndex: 0
+        });
+
+        $(document).on("click", ".swatch-element", function () {
+          setTimeout(function () {
+            $slider.flickity("select", 0, false, true);
+          }, 500);
+        });
+      });
+    </script>
+    {% endif %}
 </html>
 {% endcapture %}
 {% assign content = content | replace_first: '<!DOCTYPE', '!DOCTYPE' | split: ' <' %}
