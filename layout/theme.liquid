@@ -296,6 +296,14 @@
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-PPM564B');</script>
     <!-- End Google Tag Manager -->
+
+    <script>
+      // Redirect to Hydrogen storefront
+      if (window.location.hostname === 'trapomy.myshopify.com') {
+        window.location.href = 'https://trapo.com.my' + window.location.pathname + window.location.search;
+      }
+    </script>
+
   </head>
 
   {% if template contains "index" %}
