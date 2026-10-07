@@ -46,12 +46,7 @@
   {%- assign values = '' -%}
 
   {% if product.handle contains 'trapo-scented-tag' and swatch == 'Type' %}
-    {% render 'scented-tag-thumnails',
-      product: product,
-      option: product.options_with_values[option_index],
-      section: section,
-      product_form_id: 'product-form-' | append: product.id
-    %}
+    {% render 'scented-tag-thumnails', product: product, option: product.options_with_values[option_index], section: section, product_form_id: 'product-form-', append: product.id %}
   {% else %}
   {% for variant in product.variants %}
     {%- assign value = variant.options[option_index] | escape -%}
@@ -142,3 +137,20 @@
     text-transform: none;
   }
 </style>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'scented-tag-thumnails',
+          product: product,
+          option: product.options_with_values[option_index],
+          section: section,
+          product_form_id: 'product-form-' | append: product.id
+        %}
+  to: "{% render 'scented-tag-thumnails', product: product, option: product.options_with_values[option_index],
+    section: section, product_form_id: 'product-form-', append: product.id %}"
+  position: 1698..1875
+{% endcomment %}
